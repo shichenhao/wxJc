@@ -1,0 +1,94 @@
+Page{
+  background: #f4f4f4;
+}
+
+.b{
+  font-weight: bold;
+  display: inline;
+}
+.b view{
+  display: inline;
+  font-weight: 100;
+}
+
+.login{
+  padding: 30rpx 30rpx 40rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  font-size: 24rpx;
+}
+
+.login image{
+  width: 118rpx;
+  height: 118rpx;
+  border-radius:118rpx;
+  border: 1rpx solid #e6e6e6;
+  margin-right: 30rpx;
+}
+.telephone{
+  background: #fff;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  font-size: 24rpx;
+  margin-top: 20px; 
+}
+
+.telephone image{
+  width: 33rpx;
+  height: 33rpx;
+  margin-right: 24rpx;
+}
+
+
+.userInfo image{
+  border: 0 none;
+}
+.userInfo .b view{
+  display: block;
+  padding-top: 5rpx;
+}
+
+.userMoney{
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userMoney image{
+  width: 38rpx;
+  height: 38rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btnSubmit{
+  position: fixed;
+  left: 25rpx;
+  right: 25rpx;
+  bottom: 0;
+  height: 98rpx;
+  border-radius:10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ed655f;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #fff;
+}

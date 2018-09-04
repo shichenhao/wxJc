@@ -1,0 +1,35 @@
+<view class="container">
+  <view class='login userInfo'>
+    <image src='/lib/images/logo.png'></image>
+    <view class='b'>
+      阿萨德
+      <view>155111111</view>
+    </view>
+  </view>
+  <view class='userMoney'>
+    <view class='userMoneyRow'>
+      <image src='/lib/images/money.png'></image>
+      我的余额
+      <view class='b'>
+        20
+        <view>元</view>
+      </view>
+    </view>
+    <view class='userMoneyRow'>
+      <image src='/lib/images/envelopes.png'></image>
+      我的红包
+      <view class='b'>
+        20
+        <view>个</view>
+      </view>
+    </view>
+  </view>
+  <view class='telephone'>
+    <view class='b'>
+      客服电话：400-000-0000
+    </view>
+  </view>
+  <view class='logout'>
+    退出登录
+  </view>
+</view>

@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/user/index",
+    "pages/user-login/index",
+    "pages/index/index",
+    "pages/evaluate/index",
+    "pages/evaluate-list/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}

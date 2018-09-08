@@ -22,7 +22,21 @@ Page({
         name: '汽车',
         id: 4
       },
-    ]
+    ],
+    rightData:{
+      hot: [
+        { url: '../../lib/images/brandDefault.png',id:1},
+        { url: '../../lib/images/brandDefault.png', id: 2},
+        { url: '../../lib/images/brandDefault.png', id:31},
+        { url: '../../lib/images/brandDefault.png', id: 4},
+      ],
+      classify: [
+        { url: '../../lib/images/commodityDefault.png', name: "1", id: 1 },
+        { url: '../../lib/images/commodityDefault.png', name: "2", id: 2 },
+        { url: '../../lib/images/commodityDefault.png', name: "3", id: 3 },
+        { url: '../../lib/images/commodityDefault.png', name: "4", id: 4 },
+      ]
+    }
   },
 
   /**

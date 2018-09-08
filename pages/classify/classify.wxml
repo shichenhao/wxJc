@@ -6,8 +6,7 @@
     </view>
   <view class='main'>
     <view class='left'>
-      <view class='leftList leftCur'>收入</view>
-      <view class='leftList' wx:for="{{leftData}}" wx:key="{{id}}">{item.name}}</view>
+      <view class='leftList' wx:for="{{leftData}}" wx:key="{{id}}">{{item.name}}</view>
     </view>
     <view class='right'>
       <view class='hot'>
@@ -15,17 +14,8 @@
           <view class='title'>热门品牌</view>
         </view>
         <view class='hotCon'>
-          <view class='hotList'>
-            <image mode="widthFix" src='../../lib/images/brandDefault.png'></image>
-          </view>
-          <view class='hotList'>
-            <image mode="widthFix" src='../../lib/images/brandDefault.png'></image>
-          </view>
-          <view class='hotList'>
-            <image mode="widthFix" src='../../lib/images/brandDefault.png'></image>
-          </view>
-          <view class='hotList'>
-            <image mode="widthFix" src='../../lib/images/brandDefault.png'></image>
+          <view class='hotList' wx:for="{{rightData.hot}}" wx:key="{{id}}">
+            <image mode="widthFix" src='{{item.url}}'></image>
           </view>
         </view>
       </view>
@@ -35,29 +25,11 @@
           <view class='title'>分类</view>
         </view>
         <view class='classifyCon'>
-          <view class='classifyList'>
+          <view class='classifyList' wx:for="{{rightData.classify}}" wx:key="{{id}}">
             <view class='classifyImg'>
-            <image mode="widthFix" src='../../lib/images/commodityDefault.png'></image>
+              <image mode="widthFix" src='{{item.url}}'></image>
             </view>
-            <view class='classifyName'>强化复合版</view>
-          </view>
-          <view class='classifyList'>
-            <view class='classifyImg'>
-            <image mode="widthFix" src='../../lib/images/commodityDefault.png'></image>
-            </view>
-            <view class='classifyName'>强化复合版</view>
-          </view>
-          <view class='classifyList'>
-            <view class='classifyImg'>
-            <image mode="widthFix" src='../../lib/images/commodityDefault.png'></image>
-            </view>
-            <view class='classifyName'>强化复合版</view>
-          </view>
-          <view class='classifyList'>
-            <view class='classifyImg'>
-            <image mode="widthFix" src='../../lib/images/commodityDefault.png'></image>
-            </view>
-            <view class='classifyName'>强化复合版</view>
+            <view class='classifyName'>{{item.name}}</view>
           </view>
         </view>
 

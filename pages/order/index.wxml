@@ -16,6 +16,68 @@
         木质地板
         <view>黄色/111</view>
       </view>
+      <view class='orderNumber'>
+        <view>
+          ￥
+          <view class='b'>
+            399
+          </view>
+        </view>
+        <view>
+          *2
+        </view>
+      </view>
+    </view>
+    <view class='evaluateItem'>
+      <image src=''></image>
+      <view class='evaluateTxt'>
+        木质地板
+        <view>黄色/111</view>
+      </view>
+      <view class='orderNumber'>
+        <view>
+          ￥
+          <view class='b'>
+            399
+          </view>
+        </view>
+        <view>
+          *2
+        </view>
+      </view>
+    </view>
+    <view class='orderStatus'>
+      <view class='div'>
+        共计2件商品 实付款：
+        <view>
+           ￥
+          <view class='b'>
+            399
+          </view>
+        </view>
+      </view>
+      <view class='span'>
+        去支付
+      </view>
+    </view>
+  </view>
+	<view class='evaluateBox'>
+    <view class='orderTitle'>
+      <view class='span'>
+        <image src=''></image>
+        地板
+      </view>
+      <view class='span'>
+        待评价
+        <view>1</view>
+      </view>
+    </view>
+    <view class='evaluateItem'>
+      <image src=''></image>
+      <view class='evaluateTxt'>
+        木质地板
+        <view>黄色/111</view>
+      </view>
       <view class='evaluates'>评价</view>
     </view>
     <view class='evaluateItem'>
@@ -28,16 +90,16 @@
     </view>
     <view class='orderStatus'>
       <view class='div'>
-        共计2件商品 实付款:
+        共计2件商品 实付款：
         <view>
-          ￥
+           ￥
           <view class='b'>
             399
           </view>
         </view>
       </view>
       <view class='span'>
-        去支付
+        去评价
       </view>
     </view>
   </view>

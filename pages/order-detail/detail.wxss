@@ -1,3 +1,18 @@
+.orderType{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.orderType image{
+  width: 28rpx;
+  height: 28rpx;
+}
+
 .evaluateBox{
   font-size: 28rpx;
   padding: 0 30rpx;
@@ -25,6 +40,10 @@
 
 .orderTitle .span:nth-child(1){
   padding-right: 35rpx;
+}
+
+.orderTitle .span:nth-child(2){
+  color: #b2b2b2;
 }
 
 .orderTitle .span:nth-child(1):after{
@@ -104,19 +123,6 @@
   font-size: 34rpx;
 }
 
-.orderStatus .span{
-  display: inline-block;
-  padding: 0 38rpx;
-  height: 52rpx;
-  line-height: 52rpx;
-  border-radius: 52rpx;
-  border: 1px solid #eb4245;
-  color: #eb4245;
-  font-size: 24rpx;
-  margin-top: 25rpx;
-}
-
-
 .orderNumber{
   text-align: right;
 }
@@ -127,5 +133,71 @@
   padding-top: 28rpx;
 }
 
+.li{
+  display: flex;
+  justify-content: space-between;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+}
 
+.li .span{
+  font-size: 20rpx;
+}
+
+.li .span view{
+  font-size: 24rpx;
+}
+
+.li .span .b:nth-child(2){
+  margin-left: -5rpx;
+}
+
+.adress{
+  background: #fff;
+  padding: 35rpx 20rpx 35rpx 70rpx;
+  position: relative;
+}
+
+.adress image{
+  width: 23rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28rpx;
+  margin: auto 0;
+}
+
+.adress view:nth-child(3){
+  color: #888;
+  padding-top: 14rpx;
+  line-height: 30rpx;
+}
+
+.number{
+  padding: 30rpx;
+  line-height: 44rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  color: #333;
+}
+
+.contact{
+  text-align: right;
+  line-height: 100rpx;
+  background: #fff;
+  padding-right: 30rpx;
+  border-top: 1px solid #e4e4e4;
+}
+
+.contact view{
+  display: inline-block;
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 0 25rpx;
+  border:1px solid #c4c2c2;
+  border-radius: 52rpx;
+  font-size: 24rpx;
+}
 

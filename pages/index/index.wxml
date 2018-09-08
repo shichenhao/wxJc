@@ -1,4 +1,3 @@
-import 
 <view class="container">
   <navigator url="/pages/evaluate/index">跳转到新页面</navigator>
 </view>

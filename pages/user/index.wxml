@@ -8,20 +8,39 @@
   </view>
   <view class='userMoney'>
     <view class='userMoneyRow'>
-      <image src='/lib/images/money.png'></image>
-      我的余额
       <view class='b'>
         20
         <view>元</view>
       </view>
+      我的余额
     </view>
     <view class='userMoneyRow'>
-      <image src='/lib/images/envelopes.png'></image>
-      我的红包
       <view class='b'>
         20
         <view>个</view>
       </view>
+      我的红包
+    </view>
+    <view class='userMoneyRow'>
+      <view class='b'>
+        20
+        <view>个</view>
+      </view>
+      优惠券
+    </view>
+  </view>
+  <view class='userMenu'>
+    <view>
+      <image src='/lib/images/user-icon1.png'></image>  
+      我的订单
+    </view>
+    <view>
+      <image src='/lib/images/user-icon2.png'></image>  
+      收货地址
+    </view>
+    <view>
+      <image src='/lib/images/user-icon3.png'></image>  
+      我的收藏
     </view>
   </view>
   <view class='telephone'>

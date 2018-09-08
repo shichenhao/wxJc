@@ -1,5 +1,6 @@
 Page{
   background: #f4f4f4;
+  font-size: 30rpx;
 }
 
 .b{
@@ -33,7 +34,7 @@ Page{
   align-items: center;
   padding: 0 30rpx;
   font-size: 24rpx;
-  margin-top: 20px; 
+  margin-top: 20rpx; 
 }
 
 .telephone image{
@@ -63,6 +64,69 @@ Page{
   height: 38rpx;
 }
 
+.userMoneyRow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 232rpx;
+  height: 75rpx;
+  margin: 40rpx 0 35rpx;
+  text-align: center;
+}
+
+.userMoneyRow:nth-child(2){
+  border-right: 1rpx solid #eaeaea;
+  border-left: 1rpx solid #eaeaea;
+}
+.userMoneyRow:nth-child(1) .b{
+  color: #ff9900;
+}
+.userMoneyRow:nth-child(2) .b{
+  color: #eb4245;
+}
+.userMoneyRow:nth-child(3) .b{
+  color: #419fef;
+}
+
+.userMoneyRow .b{
+  width: 100%;
+  font-size: 44rpx;
+  margin-top: -25rpx;
+}
+.userMoneyRow .b view{
+  font-size: 24rpx;
+  margin-left: -8rpx;
+}
+
+.userMenu{
+  background: #fff;
+  margin-top: 20rpx;
+}
+.userMenu view{
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  height: 90rpx;
+  border-bottom: 1px solid #eaeaea
+}
+
+.userMenu view image{
+  width: 61rpx;
+  height: 61rpx;
+  margin-right: 10rpx;
+}
+
+.logout{
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #ff5959;
+  margin-top: 20rpx;
+}
 
 
 

@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/order/index",
     "pages/user/index",
     "pages/user-login/index",
     "pages/index/index",

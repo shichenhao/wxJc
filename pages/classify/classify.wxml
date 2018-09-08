@@ -1,0 +1,67 @@
+<!--pages/classify/classify.wxml-->
+<view class='box'>
+    <view class='searchBox'>
+      <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
+      <input id='search' placeholder='搜索品牌分类'></input>
+    </view>
+  <view class='main'>
+    <view class='left'>
+      <view class='leftList leftCur'>收入</view>
+      <view class='leftList' wx:for="{{leftData}}" wx:key="{{id}}">{item.name}}</view>
+    </view>
+    <view class='right'>
+      <view class='hot'>
+        <view class='h2'>
+          <view class='title'>热门品牌</view>
+        </view>
+        <view class='hotCon'>
+          <view class='hotList'>
+            <image mode="widthFix" src='../../lib/images/brandDefault.png'></image>
+          </view>
+          <view class='hotList'>
+            <image mode="widthFix" src='../../lib/images/brandDefault.png'></image>
+          </view>
+          <view class='hotList'>
+            <image mode="widthFix" src='../../lib/images/brandDefault.png'></image>
+          </view>
+          <view class='hotList'>
+            <image mode="widthFix" src='../../lib/images/brandDefault.png'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='classify'>
+        <view class='h2'>
+          <view class='title'>分类</view>
+        </view>
+        <view class='classifyCon'>
+          <view class='classifyList'>
+            <view class='classifyImg'>
+            <image mode="widthFix" src='../../lib/images/commodityDefault.png'></image>
+            </view>
+            <view class='classifyName'>强化复合版</view>
+          </view>
+          <view class='classifyList'>
+            <view class='classifyImg'>
+            <image mode="widthFix" src='../../lib/images/commodityDefault.png'></image>
+            </view>
+            <view class='classifyName'>强化复合版</view>
+          </view>
+          <view class='classifyList'>
+            <view class='classifyImg'>
+            <image mode="widthFix" src='../../lib/images/commodityDefault.png'></image>
+            </view>
+            <view class='classifyName'>强化复合版</view>
+          </view>
+          <view class='classifyList'>
+            <view class='classifyImg'>
+            <image mode="widthFix" src='../../lib/images/commodityDefault.png'></image>
+            </view>
+            <view class='classifyName'>强化复合版</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

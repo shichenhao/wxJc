@@ -1,0 +1,118 @@
+<view class="container">
+  <view class='cartNull'>
+    <image src='/lib/images/cart-null.png'></image>
+    购物车竟然是空的
+  </view>
+  <view class='orderTitle cartTitle'>
+    <view>
+      共78件宝贝
+    </view>
+    <view>
+      管理
+    </view>
+  </view>
+	<view class='evaluateBox'>
+    <view class='orderTitle'>
+      <view class='span'>
+        <view class='checkbox'></view>
+        <image src=''></image>
+        地板
+      </view>
+    </view>
+    <view class='evaluateItem'>
+      <image src=''></image>
+      <view class='evaluateTxt'>
+        木质地板
+        <view>黄色/111</view>
+      </view>
+      <view class='orderNumber'>
+        <view>
+          ￥
+          <view class='b'>
+            399
+          </view>
+        </view>
+        <view class='count'>
+          <view class='countAdd'></view>
+          <view class='countDel'></view>
+        </view>
+      </view>
+    </view>
+    <view class='orderStatus'>
+      <view class='li'>
+        <view>商品总额</view>
+        <view>
+          <view class='span'>
+            <view class='b'></view> ￥
+            <view class='b'>
+              399
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='li'>
+        <view>运费</view>
+        <view>
+          0(到店自取)
+        </view>
+      </view>
+      <view class='li'>
+        <view>商家优惠</view>
+        <view>
+          <view class='span'>
+            <view class='b'>-</view> ￥
+            <view class='b'>
+              0
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='li'>
+        <view>平台补贴</view>
+        <view>
+          <view class='span'>
+            <view class='b'>-</view> ￥
+            <view class='b'>
+              0
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='li'>
+        <view>红包</view>
+        <view>
+          <view class='span'>
+            <view class='b'>-</view> ￥
+            <view class='b'>
+              0
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='div'>
+        实付款：
+        <view>
+           ￥
+          <view class='b'>
+            399
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='adress'>
+    <image src='/lib/images/adress.png'></image>
+    <view class='b'>取货信息：马可波罗 153***0029</view>
+    <view>
+      北京市海淀区知春路甲48-3盈都大厦-c座 6号楼18
+    </view>
+  </view>  
+  <view class='number'>
+    <view>订单编号：23467895432212</view>
+    <view>创建时间：2018-09-08 21:09:52</view>
+    <view>付款时间：2018-09-08 21:09:52</view>
+  </view>
+  <view class='contact'>
+    <view>联系商户</view>
+  </view>
+</view>

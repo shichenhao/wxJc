@@ -1,7 +1,10 @@
 {
   "pages":[
-    "pages/classifyDetaile/classifyDetaile",
+    "pages/sellerHome/sellerHome",
+    "pages/searchResult/searchResult",
+    "pages/classifyDetail/classifyDetail",
     "pages/classify/classify",
+    "pages/search/search",
     "pages/order-detail/detail",
     "pages/order/index",
     "pages/user/index",

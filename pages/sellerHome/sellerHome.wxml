@@ -1,0 +1,42 @@
+<!--pages/sellerHome/sellerHome.wxml-->
+<view class='header' style='background-image:url("../../lib/images/sellerBg.png");'>
+  <view class='headerBg'>
+    <view class='headerTop'>
+      <view class='headerTopL'>
+        <image class='logo' src='../../lib/images/logo1.png'></image>
+        <view class='headerTopLR'>
+          <view class='sellerName {{sellerInfo?" sellerInfo":""}}' bindtap='seeSellerInfo' >宝润瓷砖旗舰店</view>
+          <view class='text'>5234人收藏</view>
+        </view>
+      </view>
+      <view class='headerTopR'>
+         <view class='collection'>
+           <image src='../../lib/images/starWhite.png'></image>
+           收藏
+         </view>
+         <image class='shareIcon' src='../../lib/images/shareIcon.png'></image>
+      </view>
+    </view>
+    <view class='menu'>
+      <view class='menuList menuCur'>首页</view>
+      <view class='menuList'>全部商品</view>
+      <view class='menuList'>促销</view>
+      <view class='menuList'>上新</view>
+    </view>
+    <scroll-view class='discount' scroll-x>
+      <image src='../../lib/images/youhui.png'></image> 
+      <image src='../../lib/images/youhui.png'></image> 
+      <image src='../../lib/images/youhui.png'></image> 
+      <image src='../../lib/images/youhui.png'></image> 
+      <image src='../../lib/images/youhui.png'></image>    
+    </scroll-view>
+  </view>
+  <view class='main'>
+      <image src='../../lib/images/seller1.png' mode="widthFix"></image> 
+      <image src='../../lib/images/seller2.png' mode="widthFix"></image> 
+      <image src='../../lib/images/seller3.png' mode="widthFix"></image> 
+      <image src='../../lib/images/seller4.png' mode="widthFix"></image> 
+      <view class='more'>查看更多商品>></view>
+  </view>
+</view>
+ 

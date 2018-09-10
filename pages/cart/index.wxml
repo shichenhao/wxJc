@@ -7,112 +7,124 @@
     <view>
       共78件宝贝
     </view>
-    <view>
-      管理
+    <view bindtap='editFun'>
+      <view wx:if="{{edit}}">
+        管理
+      </view>
+      <view wx:if='{{!edit}}'>
+        完成
+      </view>
     </view>
   </view>
 	<view class='evaluateBox'>
     <view class='orderTitle'>
       <view class='span'>
         <view class='checkbox'></view>
-        <image src=''></image>
+        <image src='/lib/images/brandDefault.png'></image>
         地板
       </view>
     </view>
     <view class='evaluateItem'>
-      <image src=''></image>
+      <view class='checkbox'></view>
+      <image src='/lib/images/commodityDefault.png'></image>
       <view class='evaluateTxt'>
         木质地板
         <view>黄色/111</view>
-      </view>
-      <view class='orderNumber'>
-        <view>
-          ￥
-          <view class='b'>
-            399
-          </view>
-        </view>
-        <view class='count'>
-          <view class='countAdd'></view>
-          <view class='countDel'></view>
-        </view>
-      </view>
-    </view>
-    <view class='orderStatus'>
-      <view class='li'>
-        <view>商品总额</view>
-        <view>
-          <view class='span'>
-            <view class='b'></view> ￥
+        <view class='orderNumber'>
+          <view>
+            ￥
             <view class='b'>
               399
             </view>
           </view>
-        </view>
-      </view>
-      <view class='li'>
-        <view>运费</view>
-        <view>
-          0(到店自取)
-        </view>
-      </view>
-      <view class='li'>
-        <view>商家优惠</view>
-        <view>
-          <view class='span'>
-            <view class='b'>-</view> ￥
-            <view class='b'>
-              0
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class='li'>
-        <view>平台补贴</view>
-        <view>
-          <view class='span'>
-            <view class='b'>-</view> ￥
-            <view class='b'>
-              0
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class='li'>
-        <view>红包</view>
-        <view>
-          <view class='span'>
-            <view class='b'>-</view> ￥
-            <view class='b'>
-              0
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class='div'>
-        实付款：
-        <view>
-           ￥
-          <view class='b'>
-            399
+          <view class='countBox'>
+            <view class='countAdd'></view>
+            <view class='count'>1</view>
+            <view class='countDel'></view>
           </view>
         </view>
       </view>
     </view>
   </view>
-  <view class='adress'>
-    <image src='/lib/images/adress.png'></image>
-    <view class='b'>取货信息：马可波罗 153***0029</view>
-    <view>
-      北京市海淀区知春路甲48-3盈都大厦-c座 6号楼18
+
+
+  
+	<view class='evaluateBox'>
+    <view class='orderTitle'>
+      <view class='span'>
+        <view class='checkbox'></view>
+        <image src='/lib/images/brandDefault.png'></image>
+        地板
+      </view>
     </view>
-  </view>  
-  <view class='number'>
-    <view>订单编号：23467895432212</view>
-    <view>创建时间：2018-09-08 21:09:52</view>
-    <view>付款时间：2018-09-08 21:09:52</view>
+    <view class='evaluateItem'>
+      <view class='checkbox active'></view>
+      <image src='/lib/images/commodityDefault.png'></image>
+      <view class='evaluateTxt'>
+        木质地板
+        <view>黄色/111</view>
+        <view class='orderNumber'>
+          <view>
+            ￥
+            <view class='b'>
+              399
+            </view>
+          </view>
+          <view class='countBox'>
+            <view class='countAdd'></view>
+            <view class='count'>1</view>
+            <view class='countDel'></view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class='contact'>
-    <view>联系商户</view>
+  <view class='cartTotal'>
+    <view class='checkbox'></view>
+    <view class='selection'>全选</view>
+    <view wx:if="{{edit}}">
+      合计：
+      <view class='span'>
+        ￥
+        <view class='b'>399</view>
+      </view>
+    </view>
+    <view class='payment' wx:if="{{edit}}">在线支付</view>
+    <view class='payment payment2' wx:if="{{!edit}}">删除</view>
+  </view>
+
+  <view class='cartBg' wx:if="{{cartPop}}">
+    <view class='cartPop'>
+      <view class='h2'>所选商品需要分开结算</view>
+      <view class='cartItem'>
+        <view class='cartItemTit'>请结算以下1件商品</view>
+        <view class='cartItemImg'>
+          <image src='/lib/images/commodityDefault.png'></image>
+          <image src='/lib/images/commodityDefault.png'></image>
+          <image src='/lib/images/commodityDefault.png'></image>
+        </view>
+        <view class='cartItemSet'>
+          小计 ￥99.00
+          <view class='cartSettlement'>
+            去结算
+          </view>
+        </view>
+      </view>
+      <view class='cartItem'>
+        <view class='cartItemTit'>请结算以下1件商品</view>
+        <view class='cartItemImg'>
+          <image src='/lib/images/commodityDefault.png'></image>
+          <image src='/lib/images/commodityDefault.png'></image>
+          <image src='/lib/images/commodityDefault.png'></image>
+        </view>
+        <view class='cartItemSet'>
+          小计 ￥99.00
+          <view class='cartSettlement'>
+            去结算
+          </view>
+        </view>
+      </view>
+      <view class='close' bindtap='closePop'>关闭</view>
+    </view>
   </view>
 </view>

@@ -1,0 +1,39 @@
+<!--pages/classify/classify.wxml-->
+<view class='box'>
+    <view class='searchBox'>
+      <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
+      <input id='search' placeholder='搜索品牌分类'></input>
+    </view>
+  <view class='main'>
+    <view class='left'>
+      <view class='leftList' wx:for="{{leftData}}" wx:key="{{id}}">{{item.name}}</view>
+    </view>
+    <view class='right'>
+      <view class='hot'>
+        <view class='h2'>
+          <view class='title'>热门品牌</view>
+        </view>
+        <view class='hotCon'>
+          <view class='hotList' wx:for="{{rightData.hot}}" wx:key="{{id}}">
+            <image mode="widthFix" src='{{item.url}}'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='classify'>
+        <view class='h2'>
+          <view class='title'>分类</view>
+        </view>
+        <view class='classifyCon'>
+          <view class='classifyList' wx:for="{{rightData.classify}}" wx:key="{{id}}">
+            <view class='classifyImg'>
+              <image mode="widthFix" src='{{item.url}}'></image>
+            </view>
+            <view class='classifyName'>{{item.name}}</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

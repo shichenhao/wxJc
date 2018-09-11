@@ -101,7 +101,7 @@
       </view>
     </view>
 
-    <view class="moneyBox">
+    <view class="moneyBox moneyBox2">
       <view class='h2'>
         <view>不可使用红包（1个）</view>
       </view>

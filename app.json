@@ -1,5 +1,8 @@
 {
   "pages":[
+    "pages/newProduct/newProduct",
+    "pages/promotion/promotion",
+    "pages/sellerCommodity/sellerCommodity",
     "pages/order-submit/submit",
     "pages/cart/index",
     "pages/sellerHome/sellerHome",

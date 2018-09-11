@@ -1,4 +1,4 @@
-/* pages/sellerHome/sellerHome.wxss */
+/* pages/sellerCommodity/sellerCommodity.wxss */
 view{
   box-sizing: border-box;
 }
@@ -27,7 +27,7 @@ view{
 .headerDetail{
   position: fixed;
   bottom:0;
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.6);
 }
 .headerTopL{
   flex:4;
@@ -176,14 +176,109 @@ view{
 }
 
 .main{
-  padding:110rpx 22rpx 22rpx 22rpx;
+  padding:0 18rpx;
 }
-.main image{
-  width:100%;
+/* 筛选条件部分 */
+.nav{
+  display: flex;
+  background: whtie;
 }
-.more{
-  color:#999;
+.navList{
+  flex:1;
   font-size:26rpx;
   text-align: center;
-  line-height: 90rpx;
+  line-height: 50rpx;
+  color:#333;
+  margin:0 40rpx;
+}
+.navCur{
+  color:#ff5959;
+  border-bottom:#ce2a3f solid 3rpx;
+}
+
+.con{
+  padding-top:18rpx;
+  overflow: hidden;
+  width:110%;
+}
+.item{
+  width:348rpx;
+  float:left;
+  padding-bottom:40rpx;
+  margin-right:20rpx;
+}
+.imgBox{
+  width:348rpx;
+  height: 348rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+}
+.imgBox .commodityImg{
+  width:100%;
+  height:100%;
+}
+.imgBox .leftTop{
+  position: absolute;
+  left:0;
+  top:0;
+  width:54rpx;
+  height:54rpx;
+}
+.leftTopBg{
+  width:100%;
+  height:100%;
+}
+.leftTop text{
+  color:#fff;
+  font-size:24rpx;
+  position: absolute;
+  left:3px;
+}
+
+.itemTitle{
+  font-size:24rpx;
+  color:#191919;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden; 
+  height:75rpx;
+  padding-top:12rpx;
+}
+.commodityInfo{
+  overflow: hidden;
+  padding:10rpx 0;
+}
+.price{
+  font-size:22rpx;
+  color:#e51f1f;
+  float:left;
+  font-weight: bold;
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-right:10rpx;
+}
+.subsidy{
+  float:left;
+  color:#de3857;
+  font-size:18rpx;
+  padding:3rpx 8rpx;
+  border:1rpx solid #de3857;
+  border-radius: 5rpx;
+}
+.evaluate text{
+  font-size:24rpx;
+  color:#a3a3a3;
+  margin-right:15rpx;
+}
+
+
+.nothingCommodity{
+  text-align: center;
+}
+.nothingCommodity image{
+  margin-top:400rpx;
+  width:243rpx;
+  height:195rpx;
 }

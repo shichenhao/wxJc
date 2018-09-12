@@ -276,3 +276,14 @@ Page{
 
 
 
+.btnPay{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 10rpx;
+  margin: 30rpx 30rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+  color: #fff;
+  background: #e83c3c;
+  text-align: center;
+}

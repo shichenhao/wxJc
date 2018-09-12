@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/order-submit/submit",
     "pages/newProduct/newProduct",
     "pages/promotion/promotion",
     "pages/sellerCommodity/sellerCommodity",
-    "pages/order-submit/submit",
     "pages/cart/index",
     "pages/sellerHome/sellerHome",
     "pages/searchResult/searchResult",

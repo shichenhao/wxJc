@@ -51,7 +51,7 @@ function postReq(url, data, cb) {
         if (!res.data.success){
           wx.showModal({
             title: '错误',
-            content: res.data.value,
+            content: res.data.value || 'error',
             showCancel: false
           })
         }

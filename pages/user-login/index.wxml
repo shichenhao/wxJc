@@ -1,5 +1,5 @@
 <view class="container">
-  <button open-type="getUserInfo" bindtap='login'>
+  <button open-type="getUserInfo" bindgetuserinfo="login">
     <view class='login'>
         <image src='/lib/images/logo.png'></image>
         登录

@@ -15,6 +15,7 @@ App({
   onLaunch: function () {
     var _this = this;
     _this.getlocation();
+    _this.globalData.userInfo = wx.getStorageSync('userInfo');
     
   },
   globalData: {

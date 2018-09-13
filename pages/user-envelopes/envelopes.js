@@ -1,24 +1,35 @@
+var app = getApp();
 // pages/user-envelopes/envelopes.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
 
   },
-
+  getList(){
+    var params = {
+      longitude: app.globalData.localPosition.longitude,
+      latitude: app.globalData.localPosition.latitude,
+      businessType: 12
+    };
+    wx.http.postReq('userClient?m=getPlatformRedBag', params, (data) => {
+      if (data.success) {
+        this.list = data.value.redBagList || []
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getList();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    wx.setNavigationBarTitle({
+      title: '我的红包'
+    })
 
   },
 

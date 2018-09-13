@@ -19,20 +19,20 @@
       </view>
       我的余额
     </view>
-    <view class='userMoneyRow'>
+    <navigator class='userMoneyRow' url="/pages/user-envelopes/envelopes">
       <view class='b'>
         20
         <view>个</view>
       </view>
       我的红包
-    </view>
-    <view class='userMoneyRow'>
+    </navigator>
+    <navigator class='userMoneyRow' url="/pages/user-coupon/coupon">
       <view class='b'>
         20
         <view>个</view>
       </view>
       优惠券
-    </view>
+    </navigator>
   </view>
   <view class='userMenu'>
     <navigator url="/pages/order/index">

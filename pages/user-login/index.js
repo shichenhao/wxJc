@@ -28,7 +28,7 @@ Page({
                       // 存储登录信息
                       app.globalData.userInfo = data.value
                       wx.setStorageSync('userInfo', data.value)
-                      wx.setStorageSync('token', data.token)
+                      wx.setStorageSync('token', data.value.token)
                     }
                   })
                   // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -37,6 +37,11 @@ Page({
               
 
             }
+          })
+        } else {
+          wx.showModal({
+            title: '授权失败',
+            showCancel: false
           })
         }
       }
@@ -53,19 +58,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '登录注册'
-    })
-    // 登录过则跳转到用户中心
-    wx.login({
-      success: res => {
-        if (res.code) {
-          wx.redirectTo({
-            url: '/pages/user/index'
-          })
-        }
-      }
-    })
 
   },
 

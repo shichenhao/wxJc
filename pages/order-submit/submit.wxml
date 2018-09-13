@@ -79,7 +79,7 @@
 
   
   <view class='moneyPop'>
-    <view class='moneyNone'>
+    <view class='moneyNone active'>
       不使用红包
     </view>
     <view class="moneyBox">
@@ -129,4 +129,71 @@
       </view>
     </view>
   </view>
+
+
+
+
+
+
+
+
+
+
+  <view class='moneyPop moneyPop2'>
+    <view class='moneyNone active'>
+      不使用优惠券
+    </view>
+    <view class="moneyBox">
+      <view class='h2'>
+        <view>可使用优惠券（1个）</view>
+      </view>
+      <view class='moneyItem'>
+        <view class="itemLeft">
+          <image src='/lib/images/brandDefault.png'></image>
+          <view class="b">马可波罗旗舰店</view>
+          <view>满500元可用</view>
+        </view>
+        <view class="itemRight">
+          <view>
+            ￥<view class="b">11</view>
+          </view>
+        </view>
+        <view class="moneyWhy p">
+          有效期：2016.11.07-2016.11.10
+        </view>
+      </view>
+    </view>
+
+    <view class="moneyBox moneyBox2">
+      <view class='h2'>
+        <view>不可使用优惠券（1个）</view>
+      </view>
+      <view class='moneyItem'>
+        <view class="itemLeft">
+          <image src='/lib/images/brandDefault.png'></image>
+          <view class="b">马可波罗旗舰店</view>
+          <view>满500元可用</view>
+        </view>
+        <view class="itemRight">
+          <view>
+            ￥<view class="b">11</view>
+          </view>
+          无门槛红包
+        </view>
+        <view class="moneyWhy">
+          <view class="span">
+            不可用原因
+          </view>
+          <view class="div">
+            <view>限收货人手机号使用</view>
+            <view>限有效期使用</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
 </view>

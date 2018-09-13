@@ -1,0 +1,35 @@
+<view class="container">
+  <view class='moneyPop'>
+    <view class="moneyBox">
+      <view class='moneyItem'>
+        <view class="itemLeft">
+          <view class="b">专享红包</view>
+          <view>有效期至2016-11-07</view>
+          <view>限收货人手机号15313420950</view>
+        </view>
+        <view class="itemRight">
+          <view>
+            ￥<view class="b">11</view>
+          </view>
+          无门槛红包
+          <image src='/lib/images/red-type_03.png'></image>
+        </view>
+      </view>
+      <view class='moneyItem'>
+        <view class="itemLeft">
+          <view class="b">专享红包</view>
+          <view>有效期至2016-11-07</view>
+          <view>限收货人手机号15313420950</view>
+        </view>
+        <view class="itemRight">
+          <view>
+            ￥<view class="b">11</view>
+          </view>
+          无门槛红包
+          <image src='/lib/images/red-type_06.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

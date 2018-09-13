@@ -1,0 +1,71 @@
+<!--pages/commodityDetails/commodityDetails.wxml-->
+<view class='navbox'>
+  <view class='nav'>
+    <view class='navList navCur'>商品</view>
+    <view class='navList'>评价</view>
+    <view class='navList'>详情</view>
+  </view>
+</view>
+<view>
+  <image class='commodityImg' src='../../lib/images/commodityDefault.png' mode="widthFix"></image>
+</view>
+<view class='con1'>
+  <view>
+    <text class='price'>￥500</text>
+    <text class='oldPrice'>原价:￥599</text>
+    <text class='salesVolume'>销量：111</text>
+  </view>
+  <view class="h2">
+    圣象地板
+  </view>
+  <view class='h2p'>
+    圣象地板由德国设计团队设计，精美与设计感的外观简单方便的操作是你的独一选择
+  </view>
+</view>
+<view class='con2'>
+  <view class='con2_1'>
+    <text class='text1'>补贴</text>
+    <text class='text2'>平台补贴200元</text>
+    <text class='text3'>立即领取</text>
+  </view>
+  <view>
+    <text class='text1'>促销</text>
+    <text class='text2 text2_2'>满100减10元、满200减30元</text>
+  </view>
+</view>
+<!-- 选择规格 -->
+<view class='con3'>
+  <view class='con3_row'>
+    <text class='con3_rowL'>选择型号</text>
+    <text class='con3_rowR'>型号规格，购买数量</text>
+  </view>
+  <view class='con3_row'>
+    <text class='con3_rowL'>服务说明</text>
+    <text class='con3_rowR'>包安装，不可退</text>
+  </view>
+</view>
+<!-- 用户评价 -->
+<view class='con4'>
+  <view class="h3">
+    <text class='h3Left'>用户评价</text>
+    <text class='h3Right'><text style='color:#f06062'>100%</text>好评率</text>
+  </view>
+  <view class='userInfo'>
+    <image class='userImg' src='../../lib/images/brandDefault.png'></image>
+    <text class='userName'>萧炎</text>
+  </view>
+  <view class='evaluateDetail'>
+    <view class='evaluateImg'>
+      <image src='../../lib/images/brandDefault.png'></image>
+      <image src='../../lib/images/brandDefault.png'></image>
+      <image src='../../lib/images/brandDefault.png'></image>
+    </view>
+    <view class='evaluateTxt'>
+      特别好，很喜欢这个颜色，看起来特别的温馨，质量也很好，老板人也很好，买了两次，正好，以后需要再来。这个颜色看起来很高级。
+    </view>
+    <view class='evaluateDate'>
+      2018-05-17   型号:木纹02
+    </view>
+  </view>
+</view>
+

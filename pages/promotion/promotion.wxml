@@ -45,7 +45,6 @@
       <view class='navList navCur'>综合</view>
       <view class='navList'>销量</view>
       <view class='navList'>价格</view>
-      <view class='navList'>筛选</view>
     </view>
     <view class='con'>
       <view class='item'>

@@ -2,7 +2,7 @@
 view{
   box-sizing: border-box;
 }
-.boxHidden{
+.boxHidden{  
   height: 100%;
   overflow: hidden;
   position: fixed;

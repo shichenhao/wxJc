@@ -1,8 +1,10 @@
 <view class="container">
-  <view class='login'>
-    <image src='/lib/images/logo.png'></image>
-    登录/注册
-  </view>
+  <button open-type="getUserInfo" bindtap='login'>
+    <view class='login'>
+        <image src='/lib/images/logo.png'></image>
+        登录
+    </view>
+  </button>
   <view class='telephone'>
     <image src='/lib/images/telephone.png'></image>
     <view class='b'>

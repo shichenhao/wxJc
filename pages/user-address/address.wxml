@@ -1,0 +1,26 @@
+<view class="container">
+  <view class='addressList'>
+    <view class='addressItem'>
+      <view class='span'>
+        阿萨 女士 15555555551
+      </view>
+      <view class='span'>
+        阿萨 女士 15555555551
+      </view>
+      <image src='/lib/images/adress_06.png'></image>
+    </view>
+    <view class='addressItem'>
+      <view class='span'>
+        阿萨 女士 15555555551
+      </view>
+      <view class='span'>
+        阿萨 女士 15555555551
+      </view>
+    </view>
+  </view>
+  <view class='addressAdd'>
+    <image src='/lib/images/add.png'></image>
+    新增地址
+  </view>
+
+</view>

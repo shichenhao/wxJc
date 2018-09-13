@@ -108,7 +108,7 @@ Page{
   background: #fff;
   margin-top: 20rpx;
 }
-.userMenu view{
+.userMenu navigator{
   display: flex;
   align-items: center;
   padding: 0 20rpx;
@@ -117,7 +117,7 @@ Page{
   border-bottom: 1px solid #eaeaea
 }
 
-.userMenu view image{
+.userMenu navigator image{
   width: 61rpx;
   height: 61rpx;
   margin-right: 10rpx;

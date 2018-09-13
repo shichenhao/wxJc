@@ -1,5 +1,10 @@
 {
   "pages":[
+    "pages/user-login/index",
+    "pages/user-add-list/list",
+    "pages/user-address/address",
+    "pages/user-coupon/coupon",
+    "pages/user-envelopes/envelopes",
     "pages/payment/payment",
     "pages/newProduct/newProduct",
     "pages/promotion/promotion",
@@ -14,7 +19,6 @@
     "pages/order-detail/detail",
     "pages/order/index",
     "pages/user/index",
-    "pages/user-login/index",
     "pages/index/index",
     "pages/evaluate/index",
     "pages/evaluate-list/index"

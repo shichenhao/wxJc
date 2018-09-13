@@ -1,19 +1,54 @@
 {
   "pages":[
+    "pages/index/index",
+    "pages/discount/discount",
+    "pages/couplet/couplet",
+    "pages/returnList/returnList",    
+   
     "pages/classifyDetaile/classifyDetaile",
     "pages/classify/classify",
     "pages/order-detail/detail",
     "pages/order/index",
     "pages/user/index",
     "pages/user-login/index",
-    "pages/index/index",
     "pages/evaluate/index",
     "pages/evaluate-list/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "马管家建材",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ed655f",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "/lib/images/home_nav1h.png",
+        "iconPath": "/lib/images/home_nav1.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "/lib/images/home_nav2h.png",
+        "iconPath": "/lib/images/home_nav2.png",
+        "pagePath": "pages/index/index",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "/lib/images/home_nav3h.png",
+        "iconPath": "/lib/images/home_nav3.png",
+        "pagePath": "pages/index/index",
+        "text": "购物车"
+      },
+      {
+        "selectedIconPath": "/lib/images/home_nav4h.png",
+        "iconPath": "/lib/images/home_nav4.png",
+        "pagePath": "pages/index/index",
+        "text": "我的"
+      }
+    ]
   }
 }

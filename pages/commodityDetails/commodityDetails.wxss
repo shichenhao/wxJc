@@ -1,0 +1,138 @@
+/* pages/commodityDetails/commodityDetails.wxss */
+.navbox{
+  background: white;
+}
+.nav{
+  width:390rpx;
+  margin:0 auto;
+  display: flex;
+}
+.navList{
+  line-height: 86rpx;
+  color: #333;
+  text-align: center;
+  flex: 1;
+}
+.navCur{
+  color:#ff5959;
+}
+.commodityImg{
+  width:100%;
+}
+
+.con1{
+  padding:40rpx 38rpx;
+  margin-top:-12rpx;
+  background: white;
+  border-radius: 12rpx 12rpx 0 0;
+  position: relative;
+}
+.price{
+  color:#eb4245;
+  font-size:48rpx;
+  font-weight: bold;
+  margin-right:30rpx;
+}
+.oldPrice, .salesVolume{
+  color:#999;
+  font-size:24rpx;
+}
+.salesVolume{
+  float: right;
+  margin-top:25rpx;
+}
+.con1 .h2{
+  color:#333;
+  font-size:32rpx;
+  font-weight: bold;
+  padding-top:38rpx;
+  padding-bottom:18rpx;
+}
+.con1 .h2p{
+  color:#888;
+  font-size:26rpx;
+}
+
+.con2{
+  padding:40rpx 38rpx;
+  background: white;
+  margin-top:22rpx;
+  font-size:22rpx;
+}
+.con2_1{
+  padding-bottom:32rpx;
+}
+.con2 .text1{
+  display: inline-block;
+  color:#f40c0c;
+  width: 70rpx;
+  height:30rpx;
+  background: #fee6e6;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-right:20rpx;
+}
+.con2 .text2{
+  color:#f40c0c;
+}
+.con2 .text2_2{
+  color:#333;
+}
+.con2 .text3{
+  color:#333;
+  float: right;
+}
+
+/* 用户评价 */
+.con4{
+  padding:40rpx 38rpx;
+  background: white;
+  margin-top:22rpx;
+}
+.con4 .h3{
+  display: flex;
+  border-bottom:1rpx solid #eaeaea;
+  padding-bottom:30rpx;
+  margin-bottom:30rpx;
+}
+.con4 .h3Left{
+  font-size:32rpx;
+  color:#333;
+  flex: 3;
+  font-weight: bold;
+}
+.con4 .h3Right{
+  flex:2;
+  text-align: right;
+  font-size:24rpx;
+  color:#888;
+}
+.userInfo{
+  padding-bottom:20rpx;
+}
+.userImg{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right:10rpx;
+}
+.evaluateImg{
+  display: flex;
+}
+.evaluateImg image{  
+  width:215rpx;
+  height:215rpx;
+  margin-right:10rpx;
+  border-radius: 5rpx;
+}
+.evaluateTxt{
+  font-size: 26rpx;
+  color:#888;
+  line-height: 40rpx;
+  padding:15rpx 0;
+}
+.evaluateDate{
+  color:#b2b2b2;
+  font-size:24rpx;
+}

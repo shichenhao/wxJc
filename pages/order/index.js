@@ -1,3 +1,4 @@
+var app = getApp();
 // pages/order/index.js
 Page({
 
@@ -12,13 +13,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var params = {
+      userId: app.globalData.userInfo.id,
+      start: 1,
+      size: 10
+    };
+    wx.http.postReq('appletClient?m=findBuildingMaterialsOrderList', params, (data) => {
+      if (data.success) {
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    wx.setNavigationBarTitle({
+      title: '我的订单'
+    })
   
   },
 

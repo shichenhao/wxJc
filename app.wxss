@@ -108,7 +108,7 @@ Page{
   background: #fff;
   margin-top: 20rpx;
 }
-.userMenu view{
+.userMenu navigator{
   display: flex;
   align-items: center;
   padding: 0 20rpx;
@@ -117,7 +117,7 @@ Page{
   border-bottom: 1px solid #eaeaea
 }
 
-.userMenu view image{
+.userMenu navigator image{
   width: 61rpx;
   height: 61rpx;
   margin-right: 10rpx;
@@ -160,4 +160,130 @@ Page{
   font-size: 34rpx;
   font-weight: bold;
   color: #fff;
+}
+
+
+.checkbox{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 40rpx;
+  background: #fff;
+  position: relative;
+  border:2rpx solid #c6c6c6;
+}
+
+.checkbox.active{
+  border-color: #eb4245;
+  background:#eb4245;
+}
+
+.checkbox.active::before{
+    content: '\00a0';
+    display: inline-block;
+    border: 5rpx solid #fff;
+    border-top-width: 0;
+    border-right-width: 0; 
+    width: 20rpx;
+    height: 10rpx;
+    transform: rotate(-50deg);
+    position: absolute;
+    top:10rpx;
+    left:9rpx;
+}
+
+.countBox{
+  position: relative;
+  width: 180rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.countBox .countAdd,.countBox .countDel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 40rpx;
+  border: 2rpx solid #e3e3e3;
+  background: #fff;
+}
+
+.countBox .countAdd{
+  left: 0;
+  top: 0;
+}
+
+.countBox .countAdd:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 16rpx;
+  height: 2rpx;
+  background: #c4c2c2;
+}
+
+.countBox .countDel{
+  right: 0;
+  top: 0;
+}
+
+.countBox .countDel:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 18rpx;
+  height: 1px;
+  background: #c4c2c2;
+}
+
+.countBox .countDel:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 1px;
+  height: 18rpx;
+  background: #c4c2c2;
+}
+
+.countBox .count{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #888;
+}
+
+
+
+
+
+
+
+
+
+
+
+.btnPay{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 10rpx;
+  margin: 30rpx 30rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+  color: #fff;
+  background: #e83c3c;
+  text-align: center;
 }

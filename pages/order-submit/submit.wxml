@@ -1,0 +1,199 @@
+<view class="container">
+  <view class='orderSubmitTit'>
+    <view class='active'>送货上门</view>
+    <view>到点自取</view>
+  </view>
+  <view class='adress'>
+    <image src='/lib/images/adress.png'></image>
+    <view class='b'>收货人：马可波罗 153***0029</view>
+    <view>
+      北京市海淀区知春路甲48-3盈都大厦-c座 6号楼18
+    </view>
+  </view>
+  <view>12312</view>
+  <view class='h2'>
+    商品信息
+  </view>
+  <view class='evaluateBox'>
+    <view class='orderTitle'>
+      <image src='/lib/images/brandDefault.png'></image>
+      地板
+    </view>
+    <view class='cartItemImg'>
+      <view>
+        共3件
+      </view>
+      <image src='/lib/images/commodityDefault.png'></image>
+      <image src='/lib/images/commodityDefault.png'></image>
+      <image src='/lib/images/commodityDefault.png'></image>
+      <image src='/lib/images/commodityDefault.png'></image>
+      <image src='/lib/images/commodityDefault.png'></image>
+      <image src='/lib/images/commodityDefault.png'></image>
+    </view>
+    <view class='div'>
+      总价：
+      <view>
+        ￥
+        <view class='b'>
+          399
+        </view>
+      </view>
+    </view>
+    <view class='remarks'>
+      <view>
+        订单备注
+      </view>
+      <input placeholder='如有问题请填写备注'></input>
+    </view>
+  </view>
+  <view class='discount'>
+    <view>
+      配送费
+      <view>￥4</view>
+    </view>
+    <view>
+      平台补贴
+      <view>-￥4</view>
+    </view>
+    <view>
+      平台红包
+      <view>-￥4</view>
+    </view>
+    <view>
+      商家代金券
+      <view>-￥4</view>
+    </view>
+  </view>
+  <view class='cartTotal'>
+    <view>
+      合计金额：
+      <view class='span'>
+        ￥
+        <view class='b'>399</view>
+      </view>
+    </view>
+    <view class='payment'>提交订单</view>
+  </view>
+
+
+
+  
+  <view class='moneyPop'>
+    <view class='moneyNone active'>
+      不使用红包
+    </view>
+    <view class="moneyBox">
+      <view class='h2'>
+        <view>可使用红包（1个）</view>
+      </view>
+      <view class='moneyItem'>
+        <view class="itemLeft">
+          <view class="b">专享红包</view>
+          <view>有效期至2016-11-07</view>
+          <view>限收货人手机号15313420950</view>
+        </view>
+        <view class="itemRight">
+          <view>
+            ￥<view class="b">11</view>
+          </view>
+          无门槛红包
+        </view>
+      </view>
+    </view>
+
+    <view class="moneyBox moneyBox2">
+      <view class='h2'>
+        <view>不可使用红包（1个）</view>
+      </view>
+      <view class='moneyItem'>
+        <view class="itemLeft">
+          <view class="b">专享红包</view>
+          <view>有效期至2016-11-07</view>
+          <view>限收货人手机号15313420950</view>
+        </view>
+        <view class="itemRight">
+          <view>
+            ￥<view class="b">11</view>
+          </view>
+          无门槛红包
+        </view>
+        <view class="moneyWhy">
+          <view class="span">
+            不可用原因
+          </view>
+          <view class="div">
+            <view>限收货人手机号使用</view>
+            <view>限有效期使用</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+
+
+  <view class='moneyPop moneyPop2'>
+    <view class='moneyNone active'>
+      不使用优惠券
+    </view>
+    <view class="moneyBox">
+      <view class='h2'>
+        <view>可使用优惠券（1个）</view>
+      </view>
+      <view class='moneyItem'>
+        <view class="itemLeft">
+          <image src='/lib/images/brandDefault.png'></image>
+          <view class="b">马可波罗旗舰店</view>
+          <view>满500元可用</view>
+        </view>
+        <view class="itemRight">
+          <view>
+            ￥<view class="b">11</view>
+          </view>
+        </view>
+        <view class="moneyWhy p">
+          有效期：2016.11.07-2016.11.10
+        </view>
+      </view>
+    </view>
+
+    <view class="moneyBox moneyBox2">
+      <view class='h2'>
+        <view>不可使用优惠券（1个）</view>
+      </view>
+      <view class='moneyItem'>
+        <view class="itemLeft">
+          <image src='/lib/images/brandDefault.png'></image>
+          <view class="b">马可波罗旗舰店</view>
+          <view>满500元可用</view>
+        </view>
+        <view class="itemRight">
+          <view>
+            ￥<view class="b">11</view>
+          </view>
+          无门槛红包
+        </view>
+        <view class="moneyWhy">
+          <view class="span">
+            不可用原因
+          </view>
+          <view class="div">
+            <view>限收货人手机号使用</view>
+            <view>限有效期使用</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+</view>

@@ -1,0 +1,26 @@
+<view class="container">
+  <view class='orderTit'>
+    订单总价
+    <view>
+      ￥2.5
+    </view>
+  </view>
+  <view class='order'>
+    余额支付
+    <view class='font'>
+      (账户余额：￥0)
+    </view>
+  </view>
+  <view class='orderTit'>
+    使用第三方平台支付
+    <view>
+      ￥2.5
+    </view>
+  </view>
+  <view class='orderPay'>
+    微信支付
+  </view>
+  <view class='btnPay'>
+    确认支付
+  </view>
+</view>

@@ -8,15 +8,15 @@ App({
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
+        wx.setStorageSync('localPosition', res)
         _this.globalData.localPosition = res;
       }
     })
   },
   onLaunch: function () {
-    var _this = this;
-    _this.getlocation();
-    _this.globalData.userInfo = wx.getStorageSync('userInfo');
-    
+    this.getlocation();
+    this.globalData.userInfo = wx.getStorageSync('userInfo');
+    this.globalData.localPosition = wx.getStorageSync('localPosition');
   },
   globalData: {
     localPosition: null,

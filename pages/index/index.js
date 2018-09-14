@@ -1,25 +1,75 @@
 // pages/user/index.js
+var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    isLogin: app.globalData.userInfo.agentId,
+    //红包弹窗
+    redType:true,
+    //大牌
+    major: [],
+    //好货
+    good: [],
+  },
+  //关闭红包弹窗
+  closeRed(){
+    this.setData({
+      redType:false
+    })
+  },
+  getInit(){
+    var param = {
+      agentId: app.globalData.userInfo.agentId,
+      longitude: app.globalData.localPosition.longitude,
+      latitude: app.globalData.localPosition.latitude
+    }
+    var params = {
+      agentId: app.globalData.userInfo.agentId,
+      start: 0,
+      size: 6,
+    }
+    // 横屏推广
+    /*
+    wx.http.postReq('appletClient?m= findBuildingMaterialsLandscapePromotion', param, (data) => {
+      if (data.success) {
+      }
+    })
+    // 首页banner
+    wx.http.postReq('appletClient?m = findBuildingMaterialsBannerList', params, (data) => {
+      if (data.success) {
+      }
+    })
+    */
+    // 大牌推荐
+    wx.http.postReq('appletClient?m=findBuildingMaterialsRecommendMerchantList', params, (data) => {
+      if (data.success) {
+        let major = data.value
+        this.setData({
+          major
+        })
+      }
+    })
+    // 好货推荐
+    wx.http.postReq('appletClient?m=findBuildingMaterialsGoodGoodsRecommendList', params, (data) => {
+      if (data.success) {
+        let good = data.value
+        this.setData({
+          good
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getInit();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**

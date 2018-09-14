@@ -267,7 +267,10 @@ Page{
 }
 
 
-
+.moneyItem{
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141600484197532.png) no-repeat #fff 65% 40rpx !important;
+  background-size: 124rpx 132rpx!important;
+}
 
 
 

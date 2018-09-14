@@ -92,7 +92,7 @@
     </view>
   </view>
   <!--家电-->
-<view class='home_show'>
+  <view class='home_show'>
     <view class='home_show_tit  color2'><view><text>家电 · </text>馆</view><text class='home_showAB'> electric appliance</text></view>
     <view class='home_Hotpic'>  
        <image src='/lib/images/home_pic3.jpg' mode="widthFix"></image>
@@ -155,7 +155,7 @@
     </view>
   </view>
   <!--软装-->
-<view class='home_show'>
+  <view class='home_show'>
     <view class='home_show_tit  color3'><view><text>软装 · </text>馆</view><text class='home_showAB'>Soft Decoration</text></view>
     <view class='home_Hotpic'>  
        <image src='/lib/images/home_pic3.jpg' mode="widthFix"></image>
@@ -191,7 +191,7 @@
     </view>
   </view>
    <!--建材-->
-<view class='home_show'>
+  <view class='home_show'>
     <view class='home_show_tit  color4'><view><text>建材 · </text>馆</view><text class='home_showAB'>Building material</text></view>
     <view class='home_Hotpic'>  
        <image src='/lib/images/home_pic3.jpg' mode="widthFix"></image>
@@ -288,13 +288,7 @@
       <scroll-view scroll-x  style="width: 100%">
         <view class='scroll-view_H'>
           <block>
-            <view><image src='/lib/images/home_pic9.jpg' mode="widthFix"></image></view>
-            <view><image src='/lib/images/home_pic9.jpg' mode="widthFix"></image></view>
-            <view><image src='/lib/images/home_pic9.jpg' mode="widthFix"></image></view>
-            <view><image src='/lib/images/home_pic9.jpg' mode="widthFix"></image></view>
-            <view><image src='/lib/images/home_pic9.jpg' mode="widthFix"></image></view>
-            <view><image src='/lib/images/home_pic9.jpg' mode="widthFix"></image></view>
-            <view><image src='/lib/images/home_pic9.jpg' mode="widthFix"></image></view>
+            <view wx:for="{{major}}" wx:key="{{item.id}}"><image src="{{item.merchantImage}}" mode="widthFix"></image></view>
           </block>
         </view>
       </scroll-view>
@@ -320,8 +314,7 @@
           <text>补贴</text> 马可波罗瓷砖 全抛釉客厅厨室地砖厨卫砖 木纹砖
       </view>
       <view class='home_goodR_text'>
-        品质生活，每一片砖都经过严格的质检，砖面专题通体如一。多
-层叠加施釉工艺，砖胚体硬度更强，坚固耐用。
+        品质生活，每一片砖都经过严格的质检，砖面专题通体如一。多层叠加施釉工艺，砖胚体硬度更强，坚固耐用。
       </view>
     </view>
     <!--list-->
@@ -343,6 +336,21 @@
         品质生活，每一片砖都经过严格的质检，砖面专题通体如一。多层叠加施釉工艺，砖胚体硬度更强，坚固耐用。
       </view>
     </view>
-
+  </view>
+  <view class='redBagCount {{isLogin ? "active" : ""}}' wx:if="{{redType}}">
+    <view class='redBagCountBox'>
+      <view class='money'>
+        <text>50</text>元
+        <view>
+          无门槛红包
+        </view>
+      </view>
+      <navigator url="/pages/user-login/index" class='span' wx:if="{{!isLogin}}" hover-class="none">立即登录，领取红包</navigator>
+      <navigator url="/pages/user-envelopes/envelopes" class='span' wx:if="{{isLogin}}" hover-class="none">立即使用</navigator>
+      <view class='p'>
+        可在“我的钱包”中查看详情
+      </view>
+      <view class='close' bindtap="closeRed">✖</view>
+    </view>
   </view>
 </view>

@@ -19,9 +19,13 @@ Page({
           wx.setStorageSync('code', ress.code)
           wx.http.postReq('appletClient?m=appletLogin', params, (data) => {
             if (data.success) {
-              wx.redirectTo({
-                url: '/pages/user/index'
+
+              wx.navigateBack({
+                delta:2
               })
+              /*wx.redirectTo({
+                url: '/pages/user/index'
+              })*/
               // 存储登录信息
               app.globalData.userInfo = data.value
               wx.setStorageSync('userInfo', data.value)

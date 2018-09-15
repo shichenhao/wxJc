@@ -9,12 +9,12 @@
       <view class='leftList' wx:for="{{leftData}}" wx:key="{{id}}">{{item.name}}</view>
     </view>
     <view class='right'>
-      <view class='hot'>
+      <view class='hot' wx:if="{{rightData.length>0}}">
         <view class='h2'>
           <view class='title'>热门品牌</view>
         </view>
         <view class='hotCon'>
-          <view class='hotList' wx:for="{{rightData.hot}}" wx:key="{{id}}">
+          <view class='hotList' wx:for="{{rightData}}" wx:key="{{id}}">
             <image mode="widthFix" src='{{item.url}}'></image>
           </view>
         </view>
@@ -25,12 +25,12 @@
           <view class='title'>分类</view>
         </view>
         <view class='classifyCon'>
-          <view class='classifyList' wx:for="{{rightData.classify}}" wx:key="{{id}}">
+          <navigator url="/pages/classifyDetail/classifyDetail?id={{item.id}}" class='classifyList' wx:for="{{classify}}" wx:key="{{id}}" hover-class="none">
             <view class='classifyImg'>
               <image mode="widthFix" src='{{item.url}}'></image>
             </view>
             <view class='classifyName'>{{item.name}}</view>
-          </view>
+          </navigator>
         </view>
 
       </view>

@@ -6,7 +6,7 @@
       <text>英都大厦D座大厦D座</text>
        <image src='/lib/images/home_banicon3.jpg' class="home_addr_img2"></image>
     </view>
-    <navigator class='home_seach'>
+    <navigator class='home_seach' url='/pages/search/search' hover-class='none'>
        <image src='/lib/images/home_banicon1.jpg'></image>
        瓷砖
     </navigator>

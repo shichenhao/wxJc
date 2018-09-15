@@ -20,6 +20,7 @@ App({
   },
   globalData: {
     localPosition: null,
-    userInfo: null
+    userInfo: null,
+    isRed:false
   },
 })

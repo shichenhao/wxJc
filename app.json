@@ -1,8 +1,9 @@
 {
   "pages":[
+    "pages/user-collection/collection",
+    "pages/index/index",
     "pages/couplet/couplet",
     "pages/discount/discount",
-    "pages/index/index",   
     "pages/returnList/returnList",    
     "pages/classifyDetaile/classifyDetaile",
     "pages/commodityDetails/commodityDetails",

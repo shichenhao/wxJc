@@ -1,2 +1,84 @@
-<!--pages/discount/discount.wxml-->
-<text>pages/discount/discount.wxml</text>
+<view class="container" style="background:url(/lib/images/discountpic3.jpg) repeat-y;background-size:100%;">
+   <view class='discount_ban'>
+       <image src='/lib/images/discountpic1.jpg' mode="widthFix"></image>
+   </view>
+   <view class="discount_cent">
+      <view class='discount_list'>
+         <view class='discount_listT'>
+            <image src='http://7xu5hi.com1.z0.glb.clouddn.com/201809141547133864705.jpg' mode="widthFix"></image>大自然地板旗舰店
+         </view>
+         <view class='discount_listC'>
+          <navigator class='discount_lq'>
+            立即领取
+          </navigator>
+          <text class='discount_price'>¥<text class='home_picT86'>18</text></text>
+          <text class='discount_name'>
+            <text>大自然地板旗舰店</text>
+            满500元可用
+          </text>
+         </view>
+         <view class='discount_listB'>
+             <navigator class='discountHot' hover-class="none">
+              <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='discountHot_listPic'></image>
+              <view class='disHotlist'>
+                <text class='disHotlist_tit'>北欧实木书架组合</text>
+                <view><text>¥</text>650</view>
+              </view>
+            </navigator>
+            <navigator class='discountHot' hover-class="none">
+              <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='discountHot_listPic'></image>
+              <view class='disHotlist'>
+                <text class='disHotlist_tit'>北欧实木书架组合</text>
+                <view><text>¥</text>650</view>
+              </view>
+            </navigator>
+            <navigator class='discountHot' hover-class="none">
+              <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='discountHot_listPic'></image>
+              <view class='disHotlist'>
+                <text class='disHotlist_tit'>北欧实木书架组合</text>
+                <view><text>¥</text>650</view>
+              </view>
+            </navigator>
+         </view>
+      </view>
+     <view class='discount_list'>
+         <view class='discount_listT'>
+            <image src='http://7xu5hi.com1.z0.glb.clouddn.com/201809141547133864705.jpg' mode="widthFix"></image>大自然地板旗舰店
+         </view>
+         <view class='discount_listC'>
+          <navigator class='discount_lq'>
+            立即领取
+          </navigator>
+          <text class='discount_price'>¥<text class='home_picT86'>18</text></text>
+          <text class='discount_name'>
+            <text>大自然地板旗舰店</text>
+            满500元可用
+          </text>
+         </view>
+         <view class='discount_listB'>
+             <navigator class='discountHot' hover-class="none">
+              <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='discountHot_listPic'></image>
+              <view class='disHotlist'>
+                <text class='disHotlist_tit'>北欧实木书架组合</text>
+                <view><text>¥</text>650</view>
+              </view>
+            </navigator>
+            <navigator class='discountHot' hover-class="none">
+              <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='discountHot_listPic'></image>
+              <view class='disHotlist'>
+                <text class='disHotlist_tit'>北欧实木书架组合</text>
+                <view><text>¥</text>650</view>
+              </view>
+            </navigator>
+            <navigator class='discountHot' hover-class="none">
+              <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='discountHot_listPic'></image>
+              <view class='disHotlist'>
+                <text class='disHotlist_tit'>北欧实木书架组合</text>
+                <view><text>¥</text>650</view>
+              </view>
+            </navigator>
+         </view>
+      </view>
+
+   </view>
+</view>

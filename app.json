@@ -1,10 +1,10 @@
 {
   "pages":[
-    "pages/discount/discount",
+    "pages/user-collection/collection",
+    "pages/index/index",
     "pages/couplet/couplet",
-   
-    "pages/index/index",   
-    "pages/returnList/returnList",
+    "pages/discount/discount",
+    "pages/returnList/returnList",    
     "pages/classifyDetaile/classifyDetaile",
     "pages/commodityDetails/commodityDetails",
     "pages/order-submit/submit",

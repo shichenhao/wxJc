@@ -5,10 +5,27 @@ Page({
     isLogin: app.globalData.userInfo.agentId,
     //红包弹窗
     redType:true,
+    redInfo:{},
     //大牌
     major: [],
     //好货
     good: [],
+  },
+  //领取红包
+  receiveRed(){
+    var param = {
+      businessType: 12,
+      longitude: app.globalData.localPosition.longitude,
+      latitude: app.globalData.localPosition.latitude
+    }
+    wx.http.postReq('userClient?m=getPlatformRedBag', param, (data) => {
+      if (data.success) {
+        this.setData({
+          redInfo: data.value.redBagList || {}
+        })
+        this.closeRed();
+      }
+    })
   },
   //关闭红包弹窗
   closeRed(){
@@ -64,6 +81,12 @@ Page({
    */
   onLoad: function (options) {
     this.getInit();
+    if (app.globalData.isRed){
+      this.receiveRed();
+    }else{
+      this.closeRed();
+    }
+    
   },
 
   /**

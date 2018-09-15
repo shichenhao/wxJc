@@ -1,4 +1,4 @@
-// pages/user-address/list.js
+// pages/user-collection/collection.js
 Page({
 
   /**

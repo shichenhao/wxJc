@@ -10,6 +10,26 @@ Page({
     major: [],
     //好货
     good: [],
+    // 分类馆
+    list: [],
+    // banner
+    banner: [],
+    // banner
+    hotList: [],
+    mapXY: '选择位置'
+  },
+  // 选择位置
+  getMap() {
+    var _this = this
+    wx.chooseLocation({
+      success(res) {
+        console.log(res)
+        _this.setData({
+          mapXY: res.name
+        })
+        app.globalData.localPosition=res
+      }
+    })
   },
   //领取红包
   receiveRed(){
@@ -34,6 +54,12 @@ Page({
     })
   },
   getInit(){
+
+    wx.checkSession({
+      success(res) {
+        console.log(res)
+      }
+    })
     var param = {
       agentId: app.globalData.userInfo.agentId,
       longitude: app.globalData.localPosition.longitude,
@@ -52,6 +78,11 @@ Page({
     // 首页banner
     wx.http.postReq('appletClient?m=findBuildingMaterialsBannerList', params, (data) => {
       if (data.success) {
+        let banner = data.value
+        this.setData({
+          banner
+        })
+        console.log(banner)
       }
     })
     // 大牌推荐
@@ -69,6 +100,24 @@ Page({
         let good = data.value
         this.setData({
           good
+        })
+      }
+    })
+    // 分类馆推荐
+    wx.http.postReq('appletClient?m=findBuildingMaterialsRecommendCategoryList', params, (data) => {
+      if (data.success) {
+        var list = data.value
+        this.setData({
+          list
+        })
+      }
+    })
+    // 热销商品
+    wx.http.postReq('appletClient?m=findBuildingMaterialsSalesGoodsList', param, (data) => {
+      if (data.success) {
+        var hotList = data.value
+        this.setData({
+          hotList
         })
       }
     })

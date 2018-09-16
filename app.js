@@ -13,12 +13,11 @@ App({
       }
     })
   },
-  
   onLaunch: function () {
     this.getlocation();
     this.globalData.userInfo = wx.getStorageSync('userInfo');
-    this.globalData.userInfo.agentId = 265
     this.globalData.localPosition = wx.getStorageSync('localPosition');
+    if (this.globalData.userInfo.agentId) this.globalData.userInfo.agentId = 265
   },
   globalData: {
     localPosition: null,

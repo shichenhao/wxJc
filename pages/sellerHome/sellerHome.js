@@ -22,7 +22,7 @@ Page({
   collection() {
     var param = {
       merchantId: this.data.info.id,
-      merchantType: 12
+      merchantType: 6
     }
     wx.http.postReq('userClient?m=createUserFavorites', param, (data) => {
       if (data.success) {

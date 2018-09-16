@@ -1,12 +1,10 @@
 var app = getApp();
-// pages/order/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-  
+    info:null,
   },
 
   /**
@@ -14,12 +12,17 @@ Page({
    */
   onLoad: function (options) {
     var params = {
-      userId: app.globalData.userInfo.id,
-      start: 1,
+      userId: 941,//app.globalData.userInfo.id,
+      start: 0,
       size: 10
     };
     wx.http.postReq('appletClient?m=findBuildingMaterialsOrderList', params, (data) => {
       if (data.success) {
+        var info = data.value;
+        this.setData({
+          info
+        })
+        console.log(this.data.info)
       }
     })
   },

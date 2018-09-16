@@ -70,8 +70,8 @@ line-height:45rpx;
 .home_Recom{background:#fff;}
 .home_Recom_tit{height:92rpx;line-height: 92rpx;color:#000;font-size:32rpx;padding:0 50rpx;font-weight: bold;}
 .scroll-view_H{height:146rpx;padding:20rpx 20rpx 20rpx 0;white-space: nowrap;}
-.scroll-view_H view{width:260rpx;height:146rx;margin-left:18rpx;display: inline-block;}
-.scroll-view_H view image{width:100%;height: 100%;border-radius: 3rpx;}
+.scroll-view_H navigator{width:260rpx;height:146rx;margin-left:18rpx;display: inline-block;}
+.scroll-view_H navigator image{width:100%;height: 100%;border-radius: 3rpx;}
 
 .home_goodRecom{background:#fff;}
 .home_goodR_list{padding:0 30rpx 40rpx 30rpx;}

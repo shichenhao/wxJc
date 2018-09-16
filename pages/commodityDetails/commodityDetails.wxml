@@ -23,7 +23,7 @@
   </view>
 </view>
 <view class='con2'>
-  <view class='con2_1' wx:if="{{!data.modelList[0].platformSubsidiesPrice}}">
+  <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
     <text class='text1'>补贴</text>
     <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
   </view>

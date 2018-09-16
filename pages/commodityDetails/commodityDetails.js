@@ -44,7 +44,9 @@ Page({
       let { success ,value}=res;
       if (success) {
         let selectCommodity = !value.modelList[0] ? {} : value.modelList[0];
-        selectCommodity.quantity=1;
+        selectCommodity.quantity = 1;
+        selectCommodity.goodsModelId = selectCommodity.id;
+        selectCommodity.price = selectCommodity.discountPrice - selectCommodity.platformSubsidiesPrice;
         this.setData({ 
           data: value,
           selectCommodity
@@ -62,10 +64,12 @@ Page({
   changeSpecifications:function(e){
     let itemdata = e.currentTarget.dataset.itemdata;
     itemdata.quantity = this.quantity;
+    itemdata.goodsModelId = itemdata.id;
+    itemdata.price = itemdata.discountPrice - itemdata.platformSubsidiesPrice;
     this.setData({ selectCommodity:itemdata});
   },
-  purchase:function(){ //立即购买
-    global.selectCommodity = this.data.selectCommodity;
+  purchase: function () { //立即购买
+    globalData.selectCommodity = this.data.selectCommodity;
     wx.navigateTo({
       url: '../order-submit/submit?merchantId=' + this.data.data.merchantId
     });

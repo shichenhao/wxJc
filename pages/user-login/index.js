@@ -21,15 +21,17 @@ Page({
               // 存储code
               wx.setStorageSync('code', ress.code)
               wx.http.postReq('appletClient?m=appletLogin', params, (data) => {
+                wx.navigateTo({
+                  url: '../classify/classify'
+                });
+                // wx.switchTab({
+                //   url: '../user/index',
+                // });
                 if (data.success) {
-
                   wx.navigateBack({
                     delta: 2
                   })
-                  /*wx.redirectTo({
-                    url: '/pages/user/index'
-                  })*/
-                  // 存储登录信息
+                  存储登录信息
                   app.globalData.userInfo = data.value
                   wx.setStorageSync('userInfo', data.value)
                   wx.setStorageSync('token', data.value.token)

@@ -9,10 +9,12 @@ Page({
       agentId: app.globalData.userInfo.agentId,
       id:parseInt(id)
     }
-    wx.http.postReq('appletClient? m=findUserClassificationInfo', param, (res) => {
+    wx.http.postReq('appletClient?m=findUserClassificationInfo', param, (res) => {
       if (res.success) {
         var commodityData = res.value;
-        console.log(commodityData)
+        this.setData({
+          commodityData
+        })
       }
     })
   },

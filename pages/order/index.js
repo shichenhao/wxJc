@@ -22,7 +22,6 @@ Page({
         this.setData({
           info
         })
-        console.log(this.data.info)
       }
     })
   },

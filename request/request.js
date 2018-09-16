@@ -17,10 +17,9 @@ function getReq(url, cb) {
     },
     fail: function () {
       wx.hideLoading();
-      wx.showModal({
+      wx.showToast({
         title: '网络错误',
-        content: '网络出错，请刷新重试',
-        showCancel: false
+        icon: 'none'
       })
       return typeof cb == "function" && cb(false)
     }
@@ -49,20 +48,18 @@ function postReq(url, data, cb) {
         //console.log(res)
         wx.hideLoading();
         if (!res.data.success){
-          wx.showModal({
-            title: '错误',
-            content: res.data.value || 'error',
-            showCancel: false
+          wx.showToast({
+            title: res.data.value || 'error',
+            icon: 'none'
           })
         }
         return typeof cb == "function" && cb(res.data)
       },
       fail: function () {
         wx.hideLoading();
-        wx.showModal({
-          title: '网络错误',
-          content: '网络出错，请刷新重试',
-          showCancel: false
+        wx.showToast({
+          title: '网络出错，请刷新重试',
+          icon: 'none'
         })
         return typeof cb == "function" && cb(false)
       }

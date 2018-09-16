@@ -81,6 +81,19 @@
 .con2 .text3{
   color:#333;
   float: right;
+  position: relative;
+  padding-right:20rpx;
+}
+.con2 .text3::after{
+  width:15rpx;
+  height:15rpx;
+  content: "";
+  position: absolute;
+  top:8rpx;
+  right:0rpx;
+  transform: rotate(45deg);
+  border-top:1rpx solid #ccc;
+  border-right: 1rpx solid #ccc;
 }
 
 /* 用户评价 */
@@ -146,8 +159,12 @@
   display: flex;
   justify-content: space-between;
 }
-.con3_row:first-child{
-  margin-bottom:58rpx;
+.con3_row_2{
+  font-size:24rpx;
+  color:#888;
+}
+.con3_row:last-child{
+  margin-top:58rpx;
 }
 .con3_rowL{
   color:#888;
@@ -328,8 +345,8 @@
    border-bottom:1rpx solid #f5f5f5;
 }
 .modelItem{
-  width:200rpx;
-  height:60rpx;
+  min-width:196rpx;
+  height:56rpx;
   font-size:20rpx;
   color:#333;
   text-align: center;
@@ -337,6 +354,11 @@
   border-radius: 10rpx;
   background: #f5f5f5;
   margin:0 20rpx 20rpx 0;
+  border:2px solid #f5f5f5;
+  padding:0 10rpx;
+}
+.modelItemCur{
+  border:2rpx solid #ffa318;
 }
 .purchaseQuantity{
   display: flex;

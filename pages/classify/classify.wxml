@@ -14,9 +14,9 @@
           <view class='title'>热门品牌</view>
         </view>
         <view class='hotCon'>
-          <view class='hotList' wx:for="{{rightData}}" wx:key="{{id}}">
-            <image mode="widthFix" src='{{item.url}}'></image>
-          </view>
+          <navigator url='/pages/sellerHome/sellerHome?id={{item.id}}' class='hotList' wx:for="{{rightData}}" wx:key="{{id}}" hover-class="none">
+            <image mode="widthFix" src='{{item.logo}}'></image>
+          </navigator>
         </view>
       </view>
 

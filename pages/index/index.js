@@ -45,17 +45,15 @@ Page({
       size: 6,
     }
     // 横屏推广
-    /*
-    wx.http.postReq('appletClient?m= findBuildingMaterialsLandscapePromotion', param, (data) => {
+    wx.http.postReq('appletClient?m=findBuildingMaterialsLandscapePromotion', param, (data) => {
       if (data.success) {
       }
     })
     // 首页banner
-    wx.http.postReq('appletClient?m = findBuildingMaterialsBannerList', params, (data) => {
+    wx.http.postReq('appletClient?m=findBuildingMaterialsBannerList', params, (data) => {
       if (data.success) {
       }
     })
-    */
     // 大牌推荐
     wx.http.postReq('appletClient?m=findBuildingMaterialsRecommendMerchantList', params, (data) => {
       if (data.success) {

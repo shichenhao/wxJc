@@ -1,112 +1,35 @@
 <!--pages/classifyDetaile/classifyDetaile.wxml-->
-<view class='box' wx:if="{{commodityData.length===0}}">
-  <view class='list'>
-    <view class='brand'>
+<view class='box' wx:if="{{!!commodityData.length}}">
+  <view class='list' wx:for='{{commodityData}}' wx:key="{{item.id}}">
+    <navigator url='/pages/sellerHome/sellerHome?id={{item.id}}' class='brand' hover-class="none">
       <view class='brandL'>
-        <image src='../../lib/images/brandDefault.png' mode="widthFix"></image>
+        <image src='{{item.logo}}' mode="widthFix"></image>
       </view>
       <view class='brandRight'>
-        <view class='brandRightUp'>大自然地板</view>
+        <view class='brandRightUp'>{{item.name}}</view>
         <view class='brandRightDown'>
           <image src='../../lib/images/star.png' mode="widthFix"></image>
         </view>
       </view>
-    </view>
-    <view class='itemBox'>
-      <view class='item'>
+    </navigator>
+    <view class='itemBox' wx:for='{{item.goodsList}}' wx:for-item="i" wx:key="{{i.id}}">
+      <navigator url='/pages/commodityDetails/commodityDetails?id={{i.id}}' class='item' hover-class="none">
         <view class='imgBox'>
           <view class='leftTop'>
-            <image class='leftTopBg' src='../../lib/images/leftTopBg.png'  mode="widthFix"></image>
+            <image class='leftTopBg' src='{{i.logo}}'  mode="widthFix"></image>
             <text>补</text>
           </view>
           <image class='commodityImg' src='../../lib/images/commodityDefault.png'></image>
         </view> 
         <view class='title'>
-          德国进口高清花色强化复化地合板
+          {{i.goodsName}}
         </view>
         <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
+          <view class='price'>￥{{i.discountPrice || i.originalPrice}}</view>
+          <view class='salesVolume'>已售{{i.totalSaled}}</view>
         </view>
-      </view>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
+      </navigator>
     </view>
-
-  </view>
-  <view class='list'>
-    <view class='brand'>
-      <view class='brandL'>
-        <image src='../../lib/images/brandDefault.png' mode="widthFix"></image>
-      </view>
-      <view class='brandRight'>
-        <view class='brandRightUp'>大自然地板</view>
-        <view class='brandRightDown'>
-          <image src='../../lib/images/star.png' mode="widthFix"></image>
-        </view>
-      </view>
-    </view>
-    <view class='itemBox'>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
-    </view>
-
   </view>
 </view>
 <view wx:if="{{commodityData.length===0}}" class='nothingCommodity'>

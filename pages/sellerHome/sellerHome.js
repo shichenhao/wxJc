@@ -1,23 +1,52 @@
 // pages/sellerHome/sellerHome.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    sellerInfo:false
+    sellerInfo:false,
+    info:{}
+  },
+  getInit(merchantId) {
+    var param = {
+      merchantId
+    }
+    wx.http.postReq('appletClient?m=findClientMerchantHome', param, (data) => {
+      if (data.success) {
+        var info = data.value;
+        console.log(data)
+        this.setData({
+          info
+        })
+      }
+    })
+  },
+  // 收藏
+  collection() {
+    var param = {
+      merchantId: this.data.info.id,
+      merchantType: 12
+    }
+    wx.http.postReq('userClient?m=createUserFavorites', param, (data) => {
+      if (data.success) {
+        this.info.collectionNum + 1
+        var info = this.info;
+        this.setData({
+          info
+        })
+        console.log(data, info)
+      }
+    })
+
+  },
+  seeSellerInfo: function () {
+    this.setData({ sellerInfo: !this.data.sellerInfo });
   },
 
-  seeSellerInfo:function(){
-    this.setData({ sellerInfo: !this.data.sellerInfo});
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.getInit(options.id)
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

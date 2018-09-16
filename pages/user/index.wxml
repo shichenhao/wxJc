@@ -14,36 +14,42 @@
   <view class='userMoney'>
     <view class='userMoneyRow'>
       <view class='b'>
-        20
+        {{
+          userInfo.balance || 0
+        }}
         <view>元</view>
       </view>
       我的余额
     </view>
-    <navigator class='userMoneyRow' url="/pages/user-envelopes/envelopes">
+    <navigator class='userMoneyRow' url="/pages/user-envelopes/envelopes" hover-class="none">
       <view class='b'>
-        20
+        {{
+          userInfo.redBagCount || 0
+        }}
         <view>个</view>
       </view>
       我的红包
     </navigator>
-    <navigator class='userMoneyRow' url="/pages/user-coupon/coupon">
+    <navigator class='userMoneyRow' url="/pages/user-coupon/coupon" hover-class="none">
       <view class='b'>
-        20
+        {{
+          userInfo.couponsCount || 0
+        }}
         <view>个</view>
       </view>
       优惠券
     </navigator>
   </view>
   <view class='userMenu'>
-    <navigator url="/pages/order/index">
+    <navigator url="/pages/order/index" hover-class="none">
       <image src='/lib/images/user-icon1.png'></image>  
       我的订单
     </navigator>
-    <navigator url="/pages/user-add-list/list">
+    <navigator url="/pages/user-add-list/list" hover-class="none">
       <image src='/lib/images/user-icon2.png'></image>  
       收货地址
     </navigator>
-    <navigator url="/pages/collection/collection">
+    <navigator url="/pages/collection/collection" hover-class="none">
       <image src='/lib/images/user-icon3.png'></image>  
       我的收藏
     </navigator>

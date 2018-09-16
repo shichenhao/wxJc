@@ -1,18 +1,29 @@
 // pages/classifyDetaile/classifyDetaile.js
+var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     commodityData:[]
+  },
+  getInit(id){
+    var param = {
+      agentId: app.globalData.userInfo.agentId,
+      id:parseInt(id)
+    }
+    wx.http.postReq('appletClient? m=findUserClassificationInfo', param, (res) => {
+      if (res.success) {
+        var commodityData = res.value;
+        console.log(commodityData)
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getInit(options.id)
 
+      
   },
 
   /**

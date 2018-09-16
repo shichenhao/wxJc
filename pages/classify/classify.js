@@ -1,49 +1,43 @@
 // pages/classify/classify.js
+var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     leftData: [
-      {
-        name: '收入',
-        id:1
-      },
-      {
-        name: '厨柜',
-        id: 2
-      },
-      {
-        name: '瓷砖',
-        id: 3
-      },
-      {
-        name: '汽车',
-        id: 4
-      },
+      { name: '汽车', id: 4 },
     ],
-    rightData:{
-      hot: [
-        { url: '../../lib/images/brandDefault.png',id:1},
-        { url: '../../lib/images/brandDefault.png', id: 2},
-        { url: '../../lib/images/brandDefault.png', id:31},
-        { url: '../../lib/images/brandDefault.png', id: 4},
-      ],
-      classify: [
-        { url: '../../lib/images/commodityDefault.png', name: "1", id: 1 },
-        { url: '../../lib/images/commodityDefault.png', name: "2", id: 2 },
-        { url: '../../lib/images/commodityDefault.png', name: "3", id: 3 },
-        { url: '../../lib/images/commodityDefault.png', name: "4", id: 4 },
-      ]
+    rightData:[
+      { url: '../../lib/images/brandDefault.png',id:1},
+    ],
+    classify: [
+      { url: '../../lib/images/commodityDefault.png', name: "1", id: 1 }
+    ]
+  },
+  getList() {
+    var param = {
+      agentId: app.globalData.userInfo.agentId,
+      parentId: 0,
+      longitude: app.globalData.localPosition.longitude,
+      latitude: app.globalData.localPosition.latitude
     }
+    wx.http.postReq('appletClient?m=findUserClassification', param, (res) => {
+      if (res.success) {
+        var leftData = res.value.oneCategoryList;
+        var classify = res.value.twoCategoryList;
+        var rightData = res.value.merchantList;
+        this.setData({
+          leftData,
+          classify,
+          rightData,
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getList();
   },
 
   /**

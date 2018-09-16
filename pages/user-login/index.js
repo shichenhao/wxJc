@@ -1,51 +1,48 @@
 // pages/user-login/index.js
 var app = getApp();
 Page({
-  login() {
-    // 登录
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function (res) {
-              wx.login({
-                success: ress => {
-                  var params = {
-                    ...res,
-                    code: ress.code,
-                    longitude: app.globalData.localPosition.longitude,
-                    latitude: app.globalData.localPosition.latitude
-                  };
-                  //console.log(ress)
-                  // 存储code
-                  wx.setStorageSync('code', ress.code)
-                  wx.http.postReq('appletClient?m=appletLogin', params, (data) => {
-                    if (data.success) {
-                      wx.redirectTo({
-                        url: '/pages/user/index'
-                      })
-                      // 存储登录信息
-                      app.globalData.userInfo = data.value
-                      wx.setStorageSync('userInfo', data.value)
-                      wx.setStorageSync('token', data.value.token)
-                    }
-                  })
-                  // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                }
-              })
-              
+  login(e) {
+    if (e.detail.errMsg === "getUserInfo:ok"){
+      wx.login({
+        success: ress => {
+          console.log(e.detail,ress)
+          var params = {
+            ...e.datail,
+            encryptedData: e.detail.encryptedData,
+            iv: e.detail.iv,
+            code: ress.code,
+            longitude: app.globalData.localPosition.longitude,
+            latitude: app.globalData.localPosition.latitude
+          };
+          //console.log(ress)
+          // 存储code
+          wx.setStorageSync('code', ress.code)
+          wx.http.postReq('appletClient?m=appletLogin', params, (data) => {
+            if (data.success) {
 
+              wx.navigateBack({
+                delta:2
+              })
+              /*wx.redirectTo({
+                url: '/pages/user/index'
+              })*/
+              // 存储登录信息
+              app.globalData.userInfo = data.value
+              wx.setStorageSync('userInfo', data.value)
+              wx.setStorageSync('token', data.value.token)
             }
           })
-        } else {
-          wx.showModal({
-            title: '授权失败',
-            showCancel: false
-          })
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
         }
-      }
-    })
+      })
+    }else{
+      wx.showModal({
+        title: '授权失败',
+        showCancel: false
+      })
+    }
+    return false
+    // 登录
   },
   /**
    * 页面的初始数据

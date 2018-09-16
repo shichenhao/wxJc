@@ -1,18 +1,17 @@
 {
   "pages":[
     "pages/commodityDetails/commodityDetails",
+    "pages/user-collection/collection",
+    "pages/index/index",
+    "pages/couplet/couplet",
+    "pages/discount/discount",
+    "pages/returnList/returnList",    
+    "pages/classifyDetaile/classifyDetaile",
     "pages/order-submit/submit",
-    "pages/commodityDetails/commodityDetails",
-    "pages/user-login/index",
-    "pages/user-add-list/list",
-    "pages/user-address/address",
-    "pages/user-coupon/coupon",
-    "pages/user-envelopes/envelopes",
     "pages/payment/payment",
     "pages/newProduct/newProduct",
     "pages/promotion/promotion",
     "pages/sellerCommodity/sellerCommodity",
-    "pages/order-submit/submit",
     "pages/cart/index",
     "pages/sellerHome/sellerHome",
     "pages/searchResult/searchResult",
@@ -22,14 +21,49 @@
     "pages/order-detail/detail",
     "pages/order/index",
     "pages/user/index",
-    "pages/index/index",
+    "pages/user-login/index",
+    "pages/user-add-list/list",
+    "pages/user-address/address",
+    "pages/user-coupon/coupon",
+    "pages/user-envelopes/envelopes",
     "pages/evaluate/index",
     "pages/evaluate-list/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "马管家建材",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#ed655f",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "/lib/images/home_nav1h.png",
+        "iconPath": "/lib/images/home_nav1.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "/lib/images/home_nav2h.png",
+        "iconPath": "/lib/images/home_nav2.png",
+        "pagePath": "pages/index/index",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "/lib/images/home_nav3h.png",
+        "iconPath": "/lib/images/home_nav3.png",
+        "pagePath": "pages/cart/index",
+        "text": "购物车"
+      },
+      {
+        "selectedIconPath": "/lib/images/home_nav4h.png",
+        "iconPath": "/lib/images/home_nav4.png",
+        "pagePath": "pages/user/index",
+        "text": "我的"
+      }
+    ]
   }
 }

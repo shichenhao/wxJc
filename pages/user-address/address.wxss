@@ -13,6 +13,8 @@
   padding: 30rpx 80rpx 30rpx 30rpx;
   line-height: 60rpx;
   position: relative;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141541431695861.png) repeat-x;
+  background-size: auto 5rpx;
 }
 
 .addressItem image{

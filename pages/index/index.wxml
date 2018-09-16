@@ -1,3 +1,356 @@
 <view class="container">
-  <navigator url="/pages/evaluate/index">跳转到新页面</navigator>
+  <view class="home_ban">
+    <image src='/lib/images/home_ban.jpg' mode="widthFix"></image>
+    <view class='home_addr'>
+      <image src='/lib/images/home_banicon2.jpg' class="home_addr_img1"></image>
+      <text>英都大厦D座大厦D座</text>
+       <image src='/lib/images/home_banicon3.jpg' class="home_addr_img2"></image>
+    </view>
+    <navigator class='home_seach' url='/pages/search/search' hover-class='none'>
+       <image src='/lib/images/home_banicon1.jpg'></image>
+       瓷砖
+    </navigator>
+  </view>
+  <view class='home_iconlist'>
+    <view><image src='/lib/images/home_icon1.png'></image>品牌授权</view>
+    <view><image src='/lib/images/home_icon2.png'></image>假一罚十</view>
+    <view><image src='/lib/images/home_icon3.png'></image>7天退换货</view>
+    <view><image src='/lib/images/home_icon4.png'></image>保价一年</view>
+  </view>
+  <view class='home_main'>
+    <view class='home_nav'>
+      <view><image src='/lib/images/home_icon5.jpg'></image>全场返现</view>
+      <view><image src='/lib/images/home_icon6.jpg'></image>优惠券</view>
+      <view><image src='/lib/images/home_icon7.jpg'></image>联单奖励</view>
+      <view><image src='/lib/images/home_icon8.jpg'></image>优质服务</view>
+    </view>
+    <view class='home_gg'>
+      <image src='/lib/images/home_pic1.jpg' mode="widthFix"></image>
+    </view>
+  </view>
+  <!--家具-->
+  <view class='home_show'>
+    <view class='home_show_tit  color1'><view><text>家具 · </text>馆</view><text class='home_showAB'>Living Furniture</text></view>
+    <view class='home_Hotpic'>  
+       <image src='/lib/images/home_pic3.jpg' mode="widthFix"></image>
+    </view>
+    <view class='home_show_list clearfix'>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix"></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!--家电-->
+  <view class='home_show'>
+    <view class='home_show_tit  color2'><view><text>家电 · </text>馆</view><text class='home_showAB'> electric appliance</text></view>
+    <view class='home_Hotpic'>  
+       <image src='/lib/images/home_pic3.jpg' mode="widthFix"></image>
+    </view>
+    <view class='home_show_list clearfix'>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!--软装-->
+  <view class='home_show'>
+    <view class='home_show_tit  color3'><view><text>软装 · </text>馆</view><text class='home_showAB'>Soft Decoration</text></view>
+    <view class='home_Hotpic'>  
+       <image src='/lib/images/home_pic3.jpg' mode="widthFix"></image>
+    </view>
+    <view class='home_show_list clearfix'>
+     <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+   <!--建材-->
+  <view class='home_show'>
+    <view class='home_show_tit  color4'><view><text>建材 · </text>馆</view><text class='home_showAB'>Building material</text></view>
+    <view class='home_Hotpic'>  
+       <image src='/lib/images/home_pic3.jpg' mode="widthFix"></image>
+    </view>
+    <view class='home_show_list clearfix'>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+      <navigator class='home_picT' hover-class="none">
+        <image src='/lib/images/home_pic2.jpg' mode="widthFix" ></image>
+        <view class='home_picTtext'>
+          <text class='home_picTtit'>现代简约新中式木纹墙纸原木色木板壁纸</text>
+          <view class='home_picTbot'>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>650</text><text class="home_picTbotY">市场价:58</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+   <!--热销榜单-->
+  <view class='home_hot'>
+    <image src='/lib/images/home_pic6.jpg' mode="widthFix" class='home_hotbg'></image>
+    <view class='home_hottit'>
+      <image src='/lib/images/home_icon9.png' mode="widthFix"></image>热销榜单
+    </view>
+    <view class='home_hotlistBox clearfix'>
+      <navigator class='home_hotlist' hover-class="none">
+        <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='home_listPic'></image>
+        <view class='home_hotlistF'>
+          <image src='/lib/images/home_icon10.png' mode="widthFix" class='home_hotlistF_icon1'></image>
+          <text class='home_hotlistF_tit'>北欧实木书架组合</text>
+          <view><text class='home_hotlistjq'>已售1600</text><text>¥</text>650</view>
+        </view>
+      </navigator>
+      <navigator class='home_hotlist' hover-class="none">
+        <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='home_listPic'></image>
+        <view class='home_hotlistF'>
+          <image src='/lib/images/home_icon10.png' mode="widthFix" class='home_hotlistF_icon1'></image>
+          <text class='home_hotlistF_tit'>北欧实木书架组合</text>
+          <view><text class='home_hotlistjq'>已售1600</text><text>¥</text>650</view>
+        </view>
+      </navigator>
+      <navigator class='home_hotlist' hover-class="none">
+        <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='home_listPic'></image>
+        <view class='home_hotlistF'>
+          <image src='/lib/images/home_icon11.png' mode="widthFix" class='home_hotlistF_icon1'></image>
+          <text class='home_hotlistF_tit'>北欧实木书架组合</text>
+          <view><text class='home_hotlistjq'>已售1600</text><text>¥</text>650</view>
+        </view>
+      </navigator>
+      <navigator class='home_hotlist' hover-class="none">
+        <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='home_listPic'></image>
+        <view class='home_hotlistF'>
+          <text class='home_hotlistF_tit'>北欧实木书架组合</text>
+          <view><text class='home_hotlistjq'>已售1600</text><text>¥</text>650</view>
+        </view>
+      </navigator>
+      <navigator class='home_hotlist' hover-class="none">
+        <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='home_listPic'></image>
+        <view class='home_hotlistF'>
+          <text class='home_hotlistF_tit'>北欧实木书架组合</text>
+          <view><text class='home_hotlistjq'>已售1600</text><text>¥</text>650</view>
+        </view>
+      </navigator>
+      <navigator class='home_hotlist' hover-class="none">
+        <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='home_listPic'></image>
+        <view class='home_hotlistF'>
+          <text class='home_hotlistF_tit'>北欧实木书架组合</text>
+          <view><text class='home_hotlistjq'>已售1600</text><text>¥</text>650</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!--推荐榜单-->
+  <view class='home_Recom'>
+    <view class='home_Recom_tit' style="background:url(/lib/images/home_pic8.jpg) no-repeat;background-size:100%">
+      推荐榜单
+    </view>
+      <scroll-view scroll-x  style="width: 100%">
+        <view class='scroll-view_H'>
+          <block>
+            <view wx:for="{{major}}" wx:key="{{item.id}}"><image src="{{item.merchantImage}}" mode="widthFix"></image></view>
+          </block>
+        </view>
+      </scroll-view>
+  </view>
+  <!--好货推荐-->
+  <view class='home_goodRecom'>
+    <view class='home_Recom_tit'>
+      好货推荐
+    </view>
+    <!--list-->
+    <view class='home_goodR_list'>
+      <view class='home_goodR_pic'>
+         <image src='/lib/images/home_pic10.jpg' mode="widthFix"></image>
+         <view class='home_goodR_brand'>
+            <image src='/lib/images/home_pic11.jpg' mode="widthFix"></image>
+            马可波罗
+         </view>
+      </view>
+      <view class='home_goodR_price'>
+        <text class='price1'><text>¥</text>399</text>  <text class='price2'>马管家补贴<text>24元</text></text>
+      </view>
+      <view class='home_goodR_tit'>
+          <text>补贴</text> 马可波罗瓷砖 全抛釉客厅厨室地砖厨卫砖 木纹砖
+      </view>
+      <view class='home_goodR_text'>
+        品质生活，每一片砖都经过严格的质检，砖面专题通体如一。多层叠加施釉工艺，砖胚体硬度更强，坚固耐用。
+      </view>
+    </view>
+    <!--list-->
+     <view class='home_goodR_list'>
+      <view class='home_goodR_pic'>
+         <image src='/lib/images/home_pic10.jpg' mode="widthFix"></image>
+         <view class='home_goodR_brand'>
+            <image src='/lib/images/home_pic11.jpg' mode="widthFix"></image>
+            马可波罗
+         </view>
+      </view>
+      <view class='home_goodR_price'>
+        <text class='price1'><text>¥</text>399</text>  <text class='price2'>马管家补贴<text>24元</text></text>
+      </view>
+      <view class='home_goodR_tit'>
+          <text>补贴</text> 马可波罗瓷砖 全抛釉客厅厨室地砖厨卫砖 木纹砖
+      </view>
+      <view class='home_goodR_text'>
+        品质生活，每一片砖都经过严格的质检，砖面专题通体如一。多层叠加施釉工艺，砖胚体硬度更强，坚固耐用。
+      </view>
+    </view>
+  </view>
+  <view class='redBagCount {{isLogin ? "active" : ""}}' wx:if="{{redType}}">
+    <view class='redBagCountBox'>
+      <view class='money'>
+        <text>50</text>元
+        <view>
+          无门槛红包
+        </view>
+      </view>
+      <navigator url="/pages/user-login/index" class='span' wx:if="{{!isLogin}}" hover-class="none">立即登录，领取红包</navigator>
+      <navigator url="/pages/user-envelopes/envelopes" class='span' wx:if="{{isLogin}}" hover-class="none">立即使用</navigator>
+      <view class='p'>
+        可在“我的钱包”中查看详情
+      </view>
+      <view class='close' bindtap="closeRed">✖</view>
+    </view>
+  </view>
 </view>

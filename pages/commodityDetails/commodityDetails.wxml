@@ -7,30 +7,30 @@
   </view>
 </view>
 <view>
-  <image class='commodityImg' src='../../lib/images/commodityDefault.png' mode="widthFix"></image>
+  <image class='commodityImg' src='{{!data.imgs?"../../lib/images/commodityDefault.png":data.imgs}}' mode="widthFix"></image>
 </view>
 <view class='con1'>
   <view>
-    <text class='price'>￥500</text>
-    <text class='oldPrice'>原价:￥599</text>
-    <text class='salesVolume'>销量：111</text>
+    <text class='price'>￥{{selectCommodity.discountPrice}}</text>
+    <text class='oldPrice'>原价:￥{{selectCommodity.originalPrice}}</text>
+    <text class='salesVolume'>销量：{{selectCommodity.totalSaled}}</text>
   </view>
   <view class="h2">
-    圣象地板
+    {{data.goodsName}}
   </view>
   <view class='h2p'>
-    圣象地板由德国设计团队设计，精美与设计感的外观简单方便的操作是你的独一选择
+   {{data.goodsDescribe}}
   </view>
 </view>
 <view class='con2'>
-  <view class='con2_1'>
+  <view class='con2_1' wx:if="{{!data.modelList[0].platformSubsidiesPrice}}">
     <text class='text1'>补贴</text>
-    <text class='text2'>平台补贴200元</text>
-    <text class='text3'>立即领取</text>
+    <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
   </view>
   <view>
     <text class='text1'>促销</text>
     <text class='text2 text2_2'>满100减10元、满200减30元</text>
+    <text class='text3'>立即领取</text>
   </view>
 </view>
 <!-- 选择规格 -->
@@ -38,6 +38,10 @@
   <view class='con3_row'>
     <text class='con3_rowL'>选择型号</text>
     <text class='con3_rowR con3_rowR_1' bindtap='handleSpecifications'>型号规格，购买数量</text>
+  </view>
+  <view class='con3_row con3_row_2'>
+    <text>{{selectCommodity.goodsModel}}</text>
+    <text>{{selectCommodity.quantity}}</text>
   </view>
   <view class='con3_row'>
     <text class='con3_rowL'>服务说明</text>
@@ -75,14 +79,14 @@
   </view>
   <view class='con5_main'>
     <view class='con5_mainL'>
-      <image src='../../lib/images/brandDefault.png'></image>
+      <image src='{{!data.buildingMaterialsMerchant?"../../lib/images/brandDefault.png":data.buildingMaterialsMerchant.logo}}'></image>
       <view class='con5_mainL_L'>
-        <view class='con5_mainL_L_T'>财到地板</view>
-        <view class='con5_mainL_L_B'>综合评分: <text>4.8</text> </view>
+        <view class='con5_mainL_L_T'>{{!data.buildingMaterialsMerchant?"":data.buildingMaterialsMerchant.name}}</view>
+        <view class='con5_mainL_L_B'>综合评分: <text>{{!data.buildingMaterialsMerchant?5:data.buildingMaterialsMerchant.commentsAverageScore}}</text> </view>
       </view>
     </view>
     <view class='con5_mainR'>
-      100件商品
+      {{!data.totalSaled?"0":data.totalSaled}}件商品
     </view>
   </view>
 </view>
@@ -105,7 +109,7 @@
   <view class='downNav3 join'>
     <text>加入购物车</text>
   </view>
-  <view class='downNav3 purchase'>
+  <view class='downNav3 purchase' bindtap='purchase'>
     <text>立即购买</text>
   </view>
 </view>
@@ -114,21 +118,18 @@
 <view class='specificationsBg' wx:if="{{specifications}}">
   <view class='specifications'>
       <view class='closeBox'>
-      <view class='close'>×</view>
+      <view class='close' bindtap='handleSpecifications'>×</view>
       </view>
       <view class='commodityImg2'>
-        <image src='../../lib/images/commodityDefault.png' mode="widthFix"></image>
-        <text class='specificationsPrice'>￥821</text>
+        <image src='{{selectCommodity.img}}' mode="widthFix"></image>
+        <text class='specificationsPrice'>￥{{selectCommodity.discountPrice}}</text>
       </view>
       <view class='modelTitle'>选择型号</view>
       <view class='modelTitle2'>型号</view>
       <view class='modelBox'>
-        <view class='modelItem'>100*50方通常规色</view>
-        <view class='modelItem'>100*50方通常规色</view>
-        <view class='modelItem'>100*50方通常规色</view>
-        <view class='modelItem'>100*50方通常规色</view>
-        <view class='modelItem'>100*50方通常规色</view>
-        <view class='modelItem'>100*50方通常规色</view>
+        <view 
+          class='modelItem{{item.id==selectCommodity.id?" modelItemCur":""}}' 
+          wx:for="{{data.modelList}}" wx:key="id" data-itemData="{{item}}" bindtap='changeSpecifications'>{{item.goodsModel}}</view>
       </view>
       <view class='purchaseQuantity'>
         <view>购买数量</view>
@@ -140,7 +141,7 @@
       </view>
       <view class='downBtn'>
         <view class='downBtnL'>加入购物车</view>
-        <view class='downBtnR'>立即购买</view>
+        <view class='downBtnR' bindtap='purchase'>立即购买</view>
       </view>
   </view>
 </view>

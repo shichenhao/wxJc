@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/commodityDetails/commodityDetails",
+    "pages/user-login/index",
     "pages/classify/classify",
-    "pages/classifyDetail/classifyDetail",
+    "pages/commodityDetails/commodityDetails",
     "pages/index/index",
+    "pages/classifyDetail/classifyDetail",
     "pages/user-collection/collection",
     "pages/couplet/couplet",
     "pages/discount/discount",
@@ -20,7 +21,6 @@
     "pages/order-detail/detail",
     "pages/order/index",
     "pages/user/index",
-    "pages/user-login/index",
     "pages/user-add-list/list",
     "pages/user-address/address",
     "pages/user-coupon/coupon",

@@ -22,10 +22,10 @@ Page({
               wx.setStorageSync('code', ress.code)
               wx.http.postReq('appletClient?m=appletLogin', params, (data) => {
                 if (data.success) {
-
                   wx.navigateBack({
                     delta: 2
                   })
+
                   /*wx.redirectTo({
                     url: '/pages/user/index'
                   })*/

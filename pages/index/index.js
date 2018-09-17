@@ -127,12 +127,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getInit();
-    if (app.globalData.isRed){
-      this.receiveRed();
-    }else{
-      this.closeRed();
-    }
+    app.isInit(()=>{
+      if (app.globalData.localPosition){
+        this.getInit();
+        if (app.globalData.isRed) {
+          this.receiveRed();
+        } else {
+          this.closeRed();
+        }
+      }
+    })
     
   },
 

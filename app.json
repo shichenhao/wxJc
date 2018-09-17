@@ -1,9 +1,10 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/user-login/index",
+    "pages/order/index",
     "pages/classify/classify",
     "pages/commodityDetails/commodityDetails",
-    "pages/index/index",
     "pages/classifyDetail/classifyDetail",
     "pages/user-collection/collection",
     "pages/couplet/couplet",
@@ -19,7 +20,6 @@
     "pages/searchResult/searchResult",
     "pages/search/search",
     "pages/order-detail/detail",
-    "pages/order/index",
     "pages/user/index",
     "pages/user-add-list/list",
     "pages/user-address/address",

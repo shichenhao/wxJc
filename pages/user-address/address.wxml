@@ -1,26 +1,18 @@
 <view class="container">
-  <view class='addressList'>
+  <view class='addressList' wx:for="{{dataList}}">
     <view class='addressItem'>
       <view class='span'>
-        阿萨 女士 15555555551
+        {{item.name}} {{item.gender==="男"?"先生":"女士"}} {{item.mobile}}
       </view>
       <view class='span'>
-        阿萨 女士 15555555551
+        {{item.address}}
       </view>
       <image src='/lib/images/adress_06.png'></image>
     </view>
-    <view class='addressItem'>
-      <view class='span'>
-        阿萨 女士 15555555551
-      </view>
-      <view class='span'>
-        阿萨 女士 15555555551
-      </view>
-    </view>
   </view>
-  <view class='addressAdd'>
+  <navigator url="/pages/user-add-list/list" hover-class="none" class='addressAdd'>
     <image src='/lib/images/add.png'></image>
     新增地址
-  </view>
+  </navigator>
 
 </view>

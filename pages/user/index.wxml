@@ -45,7 +45,7 @@
       <image src='/lib/images/user-icon1.png'></image>  
       我的订单
     </navigator>
-    <navigator url="/pages/user-add-list/list" hover-class="none">
+    <navigator url="/pages/user-address/address" hover-class="none">
       <image src='/lib/images/user-icon2.png'></image>  
       收货地址
     </navigator>

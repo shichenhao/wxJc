@@ -25,9 +25,9 @@ Page({
                   // 存储code
                   wx.setStorageSync('code', ress.code)
                   wx.http.postReq('appletClient?m=appletLogin', params, (data) => {
-                    // wx.switchTab({
-                    //   url: '../user/index',
-                    // });
+                    wx.switchTab({
+                      url: '../index/index',
+                    });
                     if (data.success) {
                       wx.navigateBack({
                         delta: 2

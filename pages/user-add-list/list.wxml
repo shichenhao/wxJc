@@ -1,26 +1,28 @@
 <view class="container">
+<form bindsubmit="formSubmit">
   <view class='addPop'>
     <view class='li'>
       <view>联系人：</view>
-      <input placeholder='姓名' type='text'></input>
-    </view>
+      <input name="name" placeholder='姓名' type='text'></input>
+    </view> 
     <view class='li'>
       <view></view>
-      <view class='checkbox active'></view>先生
-      <view class='checkbox'></view>女士
+      <view class='checkbox{{gender==="男"?" active":""}}' data-gender='男' bindtap='changeGender'></view>先生
+      <view class='checkbox{{gender==="女"?" active":""}}' data-gender='女' bindtap='changeGender'></view>女士
     </view>
     <view class='li'>
       <view>电话：</view>
-      <input placeholder='请填写收货手机号码' type='text'></input>
+      <input name="mobile" placeholder='请填写收货手机号码' type='text'></input>
     </view>
-    <view class='li'>
+    <view class='li' bindtap='getMap'>
       <view>地址：</view>
-      <view>小区/写字楼/学校等</view>
+      <view>{{detailedAddress||"小区/写字楼/学校等"}}</view>
     </view>
     <view class='li'>
       <view></view>
-      <input placeholder='详细地址（如门牌号等）' type='text'></input>
+      <input name="houseNumber" placeholder='详细地址（如门牌号等）' type='text'></input>
     </view>
-    <view class='btnPay'>确定</view>
+    <button class='btnPay' formType="submit">确定</button>
   </view>
+  </form>
 </view>

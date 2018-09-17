@@ -61,5 +61,9 @@ Page({
         console.log(value);
       }
     })
+  },
+  changeType(e){
+    let id=e.currentTarget.dataset.id;
+    this.setData({ shipmentType:id});
   }
 })

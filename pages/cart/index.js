@@ -5,6 +5,8 @@ Page({
     edit: true,
     // 弹窗
     cartPop: false,
+    // 全选
+    checkAll: false,
     cartList: wx.getStorageSync('cart'),
     cartNun:0
   },
@@ -23,18 +25,60 @@ Page({
   // 计算数量
   cartNum(e) { //增加减少数量 1 减少 2增加
     var carType = e.currentTarget.dataset.type;
-    var selectCommodity = this.data.selectCommodity;
-    var num = parseInt(this.data.quantity);
+    var itemIndex = e.currentTarget.dataset.itemindex;
+    var objIndex = e.currentTarget.dataset.objindex;
+    var cartList = this.data.cartList;
+    var num = parseInt(cartList[itemIndex].list[objIndex].quantity);
     if (carType == 2) {
       num = num + 1
     } else {
       num = num - 1 <= 1 ? 1 : num - 1
     }
-    selectCommodity.quantity = num;
+    this.data.cartList[itemIndex].list[objIndex].quantity = num;
     this.setData({
-      quantity: num,
-      selectCommodity
+      cartList
     });
+  },
+  // 选中
+  checkItem(e) {
+    var itemIndex = e.currentTarget.dataset.itemindex;
+    var objIndex = e.currentTarget.dataset.objindex;
+    var cartList = this.data.cartList;
+    cartList[itemIndex].list[objIndex].check = !cartList[itemIndex].list[objIndex].check
+    this.setData({
+      cartList
+    });
+  },
+  // 选中
+  checkMerchant(e) {
+    var itemIndex = e.currentTarget.dataset.itemindex;
+    var cartList = this.data.cartList;
+    cartList[itemIndex].check = !cartList[itemIndex].check
+    cartList[itemIndex].list = cartList[itemIndex].list.map(i=>{
+      i.check = cartList[itemIndex].check
+      return i
+    })
+    this.setData({
+      cartList
+    });
+  },
+  checkChangeAll() {
+    var checkAll = !this.data.checkAll;
+    var cartList = this.data.cartList;
+    cartList = cartList.map(i => {
+      i.list = i.list.map(item=>{
+        item.check = checkAll
+        return item
+      })
+      i.check = checkAll
+      return i
+    })
+    this.setData({
+      checkAll,
+      cartList
+    });
+    console.log(checkAll)
+
   },
 
   /**

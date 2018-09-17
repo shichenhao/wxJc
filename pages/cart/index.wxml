@@ -16,16 +16,16 @@
       </view>
     </view>
   </view>
-	<view class='evaluateBox' wx:for="{{cartList}}" wx:key="item.index">
+	<view class='evaluateBox' wx:for="{{cartList}}"  wx:for-index="itemIndex" wx:key="item.index">
     <view class='orderTitle'>
       <view class='span'>
-        <view class='checkbox'></view>
+        <view class='checkbox {{item.check ? "active" : ""}}' bindtap='checkMerchant' data-itemIndex='{{itemIndex}}'></view>
         <image src='{{item.merchant.logo}}'></image>
         {{item.merchant.name}}
       </view>
     </view>
-    <view class='evaluateItem' wx:for="{{item.list}}" wx:for-item="obj" wx:key="{{obj.index}}">
-      <view class='checkbox'></view>
+    <view class='evaluateItem' wx:for="{{item.list}}" wx:for-item="obj" wx:for-index="objIndex" wx:key="{{obj.index}}" >
+      <view class='checkbox {{obj.check ? " active" : ""}}' bindtap='checkItem' data-objIndex='{{objIndex}}' data-itemIndex='{{itemIndex}}'></view>
       <image src='{{obj.img}}'></image>
       <view class='evaluateTxt'>
         {{obj.goodsModel}}
@@ -38,9 +38,9 @@
             </view>
           </view>
           <view class='countBox'>
-          <view class='countAdd' bindtap='cartNum' data-type='1' data-item='{{obj.id}}'></view>
+          <view class='countAdd' bindtap='cartNum' data-objIndex='{{objIndex}}' data-itemIndex='{{itemIndex}}' data-type='1'></view>
           <view class='count'>{{obj.quantity}}</view>
-          <view class='countDel' bindtap='cartNum' data-type='2' data-item='{{obj.id}}'></view>
+          <view class='countDel' bindtap='cartNum' data-objIndex='{{objIndex}}' data-itemIndex='{{itemIndex}}'  data-type='2'></view>
           </view>
         </view>
       </view>
@@ -48,8 +48,8 @@
   </view>
 
   <view class='cartTotal'>
-    <view class='checkbox'></view>
-    <view class='selection'>全选</view>
+    <view class='checkbox {{checkAll ? "active" : ""}}' bindtap='checkChangeAll'></view>
+    <view class='selection' bindtap='checkChangeAll'>全选</view>
     <view wx:if="{{edit}}">
       合计：
       <view class='span'>

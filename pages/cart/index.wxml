@@ -1,11 +1,11 @@
 <view class="container">
-  <view class='cartNull'>
+  <view class='cartNull' wx:if="{{cartList.length === 0}}">
     <image src='/lib/images/cart-null.png'></image>
     购物车竟然是空的
   </view>
-  <view class='orderTitle cartTitle'>
+  <view class='orderTitle cartTitle' wx:if="{{cartList.length > 0}}">
     <view>
-      共78件宝贝
+      共{{cartList.length}}件宝贝
     </view>
     <view bindtap='editFun'>
       <view wx:if="{{edit}}">
@@ -16,69 +16,37 @@
       </view>
     </view>
   </view>
-	<view class='evaluateBox'>
+	<view class='evaluateBox' wx:for="{{cartList}}" wx:key="item.index">
     <view class='orderTitle'>
       <view class='span'>
         <view class='checkbox'></view>
-        <image src='/lib/images/brandDefault.png'></image>
-        地板
+        <image src='{{item.merchant.logo}}'></image>
+        {{item.merchant.name}}
       </view>
     </view>
-    <view class='evaluateItem'>
+    <view class='evaluateItem' wx:for="{{item.list}}" wx:for-item="obj" wx:key="{{obj.index}}">
       <view class='checkbox'></view>
-      <image src='/lib/images/commodityDefault.png'></image>
+      <image src='{{obj.img}}'></image>
       <view class='evaluateTxt'>
-        木质地板
-        <view>黄色/111</view>
+        {{obj.goodsModel}}
+        <view>{{obj.goodsModel}}</view>
         <view class='orderNumber'>
           <view>
             ￥
             <view class='b'>
-              399
+              {{obj.platformSubsidiesPrice}}
             </view>
           </view>
           <view class='countBox'>
-            <view class='countAdd'></view>
-            <view class='count'>1</view>
-            <view class='countDel'></view>
+          <view class='countAdd' bindtap='cartNum' data-type='1' data-item='{{obj.id}}'></view>
+          <view class='count'>{{obj.quantity}}</view>
+          <view class='countDel' bindtap='cartNum' data-type='2' data-item='{{obj.id}}'></view>
           </view>
         </view>
       </view>
     </view>
   </view>
 
-
-  
-	<view class='evaluateBox'>
-    <view class='orderTitle'>
-      <view class='span'>
-        <view class='checkbox'></view>
-        <image src='/lib/images/brandDefault.png'></image>
-        地板
-      </view>
-    </view>
-    <view class='evaluateItem'>
-      <view class='checkbox active'></view>
-      <image src='/lib/images/commodityDefault.png'></image>
-      <view class='evaluateTxt'>
-        木质地板
-        <view>黄色/111</view>
-        <view class='orderNumber'>
-          <view>
-            ￥
-            <view class='b'>
-              399
-            </view>
-          </view>
-          <view class='countBox'>
-            <view class='countAdd'></view>
-            <view class='count'>1</view>
-            <view class='countDel'></view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
   <view class='cartTotal'>
     <view class='checkbox'></view>
     <view class='selection'>全选</view>

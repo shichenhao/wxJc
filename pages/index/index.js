@@ -4,7 +4,7 @@ Page({
   data: {
     isLogin: app.globalData.userInfo.agentId,
     //红包弹窗
-    redType:true,
+    redType:false,
     redInfo:{},
     //大牌
     major: [],
@@ -54,11 +54,8 @@ Page({
     })
   },
   getInit(){
-
-    wx.checkSession({
-      success(res) {
-        console.log(res)
-      }
+    this.setData({
+      redType:true
     })
     var param = {
       agentId: app.globalData.userInfo.agentId,
@@ -82,7 +79,7 @@ Page({
         this.setData({
           banner
         })
-        console.log(banner)
+        //console.log(banner)
       }
     })
     // 大牌推荐

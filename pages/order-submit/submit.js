@@ -47,10 +47,13 @@ Page({
   initData(){
     let { merchantId, shipmentType}=this.data;
     let params={
-      agentId: global.userInfo.agentId,
-      userId :global.userInfo.userId,
+      agentId: globalData.userInfo.agentId,
+      userId: globalData.userInfo.id,
       merchantId,
       shipmentType,
+      latitude: globalData.localPosition.latitude,
+      longitude: globalData.localPosition.longitude,
+      orderItems: JSON.stringify([globalData.selectCommodity])
     }
     wx.http.postReq('appletClient?m=buildingMaterialsOrderServicePreview', params, (res) => {
       let { success, value } = res;

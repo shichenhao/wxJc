@@ -2,7 +2,6 @@
   padding-top: 195rpx;
   text-align: center;
   color: #888;
-  display: none;
 }
 
 .cartNull image{

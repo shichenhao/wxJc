@@ -23,7 +23,7 @@
   </view>
 </view>
 <view class='con2'>
-  <view class='con2_1' wx:if="{{!data.modelList[0].platformSubsidiesPrice}}">
+  <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
     <text class='text1'>补贴</text>
     <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
   </view>
@@ -134,13 +134,13 @@
       <view class='purchaseQuantity'>
         <view>购买数量</view>
         <view class='countBox'>
-          <view class='countAdd'></view>
-          <view class='count'>1</view>
-          <view class='countDel'></view>
+          <view class='countAdd' bindtap='cartNum' data-type='1'></view>
+          <view class='count'>{{quantity}}</view>
+          <view class='countDel' bindtap='cartNum' data-type='2'></view>
         </view>
       </view>
       <view class='downBtn'>
-        <view class='downBtnL'>加入购物车</view>
+        <view class='downBtnL' bindtap='pushCart'>加入购物车</view>
         <view class='downBtnR' bindtap='purchase'>立即购买</view>
       </view>
   </view>

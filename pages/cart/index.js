@@ -5,6 +5,8 @@ Page({
     edit: true,
     // 弹窗
     cartPop: false,
+    cartList: wx.getStorageSync('cart'),
+    cartNun:0
   },
   // 编辑
   editFun() {
@@ -18,6 +20,22 @@ Page({
       cartPop: !this.data.cartPop
     })
   },
+  // 计算数量
+  cartNum(e) { //增加减少数量 1 减少 2增加
+    var carType = e.currentTarget.dataset.type;
+    var selectCommodity = this.data.selectCommodity;
+    var num = parseInt(this.data.quantity);
+    if (carType == 2) {
+      num = num + 1
+    } else {
+      num = num - 1 <= 1 ? 1 : num - 1
+    }
+    selectCommodity.quantity = num;
+    this.setData({
+      quantity: num,
+      selectCommodity
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -30,9 +48,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.setNavigationBarTitle({
-      title: '购物车'
-    })
   
   },
 

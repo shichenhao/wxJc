@@ -26,12 +26,18 @@ Page({
     }
     wx.http.postReq('userClient?m=createUserFavorites', param, (data) => {
       if (data.success) {
+        /**
+         *
         this.info.collectionNum + 1
         var info = this.info;
         this.setData({
           info
         })
-        console.log(data, info)
+         */
+        wx.showToast({
+          title: '收藏成功！',
+          icon: 'none'
+        })
       }
     })
 

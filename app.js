@@ -10,22 +10,47 @@ App({
       success: function (res) {
         wx.setStorageSync('localPosition', res)
         _this.globalData.localPosition = res;
+        wx.http.postReq('appletClient?m=findAgentByUserXY', {
+          longitude: res.longitude,
+          latitude: res.latitude
+          }, (data) => {
+            _this.globalData.userInfo = { agentId: data.id }
+        })
+      },
+      fail(err) {
+        wx.showToast({
+          title: '授权失败',
+          icon: 'none'
+        })
       }
     })
   },
-  // 是否可以请求数据
+  // 是否可以请求数据 需要获取用户地理位置
   isInit(cb){
     var _this = this;
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
-        _this.globalData.localPosition = res;
-        cb && cb()
+        wx.http.postReq('appletClient?m=findAgentByUserXY', {
+          longitude: res.longitude,
+          latitude: res.latitude
+        }, (data) => {
+          _this.globalData.userInfo = { agentId: 265 } //data.value.id }
+          _this.globalData.localPosition = res;
+          //console.log(_this.globalData)
+          cb && cb(res)
+        })
+      },
+      fail(err) {
+        wx.showToast({
+          title: '授权失败',
+          icon: 'none'
+        })
       }
     })
   },
   onLaunch: function () {
-    this.getlocation();
+    this.isInit();
     //this.globalData.userInfo = wx.getStorageSync('userInfo');
     //this.globalData.localPosition = wx.getStorageSync('localPosition');
     
@@ -38,7 +63,8 @@ App({
   },
   globalData: {
     localPosition: null,
-    userInfo: null,
-    isRed:false
+    userInfo: wx.getStorageSync('userInfo') || null,
+    isRed:false,
+    cart:[]
   },
 })

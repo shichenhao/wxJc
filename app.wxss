@@ -290,3 +290,17 @@ Page{
   background: #e83c3c;
   text-align: center;
 }
+
+
+.cartNull{
+  padding-top: 195rpx;
+  text-align: center;
+  color: #888;
+}
+
+.cartNull image{
+  width: 243rpx;
+  height: 212rpx;
+  display: block;
+  margin: 0 auto 60rpx;
+}

@@ -17,7 +17,7 @@
         <view class='imgBox'>
           <view class='leftTop'>
             <image class='leftTopBg' src='{{i.logo}}'  mode="widthFix"></image>
-            <text>补</text>
+            <text style='display:none'>补</text>
           </view>
           <image class='commodityImg' src='../../lib/images/commodityDefault.png'></image>
         </view> 
@@ -25,7 +25,7 @@
           {{i.goodsName}}
         </view>
         <view class='commodityInfo'>
-          <view class='price'>￥{{i.discountPrice || i.originalPrice}}</view>
+          <view class='price'>￥{{i.goodsPrice}}</view>
           <view class='salesVolume'>已售{{i.totalSaled}}</view>
         </view>
       </navigator>

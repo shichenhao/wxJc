@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/cart/index",
     "pages/index/index",
     "pages/user-login/index",
     "pages/order/index",
@@ -15,7 +16,6 @@
     "pages/newProduct/newProduct",
     "pages/promotion/promotion",
     "pages/sellerCommodity/sellerCommodity",
-    "pages/cart/index",
     "pages/sellerHome/sellerHome",
     "pages/searchResult/searchResult",
     "pages/search/search",
@@ -48,7 +48,7 @@
       {
         "selectedIconPath": "/lib/images/home_nav2h.png",
         "iconPath": "/lib/images/home_nav2.png",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/classify/classify",
         "text": "分类"
       },
       {

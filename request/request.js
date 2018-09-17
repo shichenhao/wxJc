@@ -29,6 +29,7 @@ function getReq(url, cb) {
 function postReq(url, data, cb) {
 
   var params = {
+    "app": 'horsegjUser',
     "imei": wx.getStorageSync('code'),
     "params": data,
     "token": wx.getStorageSync('token') || null
@@ -49,7 +50,7 @@ function postReq(url, data, cb) {
         wx.hideLoading();
         if (!res.data.success){
           wx.showToast({
-            title: res.data.value || 'error',
+            title: res.data.value || '出错了，请联系客服',
             icon: 'none'
           })
         }

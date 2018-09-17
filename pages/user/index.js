@@ -1,7 +1,6 @@
 // pages/user/index.js
 var app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -14,19 +13,21 @@ Page({
    */
   onLoad: function (options) {
     var userInfo = wx.getStorageSync('userInfo') || null;
-    // console.log(userInfo)
-    this.setData({
-      userInfo: app.globalData.userInfo || userInfo
-    })
+    if(userInfo){
+      this.setData({
+        userInfo: app.globalData.userInfo || userInfo
+      })
+    }else{
+      wx.navigateTo({
+        url: '../user-login/index'
+      });
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.setNavigationBarTitle({
-      title: '我的'
-    })
   },
 
   /**

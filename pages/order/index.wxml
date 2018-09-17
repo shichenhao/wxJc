@@ -1,5 +1,9 @@
 <view class="container">
-	<view class='evaluateBox' wx:for="{{info}}" wx:key="{{item.index}}">
+  <view class='cartNull' wx:if="{{info.length === 0}}">
+    <image src='/lib/images/Collection_03.png'></image>
+    您还没有订单
+  </view>
+	<view class='evaluateBox' wx:if="{{info.length !== 0}}" wx:for="{{info}}" wx:key="{{item.index}}">
     <view class='orderTitle'>
       <navigator url='/pages/sellerHome/sellerHome?id={{item.id}}' class='span' hover-class='none'>
         <image src='{{item.buildingMaterialsMerchant.logo}}'></image>

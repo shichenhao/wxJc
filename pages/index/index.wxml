@@ -63,9 +63,9 @@
       <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}' class='home_hotlist' hover-class="none" wx:for="{{hotList}}" wx:key="{{item.index}}">
         <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='home_listPic'></image>
         <view class='home_hotlistF'>
-          <image src='/lib/images/home_icon10.png' mode="widthFix" class='home_hotlistF_icon1'></image>
-          <text class='home_hotlistF_tit'>北欧实木书架组合</text>
-          <view><text class='home_hotlistjq'>已售1600</text><text>¥</text>650</view>
+          <image src='{{item.imgs}}' mode="widthFix" class='home_hotlistF_icon1'></image>
+          <text class='home_hotlistF_tit'>{{item.goodsName}}</text>
+          <view><text class='home_hotlistjq'>已售{{item.totalSaled}}</text><text>¥</text>{{item.goodsPrice}}</view>
         </view>
       </navigator>
     </view>

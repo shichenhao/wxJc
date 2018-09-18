@@ -1,121 +1,45 @@
 <view class='box'>
   <view class='searchBox'>
     <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
-    <input id='search' placeholder='搜索品牌分类'></input>
+    <input id='search' placeholder='搜索品牌分类' value="{{searchValue}}" bindinput="searchValueInput"></input>
   </view>
-  <view class='list'>
-    <view class='brand'>
+  <view class='list' wx:for="{{list}}" wx:key="{{item.id}}">
+    <navigator url='/pages/sellerHome/sellerHome?id={{item.id}}' hover-class='none' class='brand'>
       <view class='brandL'>
-        <image src='../../lib/images/brandDefault.png' mode="widthFix"></image>
+        <image src='{{item.logo}}' mode="widthFix"></image>
       </view>
       <view class='brandRight'>
-        <view class='brandRightUp'>大自然地板</view>
+        <view class='brandRightUp'>{{item.name}}</view>
         <view class='brandRightDown'>
-          <image src='../../lib/images/star.png' mode="widthFix"></image>
-          <image src='../../lib/images/star.png' mode="widthFix"></image>
-          <image src='../../lib/images/star.png' mode="widthFix"></image>
-          <image src='../../lib/images/star.png' mode="widthFix"></image>
           <image src='../../lib/images/star.png' mode="widthFix"></image>
         </view>
       </view>
-    </view>
-    <view class='itemBox'>
-      <view class='item'>
+    </navigator>
+    <view class='itemBox' wx:if="{{item.goodsList && item.goodsList.length>0}}">
+
+      <navigator url='/pages/commodityDetails/commodityDetails?id={{obj.id}}' hover-class='none' class='item' wx:for="{{item.goodsList}}" wx:for-item="obj" wx:key="{{obj.id}}">
         <view class='imgBox'>
           <view class='leftTop'>
             <image class='leftTopBg' src='../../lib/images/leftTopBg.png'  mode="widthFix"></image>
             <text>补</text>
           </view>
-          <image class='commodityImg' src='../../lib/images/commodityDefault.png'></image>
+          <image class='commodityImg' src='{{obj.imgs}}'></image>
         </view> 
         <view class='title'>
-          德国进口高清花色强化复化地合板
+          {{obj.goodsName}}
         </view>
         <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
+          <view class='price'>￥{{obj.goodsPrice}}</view>
+          <view class='salesVolume'>已售{{obj.totalSaled}}</view>
         </view>
-      </view>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
-    </view>
+      </navigator>
 
-  </view>
-  <view class='list'>
-    <view class='brand'>
-      <view class='brandL'>
-        <image src='../../lib/images/brandDefault.png' mode="widthFix"></image>
-      </view>
-      <view class='brandRight'>
-        <view class='brandRightUp'>大自然地板</view>
-        <view class='brandRightDown'>
-          <image src='../../lib/images/star.png' mode="widthFix"></image>
-        </view>
-      </view>
-    </view>
-    <view class='itemBox'>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
-      <view class='item'>
-        <view class='imgBox'>
-          <image src='../../lib/images/commodityDefault.png'></image>
-        </view> 
-        <view class='title'>
-          德国进口高清花色强化复化地合板
-        </view>
-        <view class='commodityInfo'>
-          <view class='price'>￥500</view>
-          <view class='salesVolume'>已售2345</view>
-        </view>
-      </view>
+
     </view>
 
   </view>
 </view>
-<view wx:if="{{commodityData.length>0}}" class='nothingCommodity'>
+<view wx:if="{{!list.length || list.length===0}}" class='nothingCommodity'>
   <image src='../../lib/images/nothingCommodity.png'></image>
+  搜索结果为空
 </view>

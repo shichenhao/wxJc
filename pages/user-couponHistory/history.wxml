@@ -15,14 +15,13 @@
           <view>
             ￥<view class="b">{{item.couponsAmt}}</view>
           </view>
+          <image src='/lib/images/red-type_03.png' wx:if="{{item.status === 0}}"></image>
+          <image src='/lib/images/red-type_06.png' wx:if="{{item.status === 1}}"></image>
         </view>
         <view class="moneyWhy p">
           有效期至{{item.expirationTime}}
         </view>
       </view>
-      <navigator url='/pages/user-couponHistory/history' hover-class='none' wx:if="{{list.length}}">
-        查看历史优惠券>>
-      </navigator>
     </view>
   </view>
 

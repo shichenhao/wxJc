@@ -1,6 +1,6 @@
 <!--pages/search/search.wxml-->
 <view class='box'>
-    <view class='searchBox'>
+    <view class='searchBox' bindtap="sou">
       <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
       <input id='search' placeholder='搜索品牌分类'></input>
     </view>

@@ -36,7 +36,9 @@ App({
           latitude: res.latitude
         }, (data) => {
           _this.globalData.userInfo = { agentId: 265 } //data.value.id }
-          _this.globalData.localPosition = res;
+          //_this.globalData.localPosition = res;
+          wx.setStorageSync('localPosition', res)
+          _this.globalData.localPosition = wx.getStorageSync('localPosition');
           //console.log(_this.globalData)
           cb && cb(res)
         })
@@ -52,7 +54,7 @@ App({
   onLaunch: function () {
     this.isInit();
     //this.globalData.userInfo = wx.getStorageSync('userInfo');
-    //this.globalData.localPosition = wx.getStorageSync('localPosition');
+    this.globalData.localPosition = wx.getStorageSync('localPosition');
     
     if (this.globalData.userInfo === null){
       this.globalData.userInfo = { agentId: 265 }

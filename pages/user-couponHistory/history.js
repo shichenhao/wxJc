@@ -1,29 +1,29 @@
+// pages/user-couponHistory/history.js
 var app = getApp();
-// pages/user-envelopes/envelopes.js
 Page({
   data: {
-    list:[],
-    page:{
+    list: [],
+    page: {
       limit: 10,
       start: 0,
-      isMore:true
+      isMore: true
     }
   },
-  getList(){
+  getList() {
     let page = this.data.page
     var params = {
-      isDisabled:0,
+      isDisabled: 0,
       businessType: 12,
       start: this.data.page.start,
       limit: this.data.page.limit
     };
-    wx.http.postReq('appletClient?m=queryRedBagList', params, (data) => {
+    wx.http.postReq('appletClient?m=queryCouponsListPage', params, (data) => {
       if (data.success) {
         let list = this.data.list
-        if (data.value.platformRedBagList.length>0){
-          list = [...list, ...data.value.platformRedBagList]
+        if (data.value.couponsList.length > 0) {
+          list = [...list, ...data.value.couponsList]
         }
-        if(list.length>= this.data.page.limit){
+        if (list.length >= this.data.page.limit) {
           page.start += 1;
           page.isMore = true;
         } else {
@@ -47,9 +47,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.setNavigationBarTitle({
-      title: '我的红包'
-    })
 
   },
 

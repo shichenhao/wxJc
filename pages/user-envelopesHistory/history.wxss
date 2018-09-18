@@ -124,7 +124,7 @@
 
 .itemRight view{
   font-size: 36rpx;
-  color: red;
+  color: #ccc;
 }
 
 .itemRight view view{
@@ -206,12 +206,6 @@
   position: absolute;
   left: 0;
   top: 16rpx;
-}
-
-.moneyBox navigator{
-  text-align: center;
-  color: #666;
-  padding-top: 10rpx;
 }
 
 

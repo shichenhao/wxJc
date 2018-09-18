@@ -34,9 +34,9 @@
     <!-- 导航 -->
     <view class='menu'>
       <view class='menuList menuCur'>首页</view>
-      <view class='menuList'>全部商品</view>
-      <view class='menuList'>促销</view>
-      <view class='menuList'>上新</view>
+      <navigator url='/pages/sellerCommodity/sellerCommodity?id={{info.id}}&queryType=0' class='menuList' hover-class='none'>全部商品</navigator>
+      <navigator url='/pages/sellerCommodity/sellerCommodity?id={{info.id}}&queryType=1' class='menuList' hover-class='none'>促销</navigator>
+      <navigator url='/pages/sellerCommodity/sellerCommodity?id={{info.id}}&queryType=2' class='menuList' hover-class='none'>上新</navigator>
     </view>
     <!-- 优惠卷 -->
     <scroll-view class='discount' scroll-x>
@@ -54,7 +54,7 @@
       <image src='../../lib/images/seller2.png' mode="widthFix"></image> 
       <image src='../../lib/images/seller3.png' mode="widthFix"></image> 
       <image src='../../lib/images/seller4.png' mode="widthFix"></image> 
-      <view class='more'>查看更多商品>></view>
+      <navigator url='/pages/sellerCommodity/sellerCommodity?queryType=0' class='more' hover-class='none'>查看更多商品>></navigator>
   </view>
  
 </view>

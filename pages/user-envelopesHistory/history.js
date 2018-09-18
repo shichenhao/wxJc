@@ -2,17 +2,17 @@ var app = getApp();
 // pages/user-envelopes/envelopes.js
 Page({
   data: {
-    list:[],
-    page:{
+    list: [],
+    page: {
       limit: 10,
       start: 0,
-      isMore:true
+      isMore: true
     }
   },
-  getList(){
+  getList() { //查询红包
     let page = this.data.page
     var params = {
-      isDisabled:0,
+      isDisabled: 1,
       businessType: 12,
       start: this.data.page.start,
       limit: this.data.page.limit
@@ -20,10 +20,10 @@ Page({
     wx.http.postReq('appletClient?m=queryRedBagList', params, (data) => {
       if (data.success) {
         let list = this.data.list
-        if (data.value.platformRedBagList.length>0){
+        if (data.value.platformRedBagList.length > 0) {
           list = [...list, ...data.value.platformRedBagList]
         }
-        if(list.length>= this.data.page.limit){
+        if (list.length >= this.data.page.limit) {
           page.start += 1;
           page.isMore = true;
         } else {
@@ -84,6 +84,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log(1)
+    console.log(this.data.page.isMore)
     if (this.data.page.isMore) {
       this.getList()
     }

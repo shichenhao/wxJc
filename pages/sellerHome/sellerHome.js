@@ -4,7 +4,7 @@ Page({
     sellerInfo:false,
     info:{}
   },
-  getInit(merchantId) {
+  getInit(merchantId='834') {
     var param = {
       merchantId
     }

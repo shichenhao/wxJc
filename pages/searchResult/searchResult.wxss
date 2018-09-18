@@ -25,7 +25,6 @@
   padding:30rpx;
   background: #fff;
   margin-bottom:20rpx;
-  height:450rpx;
   overflow: hidden;
 }
 .brand{

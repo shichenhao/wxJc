@@ -125,7 +125,7 @@
 
 .itemRight view{
   font-size: 36rpx;
-  color: #ccc;
+  color: red;
 }
 
 .itemRight view view{

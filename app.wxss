@@ -304,3 +304,24 @@ Page{
   display: block;
   margin: 0 auto 60rpx;
 }
+
+.score{
+  position: relative;
+  display: inline-block;
+  width: 150rpx;
+  height: 21rpx;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141605424824675.png) no-repeat repeat-x;
+  background-size: auto 21rpx;
+}
+
+.score view{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 21rpx;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141605424824675.png) no-repeat repeat-x;
+  background-size: auto 21rpx;
+}
+
+
+

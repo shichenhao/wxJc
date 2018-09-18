@@ -48,7 +48,7 @@
     </view>
     <view class='con'>
 
-      <view class='item' wx:for="{{list}}" wx:key="{{index}}">
+      <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}' class='item' hover-class='none' wx:for="{{list}}" wx:key="{{index}}">
         <view class='imgBox'>
           <image src='{{item.imgs}}'></image>
         </view> 
@@ -63,7 +63,7 @@
           <text>{{item.totalCommentsCount}}人评价</text>
           <text>好评{{item.goodCommentsRate}}%</text>
         </view>
-      </view>
+      </navigator>
 
     </view>
   </view>

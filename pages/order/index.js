@@ -17,8 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.userInfo)
     var params = {
-      userId: 941,//app.globalData.userInfo.id,
+      userId: app.globalData.userInfo.id,
       start: 0,
       size: 10
     };

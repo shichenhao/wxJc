@@ -29,15 +29,19 @@ Page({
                       url: '../index/index',
                     });
                     if (data.success) {
+                      /**
+                       *
                       wx.navigateBack({
                         delta: 2
                       })
+                       */
                       /*wx.redirectTo({
                         url: '/pages/user/index'
                       })*/
                       // 存储登录信息
                       app.globalData.userInfo = data.value
                       wx.setStorageSync('userInfo', data.value)
+                      app.globalData.userInfo = wx.getStorageSync("userInfo")
                       wx.setStorageSync('token', data.value.token)
                     }
                   })

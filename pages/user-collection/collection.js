@@ -4,7 +4,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:null
+    list: [],
+    page: {
+      limit: 10,
+      start: 0,
+      isMore: true
+    }
   },
   getInit(){
     var param = {
@@ -14,9 +19,19 @@ Page({
     }
     wx.http.postReq('userClient?m=findUserFavorites', param, (data) => {
       if (data.success) {
-        var list = data.value
+        let list = this.data.list
+        if (data.value.length>0){
+          list = [...list, ...data.value]
+        }
+        if(list.length>= this.data.page.limit){
+          page.start += 1;
+          page.isMore = true;
+        } else {
+          page.isMore = false;
+        }
         this.setData({
-          list
+          list,
+          page
         })
       }
     })
@@ -68,7 +83,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.page.isMore) {
+      this.getList()
+    }
   },
 
   /**

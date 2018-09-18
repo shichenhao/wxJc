@@ -1,6 +1,6 @@
 <view class="container">
   <view class='collection'>
-    <navigator class='collectionItem'>
+    <navigator class='collectionItem' hover-class='none'>
       <image src='/lib/images/brandDefault.png'></image>
       地板
       <view class='itemBottom'>

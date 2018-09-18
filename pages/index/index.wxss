@@ -15,8 +15,8 @@
 
 .home_main{background:#fff;border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;}
 .home_nav{display:flex;padding:40rpx 0;}
-.home_nav view{flex:1;text-align: center;line-height:50rpx;font-size:24rpx;color:#333}
-.home_nav view image{width:90rpx;height: 90rpx;display: block;margin:0 auto;border-radius: 50% }
+.home_nav navigator{flex:1;text-align: center;line-height:50rpx;font-size:24rpx;color:#333}
+.home_nav navigator image{width:90rpx;height: 90rpx;display: block;margin:0 auto;border-radius: 50% }
 
 .home_gg{padding:0 30rpx;text-align: center;}
 .home_gg image{width:100%}

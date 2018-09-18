@@ -21,10 +21,18 @@
   </view>
   <view class='home_main'>
     <view class='home_nav'>
-      <view><image src='/lib/images/home_icon5.jpg'></image>全场返现</view>
-      <view><image src='/lib/images/home_icon6.jpg'></image>优惠券</view>
-      <view><image src='/lib/images/home_icon7.jpg'></image>联单奖励</view>
-      <view><image src='/lib/images/home_icon8.jpg'></image>优质服务</view>
+      <navigator url='/pages/returnList/returnList' hover-class='none'>
+        <image src='/lib/images/home_icon5.jpg'></image>全场返现
+      </navigator>
+      <navigator hover-class='none'>
+        <image src='/lib/images/home_icon6.jpg'></image>优惠券
+      </navigator>
+      <navigator url='/pages/couplet/couplet' hover-class='none'>
+        <image src='/lib/images/home_icon7.jpg'></image>联单奖励
+      </navigator>
+      <navigator hover-class='none'>
+        <image src='/lib/images/home_icon8.jpg'></image>优质服务
+      </navigator>
     </view>
     <view class='home_gg'>
       <image src='/lib/images/home_pic1.jpg' mode="widthFix"></image>

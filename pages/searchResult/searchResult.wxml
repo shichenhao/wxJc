@@ -21,7 +21,7 @@
         <view class='imgBox'>
           <view class='leftTop'>
             <image class='leftTopBg' src='../../lib/images/leftTopBg.png'  mode="widthFix"></image>
-            <text>补</text>
+            <text wx:if="{{obj.isPromotionGoods === 1}}">补</text>
           </view>
           <image class='commodityImg' src='{{obj.imgs}}'></image>
         </view> 

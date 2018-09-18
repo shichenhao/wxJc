@@ -1,4 +1,5 @@
 // pages/user-address/address.js
+var { globalData } = getApp();
 Page({
 
   /**
@@ -27,6 +28,14 @@ Page({
           title: '出错了',
         })
       }
+    })
+  },
+  addAddress(e){
+    let item = e.currentTarget.dataset.item;
+    globalData.backUrl = `/${this.route}`;
+    globalData.editAddress = item;
+    wx.navigateTo({
+      url: '/pages/user-add-list/list'
     })
   }
 })

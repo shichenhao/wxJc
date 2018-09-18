@@ -6,7 +6,7 @@
     </view>
   <view class='main'>
     <view class='left'>
-      <view class='leftList' wx:for="{{leftData}}" wx:key="{{id}}">{{item.name}}</view>
+      <view class='leftList' wx:for="{{leftData}}" wx:key="{{id}}" data-id='{{item.id}}' bindtap='changeClassify'>{{item.name}}</view>
     </view>
     <view class='right'>
       <view class='hot' wx:if="{{rightData.length>0}}">
@@ -27,7 +27,7 @@
         <view class='classifyCon'>
           <navigator url="/pages/classifyDetail/classifyDetail?id={{item.id}}" class='classifyList' wx:for="{{classify}}" wx:key="{{id}}" hover-class="none">
             <view class='classifyImg'>
-              <image mode="widthFix" src='{{item.url}}'></image>
+              <image mode="widthFix" src='{{item.icon||"../../lib/images/commodityDefault.png"}}'></image>
             </view>
             <view class='classifyName'>{{item.name}}</view>
           </navigator>

@@ -90,10 +90,11 @@
 .hotList{
   width: 130rpx;
   height:130rpx;
-  text-align: center;
-  line-height: 130rpx;
   margin-left:30rpx;
   float:left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
 .hotList image{
   max-width:115rpx;
@@ -112,6 +113,9 @@
 .classifyList .classifyImg{
   width:130rpx;
   height:130rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .classifyList image{
   max-width:100%;

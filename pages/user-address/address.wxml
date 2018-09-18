@@ -1,18 +1,18 @@
 <view class="container">
-  <view class='addressList' wx:for="{{dataList}}">
+  <view class='addressList' wx:key="id" wx:for="{{dataList}}">
     <view class='addressItem'>
       <view class='span'>
-        {{item.name}} {{item.gender==="男"?"先生":"女士"}} {{item.mobile}}
+        {{item.name}} {{item.gender}} {{item.mobile}}
       </view>
       <view class='span'>
         {{item.address}}
       </view>
-      <image src='/lib/images/adress_06.png'></image>
+      <image src='/lib/images/adress_06.png' data-item='{{item}}' bindtap='addAddress'></image>
     </view>
   </view>
-  <navigator url="/pages/user-add-list/list" hover-class="none" class='addressAdd'>
+  <view bindtap='addAddress' class='addressAdd'>
     <image src='/lib/images/add.png'></image>
     新增地址
-  </navigator>
+  </view>
 
 </view>

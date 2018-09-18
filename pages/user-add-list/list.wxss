@@ -10,7 +10,7 @@
 
 .addPop .li{
   background: #fff;
-  height: 90rpx;
+  min-height: 90rpx;
   line-height: 90rpx;
   display: flex;
   align-items: center;

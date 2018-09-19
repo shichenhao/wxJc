@@ -10,7 +10,8 @@ Page({
     selectCommodity:{},
     specifications:false,
     quantity:1,
-    merchantName:null
+    merchantName: null,
+    isSelectCommodity: false
   },
 
   /**
@@ -18,27 +19,6 @@ Page({
    */
   onLoad: function (options) {
     this.getData({ goodsId:options.id})
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
   },
   getData: function (params){ //获取信息
     wx.http.postReq('appletClient?m=findClientBuildingMaterialsGoodsByIdInfo', params, (res) => {
@@ -58,8 +38,7 @@ Page({
     })
   },
   handleSpecifications:function(){
-    let specifications = this.data.specifications;
-    this.setData({ specifications: !specifications});
+    this.setData({ specifications: !this.data.specifications});
   },
   /**
    * 选择规格
@@ -69,7 +48,7 @@ Page({
     itemdata.quantity = this.quantity;
     itemdata.goodsModelId = itemdata.id;
     itemdata.price = itemdata.discountPrice - itemdata.platformSubsidiesPrice;
-    this.setData({ selectCommodity:itemdata});
+    this.setData({ selectCommodity: itemdata, isSelectCommodity:true});
   },
   cartNum(e) { //增加减少数量 1 减少 2增加
     var carType = e.currentTarget.dataset.type;
@@ -87,75 +66,93 @@ Page({
     });
   },
   purchase: function () { //立即购买
-    globalData.selectCommodity = this.data.selectCommodity;
-    wx.navigateTo({
-      url: '../order-submit/submit?merchantId=' + this.data.data.merchantId
-    });
-  },
-  pushCart: function () { //加入购物车
-    globalData.cart = wx.getStorageSync('cart') || []
-    // 查询商家
-    var isMerchant = globalData.cart.some(merchant => {
-      return merchant.merchant.id == this.data.merchantName.id
-    })
-    if (isMerchant) {
-      globalData.cart.filter((merchant, index)=>{
-        // 查询商品
-        var isYes = globalData.cart[index].list.some(item => {
-          return item.id === this.data.selectCommodity.id || item.goodsId === this.data.selectCommodity.id
-        })
-        if (isYes) {
-          var cartItem = globalData.cart[index].list.filter(item => {
-            if (item.id === this.data.selectCommodity.id) {
-              item.quantity = item.quantity + this.data.quantity
-            }
-            return item
-          })
-        } else {
-          globalData.cart[index].list.push(this.data.selectCommodity)
-        }
+    let { isSelectCommodity } = this.data;
+    if (!isSelectCommodity) {
+      this.setData({ specifications: !isSelectCommodity });
+      wx.showToast({
+        title: '请选择型号',
+        icon:'none'
       })
     }else{
-      globalData.cart.push({
-        merchant: this.data.merchantName,
-        list: [this.data.selectCommodity]
-      })
+      globalData.selectCommodity = this.data.selectCommodity;
+      wx.navigateTo({
+        url: '../order-submit/submit?merchantId=' + this.data.data.merchantId
+      });
     }
-
-
-
-
-    /**
-     *
-
-
-
-    var isYes = globalData.cart.some(item => {
-      return item.id === this.data.merchantName.id
-    })
-    if (isYes){
-      var cartItem = globalData.cart.filter(item => {
-        if (item.id === this.data.selectCommodity.id) {
-          item.quantity = item.quantity + this.data.quantity
-        }
-        return item
+  },
+  pushCart: function () { //加入购物车
+    let { isSelectCommodity}=this.data;
+    if (!isSelectCommodity) {
+      this.setData({ specifications: !isSelectCommodity });
+      wx.showToast({
+        title: '请选择型号',
+        icon: 'none'
       })
     } else {
-      globalData.cart.push({
-        merchant: this.data.merchantName,
-        list:this.data.selectCommodity
+      globalData.cart = wx.getStorageSync('cart') || []
+      // 查询商家
+      var isMerchant = globalData.cart.some(merchant => {
+        return merchant.merchant.id == this.data.merchantName.id
+      })
+      if (isMerchant) {
+        globalData.cart.filter((merchant, index)=>{
+          // 查询商品
+          var isYes = globalData.cart[index].list.some(item => {
+            return item.id === this.data.selectCommodity.id || item.goodsId === this.data.selectCommodity.id
+          })
+          if (isYes) {
+            var cartItem = globalData.cart[index].list.filter(item => {
+              if (item.id === this.data.selectCommodity.id) {
+                item.quantity = item.quantity + this.data.quantity
+              }
+              return item
+            })
+          } else {
+            globalData.cart[index].list.push(this.data.selectCommodity)
+          }
+        })
+      }else{
+        globalData.cart.push({
+          merchant: this.data.merchantName,
+          list: [this.data.selectCommodity]
+        })
+      }
+
+
+
+
+      /**
+       *
+
+
+
+      var isYes = globalData.cart.some(item => {
+        return item.id === this.data.merchantName.id
+      })
+      if (isYes){
+        var cartItem = globalData.cart.filter(item => {
+          if (item.id === this.data.selectCommodity.id) {
+            item.quantity = item.quantity + this.data.quantity
+          }
+          return item
+        })
+      } else {
+        globalData.cart.push({
+          merchant: this.data.merchantName,
+          list:this.data.selectCommodity
+        })
+      }
+      */
+      wx.setStorageSync('cart', globalData.cart)
+
+      this.setData({
+        quantity: 1,
+        specifications: false,
+      });
+      wx.showToast({
+        title: '成功加入购物车!',
+        icon: 'none'
       })
     }
-     */
-    wx.setStorageSync('cart', globalData.cart)
-
-    this.setData({
-      quantity: 1,
-      specifications: false,
-    });
-    wx.showToast({
-      title: '成功加入购物车!',
-      icon: 'none'
-    })
   }
 })

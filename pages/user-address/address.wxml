@@ -1,5 +1,5 @@
 <view class="container">
-  <view class='addressList' wx:key="id" wx:for="{{dataList}}">
+  <view class='addressList' wx:key="id" wx:for="{{dataList}}" data-item='{{item}}' bindtap='backOrder'>
     <view class='addressItem'>
       <view class='span'>
         {{item.name}} {{item.gender}} {{item.mobile}}

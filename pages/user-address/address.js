@@ -25,7 +25,7 @@ Page({
         })
       }else{
         wx.showToast({
-          title: '出错了',
+          title: '出错了,请联系管理员',
         })
       }
     })
@@ -37,5 +37,13 @@ Page({
     wx.navigateTo({
       url: '/pages/user-add-list/list'
     })
+  },
+  backOrder(e){
+    if (globalData.orderBackUrl){
+      globalData.addressData = e.currentTarget.dataset.item;
+      wx.navigateTo({
+        url: globalData.orderBackUrl,
+      })
+    }
   }
 })

@@ -2,6 +2,7 @@
 var app = getApp();
 Page({
   data: {
+    id:null,
     leftData: [],
     rightData:[],
     classify: []
@@ -25,6 +26,7 @@ Page({
         var classify = res.value.twoCategoryList;
         var rightData = res.value.merchantList;
         this.setData({
+          id: res.value.oneCategoryList[0].id,
           leftData,
           classify,
           rightData,
@@ -37,6 +39,7 @@ Page({
     let id=e.currentTarget.dataset.id;
     let allClassify = this.data.allClassify;
     this.setData({
+      id,
       classify: allClassify.filter(item=>item.parentId==id)
     })
   }

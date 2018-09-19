@@ -102,7 +102,7 @@ Page({
       globalData.cart.filter((merchant, index)=>{
         // 查询商品
         var isYes = globalData.cart[index].list.some(item => {
-          return item.id === this.data.selectCommodity.id
+          return item.id === this.data.selectCommodity.id || item.goodsId === this.data.selectCommodity.id
         })
         if (isYes) {
           var cartItem = globalData.cart[index].list.filter(item => {

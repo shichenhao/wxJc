@@ -1,7 +1,10 @@
 .clearfix:after{clear:both;height: 0;font-size:0;content: "";display: block;}
-
+.banner{
+  height: 320rpx;
+  width: 750rpx;
+}
 .home_ban{width:100%;padding-top:4rpx;position: relative;}
-.home_ban image{width:100%;display:block;}
+.home_ban image{width:750rpx;height:320rpx;display:block;}
 .home_addr{position: absolute;left:24rpx;top:24rpx;max-width:156rpx;height:56rpx;border-radius: 25rpx;background:#afafaf;padding:0  40rpx;opacity: 0.8}
 .home_ban .home_addr_img1{width:22rpx;height:29rpx;position: absolute;left:12rpx;top:13rpx;}
 .home_ban .home_addr_img2{width:13rpx;height:23rpx;position: absolute;right:12rpx;top:15rpx;}

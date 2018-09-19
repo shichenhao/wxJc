@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/cart/index",
     "pages/index/index",
     "pages/user/index",
     "pages/user-collection/collection",
@@ -17,7 +18,6 @@
     "pages/sellerHome/sellerHome",
     "pages/searchResult/searchResult",
     "pages/search/search",
-    "pages/cart/index",
     "pages/order/index",
     "pages/classify/classify",
     "pages/commodityDetails/commodityDetails",

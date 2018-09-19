@@ -1,23 +1,17 @@
 <view class="container">
   <view class='collection'>
-    <navigator class='collectionItem' hover-class='none'>
-      <image src='/lib/images/brandDefault.png'></image>
-      地板
+    <view class='cartNull' wx:if="{{!list.length}}">
+      <image src='/lib/images/cart-null.png'></image>
+      你还没有收藏哦
+    </view>
+    <navigator url='/pages/sellerHome/sellerHome?id={{item.merchantId}}' class='collectionItem' hover-class='none' wx:for="{{list}}" wx:key="{{index}}">
+      <image src='{{item.merchantInfo.logo}}'></image>
+      {{item.merchantInfo.name}}
       <view class='itemBottom'>
         <view class='score'>
-          <view style='width:20%'></view>
+          <view style='width:{{item.merchantInfo.commentsAverageScore === 0 ? 100 : item.merchantInfo.commentsAverageScore * 20}}%'></view>
         </view>
-        综合评分： <text>4.8</text>
-      </view>
-    </navigator>
-    <navigator class='collectionItem'>
-      <image src='/lib/images/brandDefault.png'></image>
-      地板
-      <view class='itemBottom'>
-        <view class='score'>
-          <view style='width:20%'></view>
-        </view>
-        综合评分： <text>4.8</text>
+        综合评分： <text>{{item.merchantInfo.commentsAverageScore === 0 ? 5 : item.merchantInfo.commentsAverageScore}}</text>
       </view>
     </navigator>
   </view>

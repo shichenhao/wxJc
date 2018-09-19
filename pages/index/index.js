@@ -14,9 +14,15 @@ Page({
     list: [],
     // banner
     banner: [],
-    // banner
+    // 横屏广告
+    promotion: null,
+    indicatorDots: false,
+    autoplay: false,
+    interval: 5000,
+    duration: 1000,
+    // 热销
     hotList: [],
-    mapXY: '选择位置'
+    mapXY: '选择位置',
   },
   // 选择位置
   getMap() {
@@ -70,6 +76,10 @@ Page({
     // 横屏推广
     wx.http.postReq('appletClient?m=findBuildingMaterialsLandscapePromotion', param, (data) => {
       if (data.success) {
+        let promotion = data.value
+        this.setData({
+          promotion
+        })
       }
     })
     // 首页banner

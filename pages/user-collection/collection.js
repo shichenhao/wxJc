@@ -20,6 +20,7 @@ Page({
     wx.http.postReq('userClient?m=findUserFavorites', param, (data) => {
       if (data.success) {
         let list = this.data.list
+        let page = this.data.page
         if (data.value.length>0){
           list = [...list, ...data.value]
         }

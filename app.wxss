@@ -308,10 +308,10 @@ Page{
 .score{
   position: relative;
   display: inline-block;
-  width: 150rpx;
+  width: 144rpx;
   height: 21rpx;
-  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141605424824675.png) no-repeat repeat-x;
-  background-size: auto 21rpx;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141605424824675.png) repeat-x;
+  background-size: 30rpx 21rpx;
 }
 
 .score view{
@@ -319,8 +319,8 @@ Page{
   left: 0;
   top: 0;
   height: 21rpx;
-  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141605424824675.png) no-repeat repeat-x;
-  background-size: auto 21rpx;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141605424824675.png) repeat-x;
+  background-size: 30rpx 21rpx;
 }
 
 

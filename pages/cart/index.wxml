@@ -47,7 +47,7 @@
     </view>
   </view>
 
-  <view class='cartTotal'>
+  <view class='cartTotal' wx:if="{{cartList.length !== 0}}">
     <view class='checkbox {{checkAll ? "active" : ""}}' bindtap='checkChangeAll'></view>
     <view class='selection' bindtap='checkChangeAll'>全选</view>
     <view wx:if="{{edit}}">

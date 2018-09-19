@@ -78,13 +78,13 @@
     <text class='h3Left'>商家信息</text>
   </view>
   <view class='con5_main'>
-    <view class='con5_mainL'>
+    <navigator class='con5_mainL' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
       <image src='{{!data.buildingMaterialsMerchant?"../../lib/images/brandDefault.png":data.buildingMaterialsMerchant.logo}}'></image>
       <view class='con5_mainL_L'>
         <view class='con5_mainL_L_T'>{{!data.buildingMaterialsMerchant?"":data.buildingMaterialsMerchant.name}}</view>
-        <view class='con5_mainL_L_B'>综合评分: <text>{{!data.buildingMaterialsMerchant?5:data.buildingMaterialsMerchant.commentsAverageScore}}</text> </view>
+        <view class='con5_mainL_L_B'>综合评分: <text>{{data.buildingMaterialsMerchant.commentsAverageScore === 0 ?5:data.buildingMaterialsMerchant.commentsAverageScore}}</text> </view>
       </view>
-    </view>
+    </navigator>
     <view class='con5_mainR'>
       {{!data.totalSaled?"0":data.totalSaled}}件商品
     </view>
@@ -93,23 +93,23 @@
 
 <!-- 底部菜单 -->
 <view class='downNav'>
-  <view class='downNav2'>
+  <navigator class='downNav2' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
     <image src='../../lib/images/shopIcon.png'></image>
     <view>店铺</view>
-  </view>
-  <view class='downNav2'>
+  </navigator>
+  <view class='downNav2' bindtap='tel' data-tel="{{data.contacts}}">
     <image src='../../lib/images/telIcon.png'></image>
     <view>热线</view>
   </view>
-  <view class='downNav2'>
+  <navigator class='downNav2' url='/pages/cart/index' hover-class='none'>
     <image src='../../lib/images/shoppingCartIcon.png'></image>
     <view>购物车</view>
-    <text class='count'>12</text>
-  </view>
-  <view class='downNav3 join'>
+    <text class='count'>{{cartLength}}</text>
+  </navigator>
+  <view class='downNav3 join' bindtap='handleSpecifications'>
     <text>加入购物车</text>
   </view>
-  <view class='downNav3 purchase' bindtap='purchase'>
+  <view class='downNav3 purchase' bindtap='purchase' bindtap='handleSpecifications'>
     <text>立即购买</text>
   </view>
 </view>

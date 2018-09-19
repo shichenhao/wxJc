@@ -2,7 +2,7 @@
 <view class='box'>
     <view class='searchBox' bindtap="sou">
       <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
-      <input id='search' placeholder='搜索品牌分类'></input>
+      <input id='search' disabled='disabled' placeholder='搜索品牌分类'></input>
     </view>
     <view class='history'>
       <view class='h2'>历史记录</view>

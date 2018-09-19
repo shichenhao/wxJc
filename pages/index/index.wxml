@@ -1,8 +1,15 @@
 <view class="container">
   <view class="home_ban">
-    <view class='banner'>
-      <image wx:for="{{banner}}" src='{{item.image}}' wx:key="item.index" mode="widthFix"></image>
-    </view>
+    <swiper indicator-dots="{{indicatorDots}}" class='banner'
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{banner}}" wx:key="item.index">
+        <swiper-item>
+          <navigator url='/pages/sellerHome/sellerHome?id={{item.merchantId}}' hover-class='none'>
+            <image src="{{item.image}}" class="slide-image"/>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
     <view class='home_addr' bindtap='getMap'>
       <image src='/lib/images/home_banicon2.jpg' class="home_addr_img1"></image>
       <text>{{mapXY}}</text>
@@ -35,7 +42,7 @@
       </navigator>
     </view>
     <view class='home_gg'>
-      <image src='/lib/images/home_pic1.jpg' mode="widthFix"></image>
+      <image src='{{promotion}}' mode="widthFix"></image>
     </view>
   </view>
   <!--家具-->

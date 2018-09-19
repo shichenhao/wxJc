@@ -6,7 +6,7 @@
     </view>
   <view class='main'>
     <view class='left'>
-      <view class='leftList' wx:for="{{leftData}}" wx:key="{{id}}" data-id='{{item.id}}' bindtap='changeClassify'>{{item.name}}</view>
+      <view class='leftList {{id == item.id ? "leftCur" : ""}}' wx:for="{{leftData}}" wx:key="{{id}}" data-id='{{item.id}}' bindtap='changeClassify'>{{item.name}}</view>
     </view>
     <view class='right'>
       <view class='hot' wx:if="{{rightData.length>0}}">

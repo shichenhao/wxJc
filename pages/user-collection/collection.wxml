@@ -4,7 +4,7 @@
       <image src='/lib/images/cart-null.png'></image>
       你还没有收藏哦
     </view>
-    <navigator url='/pages/sellerHome/sellerHome?id={{item.merchantId}}' class='collectionItem' hover-class='none' wx:for="{{list}}" wx:key="{{index}}">
+    <navigator open-type="switchTab" url='/pages/sellerHome/sellerHome?id={{item.merchantId}}' class='collectionItem' hover-class='none' wx:for="{{list}}" wx:key="{{index}}">
       <image src='{{item.merchantInfo.logo}}'></image>
       {{item.merchantInfo.name}}
       <view class='itemBottom'>

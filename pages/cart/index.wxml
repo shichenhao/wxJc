@@ -5,7 +5,7 @@
   </view>
   <view class='orderTitle cartTitle' wx:if="{{cartList.length > 0}}">
     <view>
-      共{{cartList.length}}件宝贝
+      共{{carNum}}件宝贝
     </view>
     <view bindtap='editFun'>
       <view wx:if="{{edit}}">
@@ -28,13 +28,13 @@
       <view class='checkbox {{obj.check ? " active" : ""}}' bindtap='checkItem' data-objIndex='{{objIndex}}' data-itemIndex='{{itemIndex}}'></view>
       <image src='{{obj.img}}'></image>
       <view class='evaluateTxt'>
-        {{obj.goodsModel}}
+        {{obj.goodsName}}
         <view>{{obj.goodsModel}}</view>
         <view class='orderNumber'>
           <view>
             ￥
             <view class='b'>
-              {{obj.platformSubsidiesPrice}}
+              {{obj.price}}
             </view>
           </view>
           <view class='countBox'>
@@ -54,11 +54,11 @@
       合计：
       <view class='span'>
         ￥
-        <view class='b'>399</view>
+        <view class='b'>{{carMoney}}</view>
       </view>
     </view>
-    <view class='payment' wx:if="{{edit}}">在线支付</view>
-    <view class='payment payment2' wx:if="{{!edit}}">删除</view>
+    <view class='payment' wx:if="{{edit}}" bindtap='zhifu'>在线支付</view>
+    <view class='payment payment2' wx:if="{{!edit}}" bindtap='delAll'>删除</view>
   </view>
 
   <view class='cartBg' wx:if="{{cartPop}}">

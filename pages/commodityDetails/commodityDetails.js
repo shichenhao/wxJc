@@ -47,6 +47,7 @@ Page({
         let merchantName = value.buildingMaterialsMerchant
         let selectCommodity = !value.modelList[0] ? {} : value.modelList[0];
         selectCommodity.quantity = 1;
+        selectCommodity.goodsName = value.goodsName;
         selectCommodity.goodsModelId = selectCommodity.id;
         selectCommodity.price = selectCommodity.discountPrice - selectCommodity.platformSubsidiesPrice;
         this.setData({ 
@@ -68,6 +69,7 @@ Page({
     let itemdata = e.currentTarget.dataset.itemdata;
     itemdata.quantity = this.quantity;
     itemdata.goodsModelId = itemdata.id;
+    itemdata.goodsName = this.data.selectCommodity.goodsName;
     itemdata.price = itemdata.discountPrice - itemdata.platformSubsidiesPrice;
     this.setData({ selectCommodity:itemdata});
   },

@@ -1,9 +1,9 @@
 <view class="container">
   <view class='login userInfo'>
-    <image src='/lib/images/logo.png'></image>
+    <image src='{{userInfo.avatarUrl}}'></image>
     <view class='b'>
       {{
-        userInfo.name
+        userInfo.nickName
       }}
       <view>
       {{

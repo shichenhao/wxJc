@@ -1,7 +1,7 @@
 <view class="container">
   <view class='orderSubmitTit'>
     <view class='active' data-id='1' bindtap='changeType'>送货上门</view>
-    <view data-id='3' bindtap='changeType'>到点自取</view>
+    <view data-id='3' bindtap='changeType'>到店自取</view>
   </view>
   <view class='adress' bindtap='changeAddress'>
     <image src='/lib/images/adress.png'></image>
@@ -14,26 +14,21 @@
   </view>
   <view class='evaluateBox'>
     <view class='orderTitle'>
-      <image src='/lib/images/brandDefault.png'></image>
-      地板
+      <image src='{{orderItems.merchantLogo}}'></image>
+      {{orderItems.merchantName}}
     </view>
     <view class='cartItemImg'>
       <view>
-        共3件
+        共{{orderItems.buildingMaterialsOrderItemList.length}}件
       </view>
-      <image src='/lib/images/commodityDefault.png'></image>
-      <image src='/lib/images/commodityDefault.png'></image>
-      <image src='/lib/images/commodityDefault.png'></image>
-      <image src='/lib/images/commodityDefault.png'></image>
-      <image src='/lib/images/commodityDefault.png'></image>
-      <image src='/lib/images/commodityDefault.png'></image>
+      <image wx:for="{{orderItems.buildingMaterialsOrderItemList}}" wx:for-item="son" wx:for-index="sonItem" wx:key="{{sonItem}}" src='{{son.img}}'></image>
     </view>
     <view class='div'>
       总价：
       <view>
         ￥
         <view class='b'>
-          399
+          {{orderItems.totalGoodsPrice}}
         </view>
       </view>
     </view>
@@ -67,7 +62,7 @@
       合计金额：
       <view class='span'>
         ￥
-        <view class='b'>399</view>
+        <view class='b'>{{orderItems.totalGoodsPrice}}</view>
       </view>
     </view>
     <view class='payment' bindtap='orderSubmit'>提交订单</view>

@@ -1,4 +1,6 @@
 // pages/cart/index.js
+
+let { globalData } =getApp()
 Page({
   data: {
     // 编辑
@@ -10,6 +12,7 @@ Page({
     carNum: 0, //数量
     carMoney: 0, //金额
     cartList: wx.getStorageSync('cart'),
+    isCartList : null
   },
   // 编辑
   editFun() {
@@ -149,12 +152,94 @@ Page({
       carMoney
     })
   },
+  zhifuOne(e){ // 单个商家支付
+    var merchantId = e.currentTarget.dataset.id;
+    let cartArr = this.data.isCartList.map(item => {
+      if (item.id == merchantId) {
+        globalData.selectCommodity = item.list
+      }
+    })
+    wx.navigateTo({
+      url: '../order-submit/submit?merchantId=' + merchantId
+    });
+  },
+  zhifu() { // 支付
+    let cartList = this.data.cartList;
+    let isGo = cartList.some((item, index) => {
+      if (item.check) {
+        return true
+      } else {
+        if(item.list.some(son=>{
+          return son.check
+        })){
+          return true
+        }else{
+          return false
+        }
+      }
+    })
+    if (!isGo) {
+      wx.showToast({
+        title: '请选择要结算的商品',
+        icon: 'none'
+      })
+    } else {
+      let newArr = JSON.parse(JSON.stringify(this.data.cartList))
+      let isOne = newArr.filter(item=>{
+        item.list = item.list.filter(son=>{
+          return son.check
+        })
+        if (item.list.length > 0) {
+          item.check = true
+        }
+        return item
+      })
+      //console.log(isOne)
+      if (isOne.filter(item=>item.check).length>1){
+        isOne = isOne.map(item=>{
+          item.priceList = item.list.map(son=>{
+            return son.price * son.quantity
+          })
+          item.numPrice = item.priceList.reduce((a,b)=>{
+            return a+b
+          })
+          return item
+        })
+        //console.log(isOne)
+        //return false
+        this.setData({
+          cartPop:true,
+          isCartList: isOne
+        })
+      }else{
+        let merchantId = null;
+        let cartArr = isOne.map(item=>{
+          if(item.check){
+            merchantId = item.merchant.id;
+            globalData.selectCommodity = item.list.filter(son=>{
+              return son.check
+            })
+          }
+        })
+        wx.navigateTo({
+          url: '../order-submit/submit?merchantId=' + merchantId
+        });
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCarNum();
+    if (this.data.cartList.length > 0) {
+      this.getCarNum();
+    }
+    let cartList = wx.getStorageSync('cart')
+    this.setData({
+      cartList
+    })
+    // wx.hideTabBar({}) 
   },
 
   /**

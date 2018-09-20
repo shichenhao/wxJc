@@ -13,10 +13,10 @@ Page({
   onLoad: function (options) {
     this.getList();
   },
-  getList() {
+  getList(id=0) {
     var param = {
-      agentId: app.globalData.userInfo.agentId,
-      parentId: 0,
+      agentId: app.globalData.agentId,
+      parentId: id,
       longitude: app.globalData.localPosition.longitude,
       latitude: app.globalData.localPosition.latitude
     }
@@ -26,7 +26,7 @@ Page({
         var classify = res.value.twoCategoryList;
         var rightData = res.value.merchantList;
         this.setData({
-          id: res.value.oneCategoryList[0].id,
+          id: id !== 0 ? id : res.value.oneCategoryList[0].id,
           leftData,
           classify,
           rightData,
@@ -38,9 +38,6 @@ Page({
   changeClassify(e){
     let id=e.currentTarget.dataset.id;
     let allClassify = this.data.allClassify;
-    this.setData({
-      id,
-      classify: allClassify.filter(item=>item.parentId==id)
-    })
+    this.getList(id)
   }
 })

@@ -21,14 +21,14 @@
 .home_nav navigator{flex:1;text-align: center;line-height:50rpx;font-size:24rpx;color:#333}
 .home_nav navigator image{width:90rpx;height: 90rpx;display: block;margin:0 auto;border-radius: 50% }
 
-.home_gg{padding:0 30rpx;text-align: center;}
-.home_gg image{width:100%}
+.home_gg{padding:0 30rpx 25rpx;text-align: center;}
+.home_gg image{width:690rpx;height:190rpx;}
 
 .home_show{background:#fff;margin-top:20rpx;clear: both;}
 .home_show_tit{text-align: center;color:#252525;font-size:34rpx;line-height:46rpx;padding:32rpx 0}
 .home_show_tit view{font-weight: bold;}
 .home_Hotpic{padding:0 30rpx 11rpx;}
-.home_Hotpic image{width:100%;display: block;}
+.home_Hotpic image{width:100%;height:190rpx;display: block;}
 
 .home_showAB{font-size:18rpx;line-height: 18rpx;display: block;}
 .color1  text{color:#9c76a6;}
@@ -43,7 +43,7 @@
 }
 .home_show_list .home_picT{position: relative;display:inline-block;height:350rpx;width:224rpx;}
 .home_show_list .home_picT:last-child{border-right:0}
-.home_show_list .home_picT image{width:100%;}
+.home_show_list .home_picT image{width:220rpx;height:220rpx;}
 
 .home_hot{background:#fff;position: relative;margin-top:20rpx;padding-top:6px;}
 .home_hotbg{width:100%;position: absolute;left:0;top:0;z-index: 0}
@@ -74,12 +74,12 @@ line-height:45rpx;
 .home_Recom_tit{height:92rpx;line-height: 92rpx;color:#000;font-size:32rpx;padding:0 50rpx;font-weight: bold;}
 .scroll-view_H{height:146rpx;padding:20rpx 20rpx 20rpx 0;white-space: nowrap;}
 .scroll-view_H navigator{width:260rpx;height:146rx;margin-left:18rpx;display: inline-block;}
-.scroll-view_H navigator image{width:100%;height: 100%;border-radius: 3rpx;}
+.scroll-view_H navigator image{width:260rpx;height:146rx;border-radius: 3rpx;}
 
 .home_goodRecom{background:#fff;}
 .home_goodR_list{padding:0 30rpx 40rpx 30rpx;}
 .home_goodR_pic{height:302rpx;position: relative;}
-.home_goodR_pic image{width:100%;height: 100%;}
+.home_goodR_pic image{width:100%;height:302rpx;}
 .home_goodR_brand{position: absolute;left:15rpx;top:15rpx;display: inline-block;padding:0 20rpx 0 8rpx;background:#fff;border-radius: 25rpx;font-size:24rpx;height: 50rpx;line-height: 50rpx;font-weight: bold;}
 .home_goodR_brand image{float:left;width:34rpx;height: 34rpx;vertical-align: middle;margin-top:8rpx;margin-right:20rpx;border-radius: 50%;}
 .home_goodR_price{line-height: 60rpx;padding:5rpx;}

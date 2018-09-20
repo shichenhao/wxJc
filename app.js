@@ -8,13 +8,19 @@ App({
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
-        wx.setStorageSync('localPosition', res)
-        _this.globalData.localPosition = res;
+        console.log(!wx.getStorageSync('localPosition'))
+        if (!wx.getStorageSync('localPosition')) {
+          _this.globalData.localPosition = res;
+          wx.setStorageSync('localPosition', res)
+        }
         wx.http.postReq('appletClient?m=findAgentByUserXY', {
-          longitude: res.longitude,
-          latitude: res.latitude
-          }, (data) => {
-            _this.globalData.userInfo = { agentId: data.id }
+          longitude: _this.globalData.localPosition.longitude,
+          latitude: _this.globalData.localPosition.latitude
+        }, (data) => {
+          _this.globalData.agentId = data.value && data.value.id
+          wx.setStorageSync('agentId', data.value && data.value.id)
+          //wx.setStorageSync('localPosition', res)
+          //_this.globalData.localPosition = wx.getStorageSync('localPosition');
         })
       },
       fail(err) {
@@ -32,13 +38,19 @@ App({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
         wx.http.postReq('appletClient?m=findAgentByUserXY', {
-          longitude: res.longitude,
-          latitude: res.latitude
+          longitude: _this.globalData.localPosition.longitude,
+          latitude: _this.globalData.localPosition.latitude
         }, (data) => {
-          _this.globalData.userInfo = { agentId: 265 } //data.value.id }
+          //_this.globalData.userInfo = data.value && data.value.id 
           //_this.globalData.localPosition = res;
-          wx.setStorageSync('localPosition', res)
-          _this.globalData.localPosition = wx.getStorageSync('localPosition');
+          _this.globalData.agentId = data.value && data.value.id
+          wx.setStorageSync('agentId', data.value && data.value.id)
+          if (!wx.getStorageSync('localPosition')) {
+            _this.globalData.localPosition = res;
+            wx.setStorageSync('localPosition', res)
+          }
+          //wx.setStorageSync('localPosition', res)
+          //_this.globalData.localPosition = wx.getStorageSync('localPosition');
           //console.log(_this.globalData)
           cb && cb(res)
         })
@@ -55,13 +67,8 @@ App({
     this.isInit();
     //this.globalData.userInfo = wx.getStorageSync('userInfo');
     this.globalData.localPosition = wx.getStorageSync('localPosition');
-    
-    if (this.globalData.userInfo === null){
-      this.globalData.userInfo = { agentId: 265 }
-    }else{
-      this.globalData.userInfo.agentId = 265
-    }
-    //console.log(this.globalData)
+    this.globalData.userInfo = wx.getStorageSync('userInfo')
+    //console.log(this.globalData.userInfo)
   },
   globalData: {
     localPosition: null,

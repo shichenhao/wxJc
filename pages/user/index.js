@@ -12,16 +12,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let _this = this
     var userInfo = wx.getStorageSync('userInfo') || null;
-    if(userInfo){
-      this.setData({
-        userInfo: app.globalData.userInfo || userInfo
-      })
-    }else{
+    if(!userInfo){
       wx.navigateTo({
         url: '../user-login/index'
       });
     }
+    wx.getUserInfo({
+      success(res) {
+        let userInfo = res.userInfo
+        userInfo.mobile = wx.getStorageSync('userInfo').mobile
+        _this.setData({
+          userInfo
+        })
+      }
+    })
   },
 
   /**

@@ -6,7 +6,7 @@ Page({
   },
   getInit(id){
     var param = {
-      agentId: app.globalData.userInfo.agentId,
+      agentId: app.globalData.agentId,
       id:parseInt(id)
     }
     wx.http.postReq('appletClient?m=findUserClassificationInfo', param, (res) => {

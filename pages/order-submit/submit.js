@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    addressData:null,
     shipmentType:1,
     chooseSort:null,
   },
@@ -47,7 +48,7 @@ Page({
       shipmentType,
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
-      orderItems: JSON.stringify([globalData.selectCommodity])
+      orderItems: JSON.stringify(globalData.selectCommodity)
     }
     wx.http.postReq('appletClient?m=buildingMaterialsOrderServicePreview', params, (res) => {
       let { success, value } = res;

@@ -1,8 +1,10 @@
 // pages/user/index.js
+var QQMapWX = require('../../lib/qqmap-wx-jssdk.min.js');
+var qqmapsdk;
 var app = getApp();
 Page({
   data: {
-    isLogin: app.globalData.userInfo.agentId,
+    isLogin: app.globalData.agentId,
     //红包弹窗
     redType:false,
     redInfo:{},
@@ -26,6 +28,10 @@ Page({
   },
   // 选择位置
   getMap() {
+    wx.navigateTo({
+      url: '/pages/searchAddress/address',
+    })
+    /**
     var _this = this
     wx.chooseLocation({
       success(res) {
@@ -35,7 +41,7 @@ Page({
         })
         app.globalData.localPosition=res
       }
-    })
+    }) */
   },
   //领取红包
   receiveRed(){
@@ -64,12 +70,12 @@ Page({
       redType:true
     })
     var param = {
-      agentId: app.globalData.userInfo.agentId,
+      agentId: app.globalData.agentId,
       longitude: app.globalData.localPosition.longitude,
       latitude: app.globalData.localPosition.latitude
     }
     var params = {
-      agentId: app.globalData.userInfo.agentId,
+      agentId: app.globalData.agentId,
       start: 0,
       size: 6,
     }
@@ -129,6 +135,28 @@ Page({
       }
     })
   },
+  getAds(){
+    let mapXY = null
+    qqmapsdk = new QQMapWX({
+      key: 'R6XBZ-7B5AJ-YROFI-FVQII-DUY35-DEF5X'
+    });
+    qqmapsdk.reverseGeocoder({
+      location: {
+        longitude: app.globalData.localPosition.longitude,
+        latitude: app.globalData.localPosition.latitude
+      },
+      success: (res) => {
+        if (!app.globalData.addressSel){
+          mapXY = res.result.formatted_addresses.recommend
+        }else{
+          mapXY = app.globalData.addressSel.title
+        }
+        this.setData({
+          mapXY
+        })
+      }
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -144,7 +172,7 @@ Page({
         }
       }
     })
-    
+    this.getAds()
   },
 
   /**
@@ -178,7 +206,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log(1)
+    this.getInit();
   },
 
   /**

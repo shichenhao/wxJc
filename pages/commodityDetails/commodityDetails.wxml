@@ -6,12 +6,12 @@
     <view class='navList'>详情</view>
   </view>
 </view>
-<view>
-  <image class='commodityImg' src='{{!data.imgs?"../../lib/images/commodityDefault.png":data.imgs}}' mode="widthFix"></image>
+<view class='commodityImg'>
+  <image src='{{!data.imgs?"../../lib/images/commodityDefault.png":data.imgs}}' mode="widthFix"></image>
 </view>
 <view class='con1'>
   <view>
-    <text class='price'>￥{{selectCommodity.discountPrice}}</text>
+    <text class='price'>￥{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
     <text class='oldPrice'>原价:￥{{selectCommodity.originalPrice}}</text>
     <text class='salesVolume'>销量：{{selectCommodity.totalSaled}}</text>
   </view>
@@ -37,11 +37,7 @@
 <view class='con3'>
   <view class='con3_row'>
     <text class='con3_rowL'>选择型号</text>
-    <text class='con3_rowR con3_rowR_1' bindtap='handleSpecifications'>型号规格，购买数量</text>
-  </view>
-  <view class='con3_row con3_row_2' wx:if="{{isSelectCommodity}}">
-    <text>{{selectCommodity.goodsModel}}</text>
-    <text>{{selectCommodity.quantity}}</text>
+    <text class='con3_rowR con3_rowR_1' bindtap='handleSpecifications'>{{isSelectCommodity ? selectCommodity.goodsModel + ',' + selectCommodity.quantity : '型号规格，购买数量'}}</text>
   </view>
   <view class='con3_row'>
     <text class='con3_rowL'>服务说明</text>
@@ -101,7 +97,7 @@
     <image src='../../lib/images/telIcon.png'></image>
     <view>热线</view>
   </view>
-  <navigator class='downNav2' url='/pages/cart/index' hover-class='none'>
+  <navigator open-type="switchTab" class='downNav2' url='/pages/cart/index' hover-class='none'>
     <image src='../../lib/images/shoppingCartIcon.png'></image>
     <view>购物车</view>
     <text class='count'>{{cartLength}}</text>
@@ -109,7 +105,7 @@
   <view class='downNav3 join' bindtap='pushCart'>
     <text>加入购物车</text>
   </view>
-  <view class='downNav3 purchase' bindtap='purchase' bindtap='purchase'>
+  <view class='downNav3 purchase' bindtap='purchase'>
     <text>立即购买</text>
   </view>
 </view>

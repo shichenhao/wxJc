@@ -11,7 +11,8 @@ Page({
     specifications:false,
     quantity:1,
     merchantName: null,
-    isSelectCommodity: false
+    isSelectCommodity: false,
+    cartLength:0,// 购物车数量
   },
 
   /**
@@ -19,6 +20,7 @@ Page({
    */
   onLoad: function (options) {
     this.getData({ goodsId:options.id})
+    this.getCarNum();
   },
   getData: function (params){ //获取信息
     wx.http.postReq('appletClient?m=findClientBuildingMaterialsGoodsByIdInfo', params, (res) => {
@@ -46,7 +48,7 @@ Page({
    */
   changeSpecifications:function(e){
     let itemdata = e.currentTarget.dataset.itemdata;
-    itemdata.quantity = this.quantity;
+    itemdata.quantity = this.data.quantity;
     itemdata.goodsModelId = itemdata.id;
     itemdata.goodsName = this.data.selectCommodity.goodsName;
     itemdata.price = itemdata.discountPrice - itemdata.platformSubsidiesPrice;
@@ -76,7 +78,7 @@ Page({
         icon:'none'
       })
     }else{
-      globalData.selectCommodity = this.data.selectCommodity;
+      globalData.selectCommodity = [this.data.selectCommodity];
       wx.navigateTo({
         url: '../order-submit/submit?merchantId=' + this.data.data.merchantId
       });
@@ -146,7 +148,7 @@ Page({
       }
       */
       wx.setStorageSync('cart', globalData.cart)
-
+      this.getCarNum();
       this.setData({
         quantity: 1,
         specifications: false,
@@ -156,5 +158,28 @@ Page({
         icon: 'none'
       })
     }
+  },
+  getCarNum() { //获取商品总数
+    let cartLength = 0;
+    wx.getStorageSync('cart').map(item => {
+      item.list.map(son => {
+        cartLength += son.quantity;
+      })
+    })
+    this.setData({
+      cartLength,
+    })
+  },
+  tel(e) { //打电话
+    let phone = e.currentTarget.dataset.tel;
+    wx.makePhoneCall({
+      phoneNumber:phone,
+      success(){
+        console.log(1)
+      },
+      fail() {
+        console.log(2)
+      }
+    })
   }
 })

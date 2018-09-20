@@ -64,30 +64,14 @@
   <view class='cartBg' wx:if="{{cartPop}}">
     <view class='cartPop'>
       <view class='h2'>所选商品需要分开结算</view>
-      <view class='cartItem'>
-        <view class='cartItemTit'>请结算以下1件商品</view>
+      <view class='cartItem' wx:for="{{isCartList}}" wx:key="{{index}}">
+        <view class='cartItemTit'>请结算以下{{item.list.length}}件商品</view>
         <view class='cartItemImg'>
-          <image src='/lib/images/commodityDefault.png'></image>
-          <image src='/lib/images/commodityDefault.png'></image>
-          <image src='/lib/images/commodityDefault.png'></image>
+          <image wx:for="{{item.list}}" wx:for-item="son" wx:key="son.id" src='{{son.img}}'></image>
         </view>
         <view class='cartItemSet'>
-          小计 ￥99.00
-          <view class='cartSettlement'>
-            去结算
-          </view>
-        </view>
-      </view>
-      <view class='cartItem'>
-        <view class='cartItemTit'>请结算以下1件商品</view>
-        <view class='cartItemImg'>
-          <image src='/lib/images/commodityDefault.png'></image>
-          <image src='/lib/images/commodityDefault.png'></image>
-          <image src='/lib/images/commodityDefault.png'></image>
-        </view>
-        <view class='cartItemSet'>
-          小计 ￥99.00
-          <view class='cartSettlement'>
+          小计 ￥{{item.numPrice}}
+          <view class='cartSettlement' bindtap='zhifuOne' data-id="{{item.merchant.id}}">
             去结算
           </view>
         </view>

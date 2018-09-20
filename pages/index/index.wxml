@@ -42,7 +42,12 @@
       </navigator>
     </view>
     <view class='home_gg'>
-      <image src='{{promotion}}' mode="widthFix"></image>
+      <navigator wx:if="{{promotion.type==2}}" url='/pages/commodityDetails/commodityDetails?id={{promotion.goods.id}}' class='home_picT' hover-class="none">
+        <image src='{{promotion.image}}'></image>
+      </navigator>
+      <navigator wx:if="{{promotion.type==1}}" url='/pages/sellerHome/sellerHome?id={{promotion.merchant.id}}' class='home_picT' hover-class="none">
+       <image src='{{promotion.image}}'></image>
+      </navigator>
     </view>
   </view>
   <!--家具-->
@@ -50,15 +55,15 @@
     <view class='home_show_tit  color{{item.nameType}}'><view><text>{{item.name}} · </text>馆</view><text class='home_showAB'>Living Furniture</text></view>
     <view class='home_Hotpic'>
       <navigator wx:if="{{item.type==2}}" url='/pages/commodityDetails/commodityDetails?id={{item.goods.id}}' class='home_picT' hover-class="none">
-        <image src='{{item.image}}' mode="widthFix"></image>
+        <image src='{{item.image}}'></image>
       </navigator>
       <navigator wx:if="{{item.type==1}}" url='/pages/sellerHome/sellerHome?id={{item.merchant.id}}' class='home_picT' hover-class="none">
-       <image src='{{item.image}}' mode="widthFix"></image>
+       <image src='{{item.image}}'></image>
       </navigator>
     </view>
     <view class='home_show_list clearfix'>
-      <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}' class='home_picT' hover-class="none" wx:for="{{item.locationList}}" wx:for-item="i" wx:key="{{i.index}}">
-        <image src='/lib/images/home_pic2.jpg' mode="widthFix"></image>
+      <navigator url='/pages/commodityDetails/commodityDetails?id={{i.goods.id}}' class='home_picT' hover-class="none" wx:for="{{item.locationList}}" wx:for-item="i" wx:key="{{i.index}}">
+        <image src='{{i.goods.imgs}}'></image>
         <view class='home_picTtext'>
           <text class='home_picTtit'>{{i.goods.goodsName}}</text>
           <view class='home_picTbot'>
@@ -76,9 +81,9 @@
     </view>
     <view class='home_hotlistBox clearfix'>
       <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}' class='home_hotlist' hover-class="none" wx:for="{{hotList}}" wx:key="{{item.index}}">
-        <image src='/lib/images/home_pic7.jpg' mode="widthFix" class='home_listPic'></image>
+        <image src='{{item.imgs}}' class='home_listPic'></image>
         <view class='home_hotlistF'>
-          <image src='{{item.imgs}}' mode="widthFix" class='home_hotlistF_icon1'></image>
+          <image src='{{item.imgs}}' class='home_hotlistF_icon1'></image>
           <text class='home_hotlistF_tit'>{{item.goodsName}}</text>
           <view><text class='home_hotlistjq'>已售{{item.totalSaled}}</text><text>¥</text>{{item.goodsPrice}}</view>
         </view>
@@ -93,7 +98,9 @@
       <scroll-view scroll-x  style="width: 100%">
         <view class='scroll-view_H'>
           <block>
-            <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}' wx:for="{{major}}" wx:key="{{item.id}}"><image src="{{item.merchantImage}}" mode="widthFix"></image></navigator>
+            <navigator wx:for="{{major}}" wx:key="{{item.id}}" url='{{item.type == 2 ? "/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" : item.type == 1 ? "/pages/sellerHome/sellerHome?id={{item.merchant.id}}" : "" }}' class='home_picT' hover-class="none">
+              <image src='{{item.merchantImage}}'></image>
+            </navigator>
           </block>
         </view>
       </scroll-view>
@@ -106,9 +113,9 @@
     <!--list-->
     <view class='home_goodR_list' wx:for="{{good}}" wx:key="item.index">
       <view class='home_goodR_pic'>
-         <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}'><image src='{{item.goodsImage}}' mode="widthFix"></image></navigator>
+         <navigator url='/pages/commodityDetails/commodityDetails?id={{item.buildingMaterialsGoods.id}}'><image src='{{item.goodsImage}}'></image></navigator>
          <navigator url='/pages/sellerHome/sellerHome?id={{item.buildingMaterialsMerchant.id}}' class='home_goodR_brand'>
-            <image src='{{item.buildingMaterialsMerchant.logo}}' mode="widthFix"></image>
+            <image src='{{item.buildingMaterialsMerchant.logo}}'></image>
             {{item.buildingMaterialsMerchant.name}}
          </navigator>
       </view>

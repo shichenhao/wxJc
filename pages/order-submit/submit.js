@@ -1,12 +1,14 @@
 // pages/order-submit/submit.js
 var { globalData } = getApp();
+let Pingpp=require('../../request/pingpp.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shipmentType:1
+    shipmentType:1,
+    chooseSort:null,
   },
 
   /**
@@ -15,35 +17,27 @@ Page({
   onLoad: function (options) {
     this.setData({ merchantId: options.merchantId});
     this.initData();
+    this.getAddress();
+  },
+  getAddress() {
+    if (globalData.addressData){
+      this.setData({ addressData: globalData.addressData});
+    }else{
+      wx.http.postReq('appletClient?m=findUserAddress', {}, (res) => {
+        let { success, value } = res;
+        if (success) {
+          this.setData({
+            addressData: value[0]
+          })
+        } else {
+          wx.showToast({
+            title: '出错了,请联系管理员',
+          })
+        }
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
   initData(){
     let { merchantId, shipmentType}=this.data;
     let params={
@@ -59,11 +53,42 @@ Page({
       let { success, value } = res;
       if (success) {
         console.log(value);
+        this.setData({ orderItems:value});
       }
     })
   },
   changeType(e){
     let id=e.currentTarget.dataset.id;
     this.setData({ shipmentType:id});
+  },
+  orderSubmit(){
+    let { merchantId, shipmentType, addressData, orderItems} = this.data;
+    let params = {
+      agentId: globalData.userInfo.agentId,
+      userId: globalData.userInfo.id,
+      merchantId,
+      shipmentType,
+      latitude: globalData.localPosition.latitude,
+      longitude: globalData.localPosition.longitude,
+      orderItems: JSON.stringify([globalData.selectCommodity]),
+      userAddressId: addressData.id,
+      orderItems: JSON.stringify([orderItems]) ,
+      goodsId: globalData.selectCommodity.goodsId,
+      goodsModelId: globalData.selectCommodity.goodsModelId,
+      quantity:2,
+      price:0.01
+    }
+    wx.http.postReq('appletClient?m=buildingMaterialsOrderServiceSubmit', params, (res) => {
+      let { success, value } = res;
+      if (success) {
+        console.log(value);
+      }
+    })
+  },
+  changeAddress(){
+    globalData.orderBackUrl = `/${this.route}?merchantId=${this.data.merchantId}`;
+    wx.navigateTo({
+      url: `../user-address/address`,
+    })
   }
 })

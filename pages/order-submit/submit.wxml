@@ -3,12 +3,10 @@
     <view class='active' data-id='1' bindtap='changeType'>送货上门</view>
     <view data-id='3' bindtap='changeType'>到点自取</view>
   </view>
-  <view class='adress'>
+  <view class='adress' bindtap='changeAddress'>
     <image src='/lib/images/adress.png'></image>
-    <view class='b'>收货人：马可波罗 153***0029</view>
-    <view>
-      北京市海淀区知春路甲48-3盈都大厦-c座 6号楼18
-    </view>
+    <view class='b'>收货人：{{addressData.name}} {{addressData.mobile}}</view>
+    <view>{{addressData.detailedAddress}}</view>
   </view>
   <view>12312</view>
   <view class='h2'>
@@ -72,7 +70,7 @@
         <view class='b'>399</view>
       </view>
     </view>
-    <view class='payment'>提交订单</view>
+    <view class='payment' bindtap='orderSubmit'>提交订单</view>
   </view>
 
 

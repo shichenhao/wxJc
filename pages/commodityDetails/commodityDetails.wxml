@@ -39,7 +39,7 @@
     <text class='con3_rowL'>选择型号</text>
     <text class='con3_rowR con3_rowR_1' bindtap='handleSpecifications'>型号规格，购买数量</text>
   </view>
-  <view class='con3_row con3_row_2'>
+  <view class='con3_row con3_row_2' wx:if="{{isSelectCommodity}}">
     <text>{{selectCommodity.goodsModel}}</text>
     <text>{{selectCommodity.quantity}}</text>
   </view>
@@ -106,10 +106,10 @@
     <view>购物车</view>
     <text class='count'>{{cartLength}}</text>
   </navigator>
-  <view class='downNav3 join' bindtap='handleSpecifications'>
+  <view class='downNav3 join' bindtap='pushCart'>
     <text>加入购物车</text>
   </view>
-  <view class='downNav3 purchase' bindtap='purchase' bindtap='handleSpecifications'>
+  <view class='downNav3 purchase' bindtap='purchase' bindtap='purchase'>
     <text>立即购买</text>
   </view>
 </view>
@@ -128,7 +128,7 @@
       <view class='modelTitle2'>型号</view>
       <view class='modelBox'>
         <view 
-          class='modelItem{{item.id==selectCommodity.id?" modelItemCur":""}}' 
+          class='modelItem{{!!isSelectCommodity &&item.id==selectCommodity.id?" modelItemCur":""}}' 
           wx:for="{{data.modelList}}" wx:key="id" data-itemData="{{item}}" bindtap='changeSpecifications'>{{item.goodsModel}}</view>
       </view>
       <view class='purchaseQuantity'>

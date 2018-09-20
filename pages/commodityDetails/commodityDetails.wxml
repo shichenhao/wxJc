@@ -35,7 +35,9 @@
   <view>
     <text class='text1'>促销</text>
     <text class='text2 text2_2'>满100减10元、满200减30元</text>
-    <text class='text3'>立即领取</text>
+    <navigator class='text3' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
+      立即领取
+    </navigator>
   </view>
 </view>
 <!-- 选择规格 -->
@@ -101,7 +103,7 @@
     <image src='../../lib/images/shopIcon.png'></image>
     <view>店铺</view>
   </navigator>
-  <view class='downNav2' bindtap='tel' data-tel="{{data.contacts}}">
+  <view class='downNav2' bindtap='tel' data-tel="{{data.buildingMaterialsMerchant.contacts}}">
     <image src='../../lib/images/telIcon.png'></image>
     <view>热线</view>
   </view>

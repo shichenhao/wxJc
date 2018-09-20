@@ -21,7 +21,9 @@ Page({
    */
   onLoad: function (options) {
     this.getData({ goodsId:options.id})
-    this.getCarNum();
+    if (wx.getStorageSync('cart').length > 0) {
+      this.getCarNum();
+    }
   },
   getData: function (params){ //获取信息
     wx.http.postReq('appletClient?m=findClientBuildingMaterialsGoodsByIdInfo', params, (res) => {
@@ -173,6 +175,7 @@ Page({
   },
   tel(e) { //打电话
     let phone = e.currentTarget.dataset.tel;
+    console.log(phone)
     wx.makePhoneCall({
       phoneNumber:phone,
       success(){

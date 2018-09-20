@@ -169,10 +169,25 @@ view{
   padding-left:14rpx;
   padding-top:10rpx;
 }
-.discount image{
+.discount .yhList{
   width:223rpx;
   height:100rpx;
   margin-right:14rpx;
+  position: relative;
+  color:#fff;
+  background: url('http://7xu5hi.com1.z0.glb.clouddn.com/201809141606572551946.png');
+  background-size: 100%;
+  padding-left:10rpx;
+}
+.discount .yhList .yhListUp{
+  font-size:22rpx;
+  padding:15rpx 0 10rpx 0;
+}
+.discount .yhList .yhListUp text{
+  font-size:32rpx;
+}
+.discount .yhList .yhListDown{
+  font-size:14rpx;
 }
 
 .main{

@@ -1,12 +1,17 @@
 <!--pages/commodityDetails/commodityDetails.wxml-->
 <view class='navbox'>
   <view class='nav'>
-    <view class='navList navCur'>商品</view>
-    <view class='navList'>评价</view>
-    <view class='navList'>详情</view>
+    <view class='navList navCur' data-opt='commodity' bindtap='jumpTo'>商品</view>
+    <view class='navList' data-opt='evaluate' bindtap='jumpTo'>评价</view>
+    <view class='navList' data-opt='detail' bindtap='jumpTo'>详情</view>
   </view>
 </view>
-<view class='commodityImg'>
+<scroll-view 
+    scroll-into-view="{{toView}}" 
+    scroll-y="true" 
+    scroll-with-animation="true" 
+    class="scr">
+<view class='commodityImg'id="commodity">
   <image src='{{!data.imgs?"../../lib/images/commodityDefault.png":data.imgs}}' mode="widthFix"></image>
 </view>
 <view class='con1'>
@@ -45,7 +50,7 @@
   </view>
 </view>
 <!-- 用户评价 -->
-<view class='con4'>
+<view class='con4' id='evaluate'>
   <view class="h3">
     <text class='h3Left'>用户评价</text>
     <text class='h3Right'><text style='color:#f06062'>100%</text>好评率</text>
@@ -85,6 +90,9 @@
       {{!data.totalSaled?"0":data.totalSaled}}件商品
     </view>
   </view>
+</view>
+<view id='detail'>
+
 </view>
 
 <!-- 底部菜单 -->
@@ -141,4 +149,4 @@
       </view>
   </view>
 </view>
-
+</scroll-view>

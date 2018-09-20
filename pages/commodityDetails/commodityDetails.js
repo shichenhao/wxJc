@@ -12,7 +12,8 @@ Page({
     quantity:1,
     merchantName: null,
     isSelectCommodity: false,
-    cartLength:0,// 购物车数量
+    cartLength:0,// 购物车数量,
+    toView:''
   },
 
   /**
@@ -181,5 +182,13 @@ Page({
         console.log(2)
       }
     })
-  }
+  },
+  jumpTo: function (e) {
+    // 获取标签元素上自定义的 data-opt 属性的值
+
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
+  },
 })

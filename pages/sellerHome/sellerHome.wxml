@@ -40,11 +40,14 @@
     </view>
     <!-- 优惠卷 -->
     <scroll-view class='discount' scroll-x>
-      <image src='../../lib/images/youhui.png'></image> 
-      <image src='../../lib/images/youhui.png'></image> 
-      <image src='../../lib/images/youhui.png'></image> 
-      <image src='../../lib/images/youhui.png'></image> 
-      <image src='../../lib/images/youhui.png'></image>    
+      <view class='yhList'>
+        <view class='yhListUp'>
+          ￥<text>500</text>
+        </view>
+        <view class='yhListDown'>
+          满10000可使用
+        </view>
+      </view>   
     </scroll-view>
   </view>
 </view>

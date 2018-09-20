@@ -74,6 +74,6 @@ App({
     localPosition: null,
     userInfo: wx.getStorageSync('userInfo') || null,
     isRed:false,
-    cart:[]
+    cart:[],
   },
 })

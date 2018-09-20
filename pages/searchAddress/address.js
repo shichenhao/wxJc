@@ -27,8 +27,12 @@ Page({
     wx.http.postReq('appletClient?m=findUserAddress', {}, (res) => {
       let { success, value } = res;
       if (success) {
+        let dataList = value.map(item=>{
+          item.title = item.detailedAddress
+          return item
+        })
         this.setData({
-          dataList: value
+          dataList
         })
       }
     })
@@ -89,12 +93,13 @@ Page({
   getAds(e){ // 获取位置传递到全局
     let item = e.currentTarget.dataset.item;
     let localPosition = wx.getStorageSync('localPosition')
-    globalData.localPosition.longitude = item.location.lng
-    globalData.localPosition.latitude = item.location.lat
-    localPosition.longitude = item.location.lng;
-    localPosition.latitude = item.location.lat;
+    globalData.localPosition.longitude = (item.location && item.location.lng) || item.longitude
+    globalData.localPosition.latitude = (item.location && item.location.lat) || item.latitude
+    localPosition.longitude = (item.location && item.location.lng) || item.longitude;
+    localPosition.latitude = (item.location && item.location.lat) || item.latitude;
     wx.setStorageSync('localPosition', localPosition)
     globalData.addressSel = item
+    console.log(globalData.addressSel)
     wx.switchTab({
       url: '../index/index',
       success: function (e) {

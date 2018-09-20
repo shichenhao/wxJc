@@ -59,7 +59,16 @@ line-height:45rpx;
 }
 .home_picTbotY{font-size:18rpx;color:#999;padding-left:15rpx;text-decoration: line-through;}
 .home_hotlistBox{position: relative;z-index: 2;padding-left:15rpx;}
-.home_hotlist{width:220rpx;float:left;padding:0 11rpx 25rpx;height: 320rpx;}
+.home_hotlist{
+  width:220rpx;
+  float:left;
+  margin:0 11rpx 25rpx;
+  height: 320rpx;
+  background: #fff;
+  border-radius:25rpx;
+  overflow: hidden;
+  box-shadow: 0 0 5rpx #dedede;
+  }
 .home_listPic{width:220rpx;height:220rpx;border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;display: block}
 .home_hotlistF{padding:14rpx 10rpx;position: relative}
 .home_hotlistF_tit{text-overflow:ellipsis;white-space: nowrap;font-size:22rpx;color:#003333;line-height: 40rpx;font-weight: bold;}

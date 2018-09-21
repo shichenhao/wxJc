@@ -52,7 +52,7 @@
       平台红包
       <view>-￥4</view>
     </view>
-    <view>
+    <view bindtap='cashCoupon'>
       商家代金券
       <view>-￥4</view>
     </view>
@@ -71,7 +71,7 @@
 
 
   
-  <view class='moneyPop'>
+  <view class='moneyPop' wx:if="{{false}}">
     <view class='moneyNone active'>
       不使用红包
     </view>
@@ -131,8 +131,7 @@
 
 
 
-
-  <view class='moneyPop moneyPop2'>
+  <view class='moneyPop moneyPop2' wx:if="{{isCashCoupon}}">
     <view class='moneyNone active'>
       不使用优惠券
     </view>

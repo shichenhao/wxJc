@@ -10,6 +10,7 @@ Page({
     addressData:null,
     shipmentType:1,
     chooseSort:null,
+    isCashCoupon:false
   },
 
   /**
@@ -65,7 +66,7 @@ Page({
   orderSubmit(){
     let { merchantId, shipmentType, addressData, orderItems} = this.data;
     let params = {
-      agentId: globalData.userInfo.agentId,
+      agentId: globalData.agentId,
       userId: globalData.userInfo.id,
       merchantId,
       shipmentType,
@@ -90,6 +91,24 @@ Page({
     globalData.orderBackUrl = `/${this.route}?merchantId=${this.data.merchantId}`;
     wx.navigateTo({
       url: `../user-address/address`,
+    })
+  },
+  cashCoupon(){
+    let { merchantId, shipmentType } = this.data;
+    let params = {
+      agentId: globalData.agentId,
+      userId: globalData.userInfo.id,
+      merchantId,
+      businessType:12
+    }
+    wx.http.postReq('appletClient?m=queryCouponsList', params, (res) => {
+      let { success, value } = res;
+      if (success) {
+        this.setData({
+          isCashCoupon: true,
+          cashCouponData:value
+         });
+      }
     })
   }
 })

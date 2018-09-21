@@ -40,12 +40,12 @@
     </view>
     <!-- 优惠卷 -->
     <scroll-view class='discount' scroll-x>
-      <view class='yhList'>
+      <view class='yhList' wx:for="{{info.couponsList}}" data-id='{{item.id}}' wx:key="id" bindtap='receive'>
         <view class='yhListUp'>
-          ￥<text>500</text>
+          ￥<text>{{item.couponsAmt}}</text>
         </view>
         <view class='yhListDown'>
-          满10000可使用
+          {{item.name}}
         </view>
       </view>   
     </scroll-view>
@@ -53,10 +53,7 @@
 </view>
   <!-- 内容 -->
   <view class='main'>
-      <image src='../../lib/images/seller1.png' mode="widthFix"></image> 
-      <image src='../../lib/images/seller2.png' mode="widthFix"></image> 
-      <image src='../../lib/images/seller3.png' mode="widthFix"></image> 
-      <image src='../../lib/images/seller4.png' mode="widthFix"></image> 
+      <!-- <image src='../../lib/images/seller1.png' mode="widthFix"></image>  -->
       <navigator url='/pages/sellerCommodity/sellerCommodity?queryType=0' class='more' hover-class='none'>查看更多商品>></navigator>
   </view>
  

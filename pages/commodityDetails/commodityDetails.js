@@ -1,5 +1,7 @@
 // pages/commodityDetails/commodityDetails.js
 var { globalData} = getApp();
+let WxParse = require('../../wxParse/wxParse.js');
+
 Page({
 
   /**
@@ -13,7 +15,13 @@ Page({
     merchantName: null,
     isSelectCommodity: false,
     cartLength:0,// 购物车数量,
-    toView:''
+    toView:'',
+
+    imgUrls: [],
+    indicatorDots: false,
+    autoplay: false,
+    interval: 5000,
+    duration: 1000
   },
 
   /**
@@ -38,8 +46,12 @@ Page({
         this.setData({ 
           merchantName,
           data: value,
-          selectCommodity
+          selectCommodity,
+          imgUrls: value.imgs.split(';')
         });
+        let goodsInfo = value.goodsInfo;
+        let that = this;
+        WxParse.wxParse('goodsInfo', 'html', goodsInfo, that, 5);
       }
     })
   },

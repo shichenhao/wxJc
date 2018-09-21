@@ -1,4 +1,5 @@
 <!--pages/commodityDetails/commodityDetails.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
 <view class='navbox'>
   <view class='nav'>
     <view class='navList navCur' data-opt='commodity' bindtap='jumpTo'>商品</view>
@@ -11,9 +12,14 @@
     scroll-y="true" 
     scroll-with-animation="true" 
     class="scr">
-<view class='commodityImg'id="commodity">
-  <image src='{{!data.imgs?"../../lib/images/commodityDefault.png":data.imgs}}' mode="widthFix"></image>
-</view>
+  <swiper indicator-dots="{{indicatorDots}}"  class='commodityImg' id="commodity"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150"/>
+      </swiper-item>
+    </block>
+  </swiper>
 <view class='con1'>
   <view>
     <text class='price'>￥{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
@@ -94,7 +100,7 @@
   </view>
 </view>
 <view id='detail'>
-
+  <template is="wxParse" data="{{wxParseData:goodsInfo.nodes}}" />
 </view>
 
 <!-- 底部菜单 -->

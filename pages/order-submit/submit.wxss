@@ -243,7 +243,6 @@
   font-size: 30rpx;
   background: #ededed;
   z-index: 1;
-  display: none
 }
 
 .moneyNone{

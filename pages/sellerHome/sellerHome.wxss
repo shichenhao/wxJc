@@ -168,6 +168,7 @@ view{
   white-space: nowrap;
   padding-left:14rpx;
   padding-top:10rpx;
+  padding:10rpx 14rpx 0 10rpx;
 }
 .discount .yhList{
   width:223rpx;
@@ -178,6 +179,7 @@ view{
   background: url('http://7xu5hi.com1.z0.glb.clouddn.com/201809141606572551946.png');
   background-size: 100%;
   padding-left:10rpx;
+  display: inline-block;
 }
 .discount .yhList .yhListUp{
   font-size:22rpx;

@@ -42,11 +42,8 @@
       </navigator>
     </view>
     <view class='home_gg'>
-      <navigator wx:if="{{promotion.type==2}}" url='/pages/commodityDetails/commodityDetails?id={{promotion.goods.id}}' class='home_picT' hover-class="none">
+      <navigator url='{{promotion.type == 2 ? "/pages/commodityDetails/commodityDetails?id={{promotion.goods.id}}" : promotion.type == 1 ? "/pages/sellerHome/sellerHome?id={{promotion.merchant.id}}" : "/pages/discount/discount?id={{promotion.activity.id}}" }}' class='home_picT' hover-class="none">
         <image src='{{promotion.image}}'></image>
-      </navigator>
-      <navigator wx:if="{{promotion.type==1}}" url='/pages/sellerHome/sellerHome?id={{promotion.merchant.id}}' class='home_picT' hover-class="none">
-       <image src='{{promotion.image}}'></image>
       </navigator>
     </view>
   </view>
@@ -54,11 +51,8 @@
   <view class='home_show' wx:for="{{list}}" wx:key="item.id">
     <view class='home_show_tit  color{{item.nameType}}'><view><text>{{item.name}} · </text>馆</view><text class='home_showAB'>Living Furniture</text></view>
     <view class='home_Hotpic'>
-      <navigator wx:if="{{item.type==2}}" url='/pages/commodityDetails/commodityDetails?id={{item.goods.id}}' class='home_picT' hover-class="none">
+      <navigator url='{{item.type == 2 ? "/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" : item.type == 1 ? "/pages/sellerHome/sellerHome?id={{item.merchant.id}}" : "/pages/discount/discount?id={{item.activity.id}}" }}' class='home_picT' hover-class="none">
         <image src='{{item.image}}'></image>
-      </navigator>
-      <navigator wx:if="{{item.type==1}}" url='/pages/sellerHome/sellerHome?id={{item.merchant.id}}' class='home_picT' hover-class="none">
-       <image src='{{item.image}}'></image>
       </navigator>
     </view>
     <view class='home_show_list clearfix'>
@@ -98,7 +92,7 @@
       <scroll-view scroll-x  style="width: 100%">
         <view class='scroll-view_H'>
           <block>
-            <navigator wx:for="{{major}}" wx:key="{{item.id}}" url='{{item.type == 2 ? "/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" : item.type == 1 ? "/pages/sellerHome/sellerHome?id={{item.merchant.id}}" : "" }}' class='home_picT' hover-class="none">
+            <navigator wx:for="{{major}}" wx:key="{{item.id}}" url='{{item.type == 2 ? "/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" : item.type == 1 ? "/pages/sellerHome/sellerHome?id={{item.merchant.id}}" : "/pages/discount/discount?id={{item.activity.id}}" }}' class='home_picT' hover-class="none">
               <image src='{{item.merchantImage}}'></image>
             </navigator>
           </block>
@@ -120,10 +114,10 @@
          </navigator>
       </view>
       <view class='home_goodR_price'>
-        <text class='price1'><text>¥</text>{{item.buildingMaterialsGoods.modelList[0].originalPrice}}</text>  <text class='price2' wx:if="{{item.buildingMaterialsGoods.modelList[0].BigDecimal}}">马管家补贴<text>{{item.buildingMaterialsGoods.modelList[0].BigDecimal}}元</text></text>
+        <text class='price1'><text>¥</text>{{item.buildingMaterialsGoods.modelList[0].originalPrice}}</text>  <text class='price2' wx:if="{{item.buildingMaterialsGoods.modelList[0].platformSubsidiesPrice}}">马管家补贴<text>{{item.buildingMaterialsGoods.modelList[0].platformSubsidiesPrice}}元</text></text>
       </view>
       <view class='home_goodR_tit'>
-          <text wx:if="{{item.buildingMaterialsGoods.modelList[0].BigDecimal}}">补贴</text> {{item.buildingMaterialsGoods.goodsName}}
+          <text wx:if="{{item.buildingMaterialsGoods.modelList[0].platformSubsidiesPrice}}">补贴</text> {{item.buildingMaterialsGoods.goodsName}}
       </view>
       <view class='home_goodR_text'>
         {{item.recommendReason}}

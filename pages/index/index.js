@@ -206,7 +206,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getInit();
+    if (app.globalData.localPosition) {
+      wx.stopPullDownRefresh();
+      this.getInit();
+      if (app.globalData.isRed) {
+        this.receiveRed();
+      } else {
+        this.closeRed();
+      }
+    }
   },
 
   /**

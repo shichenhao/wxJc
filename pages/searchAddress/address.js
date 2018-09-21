@@ -92,12 +92,12 @@ Page({
   },
   getAds(e){ // 获取位置传递到全局
     let item = e.currentTarget.dataset.item;
-    let localPosition = wx.getStorageSync('localPosition')
+    let localPosition = globalData.localPosition
     globalData.localPosition.longitude = (item.location && item.location.lng) || item.longitude
     globalData.localPosition.latitude = (item.location && item.location.lat) || item.latitude
     localPosition.longitude = (item.location && item.location.lng) || item.longitude;
     localPosition.latitude = (item.location && item.location.lat) || item.latitude;
-    wx.setStorageSync('localPosition', localPosition)
+    //wx.setStorageSync('localPosition', localPosition)
     globalData.addressSel = item
     console.log(globalData.addressSel)
     wx.switchTab({

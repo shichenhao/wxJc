@@ -19,9 +19,9 @@ Page({
     // 横屏广告
     promotion: null,
     indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
+    autoplay: true,
+    interval: 4000,
+    duration: 500,
     // 热销
     hotList: [],
     mapXY: '选择位置',
@@ -171,8 +171,8 @@ Page({
           this.closeRed();
         }
       }
+      this.getAds()
     })
-    this.getAds()
   },
 
   /**
@@ -206,7 +206,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.log(1)
     this.getInit();
   },
 

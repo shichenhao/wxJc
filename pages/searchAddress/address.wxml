@@ -33,7 +33,6 @@
       <view class='span'>
         {{item.address}}
       </view>
-      <image src='/lib/images/adress_06.png' data-item='{{item}}' bindtap='addAddress'></image>
     </view>
   </view>
 </view>

@@ -55,7 +55,7 @@
     </navigator>
   </view>
   <view class='telephone'>
-    <view class='b'>
+    <view class='b' bindtap='tel'>
       客服电话：400-000-0000
     </view>
   </view>

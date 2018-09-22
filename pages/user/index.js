@@ -7,27 +7,30 @@ Page({
   data: {
     userInfo: null
   },
+  tel(e) { //打电话
+    wx.makePhoneCall({
+      phoneNumber: '400-4000-400',
+      success() {
+      },
+      fail() {
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let _this = this
-    var userInfo = wx.getStorageSync('userInfo') || null;
+    let userInfo = wx.getStorageSync('wxInfo')
     if(!userInfo){
       wx.navigateTo({
         url: '../user-login/index'
       });
       return false
     }
-    wx.getUserInfo({
-      success(res) {
-        let userInfo = res.userInfo
-        userInfo.mobile = wx.getStorageSync('userInfo').mobile
-        _this.setData({
-          userInfo
-        })
-      }
+    this.setData({
+      userInfo
     })
   },
 
@@ -41,6 +44,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let userInfo = wx.getStorageSync('wxInfo')
+    this.setData({
+      userInfo
+    })
   
   },
 

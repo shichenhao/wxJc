@@ -14,7 +14,7 @@
     class="scr">
   <swiper indicator-dots="{{indicatorDots}}"  class='commodityImg' id="commodity"
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
       <swiper-item>
         <image src="{{item}}" class="slide-image" width="355" height="150"/>
       </swiper-item>
@@ -107,15 +107,17 @@
 </view>
 
 
+</scroll-view>
+
 <!-- 选择规格 -->
 <view class='specificationsBg' wx:if="{{specifications}}">
   <view class='specifications'>
       <view class='closeBox'>
-      <view class='close' bindtap='handleSpecifications'></view>
+        <view class='close' bindtap='handleSpecifications'></view>
       </view>
       <view class='commodityImg2'>
         <image src='{{selectCommodity.img}}' mode="widthFix"></image>
-        <text class='specificationsPrice'>￥{{selectCommodity.discountPrice}}</text>
+        <text class='specificationsPrice'>￥{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
       </view>
       <view class='modelTitle'>选择型号</view>
       <view class='modelTitle2'>型号</view>
@@ -138,8 +140,6 @@
       </view>
   </view>
 </view>
-</scroll-view>
-
 <!-- 底部菜单 -->
 <view class='downNav'>
   <navigator class='downNav2' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>

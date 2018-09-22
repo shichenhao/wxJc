@@ -99,7 +99,10 @@
     </view>
   </view>
 </view>
-<view id='detail'>
+<view id='detail' class='con4'>
+  <view class="h3">
+    <text class='h3Left'>商品详情</text>
+  </view>
   <template is="wxParse" data="{{wxParseData:goodsInfo.nodes}}" />
 </view>
 

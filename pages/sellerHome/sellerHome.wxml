@@ -45,7 +45,7 @@
           ￥<text>{{item.couponsAmt}}</text>
         </view>
         <view class='yhListDown'>
-          {{item.name}}
+          满{{item.restrictAmt}}元可用
         </view>
       </view>   
     </scroll-view>
@@ -53,7 +53,14 @@
 </view>
   <!-- 内容 -->
   <view class='main'>
-      <!-- <image src='../../lib/images/seller1.png' mode="widthFix"></image>  -->
+      <view wx:for="{{info.homeRecommendedList}}" wx:key="index">
+          <navigator wx:if="{{item.type === 2}}" url="/pages/commodityDetails/commodityDetails?id={{item.goodsId}}" class='home_picT' hover-class="none">
+            <image src='{{item.recommendedImg}}'></image>
+          </navigator>
+          <navigator wx:if="{{item.type === 1}}" url="/pages/discount/discount?id={{item.activityId}}" class='home_picT' hover-class="none">
+            <image src='{{item.recommendedImg}}'></image>
+          </navigator>
+      </view>
       <navigator url='/pages/sellerCommodity/sellerCommodity?queryType=0' class='more' hover-class='none'>查看更多商品>></navigator>
   </view>
  

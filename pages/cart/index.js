@@ -232,13 +232,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (this.data.cartList.length > 0) {
-      this.getCarNum();
-    }
     let cartList = wx.getStorageSync('cart')
     this.setData({
       cartList
     })
+    if (this.data.cartList.length > 0) {
+      this.getCarNum();
+    }
     // wx.hideTabBar({}) 
   },
 
@@ -253,7 +253,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    let cartList = wx.getStorageSync('cart')
+    this.setData({
+      cartList
+    })
+    if (this.data.cartList.length > 0) {
+      this.getCarNum();
+    }
   },
 
   /**

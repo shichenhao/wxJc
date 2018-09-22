@@ -49,6 +49,17 @@ function postReq(url, data, cb) {
         //console.log(res)
         wx.hideLoading();
         if (!res.data.success){
+
+          if (res.code === 100000) {
+            wx.showToast({
+              title: '用户未登录',
+              icon: 'none'
+            })
+            wx.navigateTo({
+              url: '../user-login/index'
+            });
+            return false;
+          }
           wx.showToast({
             title: res.data.value || '出错了，请联系客服',
             icon: 'none'

@@ -204,11 +204,12 @@ Page{
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 36rpx;
-  height: 36rpx;
+  width: 40rpx;
+  height: 40rpx;
   border-radius: 40rpx;
-  border: 2rpx solid #e3e3e3;
-  background: #fff;
+  /*border: 2rpx solid #e3e3e3;*/
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141542282007556.png) no-repeat;
+  background-size: 100%;
 }
 
 .countBox .countAdd{
@@ -219,6 +220,7 @@ Page{
 .countBox .countAdd:after{
   content: '';
   position: absolute;
+  display: none;
   left: 0;
   top: 0;
   right: 0;
@@ -232,6 +234,8 @@ Page{
 .countBox .countDel{
   right: 0;
   top: 0;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141542402054277.png) no-repeat;
+  background-size: 100%;
 }
 
 .countBox .countDel:after{
@@ -245,6 +249,7 @@ Page{
   width: 18rpx;
   height: 1px;
   background: #c4c2c2;
+  display: none;
 }
 
 .countBox .countDel:before{
@@ -258,6 +263,7 @@ Page{
   width: 1px;
   height: 18rpx;
   background: #c4c2c2;
+  display: none;
 }
 
 .countBox .count{

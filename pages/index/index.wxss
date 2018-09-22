@@ -50,7 +50,7 @@
 .home_hottit{height:80rpx;line-height: 80rpx; color:#fff;font-size:32rpx;position: relative;z-index: 1;padding:0 40rpx}
 .home_picTtext{font-size:0}
 .home_hottit image{width:22rpx;height: 27rpx;margin-right: 12rpx;}
-.home_picTtit{font-size:22rpx;color:#191919;line-height: 28rpx;padding:5rpx 0}
+.home_picTtit{font-size:22rpx;color:#191919;line-height: 28rpx;padding:5rpx 0;max-height:56rpx;display:block;overflow: hidden}
 .home_picTbot{
   font-size:18rpx;
   color:#d3372d;
@@ -127,10 +127,9 @@
 }
 
 .redBagCountBox .close{
-  width: 42rpx;
-  height: 42rpx;
-  border-radius: 42rpx;
-  border:4rpx solid #fff;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
   color: #fff;
   display: flex;
   font-size: 30rpx;
@@ -141,6 +140,8 @@
   right: 0;
   margin: 0 auto;
   margin-top: 350rpx;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141600164392228.png) no-repeat;
+  background-size: 100%;
 }
 
 .redBagCountBox .span{

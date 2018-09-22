@@ -18,6 +18,7 @@ Page({
       wx.navigateTo({
         url: '../user-login/index'
       });
+      return false
     }
     wx.getUserInfo({
       success(res) {

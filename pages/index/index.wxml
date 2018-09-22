@@ -4,8 +4,14 @@
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{banner}}" wx:key="item.index">
         <swiper-item>
-          <navigator url='/pages/sellerHome/sellerHome?id={{item.merchantId}}' hover-class='none'>
-            <image src="{{item.image}}" class="slide-image"/>
+          <navigator wx:if="{{item.type === 2}}" url="/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" class='home_picT' hover-class="none">
+            <image src='{{item.image}}'></image>
+          </navigator>
+          <navigator wx:if="{{item.type === 1}}" url="/pages/sellerHome/sellerHome?id={{item.merchant.id}}" class='home_picT' hover-class="none">
+            <image src='{{item.image}}'></image>
+          </navigator>
+          <navigator wx:if="{{item.type === 3}}" url="/pages/discount/discount?id={{item.activity.id}}" class='home_picT' hover-class="none">
+            <image src='{{item.image}}'></image>
           </navigator>
         </swiper-item>
       </block>
@@ -31,7 +37,7 @@
       <navigator url='/pages/returnList/returnList' hover-class='none'>
         <image src='/lib/images/home_icon5.jpg'></image>全场返现
       </navigator>
-      <navigator hover-class='none'>
+      <navigator url='/pages/count/discount' hover-class='none'>
         <image src='/lib/images/home_icon6.jpg'></image>优惠券
       </navigator>
       <navigator url='/pages/couplet/couplet' hover-class='none'>
@@ -42,8 +48,14 @@
       </navigator>
     </view>
     <view class='home_gg'>
-      <navigator url='{{promotion.type == 2 ? "/pages/commodityDetails/commodityDetails?id={{promotion.goods.id}}" : promotion.type == 1 ? "/pages/sellerHome/sellerHome?id={{promotion.merchant.id}}" : "/pages/discount/discount?id={{promotion.activity.id}}" }}' class='home_picT' hover-class="none">
+      <navigator wx:if="{{promotion.type === 2}}" url="/pages/commodityDetails/commodityDetails?id={{promotion.goods.id}}" class='home_picT' hover-class="none">
         <image src='{{promotion.image}}'></image>
+      </navigator>
+      <navigator wx:if="{{promotion.type === 1}}" url="/pages/sellerHome/sellerHome?id={{promotion.merchant.id}}" class='home_picT' hover-class="none">
+        <image src='{{promotion.image}}'></image>
+      </navigator>
+      <navigator wx:if="{{promotion.type === 3}}" url="/pages/discount/discount?id={{promotion.activity.id}}" class='home_picT' hover-class="none">
+        <image src='{{item.image}}'></image>
       </navigator>
     </view>
   </view>
@@ -51,7 +63,13 @@
   <view class='home_show' wx:for="{{list}}" wx:key="item.id">
     <view class='home_show_tit  color{{item.nameType}}'><view><text>{{item.name}} · </text>馆</view><text class='home_showAB'>Living Furniture</text></view>
     <view class='home_Hotpic'>
-      <navigator url='{{item.type == 2 ? "/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" : item.type == 1 ? "/pages/sellerHome/sellerHome?id={{item.merchant.id}}" : "/pages/discount/discount?id={{item.activity.id}}" }}' class='home_picT' hover-class="none">
+      <navigator wx:if="{{item.type === 2}}" url="/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" class='home_picT' hover-class="none">
+        <image src='{{item.image}}'></image>
+      </navigator>
+      <navigator wx:if="{{item.type === 1}}" url="/pages/sellerHome/sellerHome?id={{item.merchant.id}}" class='home_picT' hover-class="none">
+        <image src='{{item.image}}'></image>
+      </navigator>
+      <navigator wx:if="{{item.type === 3}}" url="/pages/discount/discount?id={{item.activity.id}}" class='home_picT' hover-class="none">
         <image src='{{item.image}}'></image>
       </navigator>
     </view>
@@ -92,7 +110,7 @@
       <scroll-view scroll-x  style="width: 100%">
         <view class='scroll-view_H'>
           <block>
-            <navigator wx:for="{{major}}" wx:key="{{item.id}}" url='{{item.type == 2 ? "/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" : item.type == 1 ? "/pages/sellerHome/sellerHome?id={{item.merchant.id}}" : "/pages/discount/discount?id={{item.activity.id}}" }}' class='home_picT' hover-class="none">
+            <navigator wx:for="{{major}}" wx:key="{{item.id}}" url="/pages/sellerHome/sellerHome?id={{item.merchant.id}}" class='home_picT' hover-class="none">
               <image src='{{item.merchantImage}}'></image>
             </navigator>
           </block>

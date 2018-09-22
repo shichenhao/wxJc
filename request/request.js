@@ -46,20 +46,19 @@ function postReq(url, data, cb) {
       data: params,
       method: 'post',
       success: function (res) {
+        if (res.data.code === 100000) {
+          wx.showToast({
+            title: '没有绑定手机号，去绑定！',
+            icon: 'none'
+          })
+          wx.navigateTo({
+            url: '../user/index'
+          });
+          return false;
+        }
         //console.log(res)
         wx.hideLoading();
         if (!res.data.success){
-
-          if (res.code === 100000) {
-            wx.showToast({
-              title: '用户未登录',
-              icon: 'none'
-            })
-            wx.navigateTo({
-              url: '../user-login/index'
-            });
-            return false;
-          }
           wx.showToast({
             title: res.data.value || '出错了，请联系客服',
             icon: 'none'

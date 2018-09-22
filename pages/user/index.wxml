@@ -59,7 +59,10 @@
       客服电话：400-000-0000
     </view>
   </view>
-  <view class='logout'>
-    退出登录
-  </view>
+  <button class='logout' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 
+    绑定手机号
+  </button> 
+  <button class='logout' bindtap='getPhoneNumber'> 
+    绑定手机
+  </button> 
 </view>

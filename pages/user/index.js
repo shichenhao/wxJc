@@ -16,7 +16,20 @@ Page({
       }
     })
   },
+  getPhoneNumber(e) {
+    let params = {
+      userId: app.globalData.userInfo.id,
+      mobile: 15111111111
+    }
 
+    wx.http.postReq('appletClient?m=bindingMobile', params, (res) => {
+      let { success, value } = res;
+      if (success) {
+        wx.setStorageSync('token', value.token)
+        app.globalData.token = value.token
+      } 
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

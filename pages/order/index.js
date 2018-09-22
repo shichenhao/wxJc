@@ -10,37 +10,66 @@ Page({
       "1": "待付款",
       "2": "待确认",
       "7": "已完成"
-    }
+    },
+    page: { //分页
+      limit: 10,
+      start: 0,
+      isMore: true
+    },
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    console.log(app.globalData.userInfo)
+  getList() {
+    let page = this.data.page
     var params = {
       userId: app.globalData.userInfo.id,
-      start: 0,
-      size: 10
+      start: this.data.page.start,
+      limit: this.data.page.limit
     };
     wx.http.postReq('appletClient?m=findBuildingMaterialsOrderList', params, (data) => {
       if (data.success) {
         var info = data.value;
+        info = data.value;
+        page.start = 0;
+        if (info.length >= this.data.page.limit) {
+          page.start += 1;
+          page.isMore = true;
+        } else {
+          page.isMore = false;
+        }
         this.setData({
-          info
+          info,
+          page,
         })
       }
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getList();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.setNavigationBarTitle({
-      title: '我的订单'
-    })
   
   },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if (this.data.page.isMore) {
+      this.getList()
+    }
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
 
 })

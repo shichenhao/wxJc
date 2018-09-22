@@ -1,9 +1,9 @@
 <!--pages/classify/classify.wxml-->
 <view class='box'>
-    <view class='searchBox'>
+    <navigator class='searchBox' url='/pages/search/search' hover-class='none'>
       <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
-      <input id='search' placeholder='搜索品牌分类'></input>
-    </view>
+      <input id='search' disabled='disabled' placeholder='搜索品牌分类'></input>
+    </navigator>
   <view class='main'>
     <view class='left'>
       <view class='leftList {{id == item.id ? "leftCur" : ""}}' wx:for="{{leftData}}" wx:key="{{id}}" data-id='{{item.id}}' bindtap='changeClassify'>{{item.name}}</view>

@@ -1,6 +1,5 @@
 // pages/order-submit/submit.js
 var { globalData } = getApp();
-let Pingpp=require('../../request/pingpp.js');
 Page({
 
   /**

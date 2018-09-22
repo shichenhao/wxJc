@@ -1,5 +1,6 @@
 // pages/payment/payment.js
 var { globalData } = getApp();
+let Pingpp = require('../../request/pingpp.js');
 Page({
 
   /**
@@ -31,17 +32,23 @@ Page({
         this.setData({
           balance: value.balance,
           isBalance: value.balance >= this.data.price,
-          isOtherPrice: value.balance < this.data.price
         });
+        if (value.balance >= this.data.price){
+          this.setData({ isOtherPrice: false })
+        }
       }
     })
   },
   selectBalancePay(){
     let { isBalance, price, balance}=this.data;
     this.setData({ isBalance: !isBalance});
-    if (!isBalance && balance*1<price*1){
+    if (!isBalance && balance < price){
       this.setData({ 
         otherPrice: price - balance,
+      });
+    } else {
+      this.setData({ 
+        isOtherPrice:false
       });
     }
   },
@@ -49,36 +56,51 @@ Page({
     this.setData({ isOtherPrice: !this.data.isOtherPrice })
   },
   submit(){
-    let { isBalance, isOtherPrice, price}=this.data;
-    let params = globalData.orderParams;
-    params.balanceCost = price;
-    if (isOtherPrice){
-      wx.http.postReq('appletClient?m=pingxxWxLitePay', {
-          channel: 'wx_lite',//渠道名
-          amount: globalData.orderDetail.totalGoodsPrice,
-          orderId: globalData.orderDetail.id,
-          openId: globalData.openId,
-          balanceCost: globalData.userInfo.balance
-        }, (res2) => {
-          var charge = res2.value;
-          Pingpp.createPayment(charge, function (result, err) {
-            console.log(result);
-            console.log(err.msg);
-            console.log(err.extra);
-            if (result == "success") {
-              // 只有微信小程序 wx_lite 支付成功的结果会在这里返回
-              console.log('success');
-            } else if (result == "fail") {
-              // charge 不正确或者微信小程序支付失败时会在此处返回
-              console.log('fail');
-            } else if (result == "cancel") {
-              // 微信小程序支付取消支付
-            }
-          });
+    let { isBalance, isOtherPrice, price, balance}=this.data;
+    let params = globalData.orderDetail;
+    if (!isOtherPrice) {
+      wx.http.postReq('appletClient?m=balancePay', {
+        orderId: params.id
+      }, (res) => {
+        let { success, value } = res;
+        if (success) {
+          wx.navigateTo({
+            url: '../order/index',
+          })
         }
-      )
+      })
     }else{
-
+      wx.http.postReq('appletClient?m=pingxxWxLitePay', {
+        channel: 'wx_lite',//渠道名
+        amount: params.totalGoodsPrice,
+        orderId: params.id,
+        openId: globalData.openId,
+        balanceCost: balance
+      }, (res2) => {
+        var charge = res2.value;
+        Pingpp.createPayment(charge, function (result, err) {
+          console.log(result);
+          console.log(err.msg);
+          console.log(err.extra);
+          if (result == "success") {
+            // 只有微信小程序 wx_lite 支付成功的结果会在这里返回
+            wx.navigateTo({
+              url: '../order/index',
+            })
+          } else if (result == "fail") {
+            // charge 不正确或者微信小程序支付失败时会在此处返回
+            wx.navigateTo({
+              url: '../order/index',
+            })
+          } else if (result == "cancel") {
+            // 微信小程序支付取消支付
+            wx.navigateTo({
+              url: '../order/index',
+            })
+          }
+        });
+      }
+      )
     }
   }
 })

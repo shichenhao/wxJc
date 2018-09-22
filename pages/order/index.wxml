@@ -11,8 +11,8 @@
       </navigator>
       <view class='span'>
         {{status[item.status]}}
-        <view wx:if="item.status != 7">{{item.buildingMaterialsOrderItemList.length}}</view>
-        <view wx:if="item.status == 7">{{item.orderItemCount - item.orderItemCommentsCount}}</view>
+        <view>{{item.buildingMaterialsOrderItemList.length}}</view>
+        <!-- <view wx:if="item.status == 7">{{item.orderItemCount - item.orderItemCommentsCount}}</view> -->
       </view>
     </view>
     <view class='evaluateItem' wx:for="{{item.buildingMaterialsOrderItemList}}" wx:for-item='order' wx:key="order.index">

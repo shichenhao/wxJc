@@ -22,7 +22,7 @@
     微信支付
   </view>
  </view>
-  <view class='btnPay'>
+  <view class='btnPay' bindtap='submit'>
     确认支付
   </view>
 </view>

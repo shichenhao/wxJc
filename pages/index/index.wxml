@@ -55,7 +55,7 @@
         <image src='{{promotion.image}}'></image>
       </navigator>
       <navigator wx:if="{{promotion.type === 3}}" url="/pages/discount/discount?id={{promotion.activity.id}}" class='home_picT' hover-class="none">
-        <image src='{{item.image}}'></image>
+        <image src='{{promotion.image}}'></image>
       </navigator>
     </view>
   </view>
@@ -110,7 +110,7 @@
       <scroll-view scroll-x  style="width: 100%">
         <view class='scroll-view_H'>
           <block>
-            <navigator wx:for="{{major}}" wx:key="{{item.id}}" url="/pages/sellerHome/sellerHome?id={{item.merchant.id}}" class='home_picT' hover-class="none">
+            <navigator wx:for="{{major}}" wx:key="{{item.id}}" url="/pages/sellerHome/sellerHome?id={{item.merchantId}}" class='home_picT' hover-class="none">
               <image src='{{item.merchantImage}}'></image>
             </navigator>
           </block>
@@ -155,7 +155,7 @@
       <view class='p'>
         可在“我的钱包”中查看详情
       </view>
-      <view class='close' bindtap="closeRed">✖</view>
+      <view class='close' bindtap="closeRed"></view>
     </view>
   </view>
 </view>

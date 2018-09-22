@@ -50,7 +50,7 @@
 .home_hottit{height:80rpx;line-height: 80rpx; color:#fff;font-size:32rpx;position: relative;z-index: 1;padding:0 40rpx}
 .home_picTtext{font-size:0}
 .home_hottit image{width:22rpx;height: 27rpx;margin-right: 12rpx;}
-.home_picTtit{font-size:22rpx;color:#191919;line-height: 28rpx;padding:5rpx 0;max-height:56rpx;display:block;overflow: hidden}
+.home_picTtit{font-size:22rpx;color:#191919;line-height: 28rpx;padding:5rpx 0;height:50rpx;display:block;overflow: hidden}
 .home_picTbot{
   font-size:18rpx;
   color:#d3372d;
@@ -92,9 +92,9 @@
 .home_goodR_brand{position: absolute;left:15rpx;top:15rpx;display: inline-block;padding:0 20rpx 0 8rpx;background:#fff;border-radius: 25rpx;font-size:24rpx;height: 50rpx;line-height: 50rpx;font-weight: bold;}
 .home_goodR_brand image{float:left;width:34rpx;height: 34rpx;vertical-align: middle;margin-top:8rpx;margin-right:20rpx;border-radius: 50%;}
 .home_goodR_price{line-height: 60rpx;padding:5rpx;}
-.price1{font-size:40rpx;font-weight: bold0;color:#eb4245;display: inline-block;vertical-align: middle}
-.price1 text{font-size:26rpx;font-weight: normal}
-.price2{font-size:22rpx;color:#888;padding-left:50rpx;display: inline-block;vertical-align: middle}
+.price1{font-size:40rpx;font-weight: bold0;color:#eb4245;display: inline-block;vertical-align: middle;font-weight: bold;}
+.price1 text{font-size:26rpx;font-weight: normal; font-weight: 100;padding-right:4rpx;}
+.price2{font-size:22rpx;color:#888;padding-left:18rpx;display: inline-block;vertical-align: middle}
 .price2 text{color:#eb4245}
 .home_goodR_tit{line-height:40rpx;font-size:28rpx;color:#333;font-weight: bold;}
 .home_goodR_tit text{font-size:20rpx;color:#da504c;display: inline-block;vertical-align: middle;padding:0 12rpx;height: 25rpx;line-height: 25rpx;text-align: center;border-radius: 5rpx;border:1px solid #da504c;margin-top:-2rpx;}
@@ -140,7 +140,7 @@
   right: 0;
   margin: 0 auto;
   margin-top: 350rpx;
-  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141600164392228.png) no-repeat;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809221559484833342.png) no-repeat;
   background-size: 100%;
 }
 

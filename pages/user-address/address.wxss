@@ -1,6 +1,7 @@
 .container{
   font-size: 30rpx;
   color: #333;
+  padding-bottom: 100rpx;
 }
 
 .addressList{

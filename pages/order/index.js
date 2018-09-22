@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info:null,
+    info:[],
     status: {
       "-1": "已取消",
       "1": "待付款",
@@ -26,9 +26,10 @@ Page({
     };
     wx.http.postReq('appletClient?m=findBuildingMaterialsOrderList', params, (data) => {
       if (data.success) {
-        var info = data.value;
-        info = data.value;
-        page.start = 0;
+        let info = this.data.info
+        if (data.value.length > 0) {
+          info = [...info, ...data.value]
+        }
         if (info.length >= this.data.page.limit) {
           page.start += 1;
           page.isMore = true;

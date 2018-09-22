@@ -132,7 +132,7 @@
 
 
   <view class='moneyPop moneyPop2' wx:if="{{isCashCoupon}}">
-    <view class='moneyNone active'>
+    <view class='moneyNone active' bindtap='noCashCoupon'>
       不使用优惠券
     </view>
     <view class="moneyBox">

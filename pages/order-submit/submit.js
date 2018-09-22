@@ -75,8 +75,8 @@ Page({
       orderItems: JSON.stringify([globalData.selectCommodity]),
       userAddressId: addressData.id,
       orderItems: JSON.stringify([orderItems]) ,
-      goodsId: globalData.selectCommodity.goodsId,
-      goodsModelId: globalData.selectCommodity.goodsModelId,
+      goodsId: globalData.selectCommodity[0].goodsId,
+      goodsModelId: globalData.selectCommodity[0].goodsModelId,
       quantity:2,
       price:0.01
     }
@@ -110,5 +110,10 @@ Page({
          });
       }
     })
+  },
+  noCashCoupon(){
+    this.setData({
+      isCashCoupon: false,
+    });
   }
 })

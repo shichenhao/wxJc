@@ -15,7 +15,7 @@ Page({
     merchantName: null,
     isSelectCommodity: false,
     cartLength:0,// 购物车数量,
-    toView:'',
+    toView:'commodity',
 
     imgUrls: [],
     indicatorDots: false,

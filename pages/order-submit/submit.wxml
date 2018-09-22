@@ -1,7 +1,7 @@
 <view class="container">
   <view class='orderSubmitTit'>
-    <view class='active' data-id='1' bindtap='changeType'>送货上门</view>
-    <view data-id='3' bindtap='changeType'>到店自取</view>
+    <view class='{{shipmentType===1?"active":""}}' data-id='1' bindtap='changeType'>送货上门</view>
+    <view class='{{shipmentType===3?"active":""}}' data-id='3' bindtap='changeType'>到店自取</view>
   </view>
   <view class='adress' bindtap='changeAddress'>
     <image src='/lib/images/adress.png'></image>

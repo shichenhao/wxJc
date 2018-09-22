@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/accredit/accredit",
     "pages/index/index",
     "pages/count/discount",
     "pages/searchAddress/address",

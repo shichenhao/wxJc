@@ -1,0 +1,4 @@
+<!--pages/accredit/accredit.wxml-->
+<button open-type="getUserInfo" bindgetuserinfo="login">
+   立即进入
+  </button>

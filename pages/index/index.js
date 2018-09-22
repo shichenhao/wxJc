@@ -207,13 +207,8 @@ Page({
    */
   onPullDownRefresh: function () {
     if (app.globalData.localPosition) {
-      wx.stopPullDownRefresh();
       this.getInit();
-      if (app.globalData.isRed) {
-        this.receiveRed();
-      } else {
-        this.closeRed();
-      }
+      wx.stopPullDownRefresh();
     }
   },
 

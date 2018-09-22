@@ -1,6 +1,7 @@
 // pages/sellerCommodity/sellerCommodity.js
 Page({
   data: {
+    isIndex:true,
     sellerInfo: false,
     info: {}, //信息
     list: [], //数据
@@ -9,7 +10,7 @@ Page({
       start: 0,
       isMore: true
     },
-    queryType: 0, //0：全部商品，1：促销商品，2：上新商品
+    queryType: 10, //0：全部商品，1：促销商品，2：上新商品, 10 首页
     sortType: 0, // 0, "默认升" ，1, "默认降" ，2, "销量升" ，3, "销量降"，4, "价格升"，5, "价格降"
   },
   getInit(merchantId = '834') { //商家信息
@@ -26,7 +27,7 @@ Page({
       }
     })
   },
-  getList(merchantId = '834', queryType = 0, sortType = 0) { //商家列表
+  getList(merchantId = '834', queryType = 0, sortType = 0,types = false) { //商家列表
     let page = this.data.page
     let param = {
       merchantId,
@@ -39,7 +40,7 @@ Page({
       if (data.success) {
         let list = this.data.list
         if (data.value.length > 0) {
-          list = [...list,...data.value]
+          list = types ? [...list,...data.value] : data.value
         }
         if (list.length >= this.data.page.limit) {
           page.start += 1;
@@ -67,7 +68,17 @@ Page({
     this.setData({
       page,
     })
-    this.getList(this.data.info.id, queryType, 0)
+    if (queryType !== 10) {
+      this.setData({
+        isIndex: false
+      })
+      this.getList(this.data.info.id, queryType, 0)
+    }else{
+      this.setData({
+        isIndex: true,
+        queryType
+      })
+    }
   },
   sortTypeList(e) { // 通过排序查商品
     let sortType = e.currentTarget.dataset.type-0;
@@ -82,28 +93,29 @@ Page({
     this.getList(this.data.info.id, this.data.queryType, sortType)
   },
   // 收藏
-  collection() {
+  collection(e) {
+    let isCollection = e.currentTarget.dataset.type;
     var param = {
       merchantId: this.data.info.id,
       merchantType: 6
     }
-    wx.http.postReq('userClient?m=createUserFavorites', param, (data) => {
+    wx.http.postReq(isCollection === 0 ? 'userClient?m=createUserFavorites' : 'userClient?m=cancelUserFavorites', param, (data) => {
       if (data.success) {
         /**
          *
         this.info.collectionNum + 1
-        var info = this.info;
+         */
+        var info = this.data.info;
+        info.isCollection = isCollection ? 0 : 1
         this.setData({
           info
         })
-         */
         wx.showToast({
-          title: '收藏成功！',
+          title: isCollection ? '取消成功！' : '收藏成功！',
           icon: 'none'
         })
       }
     })
-
   },
   seeSellerInfo: function () {
     this.setData({ sellerInfo: !this.data.sellerInfo });
@@ -114,7 +126,7 @@ Page({
    */
   onLoad: function (options) {
     this.getInit(options.id)
-    this.getList(options.id, options.queryType)
+    this.getList(options.id, options.queryType, 0, true)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -154,8 +166,8 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: function (options) {
+    this.getList(options.id, options.queryType, options.sortType)
   },
 
   /**

@@ -8,7 +8,9 @@
       <view class='brandRight'>
         <view class='brandRightUp'>{{item.name}}</view>
         <view class='brandRightDown'>
-          <image src='../../lib/images/star.png' mode="widthFix"></image>
+          <view class='score'>
+            <view style='width:{{item.commentsAverageScore*20}}%'></view>
+          </view>
         </view>
       </view>
     </navigator>
@@ -16,10 +18,10 @@
       <navigator url='/pages/commodityDetails/commodityDetails?id={{i.id}}' class='item' hover-class="none">
         <view class='imgBox'>
           <view class='leftTop'>
-            <image class='leftTopBg' src='{{i.logo}}'  mode="widthFix"></image>
-            <text style='display:none'>补</text>
+            <image wx:if="{{i.isPromotionGoods === 1}}" class='leftTopBg' src='/lib/images/leftTopBg.png'  mode="widthFix"></image>
+            <text wx:if="{{i.isPromotionGoods === 1}}">补</text>
           </view>
-          <image class='commodityImg' src='../../lib/images/commodityDefault.png'></image>
+          <image class='commodityImg' src='{{i.imgs}}'></image>
         </view> 
         <view class='title'>
           {{i.goodsName}}

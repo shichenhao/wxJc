@@ -14,6 +14,20 @@ Page({
     cartList: wx.getStorageSync('cart'),
     isCartList : null
   },
+  initData(){
+    this.setData({
+      // 编辑
+      edit: true,
+      // 弹窗
+      cartPop: false,
+      // 全选
+      checkAll: false,
+      carNum: 0, //数量
+      carMoney: 0, //金额
+      cartList: wx.getStorageSync('cart'),
+      isCartList: null
+    })
+  },
   // 编辑
   editFun() {
     this.setData({
@@ -62,6 +76,8 @@ Page({
       cartList
     })
     wx.setStorageSync('cart', cartList)
+    this.initData();
+    
   },
   // 选中
   checkItem(e) {

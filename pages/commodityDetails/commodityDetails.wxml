@@ -106,34 +106,12 @@
   <template is="wxParse" data="{{wxParseData:goodsInfo.nodes}}" />
 </view>
 
-<!-- 底部菜单 -->
-<view class='downNav'>
-  <navigator class='downNav2' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
-    <image src='../../lib/images/shopIcon.png'></image>
-    <view>店铺</view>
-  </navigator>
-  <view class='downNav2' bindtap='tel' data-tel="{{data.buildingMaterialsMerchant.contacts}}">
-    <image src='../../lib/images/telIcon.png'></image>
-    <view>热线</view>
-  </view>
-  <navigator open-type="switchTab" class='downNav2' url='/pages/cart/index' hover-class='none'>
-    <image src='../../lib/images/shoppingCartIcon.png'></image>
-    <view>购物车</view>
-    <text class='count'>{{cartLength}}</text>
-  </navigator>
-  <view class='downNav3 join' bindtap='pushCart'>
-    <text>加入购物车</text>
-  </view>
-  <view class='downNav3 purchase' bindtap='purchase'>
-    <text>立即购买</text>
-  </view>
-</view>
 
 <!-- 选择规格 -->
 <view class='specificationsBg' wx:if="{{specifications}}">
   <view class='specifications'>
       <view class='closeBox'>
-      <view class='close' bindtap='handleSpecifications'>×</view>
+      <view class='close' bindtap='handleSpecifications'></view>
       </view>
       <view class='commodityImg2'>
         <image src='{{selectCommodity.img}}' mode="widthFix"></image>
@@ -161,3 +139,26 @@
   </view>
 </view>
 </scroll-view>
+
+<!-- 底部菜单 -->
+<view class='downNav'>
+  <navigator class='downNav2' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
+    <image src='../../lib/images/shopIcon.png'></image>
+    <view>店铺</view>
+  </navigator>
+  <view class='downNav2' bindtap='tel' data-tel="{{data.buildingMaterialsMerchant.contacts}}">
+    <image src='../../lib/images/telIcon.png'></image>
+    <view>热线</view>
+  </view>
+  <navigator open-type="switchTab" class='downNav2' url='/pages/cart/index' hover-class='none'>
+    <image src='../../lib/images/shoppingCartIcon.png'></image>
+    <view>购物车</view>
+    <text class='count'>{{cartLength}}</text>
+  </navigator>
+  <view class='downNav3 join' bindtap='pushCart'>
+    <text>加入购物车</text>
+  </view>
+  <view class='downNav3 purchase' bindtap='purchase'>
+    <text>立即购买</text>
+  </view>
+</view>

@@ -48,10 +48,14 @@ Page{
   margin-right: 24rpx;
 }
 
-
 .userInfo image{
   border: 0 none;
 }
+
+.userInfo .b{
+  font-size: 30rpx;
+}
+
 .userInfo .b view{
   display: block;
   padding-top: 5rpx;
@@ -78,6 +82,7 @@ Page{
   height: 75rpx;
   margin: 40rpx 0 35rpx;
   text-align: center;
+  font-size: 26rpx;
 }
 
 .userMoneyRow:nth-child(2){
@@ -100,7 +105,7 @@ Page{
   margin-top: -25rpx;
 }
 .userMoneyRow .b view{
-  font-size: 24rpx;
+  font-size: 26rpx;
   margin-left: -8rpx;
 }
 
@@ -112,7 +117,7 @@ Page{
   display: flex;
   align-items: center;
   padding: 0 20rpx;
-  font-size: 30rpx;
+  font-size: 26rpx;
   height: 90rpx;
   border-bottom: 1px solid #eaeaea
 }

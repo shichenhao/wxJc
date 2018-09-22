@@ -1,17 +1,35 @@
 // pages/discount/discount.js
-let WxParse = require('../../wxParse/wxParse.js');
+let { globalData } = getApp();
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    info:null
+    list:null
   },
-  getInit(id){
-      wx.http.postReq('/appletClient?m=findBuildingMaterialsActivity', { id }, (data) => {
+  getInit(){
+    let param = {
+      businessType: 12,
+      agentId: globalData.agentId || 1
+    }
+    wx.http.postReq('appletClient?m=findCouponsAllByBusinessType', param, (data) => {
       if (data.success) {
-        let info = data.value
+        var list = data.value;
         this.setData({
-          info: data.value
+          list
         })
-        WxParse.wxParse('info', 'html', info.content, this, 5);
+      }
+    })
+  },
+  receive(e) { //领取
+    let couponsRulesId = e.currentTarget.dataset.id;
+    wx.http.postReq('/appletClient?m=getCouponsGetRecord', { couponsRulesId }, (data) => {
+      if (data.success) {
+        wx.showToast({
+          title: '领取成功',
+          icon: 'none'
+        })
       }
     })
   },
@@ -19,7 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getInit(options.id)
+    this.getInit();
   },
 
   /**

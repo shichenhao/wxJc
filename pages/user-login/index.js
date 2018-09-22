@@ -12,7 +12,8 @@ Page({
               var key = null
               wx.http.postReq('appletClient?m=appletLoginBefore', { code: ress.code }, (getKey) => { // 获取key
                 if (getKey.success) {
-                  key = getKey.value.key
+                  key = getKey.value.key;
+                  app.globalData.openId=key;
                   var params = {
                     encryptedData: e.detail.encryptedData,
                     iv: e.detail.iv,

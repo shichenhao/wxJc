@@ -42,19 +42,19 @@
   <view class='discount'>
     <view>
       配送费
-      <view>￥4</view>
+      <view>￥{{orderItems.practicalShippingFee}}</view>
     </view>
     <view>
       平台补贴
-      <view>-￥4</view>
+      <view>-￥{{orderItems.totalPlatformSubsidiesPrice}}</view>
     </view>
-    <view>
+    <view bindtap='seeRedPacket'>
       平台红包
-      <view>-￥4</view>
+      <view>-￥{{!redPacketData.amt?0:redPacketData.amt}}</view>
     </view>
-    <view bindtap='cashCoupon'>
+    <view bindtap='seeCashCoupon'>
       商家代金券
-      <view>-￥4</view>
+      <view>-￥{{!promotionCouponsData.couponsAmt?0:promotionCouponsData.couponsAmt}}</view>
     </view>
   </view>
   <view class='cartTotal'>
@@ -71,52 +71,51 @@
 
 
   
-  <view class='moneyPop' wx:if="{{false}}">
-    <view class='moneyNone active'>
+  <view class='moneyPop' wx:if="{{isRedPacket}}">
+    <view class='moneyNone active' bindtap='noCashCoupon'>
       不使用红包
     </view>
-    <view class="moneyBox">
+    <view class="moneyBox" wx:for="{{redPacketData.platformRedBagList}}" data-record='item' wx:key="id">
       <view class='h2'>
-        <view>可使用红包（1个）</view>
+        <view>可使用红包（{{redPacketData.platformRedBagList.length}}个）</view>
       </view>
       <view class='moneyItem'>
         <view class="itemLeft">
           <view class="b">专享红包</view>
-          <view>有效期至2016-11-07</view>
-          <view>限收货人手机号15313420950</view>
+          <view>有效期至{{item.expirationTime}}</view>
+          <view>限收货人手机号{{item.mobile}}</view>
         </view>
         <view class="itemRight">
           <view>
-            ￥<view class="b">11</view>
+            ￥<view class="b">{{item.amt}}</view>
           </view>
-          无门槛红包
+          {{item.restrictAmt==0?"无门槛红包":"满元"+item.restrictAmt+"可使用"}}
         </view>
       </view>
     </view>
 
-    <view class="moneyBox moneyBox2">
+    <view class="moneyBox moneyBox2" data-record='item' wx:for="{{redPacketData.platformRedBagAvailableList}}" wx:key="id">
       <view class='h2'>
-        <view>不可使用红包（1个）</view>
+        <view>不可使用红包（{{redPacketData.platformRedBagAvailableList.length}}个）</view>
       </view>
       <view class='moneyItem'>
         <view class="itemLeft">
           <view class="b">专享红包</view>
-          <view>有效期至2016-11-07</view>
-          <view>限收货人手机号15313420950</view>
+          <view>有效期至{{item.expirationTime}}</view>
+          <view>限收货人手机号{{item.mobile}}</view>
         </view>
         <view class="itemRight">
           <view>
-            ￥<view class="b">11</view>
+            ￥<view class="b">{{item.amt}}</view>
           </view>
-          无门槛红包
+          {{item.restrictAmt==0?"无门槛红包":"满元"+item.restrictAmt+"可使用"}}
         </view>
         <view class="moneyWhy">
           <view class="span">
             不可用原因
           </view>
           <view class="div">
-            <view>限收货人手机号使用</view>
-            <view>限有效期使用</view>
+            <view wx:for="{{item.disableList}}" wx:key="id" wx:for-item="record">{{record}}</view>
           </view>
         </view>
       </view>
@@ -135,40 +134,40 @@
     <view class='moneyNone active' bindtap='noCashCoupon'>
       不使用优惠券
     </view>
-    <view class="moneyBox">
+    <view class="moneyBox" wx:for="{{cashCouponData.usableCouponsList}}" bindtap='getCashCoupon' data-record='{{item}}' wx:key="id">
       <view class='h2'>
-        <view>可使用优惠券（1个）</view>
+        <view>可使用优惠券（{{cashCouponData.noUsableCouponsList.length}}个）</view>
       </view>
       <view class='moneyItem'>
         <view class="itemLeft">
-          <image src='/lib/images/brandDefault.png'></image>
-          <view class="b">马可波罗旗舰店</view>
-          <view>满500元可用</view>
+          <image src='{{item.merchantLogo}}'></image>
+          <view class="b">{{item.name}}</view>
+          <view>满{{item.restrictAmt}}元可用</view>
         </view>
         <view class="itemRight">
           <view>
-            ￥<view class="b">11</view>
+            ￥<view class="b">{{item.couponsAmt}}</view>
           </view>
         </view>
         <view class="moneyWhy p">
-          有效期：2016.11.07-2016.11.10
+          有效期：{{item.expirationTime}}
         </view>
       </view>
     </view>
 
-    <view class="moneyBox moneyBox2">
+    <view class="moneyBox moneyBox2" wx:for="{{cashCouponData.noUsableCouponsList}}" wx:key="id">
       <view class='h2'>
-        <view>不可使用优惠券（1个）</view>
+        <view>不可使用优惠券（{{cashCouponData.noUsableCouponsList.length}}个）</view>
       </view>
       <view class='moneyItem'>
         <view class="itemLeft">
-          <image src='/lib/images/brandDefault.png'></image>
-          <view class="b">马可波罗旗舰店</view>
-          <view>满500元可用</view>
+          <image src='{{item.merchantLogo}}'></image>
+          <view class="b">{{item.name}}</view>
+          <view>满{{item.restrictAmt}}元可用</view>
         </view>
         <view class="itemRight">
           <view>
-            ￥<view class="b">11</view>
+            ￥<view class="b">{{item.couponsAmt}}</view>
           </view>
           无门槛红包
         </view>
@@ -177,8 +176,7 @@
             不可用原因
           </view>
           <view class="div">
-            <view>限收货人手机号使用</view>
-            <view>限有效期使用</view>
+            <view wx:for="{{item.noUsableWhy}}" wx:key="id" wx:for-item="record">{{record}}</view>
           </view>
         </view>
       </view>

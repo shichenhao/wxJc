@@ -2,24 +2,26 @@
   <view class='orderTit'>
     订单总价
     <view>
-      ￥2.5
+      ￥{{price}}
     </view>
   </view>
-  <view class='order'>
+  <view class='order' bindtap='selectBalancePay'>
     余额支付
     <view class='font'>
-      (账户余额：￥0)
+      (账户余额：￥{{balance}})
     </view>
   </view>
+ <view wx:if="{{balance<price}}">
   <view class='orderTit'>
     使用第三方平台支付
     <view>
-      ￥2.5
+      ￥{{otherPrice}}
     </view>
   </view>
-  <view class='orderPay'>
+  <view class='orderPay' bindtap='selectOtherPay'>
     微信支付
   </view>
+ </view>
   <view class='btnPay'>
     确认支付
   </view>

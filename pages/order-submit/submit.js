@@ -10,7 +10,10 @@ Page({
     addressData:null,
     shipmentType:1,
     chooseSort:null,
-    isCashCoupon:false
+    isCashCoupon:false,
+    isRedPacket:false,
+    promotionCouponsId:null,
+    promotionCouponsData:null
   },
 
   /**
@@ -64,7 +67,16 @@ Page({
     this.setData({ shipmentType:id});
   },
   orderSubmit(){
-    let { merchantId, shipmentType, addressData, orderItems} = this.data;
+    let { 
+        merchantId, shipmentType, addressData, promotionCouponsData, orderItems, redBagJson
+      } = this.data;
+    let orderItemsReq={
+      ...orderItems,
+      goodsId: globalData.selectCommodity[0].goodsId,
+      goodsModelId: globalData.selectCommodity[0].goodsModelId,
+      quantity: globalData.selectCommodity[0].quantity,
+      price: globalData.selectCommodity[0].price
+    }
     let params = {
       agentId: globalData.agentId,
       userId: globalData.userInfo.id,
@@ -72,18 +84,42 @@ Page({
       shipmentType,
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
-      orderItems: JSON.stringify([globalData.selectCommodity]),
       userAddressId: addressData.id,
-      orderItems: JSON.stringify([orderItems]) ,
-      goodsId: globalData.selectCommodity[0].goodsId,
-      goodsModelId: globalData.selectCommodity[0].goodsModelId,
-      quantity:2,
-      price:0.01
+      orderItems: JSON.stringify([orderItemsReq]),
+      redBagJson: !redBagJson?null:JSON.stringify([redBagJson]),
+      promotionCouponsId: !promotionCouponsData?null:promotionCouponsData.id,
     }
     wx.http.postReq('appletClient?m=buildingMaterialsOrderServiceSubmit', params, (res) => {
       let { success, value } = res;
       if (success) {
-        console.log(value);
+        globalData.orderDetail = value;
+        wx.navigateTo({
+          url: '../payment/payment',
+        })
+        // wx.http.postReq('appletClient?m=pingxxWxLitePay',{
+        //     channel: 'wx_lite',//渠道名
+        //     amount: 0.1, 
+        //     orderId: value.id,
+        //     openId: globalData.openId,
+        //     balanceCost: globalData.userInfo.balance
+        //   },  (res2)=> {
+        //     var charge = res2.value;
+        //     Pingpp.createPayment(charge, function (result, err) {
+        //       console.log(result);
+        //       console.log(err.msg);
+        //       console.log(err.extra);
+        //       if (result == "success") {
+        //         // 只有微信小程序 wx_lite 支付成功的结果会在这里返回
+        //         console.log('success');
+        //       } else if (result == "fail") {
+        //         // charge 不正确或者微信小程序支付失败时会在此处返回
+        //         console.log('fail');
+        //       } else if (result == "cancel") {
+        //         // 微信小程序支付取消支付
+        //       }
+        //     });
+        //   }
+        // )
       }
     })
   },
@@ -93,13 +129,42 @@ Page({
       url: `../user-address/address`,
     })
   },
-  cashCoupon(){
+  seeRedPacket(){
+    let { merchantId, shipmentType, addressData } = this.data;
+    let params = {
+      agentId: globalData.agentId,
+      businessType: 12,
+      latitude: globalData.localPosition.latitude,
+      longitude: globalData.localPosition.longitude,
+      userAddressId: addressData.id,
+      itemsPrice: globalData.selectCommodity[0].price,
+      merchantId
+    }
+    wx.http.postReq('userClient?m=queryPlatformRedBagList', params, (res) => {
+      let { success, value } = res;
+      if (success) {
+        this.setData({
+          isRedPacket: true,
+          redPacketData: value
+        });
+      }
+    })
+  },
+  getRedPacket(e){
+    this.setData({
+      isRedPacket: false,
+      redBagJson: e.currentTarget.dataset.record,
+      chooseSort: !this.data.chooseSort ? 1 : 2
+    })
+  },
+  seeCashCoupon(){
     let { merchantId, shipmentType } = this.data;
     let params = {
       agentId: globalData.agentId,
       userId: globalData.userInfo.id,
       merchantId,
-      businessType:12
+      businessType:12,
+      totalPrice: globalData.selectCommodity[0].price,
     }
     wx.http.postReq('appletClient?m=queryCouponsList', params, (res) => {
       let { success, value } = res;
@@ -114,6 +179,14 @@ Page({
   noCashCoupon(){
     this.setData({
       isCashCoupon: false,
+      isRedPacket:false
     });
+  },
+  getCashCoupon(e){
+    this.setData({
+      isCashCoupon: false,
+      promotionCouponsData:e.currentTarget.dataset.record,
+      chooseSort: !this.data.chooseSort?2:1
+    })
   }
 })

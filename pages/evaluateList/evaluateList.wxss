@@ -1,3 +1,4 @@
+/* pages/evaluateList/evaluateList.wxss */
 .evaluateBox{
   font-size: 24rpx;
   padding: 0 30rpx;

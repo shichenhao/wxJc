@@ -1,3 +1,4 @@
+<!--pages/evaluateList/evaluateList.wxml-->
 <view class="container">
 	<view class='evaluateBox'>
     <view class='evaluateItem'>

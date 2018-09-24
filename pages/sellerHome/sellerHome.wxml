@@ -16,7 +16,8 @@
             <image src='../../lib/images/starWhite.png'></image>
             {{info.isCollection === 0 ? "收藏" : "取消收藏"}}
           </view>
-          <image class='shareIcon' src='../../lib/images/shareIcon.png'></image>
+          
+          <button open-type="share"><image class='shareIcon' src='../../lib/images/shareIcon.png'></image></button>
         </view>
         <view class='introduce'>
           <view class='p'>商品数量：{{info.goodsNum}}件</view>

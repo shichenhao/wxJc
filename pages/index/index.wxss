@@ -124,6 +124,7 @@
   margin: auto;
   background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141600164392228.png) no-repeat;
   background-size: 100%;
+  color: #fff;
 }
 
 .redBagCountBox .close{

@@ -133,6 +133,16 @@ Page({
       }
     })
   },
+  onShareAppMessage: function (res) { //分享
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '马管家建材',
+      path: '/page/accredit/accredit'
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载

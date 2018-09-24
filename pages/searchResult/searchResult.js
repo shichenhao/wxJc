@@ -4,6 +4,8 @@ Page({
   data: {
     searchValue: '',
     list:[],
+    historyList:[],
+    isFirst:true,
     page: { //分页
       limit: 10,
       start: 0,
@@ -11,7 +13,16 @@ Page({
     },
   },
   searchValueInput(e) { //改变搜索框内容
-    let value = e.detail.value;
+    let value = e.detail.value || e.currentTarget.dataset.values;
+    let historyList = wx.getStorageSync('historyList')
+    console.log(value)
+    if (value) {
+      historyList = [value, ...historyList]
+    }
+    if (historyList.length > 9 ){
+      historyList.length=9
+    }
+    wx.setStorageSync('historyList', historyList)
     this.setData({
       searchValue: value,
     });
@@ -90,6 +101,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let historyList = wx.getStorageSync('historyList')
+    this.setData({
+      historyList
+    })
 
   },
 

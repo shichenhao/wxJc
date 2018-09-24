@@ -26,6 +26,12 @@ Page({
   },
   formSubmit(e){
     let { gender, detailedAddress, latitude, longitude,editAddress}=this.data;
+    if(!latitude){
+      wx.showToast({
+        title: '请选择地址!',
+      })
+      return false;
+    }
     let params=e.detail.value;
     if (editAddress){
       if (editAddress.agentId){
@@ -41,8 +47,13 @@ Page({
     wx.http.postReq('appletClient?m=editUserAddress', params, (res) => {
       let { success, value } = res;
       if (success) {
+        /**
         wx.navigateTo({
           url: globalData.backUrl,
+        })
+         */
+        wx.navigateBack({
+          delta: 1
         })
       }else{
         wx.showToast({

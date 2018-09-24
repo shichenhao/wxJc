@@ -127,3 +127,29 @@
   display: block;
   margin: 400rpx auto 40rpx;
 }
+
+
+.history{
+  padding:30rpx;
+}
+
+.h2{
+  font-size:26rpx;
+  color:#666;
+  line-height: 50rpx;
+}
+.con{
+  padding-top:20rpx;
+}
+.history .list{
+  color:#333;
+  font-size:24rpx;
+  border:1rpx solid #ccc;
+  border-radius: 5rpx;
+  display: inline-block;
+  padding:0 30rpx;
+  min-height: 48rpx;
+  line-height: 48rpx;
+  margin-right:20rpx;
+  background: #f5f5f5;
+}

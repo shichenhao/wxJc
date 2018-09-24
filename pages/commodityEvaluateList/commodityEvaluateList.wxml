@@ -1,0 +1,21 @@
+<!--pages/commodityEvaluateList/commodityEvaluateList.wxml-->
+<view class="con4">
+  <view class='userInfo'>
+    <image class='userImg' src='../../lib/images/brandDefault.png'></image>
+    <text class='userName'>萧炎</text>
+  </view>
+  <view class='evaluateDetail'>
+    <view class='evaluateImg'>
+      <image src='../../lib/images/brandDefault.png'></image>
+      <image src='../../lib/images/brandDefault.png'></image>
+      <image src='../../lib/images/brandDefault.png'></image>
+    </view>
+    <view class='evaluateTxt'>
+      特别好，很喜欢这个颜色，看起来特别的温馨，质量也很好，老板人也很好，买了两次，正好，以后需要再来。这个颜色看起来很高级。
+    </view>
+    <view class='evaluateDate'>
+      2018-05-17   型号:木纹02
+    </view>
+  </view>
+</view>
+

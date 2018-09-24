@@ -1,6 +1,5 @@
 {
   "pages":[
-    "pages/cart/index",
     "pages/accredit/accredit",
     "pages/index/index",
     "pages/count/discount",
@@ -31,7 +30,9 @@
     "pages/promotion/promotion",
     "pages/order-detail/detail",
     "pages/evaluate/evaluate",
-    "pages/evaluateList/evaluateList"
+    "pages/evaluateList/evaluateList",
+    "pages/cart/index",
+    "pages/commodityEvaluateList/commodityEvaluateList"
   ],
   "window":{
     "backgroundTextStyle":"light",

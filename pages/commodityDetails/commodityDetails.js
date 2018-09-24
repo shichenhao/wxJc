@@ -136,32 +136,6 @@ Page({
           list: [this.data.selectCommodity]
         })
       }
-
-
-
-
-      /**
-       *
-
-
-
-      var isYes = globalData.cart.some(item => {
-        return item.id === this.data.merchantName.id
-      })
-      if (isYes){
-        var cartItem = globalData.cart.filter(item => {
-          if (item.id === this.data.selectCommodity.id) {
-            item.quantity = item.quantity + this.data.quantity
-          }
-          return item
-        })
-      } else {
-        globalData.cart.push({
-          merchant: this.data.merchantName,
-          list:this.data.selectCommodity
-        })
-      }
-      */
       wx.setStorageSync('cart', globalData.cart)
       this.getCarNum();
       this.setData({
@@ -206,4 +180,9 @@ Page({
       toView: target
     })
   },
+  goEvaluateList(){
+    wx.navigateTo({
+      url: `../commodityEvaluateList/commodityEvaluateList?merchantId=${this.data.data.merchantId}&goodsId=${this.data.selectCommodity.goodsId}`,
+    })
+  }
 })

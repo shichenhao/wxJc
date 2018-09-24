@@ -61,7 +61,7 @@
 <view class='con4' id='evaluate'>
   <view class="h3">
     <text class='h3Left'>用户评价</text>
-    <text class='h3Right'><text style='color:#f06062'>100%</text>好评率</text>
+    <text class='h3Right' bindtap='goEvaluateList'><text style='color:#f06062'>100%</text>好评率</text>
   </view>
   <view class='userInfo'>
     <image class='userImg' src='../../lib/images/brandDefault.png'></image>

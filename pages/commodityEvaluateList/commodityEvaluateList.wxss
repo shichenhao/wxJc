@@ -1,0 +1,35 @@
+
+.con4{
+  padding:40rpx 38rpx;
+  background: white;
+  margin-top:22rpx;
+}
+.userInfo{
+  padding-bottom:20rpx;
+}
+.userImg{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right:10rpx;
+}
+.evaluateImg{
+  display: flex;
+}
+.evaluateImg image{  
+  width:215rpx;
+  height:215rpx;
+  margin-right:10rpx;
+  border-radius: 5rpx;
+}
+.evaluateTxt{
+  font-size: 26rpx;
+  color:#888;
+  line-height: 40rpx;
+  padding:15rpx 0;
+}
+.evaluateDate{
+  color:#b2b2b2;
+  font-size:24rpx;
+}

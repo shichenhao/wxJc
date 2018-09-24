@@ -49,28 +49,23 @@ Page({
   onLoad: function (options) {
     this.getList();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  goPay(e) { // 支付
+    let record = e.currentTarget.dataset.record;
+    app.globalData.orderDetail = record;
+    wx.navigateTo({
+      url: '../payment/payment',
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    if (this.data.page.isMore) {
-      this.getList()
-    }
+  orderDetail(e){//查看详情
+    wx.navigateTo({
+      url: `../order-detail/detail?orderId=${e.currentTarget.dataset.orderid}`,
+    })
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  goEvaluate(e) { // 评价
+    let record = e.currentTarget.dataset.record;
+    app.globalData.orderDetail = record;
+    wx.navigateTo({
+      url: '../evaluate/evaluate',
+    })
   }
-
 })

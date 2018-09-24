@@ -12,7 +12,8 @@ Page({
     isCashCoupon:false,
     isRedPacket:false,
     promotionCouponsId:null,
-    promotionCouponsData:null
+    promotionCouponsData:null,
+    cashCouponData:[]
   },
 
   /**
@@ -186,6 +187,21 @@ Page({
       isCashCoupon: false,
       promotionCouponsData:e.currentTarget.dataset.record,
       chooseSort: !this.data.chooseSort?2:1
+    })
+  },
+  why(e){ // 不可用原因
+    let id = e.currentTarget.dataset.why;
+    let cashCouponData = this.data.cashCouponData
+    cashCouponData.noUsableCouponsList = cashCouponData.noUsableCouponsList.map((item, index) => {
+      if(index === id ){
+        item.isWhy = !item.isWhy
+      }
+      return item
+    })
+
+
+    this.setData({
+      cashCouponData
     })
   }
 })

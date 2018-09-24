@@ -1,1 +1,74 @@
 /* pages/evaluate/evaluate.wxss */
+Page {
+  background: white;
+}
+.scoreBox{
+  font-size: 28rpx;
+  padding: 0 25rpx;
+}
+.scoreTopTit{
+  border-bottom: 1px solid #eaeaea;
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.scoreTopTit image{
+  width: 70rpx;
+  height: 70rpx;
+}
+.scoreTopTit2{
+  height: 85rpx;
+}
+.scoreTopTit2 image{
+  width: 45rpx;
+  margin-right:20rpx;
+}
+.score{
+  position: relative;
+  width: 400rpx;
+  height: 40rpx;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141602343627848.png) repeat-x;
+  background-size: auto 100%;
+  margin: 0 20rpx;
+  display: flex;
+}
+.score text{
+  flex:1;
+  position: relative;
+  z-index: 3;
+}
+.score view{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 40rpx;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141602234012880.png) repeat-x;
+  background-size: auto 100%;
+}
+.scoreTextarea{
+  line-height: 150%;
+  border: 0 none;
+  height: 100rpx;
+  margin: 20rpx 0;
+}
+.scoreTxt{
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+}
+.btnSubmit{
+  position: fixed;
+  left: 25rpx;
+  right: 25rpx;
+  bottom: 0;
+  height: 98rpx;
+  border-radius:10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ed655f;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #fff;
+}

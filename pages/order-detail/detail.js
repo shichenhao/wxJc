@@ -1,66 +1,57 @@
 // pages/order-detail/detail.js
+var { globalData } = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    status: {
+      "-1": "已取消",
+      "1": "待付款",
+      "2": "待确认",
+      "7": "已完成"
+    },
+    orderData:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getData({ id: options.orderId})
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  getData(params){
+    wx.http.postReq('appletClient?m=findBuildingMaterialsOrderById', params, (res) => {
+      let { success, value } = res;
+      if (success) {
+        this.setData({
+          orderData: value
+        })
+      } else {
+        wx.showToast({
+          title: '出错了,请联系管理员',
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  tel(e) { //打电话
+    let phone = e.currentTarget.dataset.tel;
+    console.log(phone)
+    wx.makePhoneCall({
+      phoneNumber: phone,
+      success() {
+        console.log(1)
+      },
+      fail() {
+        console.log(2)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  goPay(e) { // 支付
+    app.globalData.orderDetail = this.data.orderData;
+    wx.navigateTo({
+      url: '../payment/payment',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

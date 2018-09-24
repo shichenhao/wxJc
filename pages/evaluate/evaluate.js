@@ -1,11 +1,14 @@
 // pages/evaluate/evaluate.js
+var { globalData } = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    widthS: 0,
+    widthC: 0,
+    valuateContent:''
   },
 
   /**
@@ -14,53 +17,39 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  changeWidthS(e) {
+    let width = e.currentTarget.dataset.width;
+    this.setData({ widthS: width });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  changeWidthC(e) {
+    let width = e.currentTarget.dataset.width;
+    this.setData({ widthC: width });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  changeEvaluateContent(e){ //评价内容
+    this.setData({
+      valuateContent: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  submit(){
+    let { widthS, widthC, valuateContent}=this.data;
+    let params={
+      orderId: globalData.orderDetail.id,
+      orderItemId: globalData.orderDetail.buildingMaterialsOrderItemList[0].id,
+      content: valuateContent,
+      goodsScore: widthC,
+      merchantScore: widthS
+    };
+    wx.http.postReq('appletClient?m=createBuildingMaterialsGoodsComments', params, (res) => {
+      let { success, value } = res;
+      if (success) {
+        this.setData({
+          addressData: value[0]
+        })
+      } else {
+        wx.showToast({
+          title: '出错了,请联系管理员',
+        })
+      }
+    })
   }
 })

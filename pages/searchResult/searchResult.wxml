@@ -3,6 +3,12 @@
     <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
     <input id='search' placeholder='搜索品牌分类' value="{{searchValue}}" bindinput="searchValueInput"></input>
   </view>
+  <view class='history' wx:if="isFirst">
+    <view class='h2'>历史记录</view>
+    <view class='con'>
+      <view class='list' bindtap='searchValueInput' data-values="{{item}}" wx:for="{{historyList}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+  </view>
   <view class='list' wx:for="{{list}}" wx:key="{{item.id}}">
     <navigator url='/pages/sellerHome/sellerHome?id={{item.id}}' hover-class='none' class='brand'>
       <view class='brandL'>

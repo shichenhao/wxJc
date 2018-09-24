@@ -4,7 +4,7 @@ var qqmapsdk;
 var app = getApp();
 Page({
   data: {
-    isLogin: app.globalData.agentId,
+    isLogin: true,
     //红包弹窗
     redType:false,
     redInfo:{},
@@ -53,9 +53,10 @@ Page({
     wx.http.postReq('userClient?m=getPlatformRedBag', param, (data) => {
       if (data.success) {
         this.setData({
+          redType: true,
           redInfo: data.value.redBagList || {}
         })
-        this.closeRed();
+        // this.closeRed();
       }
     })
   },
@@ -66,9 +67,6 @@ Page({
     })
   },
   getInit(){
-    this.setData({
-      redType:true
-    })
     var param = {
       agentId: app.globalData.agentId,
       longitude: app.globalData.localPosition.longitude,
@@ -165,10 +163,8 @@ Page({
     app.isInit(()=>{
       if (app.globalData.localPosition){
         this.getInit();
-        if (app.globalData.isRed) {
-          this.receiveRed();
-        } else {
-          this.closeRed();
+        if(app.globalData.userInfo.token){
+          this.receiveRed()
         }
       }
       this.getAds()

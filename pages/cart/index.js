@@ -86,8 +86,8 @@ Page({
     let cartList = this.data.cartList;
     cartList[itemIndex].list[objIndex].check = !cartList[itemIndex].list[objIndex].check;
 
-    let checkAll = cartList.some((item, index) => {
-      cartList[index].check = !cartList[index].list.some(son => {
+    let checkAll = cartList.every((item, index) => {
+      item.check = !item.list.some(son => {
         return !son.check
       })
       if(item.check){

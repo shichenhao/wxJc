@@ -1,10 +1,10 @@
 {
   "pages":[
+    "pages/cart/index",
     "pages/accredit/accredit",
     "pages/index/index",
     "pages/count/discount",
     "pages/searchAddress/address",
-    "pages/cart/index",
     "pages/user/index",
     "pages/user-collection/collection",
     "pages/user-login/index",

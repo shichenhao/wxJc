@@ -2,7 +2,7 @@
   <view class='moneyPop'>
     <view class="moneyBox">
     <view class='cartNull' wx:if="{{!list.length}}">
-      <image src='/lib/images/cart-null.png'></image>
+      <image src='/lib/images/null4.png'></image>
       你还没有红包哦
     </view>
       <view class='moneyItem' wx:for="{{list}}" wx:key="{{item.id}}">

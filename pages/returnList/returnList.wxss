@@ -4,7 +4,7 @@
 .return_ban view text{background:#8e48d4;min-width:510rpx;padding:0 35rpx;height: 70rpx;line-height: 70rpx;border-radius: 8rpx;display: inline-block;color:#fff;font-size:40rpx;}
 
 .return_msg{
-  height: 497rpx;padding:0 0 0 5rpx;background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141601462379768.jpg) no-repeat;
+  height: 497rpx;padding:0 0 0 5rpx;background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809251423080306414.jpg) no-repeat;
   background-size: 100%;
 }
 .return_msgL{width:283rpx;height: 477rpx;float:left;}

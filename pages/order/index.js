@@ -30,8 +30,8 @@ Page({
         if (data.value.length > 0) {
           info = [...info, ...data.value]
         }
-        if (info.length >= this.data.page.limit) {
-          page.start += 1;
+        if (data.value.length >= this.data.page.limit) {
+          page.start += 10;
           page.isMore = true;
         } else {
           page.isMore = false;

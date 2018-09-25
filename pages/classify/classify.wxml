@@ -1,6 +1,6 @@
 <!--pages/classify/classify.wxml-->
 <view class='box'>
-    <navigator class='searchBox' url='/pages/search/search' hover-class='none'>
+    <navigator class='searchBox' url='/pages/searchResult/searchResult' hover-class='none'>
       <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
       <input id='search' disabled='disabled' placeholder='搜索品牌分类'></input>
     </navigator>

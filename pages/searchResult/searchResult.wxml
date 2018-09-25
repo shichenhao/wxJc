@@ -17,7 +17,9 @@
       <view class='brandRight'>
         <view class='brandRightUp'>{{item.name}}</view>
         <view class='brandRightDown'>
-          <image src='../../lib/images/star.png' mode="widthFix"></image>
+          <view class='score'>
+            <view style='width:{{item.commentsAverageScore*20}}%'></view>
+          </view>
         </view>
       </view>
     </navigator>

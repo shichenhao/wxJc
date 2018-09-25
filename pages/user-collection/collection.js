@@ -24,8 +24,8 @@ Page({
         if (data.value.length>0){
           list = [...list, ...data.value]
         }
-        if(list.length>= this.data.page.limit){
-          page.start += 1;
+        if (data.value.length>= this.data.page.limit){
+          page.start += 10;
           page.isMore = true;
         } else {
           page.isMore = false;

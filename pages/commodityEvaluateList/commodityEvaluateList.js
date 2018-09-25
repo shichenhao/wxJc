@@ -39,8 +39,8 @@ Page({
         if (data.value.couponsList.length > 0) {
           list = [...list, ...data.value.couponsList]
         }
-        if (list.length >= this.data.page.limit) {
-          page.start += 1;
+        if (data.value.couponsList.length >= this.data.page.limit) {
+          page.start += 10;
           page.isMore = true;
         } else {
           page.isMore = false;

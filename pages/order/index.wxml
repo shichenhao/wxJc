@@ -1,6 +1,6 @@
 <view class="container">
   <view class='cartNull' wx:if="{{info.length === 0}}">
-    <image src='/lib/images/Collection_03.png'></image>
+    <image src='/lib/images/order-null.png'></image>
     您还没有订单
   </view>
 	<view class='evaluateBox' wx:if="{{info.length !== 0}}" wx:for="{{info}}" wx:key="{{item.index}}">

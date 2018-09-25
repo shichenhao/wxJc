@@ -58,7 +58,7 @@ Page({
         })
         // this.closeRed();
       }
-    })
+    }, true)
   },
   //关闭红包弹窗
   closeRed(){

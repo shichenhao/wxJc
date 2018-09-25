@@ -12,7 +12,7 @@ Page({
   getList() {
     let page = this.data.page
     var params = {
-      isDisabled: 0,
+      type: 0,
       businessType: 12,
       start: this.data.page.start,
       limit: this.data.page.limit
@@ -23,8 +23,8 @@ Page({
         if (data.value.couponsList.length > 0) {
           list = [...list, ...data.value.couponsList]
         }
-        if (list.length >= this.data.page.limit) {
-          page.start += 1;
+        if (data.value.couponsList.length >= this.data.page.limit) {
+          page.start += 10;
           page.isMore = true;
         } else {
           page.isMore = false;

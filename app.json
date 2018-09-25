@@ -1,8 +1,7 @@
 {
   "pages":[
-    "pages/accredit/accredit",
     "pages/index/index",
-    "pages/cart/index",
+    "pages/accredit/accredit",
     "pages/count/discount",
     "pages/searchAddress/address",
     "pages/user/index",

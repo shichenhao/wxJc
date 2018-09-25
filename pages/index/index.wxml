@@ -79,7 +79,7 @@
         <view class='home_picTtext'>
           <text class='home_picTtit'>{{i.goods.goodsName}}</text>
           <view class='home_picTbot'>
-            <text class='home_picT20'>¥</text><text class='home_picT30'>{{i.goods.modelList[0].discountPrice}}</text><text class="home_picTbotY">市场价:{{i.goods.modelList[0].originalPrice}}</text>
+            <text class='home_picT20'>¥</text><text class='home_picT30'>{{i.goods.modelList[0].discountPrice || i.goods.modelList[0].originalPrice}}</text><text class="home_picTbotY">市场价:{{i.marketPrice}}</text>
           </view>
         </view>
       </navigator>
@@ -104,7 +104,7 @@
   </view>
   <!--推荐榜单-->
   <view class='home_Recom'>
-    <view class='home_Recom_tit' style="background:url(/lib/images/home_pic8.jpg) no-repeat;background-size:100%">
+    <view class='home_Recom_tit home_Recom_tit2'>
       推荐榜单
     </view>
       <scroll-view scroll-x  style="width: 100%">

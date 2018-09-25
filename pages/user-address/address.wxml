@@ -1,4 +1,8 @@
 <view class="container">
+  <view class='cartNull' wx:if="{{dataList.length === 0}}">
+    <image src='/lib/images/address_03.png'></image>
+    暂无收获地址
+  </view>
   <view class='addressList' wx:key="id" wx:for="{{dataList}}" data-item='{{item}}' bindtap='backOrder'>
     <view class='addressItem'>
       <view class='span'>

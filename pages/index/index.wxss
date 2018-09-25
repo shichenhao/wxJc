@@ -57,7 +57,7 @@
   padding-top:5rpx;
   line-height:45rpx;
 }
-.home_picTbotY{font-size:18rpx;color:#999;padding-left:15rpx;text-decoration: line-through;}
+.home_picTbotY{font-size:16rpx;color:#999;padding-left:8rpx;text-decoration: line-through;}
 .home_hotlistBox{position: relative;z-index: 2;padding-left:15rpx;}
 .home_hotlist{
   width:220rpx;
@@ -67,7 +67,7 @@
   background: #fff;
   border-radius:25rpx;
   overflow: hidden;
-  box-shadow: 0 0 5rpx #dedede;
+  box-shadow: 0 5rpx 15rpx 0rpx #dedede;
   }
 .home_listPic{width:220rpx;height:220rpx;border-top-left-radius: 25rpx;border-top-right-radius: 25rpx;display: block}
 .home_hotlistF{padding:14rpx 10rpx;position: relative}
@@ -77,10 +77,14 @@
 .home_hotlistF view .home_hotlistjq{float:right;font-size:18rpx;color:#666;}
 .home_hotlistF_icon1{position: absolute;width:41rpx;height: 33rpx;left:7rpx;top:-20rpx;}
 .home_picT20{font-size:20rpx;}
-.home_picT30{font-size:30rpx;font-weight: bold;}
+.home_picT30{font-size:26rpx;font-weight: bold;}
 
 .home_Recom{background:#fff;}
 .home_Recom_tit{height:92rpx;line-height: 92rpx;color:#000;font-size:32rpx;padding:0 50rpx;font-weight: bold;}
+.home_Recom_tit2{
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141556405864113.jpg) no-repeat;
+  background-size: 100%;
+}
 .scroll-view_H{height:146rpx;padding:20rpx 20rpx 20rpx 0;white-space: nowrap;}
 .scroll-view_H navigator{width:260rpx;height:146rpx;margin-left:18rpx;display: inline-block;}
 .scroll-view_H navigator image{width:260rpx;height:146rpx;border-radius: 3rpx;}

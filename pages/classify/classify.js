@@ -26,7 +26,7 @@ Page({
         var classify = res.value.twoCategoryList;
         var rightData = res.value.merchantList;
         this.setData({
-          id: id !== 0 ? id : res.value.oneCategoryList[0].id,
+          id: id !== 0 ? id : res.value.oneCategoryList[0].id || 0,
           leftData,
           classify,
           rightData,

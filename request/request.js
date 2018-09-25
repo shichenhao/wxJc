@@ -26,7 +26,7 @@ function getReq(url, cb) {
   })
 }
 
-function postReq(url, data, cb) {
+function postReq(url, data, cb, alert) {
 
   var params = {
     "app": 'horsegjUser',
@@ -58,11 +58,13 @@ function postReq(url, data, cb) {
         }
         //console.log(res)
         wx.hideLoading();
-        if (!res.data.success){
-          wx.showToast({
-            title: res.data.value || '出错了，请联系客服',
-            icon: 'none'
-          })
+        if (!alert){
+          if (!res.data.success){
+            wx.showToast({
+              title: res.data.value || '出错了，请联系客服',
+              icon: 'none'
+            })
+          }
         }
         return typeof cb == "function" && cb(res.data)
       },

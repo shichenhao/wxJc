@@ -15,16 +15,16 @@ Page({
   searchValueInput(e) { //改变搜索框内容
     let value = e.detail.value || e.currentTarget.dataset.values;
     let historyList = wx.getStorageSync('historyList')
-    console.log(value)
+    //console.log(value)
     if (value) {
       historyList = [value, ...historyList]
     }
     if (historyList.length > 9 ){
       historyList.length=9
     }
-    wx.setStorageSync('historyList', historyList)
+    wx.setStorageSync('historyList', Array.from(new Set(historyList)))
     this.setData({
-      searchValue: value,
+      searchValue: value || null,
     });
     this.search(value)
   },
@@ -42,7 +42,7 @@ Page({
         list = data.value;
         page.start = 0;
         if (list.length >= this.data.page.limit) {
-          page.start += 1;
+          page.start = 10;
           page.isMore = true;
         } else {
           page.isMore = false;
@@ -68,8 +68,8 @@ Page({
         if (data.value.length > 0) {
           list = [...list, ...data.value]
         }
-        if (list.length >= this.data.page.limit) {
-          page.start += 1;
+        if (data.value.length >= this.data.page.limit) {
+          page.start += 10;
           page.isMore = true;
         } else {
           page.isMore = false;

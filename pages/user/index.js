@@ -5,11 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: null
+    userInfo: null,
+    phone: null
   },
   tel(e) { //打电话
+    let phone = e.currentTarget.dataset.phone
     wx.makePhoneCall({
-      phoneNumber: '400-4000-400',
+      phoneNumber: phone,
       success() {
       },
       fail() {
@@ -59,7 +61,8 @@ Page({
   onShow: function () {
     let userInfo = wx.getStorageSync('wxInfo')
     this.setData({
-      userInfo
+      userInfo,
+      phone: app.globalData.phone
     })
   
   },

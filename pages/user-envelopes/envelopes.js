@@ -23,8 +23,8 @@ Page({
         if (data.value.platformRedBagList.length>0){
           list = [...list, ...data.value.platformRedBagList]
         }
-        if(list.length>= this.data.page.limit){
-          page.start += 1;
+        if (data.value.platformRedBagList.lengthh>= this.data.page.limit){
+          page.start += 10;
           page.isMore = true;
         } else {
           page.isMore = false;

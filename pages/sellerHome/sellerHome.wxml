@@ -16,7 +16,6 @@
             <image src='../../lib/images/starWhite.png'></image>
             {{info.isCollection === 0 ? "收藏" : "取消收藏"}}
           </view>
-          
           <button open-type="share"><image class='shareIcon' src='../../lib/images/shareIcon.png'></image></button>
         </view>
         <view class='introduce'>

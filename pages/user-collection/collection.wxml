@@ -1,7 +1,7 @@
 <view class="container">
   <view class='cartNull' wx:if="{{list.length === 0}}">
-    <image src='/lib/images/cart-null.png'></image>
-    你还没有收藏哦
+    <image src='/lib/images/Collection_03.png'></image>
+    您还没有收藏任何东西
   </view>
   <view class='collection'>
     <navigator url='/pages/sellerHome/sellerHome?id={{item.merchantId}}' class='collectionItem' hover-class='none' wx:for="{{list}}" wx:key="{{index}}">

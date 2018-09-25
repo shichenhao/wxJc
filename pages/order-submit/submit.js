@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isMap:true,
+    isShow:"1,3",
     latitude: 23.099994,
     longitude: 113.324520,
     markers: [{
@@ -84,11 +86,23 @@ Page({
     wx.http.postReq('appletClient?m=buildingMaterialsOrderServicePreview', params, (res) => {
       let { success, value } = res;
       if (success) {
+        let isShow = value.buildingMaterialsMerchant.receivingWayValue
+        let shipmentType = this.data.shipmentType
+        if (isShow == 1) {
+          isShow = 1
+        }else if (isShow == 3) {
+          isShow = 3
+          shipmentType = 3
+        }else{
+          isShow = '1,3'
+        }
         let markers = this.data.markers
         markers[0].latitude = value.buildingMaterialsMerchant.latitude
         markers[0].longitude = value.buildingMaterialsMerchant.longitude
         markers[0].name = value.buildingMaterialsMerchant.name
         this.setData({
+          isShow,
+          shipmentType,
           orderItems: value,
           latitude: value.buildingMaterialsMerchant.latitude,
           longitude: value.buildingMaterialsMerchant.longitude,
@@ -171,6 +185,7 @@ Page({
       let { success, value } = res;
       if (success) {
         this.setData({
+          isMap:false,
           isRedPacket: true,
           redPacketData: value
         });
@@ -179,6 +194,7 @@ Page({
   },
   getRedPacket(e){
     this.setData({
+      isMap: true,
       isRedPacket: false,
       redBagJson: e.currentTarget.dataset.record,
       chooseSort: !this.data.chooseSort ? 1 : 2
@@ -199,6 +215,7 @@ Page({
       let { success, value } = res;
       if (success) {
         this.setData({
+          isMap: false,
           isCashCoupon: true,
           cashCouponData:value
          });
@@ -207,12 +224,14 @@ Page({
   },
   noCashCoupon(){
     this.setData({
+      isMap: true,
       isCashCoupon: false,
       isRedPacket:false
     });
   },
   getCashCoupon(e){
     this.setData({
+      isMap: true,
       isCashCoupon: false,
       promotionCouponsData:e.currentTarget.dataset.record,
       chooseSort: !this.data.chooseSort?2:1

@@ -11,7 +11,7 @@ Page({
     balance:0,
     otherPrice:0,
     isBalance:false,
-    isOtherPrice:true
+    isOtherPrice: false
   },
 
   /**
@@ -31,11 +31,7 @@ Page({
       if (success) {
         this.setData({
           balance: value.balance,
-          isBalance: value.balance >= this.data.price,
         });
-        if (value.balance >= this.data.price){
-          this.setData({ isOtherPrice: false })
-        }
       }
     })
   },

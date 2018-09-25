@@ -1,4 +1,5 @@
 var app = getApp();
+var dataStr = require('../../utils/data.js')
 // pages/user-envelopes/envelopes.js
 Page({
   data: {

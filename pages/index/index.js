@@ -4,7 +4,7 @@ var qqmapsdk;
 var app = getApp();
 Page({
   data: {
-    isLogin: true,
+    isLogin: false,
     //红包弹窗
     redType:false,
     redInfo:{},
@@ -51,9 +51,11 @@ Page({
       longitude: app.globalData.addressSel && (app.globalData.addressSel.longitude || app.globalData.addressSel.location.lng) || app.globalData.localPosition.longitude,
       latitude: app.globalData.addressSel && (app.globalData.addressSel.latitude || app.globalData.addressSel.location.lat) || app.globalData.localPosition.latitude
     }
+    let isLogin = wx.getStorageSync('userInfo').mobile
     wx.http.postReq('userClient?m=getPlatformRedBag', param, (data) => {
       if (data.code === 0 && data.value.redBagList && data.value.redBagList.length>0) {
         this.setData({
+          isLogin,
           redType: true,
           redInfo: data.value.redBagList || {}
         })

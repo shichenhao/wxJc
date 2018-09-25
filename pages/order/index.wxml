@@ -29,7 +29,7 @@
         <view>
           ￥
           <view class='b'>
-            {{order.price}}
+            {{order.discountPrice || order.originPrice}}
           </view>
         </view>
         <view> 
@@ -50,7 +50,7 @@
       <view class='span' data-record='{{item}}' wx:if="{{item.status == 1}}" bindtap='goPay'>
         去支付
       </view>
-      <view class='span' data-record='{{item}}' wx:if="{{item.status == 7 && item.orderItemCommentsCount == item.orderItemCount}}" bindtap='goEvaluate'>
+      <view class='span' data-record='{{item}}' wx:if="{{item.status == 7 && item.orderItemCommentsCount < item.orderItemCount}}" bindtap='goEvaluate'>
         去评价
       </view>
     </view>

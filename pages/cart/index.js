@@ -22,7 +22,6 @@ Page({
       cartPop: false,
       // 全选
       checkAll: false,
-      carNum: 0, //数量
       carMoney: 0, //金额
       cartList: wx.getStorageSync('cart'),
       isCartList: null
@@ -58,6 +57,7 @@ Page({
     });
     this.getCarNum();
     this.getCarMoney();
+    wx.setStorageSync('cart', cartList)
   },
   // 删除
   delAll(){
@@ -172,7 +172,7 @@ Page({
     isMobile(() => {
       var merchantId = e.currentTarget.dataset.id;
       let cartArr = this.data.isCartList.map(item => {
-        if (item.id == merchantId) {
+        if (item.merchant.id == merchantId) {
           globalData.selectCommodity = item.list
         }
       })
@@ -256,7 +256,7 @@ Page({
     this.setData({
       cartList
     })
-    if (this.data.cartList.length > 0) {
+    if (cartList.length > 0) {
       this.getCarNum();
     }
     // wx.hideTabBar({}) 
@@ -274,12 +274,15 @@ Page({
    */
   onShow: function () {
     let cartList = wx.getStorageSync('cart')
+    this.initData();
+    this.getCarNum();
+    /**
     this.setData({
       cartList
     })
     if (this.data.cartList.length > 0) {
       this.getCarNum();
-    }
+    } */
   },
 
   /**

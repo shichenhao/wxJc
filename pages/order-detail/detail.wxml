@@ -14,7 +14,7 @@
         {{status[orderData.status]}}
       </view>
     </view>
-    <view class='evaluateItem' wx:for="{{orderData.buildingMaterialsOrderItemList}}">
+    <view class='evaluateItem' wx:for="{{orderData.buildingMaterialsOrderItemList}}" wx:key="index">
       <image src='{{item.img}}'></image>
       <view class='evaluateTxt'>
         {{item.goodsName}}
@@ -24,7 +24,7 @@
         <view>
           ￥
           <view class='b'>
-            {{item.price}}
+            {{item.discountPrice || item.originPrice}}
           </view>
         </view>
         <view>
@@ -39,15 +39,15 @@
           <view class='span'>
             <view class='b'></view> ￥
             <view class='b'>
-              {{orderData.totalGoodsPrice}}
+              {{orderData.totalGoodsPrice + orderData.totalPlatformSubsidiesPrice}}
             </view>
           </view>
         </view>
       </view>
-      <view class='li'>
+      <view class='li' wx:if="{{orderData.shipmentType == 1}}">
         <view>运费</view>
         <view>
-          ￥{{orderData.shippingFee}}({{orderData.shipmentType===1?"商家配送":"到店自取"}})
+          ￥{{orderData.practicalShippingFee}}({{orderData.shipmentType===1?"商家配送":"到店自取"}})
         </view>
       </view>
       <view class='li'>
@@ -108,11 +108,11 @@
     <view wx:if="{{orderData.paymentFinishTime}}">付款时间：{{orderData.paymentFinishTime}}</view>
   </view>
   <view class='contact'>
-    <view  bindtap='tel' data-tel="{{orderData.buildingMaterialsMerchant.contacts}}">联系商户</view>
+    <view bindtap='tel' data-tel="{{orderData.buildingMaterialsMerchant.contacts}}">联系商户</view>
     <view wx:if="{{orderData.status == 1}}" bindtap='goPay'>
         去支付
       </view>
-      <view wx:if="{{orderData.status == 4}}">
+      <view wx:if="{{orderData.status == 7 && orderData.orderItemCommentsCount < orderData.orderItemCount}}" data-record='{{orderData}}' bindtap='goEvaluate'>
         去评价
       </view>
   </view>

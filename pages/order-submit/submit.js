@@ -6,6 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    latitude: 23.099994,
+    longitude: 113.324520,
+    markers: [{
+      latitude: 23.099994,
+      longitude: 113.324520,
+      name: 'T.I.T 创意园'
+    }],
     addressData:null,
     shipmentType:1,
     chooseSort:null,
@@ -14,13 +21,16 @@ Page({
     promotionCouponsId:null,
     promotionCouponsData:null,
     cashCouponData:[],
-    redBagJson:null
+    redBagJson: null,
+    isRedNone: true, //默认勾选 不使用红包
+    isCouNone: true, //默认勾选 不使用优惠券
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.mapCtx = wx.createMapContext('myMap')
     this.setData({ merchantId: options.merchantId});
     this.getAddress();
     this.initData();
@@ -47,7 +57,7 @@ Page({
   initData(){
     let { 
       merchantId, shipmentType, addressData,
-       promotionCouponsData, orderItems, redBagJson
+      promotionCouponsData, orderItems, redBagJson, chooseSort
       }=this.data;
     let orderItemsReq={};
     if (orderItems){
@@ -61,21 +71,44 @@ Page({
       agentId: globalData.agentId,
       userId: globalData.userInfo.id,
       merchantId,
+      chooseSort: redBagJson && promotionCouponsData ? chooseSort : 0,
       shipmentType,
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
       orderItems: JSON.stringify(globalData.selectCommodity),
       userAddressId: addressData && addressData.id,
-
-      orderItems: JSON.stringify([orderItemsReq]),
+      //orderItems: JSON.stringify([orderItemsReq]),
       redBagJson: !redBagJson ? null : JSON.stringify([redBagJson]),
       promotionCouponsId: !promotionCouponsData ? null : promotionCouponsData.id,
     }
     wx.http.postReq('appletClient?m=buildingMaterialsOrderServicePreview', params, (res) => {
       let { success, value } = res;
       if (success) {
-        console.log(value);
-        this.setData({ orderItems:value});
+        let markers = this.data.markers
+        markers[0].latitude = value.buildingMaterialsMerchant.latitude
+        markers[0].longitude = value.buildingMaterialsMerchant.longitude
+        markers[0].name = value.buildingMaterialsMerchant.name
+        this.setData({
+          orderItems: value,
+          latitude: value.buildingMaterialsMerchant.latitude,
+          longitude: value.buildingMaterialsMerchant.longitude,
+          markers
+        });
+      } else {
+        wx.showToast({
+          title: value,
+          icon: 'none'
+        })
+        if (chooseSort == 1) {
+          this.setData({
+            promotionCouponsData: null
+          })
+        }
+        if (chooseSort == 2) {
+          this.setData({
+            redBagJson: null
+          })
+        }
       }
     })
   },
@@ -102,7 +135,8 @@ Page({
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
       userAddressId: addressData.id,
-      orderItems: JSON.stringify([orderItemsReq]),
+      orderItems: JSON.stringify(globalData.selectCommodity),
+      //orderItems: JSON.stringify(orderItemsReq),
       redBagJson: !redBagJson?null:JSON.stringify([redBagJson]),
       promotionCouponsId: !promotionCouponsData?null:promotionCouponsData.id,
     }

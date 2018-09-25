@@ -153,7 +153,7 @@
           无门槛红包
         </view>
       </view>
-      <navigator url="/pages/user-login/index" class='span' wx:if="{{!isLogin}}" hover-class="none">立即登录，领取红包</navigator>
+      <navigator url="/pages/bindPhone/bindPhone" class='span' wx:if="{{!isLogin}}" hover-class="none">立即绑定，领取红包</navigator>
       <navigator url="/pages/user-envelopes/envelopes" class='span' wx:if="{{isLogin}}" hover-class="none">立即使用</navigator>
       <view class='p'>
         可在“我的钱包”中查看详情

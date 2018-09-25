@@ -33,10 +33,10 @@
       <text class='text1'>补贴</text>
       <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
     </view>
-    <view>
+    <view wx:if="{{data.couponsList.length>0}}">
       <text class='text1'>促销</text>
       <text class='text2 text2_2'>
-      <text wx:for="{{data.couponsList}}" wx:key="id">满{{item.restrictAmt}}元减{{item.couponsAmt}}元</text>
+        <text wx:for="{{data.couponsList}}" wx:key="id">满{{item.restrictAmt}}元减{{item.couponsAmt}}元</text>
       </text>
       <navigator class='text3' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
         立即领取
@@ -63,8 +63,8 @@
         <text class='h3Right' bindtap='goEvaluateList'><text style='color:#f06062'>{{data.goodCommentsRate}}%</text>好评率</text>
       </view>
       <view class='userInfo'>
-        <image class='userImg' src='{{data.comments.headerImg}}'></image>
-        <text class='userName'>{{data.comments.name}}</text>
+        <image class='userImg' src='{{data.comments.user.headerImg}}'></image>
+        <text class='userName'>{{data.comments.user.name}}</text>
       </view>
       <view class='evaluateDetail'>
         <!-- <view class='evaluateImg'>

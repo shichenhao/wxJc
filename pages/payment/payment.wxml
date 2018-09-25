@@ -20,8 +20,9 @@
     </view>
   </view>
   <view class='orderPay' bindtap='selectOtherPay'>
+    <image src='/lib/images/wx.png'></image>
     微信支付
-    <view class='checkbox {{isBalance ? "active" : ""}}'></view>
+    <view class='checkbox {{isOtherPrice ? "active" : ""}}'></view>
   </view>
  </view>
   <view class='btnPay' bindtap='submit'>

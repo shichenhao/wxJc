@@ -21,7 +21,14 @@ Page({
   onLoad: function (options) {
     this.getData({ id: options.orderId})
   },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function (options) {
+    this.getData({ id: options.orderId })
+  },
   getData(params){
+    globalData.evalOrderId = params.id
     wx.http.postReq('appletClient?m=findBuildingMaterialsOrderById', params, (res) => {
       let { success, value } = res;
       if (success) {
@@ -49,9 +56,17 @@ Page({
     })
   },
   goPay(e) { // 支付
-    app.globalData.orderDetail = this.data.orderData;
+    globalData.orderDetail = this.data.orderData;
     wx.navigateTo({
       url: '../payment/payment',
+    })
+  },
+  goEvaluate(e) { // 评价
+    let record = e.currentTarget.dataset.record;
+    globalData.orderDetail = record;
+    console.log(record)
+    wx.navigateTo({
+      url: '../evaluateList/evaluateList',
     })
   },
 })

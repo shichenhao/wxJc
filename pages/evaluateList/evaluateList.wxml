@@ -1,13 +1,13 @@
 <!--pages/evaluateList/evaluateList.wxml--> 
 <view class="container">
 	<view class='evaluateBox'>
-    <view class='evaluateItem' wx:for="{{dataList}}">
+    <view class='evaluateItem' wx:for="{{dataList}}" wx:key="index">
       <image src='{{item.img}}'></image>
       <view class='evaluateTxt'>
         {{item.goodsName}}
         <view>{{item.goodsModel}}</view>
       </view>
-      <view class='evaluates'>评价</view>
+      <navigator url='/pages/evaluate/evaluate' hover-class='none' class='evaluates'>评价</navigator>
     </view>
   </view>
 </view>

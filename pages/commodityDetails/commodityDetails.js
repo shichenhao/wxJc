@@ -135,7 +135,9 @@ Page({
               return item
             })
           } else {
-            globalData.cart[index].list.push(this.data.selectCommodity)
+            if (merchant.merchant.id === this.data.merchantName.id){
+              globalData.cart[index].list.push(this.data.selectCommodity)
+            }
           }
         })
       }else{

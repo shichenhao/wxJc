@@ -1,1 +1,22 @@
-/* pages/accredit/accredit.wxss */
+view{
+  padding: 0 0 20rpx;
+  background: #fff;
+  text-align: center;
+  height: 100%;
+}
+
+view image{
+  width: 604rpx;
+  height: 924rpx;
+}
+
+button{
+  background: #9b7853;
+  width: 604rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 auto;
+  color: #fff;
+  border: 0 none;
+  font-size: 30rpx;
+}

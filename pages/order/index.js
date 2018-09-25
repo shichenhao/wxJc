@@ -54,6 +54,12 @@ Page({
   onLoad: function (options) {
     this.getList();
   },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getList();
+  },
   goPay(e) { // 支付
     let record = e.currentTarget.dataset.record;
     app.globalData.orderDetail = record;

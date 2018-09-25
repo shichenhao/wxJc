@@ -6,6 +6,7 @@ view{
 Page{
   background: #f4f4f4;
   font-size: 30rpx;
+  height: 100%;
 }
 
 .b{

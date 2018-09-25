@@ -90,6 +90,7 @@
   flex: 1;
   font-size: 28rpx;
   font-weight: bold;
+  padding-left: 10rpx;
 }
 .evaluateItem .evaluateTxt view{
   font-size: 24rpx;
@@ -199,5 +200,6 @@
   border:1px solid #c4c2c2;
   border-radius: 52rpx;
   font-size: 24rpx;
+  margin-left: 10rpx;
 }
 

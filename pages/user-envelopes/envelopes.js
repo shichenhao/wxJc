@@ -1,4 +1,5 @@
 var app = getApp();
+var dataStr = require('../../utils/data.js')
 // pages/user-envelopes/envelopes.js
 Page({
   data: {
@@ -20,7 +21,11 @@ Page({
     wx.http.postReq('appletClient?m=queryRedBagList', params, (data) => {
       if (data.success) {
         let list = this.data.list
-        if (data.value.platformRedBagList.length>0){
+        if (data.value.platformRedBagList.length > 0) {
+          data.value.platformRedBagList = data.value.platformRedBagList.map(item => {
+            item.date = dataStr.tsFormatTime(item.expirationTime, 'Y-M-D h:m')
+            return item
+          })
           list = [...list, ...data.value.platformRedBagList]
         }
         if (data.value.platformRedBagList.lengthh>= this.data.page.limit){

@@ -45,11 +45,19 @@ Page({
         this.setData({
           addressData: value[0]
         })
+        wx.showToast({
+          title: '评价成功',
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+
       } else {
         wx.showToast({
-          title: '出错了,请联系管理员',
+          title: value,
+          icon: 'none'
         })
       }
     })
-  }
+  },
 })

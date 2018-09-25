@@ -54,6 +54,15 @@ Page({
   submit(){
     let { isBalance, isOtherPrice, price, balance}=this.data;
     let params = globalData.orderDetail;
+    if (!isBalance && !isOtherPrice){
+      wx.showToast({
+        title: '请选择支付方式',
+        icon: 'none'
+      })
+      return false;
+    }
+
+
     if (!isOtherPrice) {
       wx.http.postReq('appletClient?m=balancePay', {
         orderId: params.id

@@ -1,5 +1,6 @@
 // pages/user-couponHistory/history.js
 var app = getApp();
+var dataStr = require('../../utils/data.js')
 Page({
   data: {
     list: [],

@@ -62,11 +62,15 @@
   margin-top:22rpx;
   font-size:22rpx;
 }
+
+.con2 view{
+  overflow: hidden;
+}
 .con2_1{
   padding-bottom:32rpx;
 }
 .con2 .text1{
-  display: inline-block;
+  display: block;
   color:#f40c0c;
   width: 70rpx;
   height:30rpx;
@@ -74,9 +78,11 @@
   text-align: center;
   border-radius: 10rpx;
   margin-right:20rpx;
+  float: left;
 }
 .con2 .text2{
   color:#f40c0c;
+  float: left
 }
 .con2 .text2_2{
   color:#333;
@@ -85,6 +91,11 @@
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+}
+
+.con2 .text2_2 text{
+  padding-right: 5rpx;
+  margin-right: 5rpx;
 }
 .con2 .text3{
   color:#333;

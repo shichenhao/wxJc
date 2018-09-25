@@ -32,14 +32,14 @@ Page({
       merchantId: merchantId || this.data.merchantId,
       goodsId: goodsId || this.data.goodsId,
     };
-    wx.http.postReq('appletClient?m=findBuildingMaterialsGoodsCommentsList', params, (res) => {
-      let { success, value } = res;
+    wx.http.postReq('appletClient?m=findBuildingMaterialsGoodsCommentsList', params, (data) => {
+      let { success, value } = data;
       if (success) {
         let list = this.data.list
-        if (data.value.couponsList.length > 0) {
-          list = [...list, ...data.value.couponsList]
+        if (data.value.length > 0) {
+          list = [...list, ...data.value]
         }
-        if (data.value.couponsList.length >= this.data.page.limit) {
+        if (data.value.length >= this.data.page.limit) {
           page.start += 10;
           page.isMore = true;
         } else {
@@ -51,5 +51,14 @@ Page({
         })
       }
     })
-  }
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log(this.data.page.isMore)
+    if (this.data.page.isMore) {
+      this.getData()
+    }
+  },
 })

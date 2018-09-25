@@ -2,6 +2,7 @@
 .evaluateBox{
   font-size: 24rpx;
   padding: 0 30rpx;
+  background: white;
 }
 .evaluateItem{
   border-bottom: 1px solid #eaeaea;

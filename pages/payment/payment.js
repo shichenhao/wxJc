@@ -81,15 +81,23 @@ Page({
           console.log(err.extra);
           if (result == "success") {
             // 只有微信小程序 wx_lite 支付成功的结果会在这里返回
+            globalData.orderDetail = null;
+            wx.navigateTo({
+              url: '../order/index',
+            })
           } else if (result == "fail") {
             // charge 不正确或者微信小程序支付失败时会在此处返回
+            globalData.orderDetail = null;
+            wx.navigateTo({
+              url: '../order/index',
+            })
           } else if (result == "cancel") {
             // 微信小程序支付取消支付
+            globalData.orderDetail = null;
+            wx.navigateTo({
+              url: '../order/index',
+            })
           }
-          globalData.orderDetail = null;
-          wx.navigateTo({
-            url: '../order/index',
-          })
         });
       }
       )

@@ -1,11 +1,11 @@
-<!--pages/evaluateList/evaluateList.wxml-->
+<!--pages/evaluateList/evaluateList.wxml--> 
 <view class="container">
 	<view class='evaluateBox'>
-    <view class='evaluateItem'>
-      <image src=''></image>
+    <view class='evaluateItem' wx:for="{{dataList}}">
+      <image src='{{item.img}}'></image>
       <view class='evaluateTxt'>
-        木质地板
-        <view>黄色/111</view>
+        {{item.goodsName}}
+        <view>{{item.goodsModel}}</view>
       </view>
       <view class='evaluates'>评价</view>
     </view>

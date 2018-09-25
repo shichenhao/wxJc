@@ -281,6 +281,7 @@ view{
 .commodityInfo{
   overflow: hidden;
   padding:10rpx 0;
+  height: 90rpx;
 }
 .price{
   font-size:22rpx;

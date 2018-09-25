@@ -46,13 +46,13 @@ function postReq(url, data, cb, alert) {
       data: params,
       method: 'post',
       success: function (res) {
-        if (res.data.code === 100000) {
+        if (res.data.code === 100010) {
           wx.showToast({
             title: '没有绑定手机号，去绑定！',
             icon: 'none'
           })
           wx.navigateTo({
-            url: '../user/index'
+            url: '../bindPhone/bindPhone'
           });
           return false;
         }

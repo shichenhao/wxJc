@@ -43,7 +43,7 @@
       <navigator url='/pages/couplet/couplet' hover-class='none'>
         <image src='/lib/images/home_icon7.jpg'></image>联单奖励
       </navigator>
-      <navigator hover-class='none'>
+      <navigator url='/pages/shopProcess/shopProces' hover-class='none'>
         <image src='/lib/images/home_icon8.jpg'></image>优质服务
       </navigator>
     </view>

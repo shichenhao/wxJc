@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    couponsCount: 0,
+    platformRedBagCount: 0,
     userInfo: null,
     phone: null
   },
@@ -15,6 +17,35 @@ Page({
       success() {
       },
       fail() {
+      }
+    })
+  },
+  getCoupon() {
+    let param = {
+      isDisabled: 0,
+      businessType: 12,
+      start: 0,
+      size: 10,
+    }
+    wx.http.postReq('appletClient?m=queryCouponsListPage', param, (data) => {
+      if (data.success) {
+        this.setData({
+          couponsCount: data.value.couponsCount
+        })
+      }
+    }, true)
+  },
+  getCollec() {
+    var param = {
+      start: 0,
+      size: 10,
+      merchantType: 6
+    }
+    wx.http.postReq('userClient?m=queryRedBagList', param, (data) => {
+      if (data.success) {
+        this.setData({
+          platformRedBagCount: data.value.platformRedBagCount
+        })
       }
     })
   },
@@ -36,6 +67,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getCoupon();
+    this.getCollec();
     let _this = this
     let userInfo = wx.getStorageSync('wxInfo')
     userInfo.balance = wx.getStorageSync('userInfo').balance
@@ -72,6 +105,8 @@ Page({
       userInfo,
       phone: app.globalData.phone
     })
+    this.getCoupon();
+    this.getCollec();
   
   },
 

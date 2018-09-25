@@ -113,7 +113,7 @@ Page({
         wx.navigateTo({
           url: '../payment/payment',
         })
-      }
+      } 
     })
   },
   changeAddress(){

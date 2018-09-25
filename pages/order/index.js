@@ -17,6 +17,11 @@ Page({
       isMore: true
     },
   },
+  onUnload: function () {
+    wx.reLaunch({
+      url: '../user/index'
+    })
+  },
   getList() {
     let page = this.data.page
     var params = {

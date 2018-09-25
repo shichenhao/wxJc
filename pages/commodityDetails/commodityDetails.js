@@ -49,7 +49,7 @@ Page({
           selectCommodity,
           imgUrls: value.imgs.split(';')
         });
-        let goodsInfo = value.goodsInfo;
+        let goodsInfo = value.goodsInfo||"";
         let that = this;
         WxParse.wxParse('goodsInfo', 'html', goodsInfo, that, 5);
       }
@@ -94,6 +94,8 @@ Page({
       })
     }else{
       globalData.selectCommodity = [this.data.selectCommodity];
+      globalData.agentId = this.data.data.agentId;
+      
       wx.navigateTo({
         url: '../order-submit/submit?merchantId=' + this.data.data.merchantId
       });

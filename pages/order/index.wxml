@@ -44,7 +44,7 @@
         <view>
            ￥
           <view class='b'>
-            {{item.totalGoodsPrice}}
+            {{item.totalPrice}}
           </view>
         </view>
       </view>

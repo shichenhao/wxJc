@@ -28,7 +28,7 @@
       <view>
         ￥
         <view class='b'>
-          {{orderItems.totalGoodsPrice}}
+          {{orderItems.totalPrice}}
         </view>
       </view>
     </view>
@@ -50,7 +50,7 @@
     </view>
     <view bindtap='seeRedPacket'>
       平台红包
-      <view>-￥{{!redPacketData.amt?0:redPacketData.amt}}</view>
+      <view>-￥{{!redBagJson.amt?0:redBagJson.amt}}</view>
     </view>
     <view bindtap='seeCashCoupon'>
       商家代金券
@@ -62,7 +62,7 @@
       合计金额：
       <view class='span'>
         ￥
-        <view class='b'>{{orderItems.totalGoodsPrice}}</view>
+        <view class='b'>{{orderItems.totalPrice}}</view>
       </view>
     </view>
     <view class='payment' bindtap='orderSubmit'>提交订单</view>
@@ -75,11 +75,11 @@
     <view class='moneyNone active' bindtap='noCashCoupon'>
       不使用红包
     </view>
-    <view class="moneyBox" wx:for="{{redPacketData.platformRedBagList}}" data-record='item' wx:key="id">
+    <view class="moneyBox" wx:for="{{redPacketData.platformRedBagList}}" wx:key="id">
       <view class='h2'>
         <view>可使用红包（{{redPacketData.platformRedBagList.length}}个）</view>
       </view>
-      <view class='moneyItem'>
+      <view class='moneyItem' data-record='{{item}}' bindtap='getRedPacket'>
         <view class="itemLeft">
           <view class="b">专享红包</view>
           <view>有效期至{{item.expirationTime}}</view>
@@ -89,7 +89,7 @@
           <view>
             ￥<view class="b">{{item.amt}}</view>
           </view>
-          {{item.restrictAmt==0?"无门槛红包":"满元"+item.restrictAmt+"可使用"}}
+          {{!item.restrictAmt?"无门槛红包":"满"+item.restrictAmt+"元可使用"}}
         </view>
       </view>
     </view>

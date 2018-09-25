@@ -13,7 +13,8 @@ Page({
     isRedPacket:false,
     promotionCouponsId:null,
     promotionCouponsData:null,
-    cashCouponData:[]
+    cashCouponData:[],
+    redBagJson:null
   },
 
   /**
@@ -21,8 +22,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ merchantId: options.merchantId});
-    this.initData();
     this.getAddress();
+    this.initData();
   },
   getAddress() {
     if (globalData.addressData){
@@ -44,15 +45,31 @@ Page({
   },
 
   initData(){
-    let { merchantId, shipmentType}=this.data;
+    let { 
+      merchantId, shipmentType, addressData,
+       promotionCouponsData, orderItems, redBagJson
+      }=this.data;
+    let orderItemsReq={};
+    if (orderItems){
+      orderItemsReq = {...orderItems};
+    }
+    orderItemsReq.goodsId= globalData.selectCommodity[0].goodsId,
+    orderItemsReq.goodsModelId = globalData.selectCommodity[0].goodsModelId,
+    orderItemsReq.quantity = globalData.selectCommodity[0].quantity,
+    orderItemsReq.price = globalData.selectCommodity[0].price
     let params={
-      agentId: globalData.userInfo.agentId,
+      agentId: globalData.agentId,
       userId: globalData.userInfo.id,
       merchantId,
       shipmentType,
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
-      orderItems: JSON.stringify(globalData.selectCommodity)
+      orderItems: JSON.stringify(globalData.selectCommodity),
+      userAddressId: addressData && addressData.id,
+
+      orderItems: JSON.stringify([orderItemsReq]),
+      redBagJson: !redBagJson ? null : JSON.stringify([redBagJson]),
+      promotionCouponsId: !promotionCouponsData ? null : promotionCouponsData.id,
     }
     wx.http.postReq('appletClient?m=buildingMaterialsOrderServicePreview', params, (res) => {
       let { success, value } = res;
@@ -96,30 +113,6 @@ Page({
         wx.navigateTo({
           url: '../payment/payment',
         })
-        // wx.http.postReq('appletClient?m=pingxxWxLitePay',{
-        //     channel: 'wx_lite',//渠道名
-        //     amount: 0.1, 
-        //     orderId: value.id,
-        //     openId: globalData.openId,
-        //     balanceCost: globalData.userInfo.balance
-        //   },  (res2)=> {
-        //     var charge = res2.value;
-        //     Pingpp.createPayment(charge, function (result, err) {
-        //       console.log(result);
-        //       console.log(err.msg);
-        //       console.log(err.extra);
-        //       if (result == "success") {
-        //         // 只有微信小程序 wx_lite 支付成功的结果会在这里返回
-        //         console.log('success');
-        //       } else if (result == "fail") {
-        //         // charge 不正确或者微信小程序支付失败时会在此处返回
-        //         console.log('fail');
-        //       } else if (result == "cancel") {
-        //         // 微信小程序支付取消支付
-        //       }
-        //     });
-        //   }
-        // )
       }
     })
   },
@@ -155,6 +148,8 @@ Page({
       isRedPacket: false,
       redBagJson: e.currentTarget.dataset.record,
       chooseSort: !this.data.chooseSort ? 1 : 2
+    },()=>{
+      this.initData();
     })
   },
   seeCashCoupon(){
@@ -187,6 +182,8 @@ Page({
       isCashCoupon: false,
       promotionCouponsData:e.currentTarget.dataset.record,
       chooseSort: !this.data.chooseSort?2:1
+    }, () => {
+      this.initData();
     })
   },
   why(e){ // 不可用原因
@@ -203,5 +200,5 @@ Page({
     this.setData({
       cashCouponData
     })
-  }
+  },
 })

@@ -18,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let price = globalData.orderDetail.totalGoodsPrice;
+    let price = globalData.orderDetail.totalPrice;
     this.getBalance();
     this.setData({
       price,
@@ -69,7 +69,7 @@ Page({
     }else{
       wx.http.postReq('appletClient?m=pingxxWxLitePay', {
         channel: 'wx_lite',//渠道名
-        amount: params.totalGoodsPrice,
+        amount: params.totalPrice,
         orderId: params.id,
         openId: globalData.openId,
         balanceCost: balance

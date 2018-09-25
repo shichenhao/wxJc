@@ -45,13 +45,14 @@ Page({
   },
   //领取红包
   receiveRed(){
+    console.log(app.globalData.addressSel)
     var param = {
       businessType: 12,
-      longitude: app.globalData.localPosition.longitude,
-      latitude: app.globalData.localPosition.latitude
+      longitude: app.globalData.addressSel && (app.globalData.addressSel.longitude || app.globalData.addressSel.location.lng) || app.globalData.localPosition.longitude,
+      latitude: app.globalData.addressSel && (app.globalData.addressSel.latitude || app.globalData.addressSel.location.lat) || app.globalData.localPosition.latitude
     }
     wx.http.postReq('userClient?m=getPlatformRedBag', param, (data) => {
-      if (data.success) {
+      if (data.code === 0 && data.value.redBagList.length>0) {
         this.setData({
           redType: true,
           redInfo: data.value.redBagList || {}

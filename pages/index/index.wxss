@@ -169,7 +169,7 @@
 
 .redBagCountBox .p{
   font-size:20rpx;
-  color: #d76a73;
+  color: #fff;
   text-align: center;
   position: absolute;
   width: 100%;
@@ -191,13 +191,17 @@
 }
 
 .redBagCountBox .money text{
-  font-size: 100rpx;
+  font-size: 60rpx;
   font-weight: bold;
+  display: block;
+  height: 87rpx;
 }
 
 .redBagCountBox .money view{
   font-size: 22rpx;
   color: #666;
+  width: 220rpx;
+  margin: 0 auto;
 }
 
 .active .redBagCountBox .money{

@@ -291,6 +291,16 @@ view{
   line-height: 30rpx;
   margin-right:10rpx;
 }
+
+.price text{
+  font-size: 28rpx;
+}
+
+.price2{
+  text-decoration: line-through;
+  color: #a3a3a3;
+  font-size: 22rpx;
+}
 .subsidy{
   float:left;
   color:#de3857;
@@ -298,6 +308,7 @@ view{
   padding:3rpx 8rpx;
   border:1rpx solid #de3857;
   border-radius: 5rpx;
+  margin-top: 10rpx;
 }
 .evaluate text{
   font-size:24rpx;

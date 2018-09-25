@@ -7,104 +7,105 @@
     <view class='navList{{toView==="detail"?" navCur":""}}' data-opt='detail' bindtap='jumpTo'>详情</view>
   </view>
 </view>
-<scroll-view 
-    scroll-into-view="{{toView}}" 
-    scroll-y="true" 
-    scroll-with-animation="true" 
-    class="scr">
-  <swiper indicator-dots="{{indicatorDots}}"  class='commodityImg' id="commodity"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr">
+  <swiper indicator-dots="{{indicatorDots}}" class='commodityImg' id="commodity" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:key="{{index}}">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
       </swiper-item>
     </block>
   </swiper>
-<view class='con1'>
-  <view>
-    <text class='price'>￥{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
-    <text class='oldPrice'>原价:￥{{selectCommodity.originalPrice}}</text>
-    <text class='salesVolume'>销量：{{selectCommodity.totalSaled}}</text>
-  </view>
-  <view class="h2">
-    {{data.goodsName}}
-  </view>
-  <view class='h2p'>
-   {{data.goodsDescribe}}
-  </view>
-</view>
-<view class='con2'>
-  <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
-    <text class='text1'>补贴</text>
-    <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
-  </view>
-  <view>
-    <text class='text1'>促销</text>
-    <text class='text2 text2_2'>满100减10元、满200减30元</text>
-    <navigator class='text3' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
-      立即领取
-    </navigator>
-  </view>
-</view>
-<!-- 选择规格 -->
-<view class='con3'>
-  <view class='con3_row'>
-    <text class='con3_rowL'>选择型号</text>
-    <text class='con3_rowR con3_rowR_1' bindtap='handleSpecifications'>{{isSelectCommodity ? selectCommodity.goodsModel + ',' + selectCommodity.quantity : '型号规格，购买数量'}}</text>
-  </view>
-  <view class='con3_row'>
-    <text class='con3_rowL'>服务说明</text>
-    <text class='con3_rowR'>包安装，不可退</text>
-  </view>
-</view>
-<!-- 用户评价 -->
-<view class='con4' id='evaluate'>
-  <view class="h3">
-    <text class='h3Left'>用户评价</text>
-    <text class='h3Right' bindtap='goEvaluateList'><text style='color:#f06062'>100%</text>好评率</text>
-  </view>
-  <view class='userInfo'>
-    <image class='userImg' src='../../lib/images/brandDefault.png'></image>
-    <text class='userName'>萧炎</text>
-  </view>
-  <view class='evaluateDetail'>
-    <view class='evaluateImg'>
-      <image src='../../lib/images/brandDefault.png'></image>
-      <image src='../../lib/images/brandDefault.png'></image>
-      <image src='../../lib/images/brandDefault.png'></image>
+  <view class='con1'>
+    <view>
+      <text class='price'>￥{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
+      <text class='oldPrice'>原价:￥{{selectCommodity.originalPrice}}</text>
+      <text class='salesVolume'>销量：{{selectCommodity.totalSaled}}</text>
     </view>
-    <view class='evaluateTxt'>
-      特别好，很喜欢这个颜色，看起来特别的温馨，质量也很好，老板人也很好，买了两次，正好，以后需要再来。这个颜色看起来很高级。
+    <view class="h2">
+      {{data.goodsName}}
     </view>
-    <view class='evaluateDate'>
-      2018-05-17   型号:木纹02
+    <view class='h2p'>
+      {{data.goodsDescribe}}
     </view>
   </view>
-</view>
-<!-- 商家信息 -->
-<view class='con4 con5'>
-  <view class="h3">
-    <text class='h3Left'>商家信息</text>
+  <view class='con2'>
+    <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
+      <text class='text1'>补贴</text>
+      <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
+    </view>
+    <view>
+      <text class='text1'>促销</text>
+      <text class='text2 text2_2'>
+      <text wx:for="{{data.couponsList}}" wx:key="id">满{{item.restrictAmt}}元减{{item.couponsAmt}}元</text>
+      </text>
+      <navigator class='text3' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
+        立即领取
+      </navigator>
+    </view>
   </view>
-  <view class='con5_main'>
-    <navigator class='con5_mainL' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
-      <image src='{{!data.buildingMaterialsMerchant?"../../lib/images/brandDefault.png":data.buildingMaterialsMerchant.logo}}'></image>
-      <view class='con5_mainL_L'>
-        <view class='con5_mainL_L_T'>{{!data.buildingMaterialsMerchant?"":data.buildingMaterialsMerchant.name}}</view>
-        <view class='con5_mainL_L_B'>综合评分: <text>{{data.buildingMaterialsMerchant.commentsAverageScore === 0 ?5:data.buildingMaterialsMerchant.commentsAverageScore}}</text> </view>
+  <!-- 选择规格 -->
+  <view class='con3'>
+    <view class='con3_row'>
+      <text class='con3_rowL'>选择型号</text>
+      <text class='con3_rowR con3_rowR_1' bindtap='handleSpecifications'>{{isSelectCommodity ? selectCommodity.goodsModel + ',' + selectCommodity.quantity : '型号规格，购买数量'}}</text>
+    </view>
+    <view class='con3_row'>
+      <text class='con3_rowL'>服务说明</text>
+      <text class='con3_rowR'>包安装，不可退</text>
+    </view>
+  </view>
+  <!-- 用户评价 -->
+  <view class='con4' id='evaluate'>
+    <view wx:if="{{!data.comments}}">暂无评价</view>
+    <view wx:if="{{!!data.comments}}">
+      <view class="h3">
+        <text class='h3Left'>用户评价</text>
+        <text class='h3Right' bindtap='goEvaluateList'><text style='color:#f06062'>{{data.goodCommentsRate}}%</text>好评率</text>
       </view>
-    </navigator>
-    <view class='con5_mainR'>
-      {{!data.buildingMaterialsMerchant.goodsNum?"0":data.buildingMaterialsMerchant.goodsNum}}件商品
+      <view class='userInfo'>
+        <image class='userImg' src='{{data.comments.headerImg}}'></image>
+        <text class='userName'>{{data.comments.name}}</text>
+      </view>
+      <view class='evaluateDetail'>
+        <!-- <view class='evaluateImg'>
+          <image src='../../lib/images/brandDefault.png'></image>
+          <image src='../../lib/images/brandDefault.png'></image>
+          <image src='../../lib/images/brandDefault.png'></image>
+        </view> -->
+        <view class='evaluateTxt'>
+          {{data.comments.content}}
+        </view>
+        <view class='evaluateDate'>
+          {{data.comments.createTime.substr(0,10)}} 型号: {{data.comments.goodsModel}}
+        </view>
+      </view>
     </view>
   </view>
-</view>
-<view id='detail' class='con4'>
-  <view class="h3">
-    <text class='h3Left'>商品详情</text>
+  <!-- 商家信息 -->
+  <view class='con4 con5'>
+    <view class="h3">
+      <text class='h3Left'>商家信息</text>
+    </view>
+    <view class='con5_main'>
+      <navigator class='con5_mainL' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
+        <image src='{{!data.buildingMaterialsMerchant?"../../lib/images/brandDefault.png":data.buildingMaterialsMerchant.logo}}'></image>
+        <view class='con5_mainL_L'>
+          <view class='con5_mainL_L_T'>{{!data.buildingMaterialsMerchant?"":data.buildingMaterialsMerchant.name}}</view>
+          <view class='con5_mainL_L_B'>综合评分:
+            <text>{{data.buildingMaterialsMerchant.commentsAverageScore === 0 ?5:data.buildingMaterialsMerchant.commentsAverageScore}}</text> </view>
+        </view>
+      </navigator>
+      <view class='con5_mainR'>
+        {{!data.buildingMaterialsMerchant.goodsNum?"0":data.buildingMaterialsMerchant.goodsNum}}件商品
+      </view>
+    </view>
   </view>
-  <template is="wxParse" data="{{wxParseData:goodsInfo.nodes}}" />
-</view>
+  <view id='detail' class='con4'>
+    <view class="h3">
+      <text class='h3Left'>商品详情</text>
+    </view>
+    <template is="wxParse" data="{{wxParseData:goodsInfo.nodes}}" />
+  </view>
 
 
 </scroll-view>
@@ -112,32 +113,30 @@
 <!-- 选择规格 -->
 <view class='specificationsBg' wx:if="{{specifications}}">
   <view class='specifications'>
-      <view class='closeBox'>
-        <view class='close' bindtap='handleSpecifications'></view>
+    <view class='closeBox'>
+      <view class='close' bindtap='handleSpecifications'></view>
+    </view>
+    <view class='commodityImg2'>
+      <image src='{{selectCommodity.img}}' mode="widthFix"></image>
+      <text class='specificationsPrice'>￥{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
+    </view>
+    <view class='modelTitle'>选择型号</view>
+    <view class='modelTitle2'>型号</view>
+    <view class='modelBox'>
+      <view class='modelItem{{!!isSelectCommodity &&item.id==selectCommodity.id?" modelItemCur":""}}' wx:for="{{data.modelList}}" wx:key="id" data-itemData="{{item}}" bindtap='changeSpecifications'>{{item.goodsModel}}</view>
+    </view>
+    <view class='purchaseQuantity'>
+      <view>购买数量</view>
+      <view class='countBox'>
+        <view class='countAdd' bindtap='cartNum' data-type='1'></view>
+        <view class='count'>{{quantity}}</view>
+        <view class='countDel' bindtap='cartNum' data-type='2'></view>
       </view>
-      <view class='commodityImg2'>
-        <image src='{{selectCommodity.img}}' mode="widthFix"></image>
-        <text class='specificationsPrice'>￥{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
-      </view>
-      <view class='modelTitle'>选择型号</view>
-      <view class='modelTitle2'>型号</view>
-      <view class='modelBox'>
-        <view 
-          class='modelItem{{!!isSelectCommodity &&item.id==selectCommodity.id?" modelItemCur":""}}' 
-          wx:for="{{data.modelList}}" wx:key="id" data-itemData="{{item}}" bindtap='changeSpecifications'>{{item.goodsModel}}</view>
-      </view>
-      <view class='purchaseQuantity'>
-        <view>购买数量</view>
-        <view class='countBox'>
-          <view class='countAdd' bindtap='cartNum' data-type='1'></view>
-          <view class='count'>{{quantity}}</view>
-          <view class='countDel' bindtap='cartNum' data-type='2'></view>
-        </view>
-      </view>
-      <view class='downBtn'>
-        <view class='downBtnL' bindtap='pushCart'>加入购物车</view>
-        <view class='downBtnR' bindtap='purchase'>立即购买</view>
-      </view>
+    </view>
+    <view class='downBtn'>
+      <view class='downBtnL' bindtap='pushCart'>加入购物车</view>
+      <view class='downBtnR' bindtap='purchase'>立即购买</view>
+    </view>
   </view>
 </view>
 <!-- 底部菜单 -->

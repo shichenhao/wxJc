@@ -70,7 +70,7 @@ Page({
     let record = e.currentTarget.dataset.record;
     app.globalData.orderDetail = record;
     wx.navigateTo({
-      url: '../evaluate/evaluate',
+      url: '../evaluateList/evaluateList',
     })
   },
   /**

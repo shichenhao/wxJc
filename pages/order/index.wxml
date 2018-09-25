@@ -32,7 +32,7 @@
             {{order.price}}
           </view>
         </view>
-        <view>
+        <view> 
           *{{order.quantity}}
         </view>
       </view>
@@ -50,7 +50,7 @@
       <view class='span' data-record='{{item}}' wx:if="{{item.status == 1}}" bindtap='goPay'>
         去支付
       </view>
-      <view class='span' data-record='{{item}}' wx:if="{{item.status == 4}}" bindtap='goEvaluate'>
+      <view class='span' data-record='{{item}}' wx:if="{{item.status == 7 && item.orderItemCommentsCount == item.orderItemCount}}" bindtap='goEvaluate'>
         去评价
       </view>
     </view>

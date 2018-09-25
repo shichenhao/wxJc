@@ -80,6 +80,11 @@
 }
 .con2 .text2_2{
   color:#333;
+  display: inline-block;
+  width:400rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .con2 .text3{
   color:#333;

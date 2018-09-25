@@ -36,7 +36,7 @@
           <view>
             ￥
             <view class='b'>
-              {{obj.price}}
+              {{obj.prices}}
             </view>
           </view>
           <view class='countBox'>

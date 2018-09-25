@@ -301,6 +301,7 @@ view{
   text-decoration: line-through;
   color: #a3a3a3;
   font-size: 22rpx;
+  float: left;
 }
 .subsidy{
   float:left;
@@ -309,7 +310,7 @@ view{
   padding:3rpx 8rpx;
   border:1rpx solid #de3857;
   border-radius: 5rpx;
-  margin-top: 10rpx;
+  margin-left: 10rpx;
 }
 .evaluate text{
   font-size:24rpx;

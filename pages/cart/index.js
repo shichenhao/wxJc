@@ -1,6 +1,6 @@
 // pages/cart/index.js
 
-let { globalData } =getApp()
+let { globalData, isMobile } =getApp()
 Page({
   data: {
     // 编辑
@@ -160,7 +160,7 @@ Page({
     this.data.cartList.map(item => {
       item.list.map(son => {
         if(son.check){
-          carMoney += son.quantity * son.price;
+          carMoney += son.quantity * son.prices;
         }
       })
     })
@@ -169,79 +169,83 @@ Page({
     })
   },
   zhifuOne(e){ // 单个商家支付
-    var merchantId = e.currentTarget.dataset.id;
-    let cartArr = this.data.isCartList.map(item => {
-      if (item.id == merchantId) {
-        globalData.selectCommodity = item.list
-      }
+    isMobile(() => {
+      var merchantId = e.currentTarget.dataset.id;
+      let cartArr = this.data.isCartList.map(item => {
+        if (item.id == merchantId) {
+          globalData.selectCommodity = item.list
+        }
+      })
+      wx.navigateTo({
+        url: '../order-submit/submit?merchantId=' + merchantId
+      });
     })
-    wx.navigateTo({
-      url: '../order-submit/submit?merchantId=' + merchantId
-    });
   },
   zhifu() { // 支付
-    let cartList = this.data.cartList;
-    let isGo = cartList.some((item, index) => {
-      if (item.check) {
-        return true
-      } else {
-        if(item.list.some(son=>{
-          return son.check
-        })){
+    isMobile(() => {
+      let cartList = this.data.cartList;
+      let isGo = cartList.some((item, index) => {
+        if (item.check) {
           return true
-        }else{
-          return false
+        } else {
+          if(item.list.some(son=>{
+            return son.check
+          })){
+            return true
+          }else{
+            return false
+          }
         }
-      }
-    })
-    if (!isGo) {
-      wx.showToast({
-        title: '请选择要结算的商品',
-        icon: 'none'
       })
-    } else {
-      let newArr = JSON.parse(JSON.stringify(this.data.cartList))
-      let isOne = newArr.filter(item=>{
-        item.list = item.list.filter(son=>{
-          return son.check
+      if (!isGo) {
+        wx.showToast({
+          title: '请选择要结算的商品',
+          icon: 'none'
         })
-        if (item.list.length > 0) {
-          item.check = true
-        }
-        return item
-      })
-      //console.log(isOne)
-      if (isOne.filter(item=>item.check).length>1){
-        isOne = isOne.map(item=>{
-          item.priceList = item.list.map(son=>{
-            return son.price * son.quantity
+      } else {
+        let newArr = JSON.parse(JSON.stringify(this.data.cartList))
+        let isOne = newArr.filter(item=>{
+          item.list = item.list.filter(son=>{
+            return son.check
           })
-          item.numPrice = item.priceList.reduce((a,b)=>{
-            return a+b
-          })
+          if (item.list.length > 0) {
+            item.check = true
+          }
           return item
         })
         //console.log(isOne)
-        //return false
-        this.setData({
-          cartPop:true,
-          isCartList: isOne
-        })
-      }else{
-        let merchantId = null;
-        let cartArr = isOne.map(item=>{
-          if(item.check){
-            merchantId = item.merchant.id;
-            globalData.selectCommodity = item.list.filter(son=>{
-              return son.check
+        if (isOne.filter(item=>item.check).length>1){
+          isOne = isOne.map(item=>{
+            item.priceList = item.list.map(son=>{
+              return son.price * son.quantity
             })
-          }
-        })
-        wx.navigateTo({
-          url: '../order-submit/submit?merchantId=' + merchantId
-        });
+            item.numPrice = item.priceList.reduce((a,b)=>{
+              return a+b
+            })
+            return item
+          })
+          //console.log(isOne)
+          //return false
+          this.setData({
+            cartPop:true,
+            isCartList: isOne
+          })
+        }else{
+          let merchantId = null;
+          let cartArr = isOne.map(item=>{
+            if(item.check){
+              merchantId = item.merchant.id;
+              globalData.selectCommodity = item.list.filter(son=>{
+                return son.check
+              })
+            }
+          })
+          wx.navigateTo({
+            url: '../order-submit/submit?merchantId=' + merchantId
+          });
+        }
       }
-    }
+    })
   },
 
   /**

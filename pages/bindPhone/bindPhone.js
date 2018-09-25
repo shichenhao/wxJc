@@ -69,6 +69,10 @@ Page({
       if (success) {
         wx.setStorageSync('token', value.token)
         app.globalData.token = value.token
+
+        let userInfo = wx.getStorageSync('userInfo')
+        userInfo.mobile = this.data.phone
+        wx.setStorageSync('userInfo', userInfo)
         wx.showToast({
           title: '绑定成功！',
           icon: 'none'

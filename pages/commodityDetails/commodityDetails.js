@@ -1,5 +1,5 @@
 // pages/commodityDetails/commodityDetails.js
-var { globalData} = getApp();
+var { globalData, isMobile} = getApp();
 let WxParse = require('../../wxParse/wxParse.js');
 
 Page({
@@ -42,7 +42,9 @@ Page({
         selectCommodity.quantity = 1;
         selectCommodity.goodsName = value.goodsName;
         selectCommodity.goodsModelId = selectCommodity.id;
-        selectCommodity.price = selectCommodity.discountPrice - selectCommodity.platformSubsidiesPrice;
+        selectCommodity.platformSubsidiesPrice = selectCommodity.platformSubsidiesPrice || 0
+        selectCommodity.price = selectCommodity.discountPrice ? selectCommodity.discountPrice - selectCommodity.platformSubsidiesPrice : selectCommodity.originalPrice - selectCommodity.platformSubsidiesPrice;
+        selectCommodity.prices = selectCommodity.discountPrice ? selectCommodity.discountPrice : selectCommodity.originalPrice
         this.setData({ 
           merchantName,
           data: value,
@@ -66,7 +68,9 @@ Page({
     itemdata.quantity = this.data.quantity;
     itemdata.goodsModelId = itemdata.id;
     itemdata.goodsName = this.data.selectCommodity.goodsName;
-    itemdata.price = itemdata.discountPrice - itemdata.platformSubsidiesPrice;
+    itemdata.platformSubsidiesPrice = itemdata.platformSubsidiesPrice || 0
+    itemdata.price = itemdata.discountPrice ? itemdata.discountPrice - itemdata.platformSubsidiesPrice : itemdata.originalPrice - itemdata.platformSubsidiesPrice;
+    itemdata.prices = itemdata.discountPrice ? itemdata.discountPrice : itemdata.originalPrice;
     this.setData({ selectCommodity: itemdata, isSelectCommodity:true});
   },
   cartNum(e) { //增加减少数量 1 减少 2增加
@@ -85,21 +89,23 @@ Page({
     });
   },
   purchase: function () { //立即购买
-    let { isSelectCommodity } = this.data;
-    if (!isSelectCommodity) {
-      this.setData({ specifications: !isSelectCommodity });
-      wx.showToast({
-        title: '请选择型号',
-        icon:'none'
-      })
-    }else{
-      globalData.selectCommodity = [this.data.selectCommodity];
-      globalData.agentId = this.data.data.agentId;
-      
-      wx.navigateTo({
-        url: '../order-submit/submit?merchantId=' + this.data.data.merchantId
-      });
-    }
+    isMobile(()=>{
+      let { isSelectCommodity } = this.data;
+      if (!isSelectCommodity) {
+        this.setData({ specifications: !isSelectCommodity });
+        wx.showToast({
+          title: '请选择型号',
+          icon: 'none'
+        })
+      } else {
+        globalData.selectCommodity = [this.data.selectCommodity];
+        globalData.agentId = this.data.data.agentId;
+
+        wx.navigateTo({
+          url: '../order-submit/submit?merchantId=' + this.data.data.merchantId
+        });
+      }
+    });
   },
   pushCart: function () { //加入购物车
     let { isSelectCommodity}=this.data;

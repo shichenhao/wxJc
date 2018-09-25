@@ -89,7 +89,7 @@
           <view>
             ￥<view class="b">{{item.amt}}</view>
           </view>
-          {{!item.restrictAmt?"无门槛红包":"满"+item.restrictAmt+"元可使用"}}
+          {{!item.restrictAmt?"无门槛红包":"满11"+item.restrictAmt+"元可使用"}}
         </view>
       </view>
     </view>

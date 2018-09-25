@@ -52,7 +52,7 @@ Page({
       latitude: app.globalData.addressSel && (app.globalData.addressSel.latitude || app.globalData.addressSel.location.lat) || app.globalData.localPosition.latitude
     }
     wx.http.postReq('userClient?m=getPlatformRedBag', param, (data) => {
-      if (data.code === 0 && data.value.redBagList.length>0) {
+      if (data.code === 0 && data.value.redBagList && data.value.redBagList.length>0) {
         this.setData({
           redType: true,
           redInfo: data.value.redBagList || {}

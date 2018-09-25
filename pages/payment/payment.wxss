@@ -20,6 +20,16 @@
   background: #fff;
   margin: 20rpx 0;
   justify-content: flex-start;
+  position: relative
+}
+
+.order .checkbox{
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  margin: auto 0;
 }
 
 .order view{

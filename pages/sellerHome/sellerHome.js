@@ -41,10 +41,11 @@ Page({
       if (data.success) {
         let list = this.data.list
         if (data.value.length > 0) {
+          console.log(types)
           list = types ? [...list, ...data.value] : data.value
         }
-        if (list.length >= this.data.page.limit) {
-          page.start += 1;
+        if (data.value.length >= this.data.page.limit) {
+          page.start += 10;
           page.isMore = true;
         } else {
           page.isMore = false;
@@ -149,7 +150,7 @@ Page({
    */
   onLoad: function (options) {
     this.getInit(options.id)
-    this.getList(options.id, 10, 0, true)
+    this.getList(options.id, 10, 0)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -190,8 +191,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function (options) {
-    if(this.data.queryType !== 10){
-      this.getList(this.data.id, this.data.queryType, this.data.sortType)
+    if(this.data.page.isMore){
+      if(this.data.queryType !== 10){
+        this.getList(this.data.id, this.data.queryType, this.data.sortType, true)
+      }
     }
   },
 

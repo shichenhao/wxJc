@@ -67,6 +67,23 @@ App({
       }
     })
   },
+  isMobile(cb){ //是否绑定手机号
+    let mobile = wx.getStorageSync('userInfo').mobile
+    if (!mobile){
+      wx.showToast({
+        title: '没有绑定手机号，去绑定！',
+        icon: 'none'
+      })
+      setTimeout(()=>{
+        wx.navigateTo({
+          url: '../bindPhone/bindPhone'
+        });
+      },500)
+      return false;
+    }else{
+      cb();
+    }
+  },
   onLaunch: function () {
     this.isInit();
     //this.globalData.userInfo = wx.getStorageSync('userInfo');

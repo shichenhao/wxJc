@@ -10,6 +10,7 @@
     <view class='font'>
       (账户余额：￥{{balance}})
     </view>
+    <view class='checkbox {{isBalance ? "active" : ""}}'></view>
   </view>
  <view wx:if="{{balance<price}}">
   <view class='orderTit'>
@@ -20,6 +21,7 @@
   </view>
   <view class='orderPay' bindtap='selectOtherPay'>
     微信支付
+    <view class='checkbox {{isBalance ? "active" : ""}}'></view>
   </view>
  </view>
   <view class='btnPay' bindtap='submit'>

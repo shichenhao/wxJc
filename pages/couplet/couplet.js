@@ -1,4 +1,5 @@
 // pages/couplet/couplet.js
+let { globalData } = getApp();
 Page({
 
   /**
@@ -7,12 +8,23 @@ Page({
   data: {
 
   },
-
+  getInit() {
+    wx.http.postReq('appletClient?m=findBuildingMaterialsKuponoActivityByAgentId', {
+      agentId: globalData.agentId
+    }, (data) => {
+      if (data.success) {
+        var list = data.value;
+        this.setData({
+          list
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getInit();
   },
 
   /**

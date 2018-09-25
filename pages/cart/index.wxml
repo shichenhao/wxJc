@@ -20,8 +20,10 @@
     <view class='orderTitle'>
       <view class='span'>
         <view class='checkbox {{item.check ? "active" : ""}}' bindtap='checkMerchant' data-itemIndex='{{itemIndex}}'></view>
-        <image src='{{item.merchant.logo}}'></image>
-        {{item.merchant.name}}
+        <navigator url='/pages/sellerHome/sellerHome?id={{item.merchant.id}}' hover-class="none">
+          <image src='{{item.merchant.logo}}'></image>
+          {{item.merchant.name}}
+        </navigator>
       </view>
     </view>
     <view class='evaluateItem' wx:for="{{item.list}}" wx:for-item="obj" wx:for-index="objIndex" wx:key="{{obj.index}}" >

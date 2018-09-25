@@ -5,7 +5,7 @@
   </view>
 	<view class='evaluateBox' wx:if="{{info.length !== 0}}" wx:for="{{info}}" wx:key="{{item.index}}">
     <view class='orderTitle'>
-      <navigator url='/pages/sellerHome/sellerHome?id={{item.goodsId}}' class='span' hover-class='none'>
+      <navigator url='/pages/sellerHome/sellerHome?id={{item.buildingMaterialsMerchant.id}}' class='span' hover-class='none'>
         <image src='{{item.buildingMaterialsMerchant.logo}}'></image>
         {{item.buildingMaterialsMerchant.name}}
       </navigator>
@@ -23,7 +23,7 @@
       bindtap='orderDetail'>
       <image src='{{order.img}}'></image>
       <view class='evaluateTxt'>
-        {{order.name}}
+        {{order.goodsName}}
         <view>{{order.goodsModel}}</view>
       </view>
       <view class='orderNumber'>

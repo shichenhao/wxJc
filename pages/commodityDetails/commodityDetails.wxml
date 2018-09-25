@@ -95,7 +95,7 @@
       </view>
     </navigator>
     <view class='con5_mainR'>
-      {{!data.totalSaled?"0":data.totalSaled}}件商品
+      {{!data.buildingMaterialsMerchant.goodsNum?"0":data.buildingMaterialsMerchant.goodsNum}}件商品
     </view>
   </view>
 </view>

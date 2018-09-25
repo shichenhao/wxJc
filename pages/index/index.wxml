@@ -145,8 +145,11 @@
   <view class='redBagCount {{isLogin ? "active" : ""}}' wx:if="{{redType}}">
     <view class='redBagCountBox'>
       <view class='money'>
-        <text>50</text>元
-        <view>
+        <text>{{redInfo[0].amt}}元</text>
+        <view wx:if="{{redInfo[0].restrictAmt}}">
+          满{{redInfo[0].restrictAmt}}元减{{redInfo[0].amt}}元红包
+        </view>
+        <view wx:if="{{!redInfo[0].restrictAmt}}">
           无门槛红包
         </view>
       </view>

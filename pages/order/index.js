@@ -67,5 +67,14 @@ Page({
     wx.navigateTo({
       url: '../evaluate/evaluate',
     })
-  }
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if (this.data.page.isMore) {
+      this.getList()
+    }
+  },
+
 })

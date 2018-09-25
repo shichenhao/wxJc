@@ -38,15 +38,19 @@ Page({
   onLoad: function (options) {
     let _this = this
     let userInfo = wx.getStorageSync('wxInfo')
-    if(!userInfo){
+    userInfo.balance = wx.getStorageSync('userInfo').balance
+    userInfo.redBagCount = wx.getStorageSync('userInfo').redBagCount
+    userInfo.couponsCount = wx.getStorageSync('userInfo').couponsCount
+    userInfo.mobile = wx.getStorageSync('userInfo').mobile
+    this.setData({
+      userInfo
+    })
+    if (!userInfo) {
       wx.navigateTo({
         url: '../user-login/index'
       });
       return false
     }
-    this.setData({
-      userInfo
-    })
   },
 
   /**
@@ -60,6 +64,10 @@ Page({
    */
   onShow: function () {
     let userInfo = wx.getStorageSync('wxInfo')
+    userInfo.balance = wx.getStorageSync('userInfo').balance
+    userInfo.redBagCount = wx.getStorageSync('userInfo').redBagCount
+    userInfo.couponsCount = wx.getStorageSync('userInfo').couponsCount
+    userInfo.mobile = wx.getStorageSync('userInfo').mobile
     this.setData({
       userInfo,
       phone: app.globalData.phone

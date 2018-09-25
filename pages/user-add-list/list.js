@@ -26,9 +26,10 @@ Page({
   },
   formSubmit(e){
     let { gender, detailedAddress, latitude, longitude,editAddress}=this.data;
-    if(!latitude){
+    if (!latitude && !editAddress.longitude){
       wx.showToast({
         title: '请选择地址!',
+        icon:'none'
       })
       return false;
     }

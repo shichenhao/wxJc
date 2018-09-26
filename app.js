@@ -50,7 +50,7 @@ App({
           _this.globalData.phone = data.value && data.value.phone
           wx.setStorageSync('agentId', data.value && data.value.id)
           //if (!wx.getStorageSync('localPosition')) {
-            _this.globalData.localPosition = res;
+            //_this.globalData.localPosition = res;
             //wx.setStorageSync('localPosition', res)
           //}
           //wx.setStorageSync('localPosition', res)

@@ -45,7 +45,7 @@ Page({
   },
   //领取红包
   receiveRed(){
-    console.log(app.globalData.addressSel)
+    //console.log(app.globalData.addressSel)
     var param = {
       businessType: 12,
       longitude: app.globalData.addressSel && (app.globalData.addressSel.longitude || app.globalData.addressSel.location.lng) || app.globalData.localPosition.longitude,
@@ -75,6 +75,7 @@ Page({
       longitude: app.globalData.localPosition.longitude,
       latitude: app.globalData.localPosition.latitude
     }
+    //console.log(222, app.globalData.localPosition)
     var params = {
       agentId: app.globalData.agentId,
       start: 0,
@@ -163,6 +164,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //console.log(111, app.globalData.localPosition)
     app.isInit(()=>{
       if (app.globalData.localPosition){
         this.getInit();

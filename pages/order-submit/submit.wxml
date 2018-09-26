@@ -54,7 +54,7 @@
     </view>
   </view>
   <view class='discount'>
-    <view>
+    <view style='color:#666'>
       配送费
       <view>￥{{shipmentType == 3 ? 0 : orderItems.practicalShippingFee}}</view>
     </view>

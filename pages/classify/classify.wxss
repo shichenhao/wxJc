@@ -48,7 +48,7 @@
 .leftCur{
   color:#eb4245;
   background: #f3f3f3;
-  border-left:6px solid #eb4245;  
+  border-left:6rpx solid #eb4245;  
 }
 
 .right{

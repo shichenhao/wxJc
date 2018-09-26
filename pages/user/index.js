@@ -72,9 +72,9 @@ Page({
     let _this = this
     let userInfo = wx.getStorageSync('wxInfo')
     userInfo.balance = wx.getStorageSync('userInfo').balance
-    userInfo.redBagCount = wx.getStorageSync('userInfo').redBagCount
-    userInfo.couponsCount = wx.getStorageSync('userInfo').couponsCount
     userInfo.mobile = wx.getStorageSync('userInfo').mobile
+    //userInfo.redBagCount = wx.getStorageSync('userInfo').redBagCount
+    //userInfo.couponsCount = wx.getStorageSync('userInfo').couponsCount
     this.setData({
       userInfo
     })
@@ -104,7 +104,7 @@ Page({
     this.setData({
       userInfo,
       phone: app.globalData.phone
-    })
+    }) 
     this.getCoupon();
     this.getCollec();
   

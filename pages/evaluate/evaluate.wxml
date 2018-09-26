@@ -3,7 +3,7 @@
 	<view class='scoreBox'>
     <view class='scoreTop'>
       <view class='scoreTopTit'>
-        <image src=''></image>
+        <image src='{{img}}'></image>
         商品评分
         <view class='score'>
           <text data-width='1' bindtap='changeWidthC'></text>

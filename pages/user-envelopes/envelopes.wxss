@@ -97,7 +97,7 @@
   font-weight: 600;
   display: block;
   padding-bottom: 10rpx;
-  color: #777;
+  color: #151515;
 }
 
 .itemRight{
@@ -130,7 +130,7 @@
   width: 100%;
   padding: 0 30rpx 0rpx;
   border-radius: 0 0 10rpx 10rpx;
-  border-top: 1rpx dotted #ccc;
+  border-top: 1rpx dashed #ccc;
   margin-top: 30rpx;
   font-size: 24rpx;
   position: relative;

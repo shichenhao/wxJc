@@ -75,6 +75,8 @@ Page({
   goEvaluate(e) { // 评价
     let record = e.currentTarget.dataset.record;
     app.globalData.orderDetail = record;
+    app.globalData.evalOrderId = record.id
+    app.globalData.evalImg = record.img
     wx.navigateTo({
       url: '../evaluateList/evaluateList',
     })

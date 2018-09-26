@@ -7,7 +7,7 @@
         {{item.goodsName}}
         <view>{{item.goodsModel}}</view>
       </view>
-      <navigator url='/pages/evaluate/evaluate' hover-class='none' class='evaluates'>评价</navigator>
+      <view bindtap='evaluates' data-img="{{item.img}}" class='evaluates'>评价</view>
     </view>
   </view>
 </view>

@@ -31,6 +31,14 @@ Page({
       }
     })
   },
+  evaluates(e){
+    let img = e.currentTarget.dataset.img;
+    globalData.evalImg = img
+    console.log(img)
+    wx.navigateTo({
+      url: '../evaluate/evaluate'
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载

@@ -90,7 +90,7 @@
   flex: 1;
   font-size: 28rpx;
   font-weight: bold;
-  padding-left: 10rpx;
+  padding-left: 20rpx;
 }
 .evaluateItem .evaluateTxt view{
   font-size: 24rpx;
@@ -111,7 +111,7 @@
   text-align: right;
   padding: 20rpx 0;
   font-size: 28rpx;
-  color: #888;
+  color: #b2b2b2;
 }
 
 .orderStatus .div view{
@@ -139,7 +139,6 @@
   justify-content: space-between;
   line-height: 40rpx;
   font-size: 24rpx;
-  font-weight: bold;
 }
 
 .li .span{
@@ -179,6 +178,7 @@
 .number{
   padding: 30rpx;
   line-height: 44rpx;
+  font-size: 24rpx;
   background: #fff;
   margin: 20rpx 0;
   color: #333;

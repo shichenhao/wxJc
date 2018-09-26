@@ -55,9 +55,7 @@
     </navigator>
   </view>
   <view class='telephone' bindtap='tel' data-phone="{{phone}}">
-    <view class='b'>
       客服电话：{{phone}}
-    </view>
   </view>
   <navigator class='logout' url='/pages/bindPhone/bindPhone' hover-class='none' wx:if="{{!userInfo.mobile}}">绑定手机号</navigator>
   <button wx:if="{{false}}" class='logout' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 

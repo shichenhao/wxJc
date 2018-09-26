@@ -27,10 +27,7 @@
       </view>
       <view class='orderNumber'>
         <view>
-          ￥
-          <view class='b'>
-            {{order.discountPrice || order.originPrice}}
-          </view>
+          ￥<view class='b'>{{order.discountPrice || order.originPrice}}</view>
         </view>
         <view> 
           *{{order.quantity}}

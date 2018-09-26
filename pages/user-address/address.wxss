@@ -22,8 +22,9 @@
   width: 37rpx;
   height: 34rpx;
   position: absolute;
-  right: 30rpx;
-  top: 44%;
+  right: 20rpx;
+  top: 34%;
+  padding: 20rpx;
   transform: rotateY(-50%);
 }
 

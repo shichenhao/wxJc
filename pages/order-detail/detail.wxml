@@ -6,10 +6,10 @@
 
 	<view class='evaluateBox'>
     <view class='orderTitle'>
-      <view class='span'>
+      <navigator class='span' url='/pages/sellerHome/sellerHome?id={{orderData.buildingMaterialsMerchant.id}}' hover-class='none'>
         <image src='{{orderData.buildingMaterialsMerchant.logo}}'></image>
         {{orderData.buildingMaterialsMerchant.name}}
-      </view>
+      </navigator>
       <view class='span'>
         {{status[orderData.status]}}
       </view>
@@ -22,10 +22,7 @@
       </view>
       <view class='orderNumber'>
         <view>
-          ￥
-          <view class='b'>
-            {{item.discountPrice || item.originPrice}}
-          </view>
+          ￥<view class='b'>{{item.discountPrice || item.originPrice}}</view>
         </view>
         <view>
           *{{item.quantity}}

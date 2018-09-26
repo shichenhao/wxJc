@@ -25,7 +25,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
-    this.getData({ id: options.orderId })
   },
   getData(params){
     globalData.evalOrderId = params.id
@@ -64,7 +63,8 @@ Page({
   goEvaluate(e) { // 评价
     let record = e.currentTarget.dataset.record;
     globalData.orderDetail = record;
-    console.log(record)
+    globalData.evalOrderId = record.id
+    globalData.evalImg = record.img
     wx.navigateTo({
       url: '../evaluateList/evaluateList',
     })

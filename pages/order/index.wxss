@@ -58,7 +58,7 @@
 
 .evaluateItem{
   border-bottom: 1px solid #eaeaea;
-  padding: 30rpx;
+  padding: 30rpx 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -71,7 +71,7 @@
   flex: 1;
   font-size: 28rpx;
   font-weight: bold;
-  padding-left: 10rpx;
+  padding-left: 20rpx;
 }
 .evaluateItem .evaluateTxt view{
   font-size: 24rpx;

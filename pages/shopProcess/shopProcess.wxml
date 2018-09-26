@@ -1,14 +1,14 @@
 <!--pages/shopProcess/shopProcess.wxml-->
 <view class="container">
   <view class='shopP_box mb20' >
-      <view class='shopP_tit' style="background:url(/lib/images/shopP_tit.jpg) no-repeat center;background-size:488rpx auto;">平台承诺</view>
+      <view class='shopP_tit'>平台承诺</view>
       <view class='shopP_txt'>
         <text>1、平台所售商品，顾客均可到当地商家下线门店体验。</text>
         <text>2、顾客在门店体验过程中不收任何费用，以期给予客户最好的服务</text>
       </view>
   </view>
   <view class='shopP_box mb20' >
-      <view class='shopP_tit' style="background:url(/lib/images/shopP_tit.jpg) no-repeat center;background-size:488rpx auto;">收货方式</view>
+      <view class='shopP_tit'>收货方式</view>
       <view class='shopP_img'>
         <image src='/lib/images/shopP_pic.jpg'  mode="widthFix"></image>
       </view>

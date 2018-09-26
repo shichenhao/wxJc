@@ -26,10 +26,10 @@ Page {
 }
 .score{
   position: relative;
-  width: 400rpx;
+  width: 380rpx;
   height: 40rpx;
   background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141602343627848.png) repeat-x;
-  background-size: auto 100%;
+  background-size: 80rpx 40rpx;
   margin: 0 20rpx;
   display: flex;
 }

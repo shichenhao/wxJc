@@ -8,14 +8,17 @@ Page({
   data: {
     widthS: 0,
     widthC: 0,
-    valuateContent:''
+    valuateContent:'',
+    img:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      img: globalData.evalImg
+    })
   },
   changeWidthS(e) {
     let width = e.currentTarget.dataset.width;

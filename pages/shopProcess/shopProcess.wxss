@@ -1,7 +1,12 @@
 /* pages/shopProcess/shopProcess.wxss */
 .mb20{margin-bottom:20rpx;}
 .shopP_box{background:#fff;padding:5rpx 30rpx;}
-.shopP_tit{font-size:28rpx;color:#eb4245;text-align: center;height: 90rpx;width:100%;font-weight: bold;line-height: 90rpx;}
+.shopP_tit{
+  font-size:28rpx;
+  color:#eb4245;text-align: center;height: 90rpx;width:100%;font-weight: bold;line-height: 90rpx;
+  background: url('http://7xu5hi.com1.z0.glb.clouddn.com/201809261516420407691.jpg') no-repeat center;
+  background-size: 488rpx auto;
+}
 .shopP_txt{font-size:26rpx;color:#333;line-height: 40rpx;padding:20rpx 0}
 .shopP_txt text{display: block;padding:5rpx 0}
 

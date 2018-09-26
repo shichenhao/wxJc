@@ -282,6 +282,15 @@
     top:56rpx;
     right:40rpx;
 }
+.moneyPop .moneyBox .active:before{
+  right: 10rpx;
+  top: 5rpx;
+}
+
+.moneyPop .moneyBox .active:after{
+    top:16rpx;
+    right:20rpx;
+}
 
 
 .moneyBox{

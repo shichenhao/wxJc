@@ -22,11 +22,9 @@ Page({
     isCashCoupon:false,
     isRedPacket:false,
     promotionCouponsId:null,
-    promotionCouponsData:null,
-    cashCouponData:[],
+    cashCouponData: [],
+    promotionCouponsData: null,
     redBagJson: null,
-    isRedNone: true, //默认勾选 不使用红包
-    isCouNone: true, //默认勾选 不使用优惠券
   },
 
   /**
@@ -45,7 +43,7 @@ Page({
     });
     this.search(value)
   },
-  getAddress() {
+  getAddress() {  //获取地址
     if (globalData.addressData){
       this.setData({ addressData: globalData.addressData});
     }else{
@@ -64,7 +62,7 @@ Page({
     }
   },
 
-  initData(){
+  initData(){//订单预览
     let { 
       merchantId, shipmentType, addressData,
       promotionCouponsData, orderItems, redBagJson, chooseSort, remark
@@ -214,12 +212,13 @@ Page({
   },
   seeCashCoupon(){
     let { merchantId, shipmentType } = this.data;
+    let curCommodity = globalData.selectCommodity[0];
     let params = {
       agentId: globalData.agentId,
       userId: globalData.userInfo.id,
       merchantId,
       businessType:12,
-      totalPrice: globalData.selectCommodity[0].price,
+      totalPrice: !curCommodity.usableCoupons ? 0 : curCommodity.discountPrice * quantity || curCommodity.originalPrice * quantity,
     }
     wx.http.postReq('appletClient?m=queryCouponsList', params, (res) => {
       let { success, value } = res;
@@ -232,11 +231,18 @@ Page({
       }
     })
   },
+  noRedPacket(){
+    this.setData({
+      isMap: true,
+      isRedPacket: false,
+      redBagJson:null
+    })
+  },
   noCashCoupon(){
     this.setData({
       isMap: true,
       isCashCoupon: false,
-      isRedPacket:false
+      promotionCouponsData:null
     });
   },
   getCashCoupon(e){

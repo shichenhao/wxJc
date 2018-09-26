@@ -42,7 +42,7 @@
       <view>
         ￥
         <view class='b'>
-          {{orderItems.totalGoodsPrice + orderItems.totalPlatformSubsidiesPrice}}
+          {{orderItems.totalGoodsPrice ? orderItems.totalGoodsPrice + orderItems.totalPlatformSubsidiesPrice : 0}}
         </view>
       </view>
     </view>
@@ -86,14 +86,14 @@
 
   
   <view class='moneyPop' wx:if="{{isRedPacket}}">
-    <view class='moneyNone {{isRedNone ? "active" : ""}}' bindtap='noCashCoupon'>
+    <view class='moneyNone {{!redBagJson ? "active" : ""}}' bindtap='noRedPacket'>
       不使用红包
     </view>
     <view class="moneyBox">
       <view class='h2' wx:if="{{redPacketData.platformRedBagList.length > 0}}">
         <view>可使用红包（{{redPacketData.platformRedBagList.length}}个）</view>
       </view>
-      <view class='moneyItem {{item.check ? "active" : ""}}' data-record='{{item}}' bindtap='getRedPacket' wx:for="{{redPacketData.platformRedBagList}}" wx:key="id" wx:for-index="index">
+      <view class='moneyItem {{item.id==redBagJson.id ? "active" : ""}}' data-record='{{item}}' bindtap='getRedPacket' wx:for="{{redPacketData.platformRedBagList}}" wx:key="id" wx:for-index="index">
         <view class="itemLeft">
           <view class="b">专享红包</view>
           <view>有效期至{{item.expirationTime}}</view>
@@ -134,14 +134,14 @@
   </view>
 
   <view class='moneyPop moneyPop2' wx:if="{{isCashCoupon}}">
-    <view class='moneyNone active' bindtap='noCashCoupon'>
+    <view class='moneyNone  {{!promotionCouponsData ? "active" : ""}}' bindtap='noCashCoupon'>
       不使用优惠券
     </view>
     <view class="moneyBox">
       <view class='h2' wx:if="{{cashCouponData.usableCouponsList.length > 0}}">
         <view>可使用优惠券（{{cashCouponData.usableCouponsList.length}}个）</view>
       </view>
-      <view class='moneyItem' wx:for="{{cashCouponData.usableCouponsList}}" bindtap='getCashCoupon' data-record='{{item}}' wx:key="id">
+      <view class='moneyItem {{item.id==promotionCouponsData.id ? "active" : ""}}' wx:for="{{cashCouponData.usableCouponsList}}" bindtap='getCashCoupon' data-record='{{item}}' wx:key="id">
         <view class="itemLeft">
           <image src='{{item.merchantLogo}}'></image>
           <view class="b">{{item.name}}</view>

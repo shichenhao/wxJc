@@ -122,7 +122,7 @@
           {{!item.restrictAmt?"无门槛红包":"满"+item.restrictAmt+"元可使用"}}
         </view>
         <view class="moneyWhy">
-          <view class="span" bindtap='why' data-why="{{index}}">
+          <view class="span" bindtap='why2' data-why="{{index}}">
             不可用原因
           </view>
           <view class="div" wx:if="{{item.isWhy}}">

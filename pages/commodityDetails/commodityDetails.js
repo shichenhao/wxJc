@@ -37,6 +37,7 @@ Page({
     wx.http.postReq('appletClient?m=findClientBuildingMaterialsGoodsByIdInfo', params, (res) => {
       let { success ,value}=res;
       if (success) {
+        globalData.receivingWayValue = + value.buildingMaterialsMerchant.receivingWayValue == 3 ? 3 : 1
         let merchantName = value.buildingMaterialsMerchant
         let selectCommodity = !value.modelList[0] ? {} : value.modelList[0];
         selectCommodity.quantity = 1;

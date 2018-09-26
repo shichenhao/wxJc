@@ -174,6 +174,7 @@ Page({
       let cartArr = this.data.isCartList.map(item => {
         if (item.merchant.id == merchantId) {
           globalData.selectCommodity = item.list
+          globalData.receivingWayValue = item.merchant.receivingWayValue == 3 ? 3 : 1
         }
       })
       wx.navigateTo({
@@ -235,6 +236,7 @@ Page({
           let cartArr = isOne.map(item=>{
             if(item.check){
               merchantId = item.merchant.id;
+              globalData.receivingWayValue = item.merchant.receivingWayValue == 3 ? 3 : 1
               globalData.selectCommodity = item.list.filter(son=>{
                 return son.check
               })

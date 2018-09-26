@@ -3,10 +3,15 @@
     <view wx:if="{{isShow!=3}}" class='{{shipmentType == 1 ? "active" : "" }}' data-id='1' bindtap='changeType'>送货上门</view>
     <view wx:if="{{isShow!=1}}" class='{{shipmentType == 3 ? "active" : "" }}' data-id='3' bindtap='changeType'>到店自取</view>
   </view>
-  <view class='adress' bindtap='changeAddress' wx:if="{{shipmentType == 1}}">
+  <view class='adress' bindtap='changeAddress'>
     <image src='/lib/images/adress.png'></image>
     <view class='b'>收货人：{{addressData.name}} {{addressData.mobile}}</view>
     <view>{{addressData.detailedAddress}}</view>
+  </view>
+  <view class='adress' wx:if="{{shipmentType == 4}}">
+    <image src='/lib/images/adress.png'></image>
+    <view>{{orderItems.buildingMaterialsMerchant.address}}</view>
+    <view class='b'>{{orderItems.buildingMaterialsMerchant.name}} {{orderItems.buildingMaterialsMerchant.contacts}}</view>
   </view>
   <view wx:if="{{shipmentType == 3}}">
     <map

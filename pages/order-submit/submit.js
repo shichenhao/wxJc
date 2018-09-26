@@ -74,7 +74,7 @@ Page({
       userId: globalData.userInfo.id,
       merchantId,
       chooseSort: redBagJson && promotionCouponsData ? chooseSort : 0,
-      shipmentType,
+      shipmentType: globalData.receivingWayValue || 1,
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
       orderItems: JSON.stringify(globalData.selectCommodity),

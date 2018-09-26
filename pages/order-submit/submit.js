@@ -218,7 +218,7 @@ Page({
       userId: globalData.userInfo.id,
       merchantId,
       businessType:12,
-      totalPrice: !curCommodity.usableCoupons ? 0 : curCommodity.discountPrice * quantity || curCommodity.originalPrice * quantity,
+      totalPrice: !curCommodity.usableCoupons ? 0 : curCommodity.discountPrice * curCommodity.quantity || curCommodity.originalPrice * curCommodity.quantity,
     }
     wx.http.postReq('appletClient?m=queryCouponsList', params, (res) => {
       let { success, value } = res;

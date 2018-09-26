@@ -370,7 +370,7 @@
 
 .itemRight{
   flex: 1;
-  padding: 0 30rpx 0 140rpx;
+  padding: 0 30rpx 0 0rpx;
   font-size: 24rpx;
   text-align: right;
 }

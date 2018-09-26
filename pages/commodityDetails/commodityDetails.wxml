@@ -88,7 +88,7 @@
     </view>
     <view class='con5_main'>
       <navigator class='con5_mainL' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
-        <image src='{{!data.buildingMaterialsMerchant?"../../lib/images/brandDefault.png":data.buildingMaterialsMerchant.logo}}'></image>
+        <image src='{{!data.buildingMaterialsMerchant?"":data.buildingMaterialsMerchant.logo}}'></image>
         <view class='con5_mainL_L'>
           <view class='con5_mainL_L_T'>{{!data.buildingMaterialsMerchant?"":data.buildingMaterialsMerchant.name}}</view>
           <view class='con5_mainL_L_B'>综合评分:

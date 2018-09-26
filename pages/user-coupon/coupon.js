@@ -4,6 +4,7 @@ var dataStr = require('../../utils/data.js')
 Page({
   data: {
     list: [],
+    isList:false,
     page: {
       limit: 10,
       start: 0,
@@ -35,6 +36,7 @@ Page({
           page.isMore = false;
         }
         this.setData({
+          isList:true,
           list,
           page
         })

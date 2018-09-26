@@ -5,7 +5,8 @@ Page({
     id:null,
     leftData: [],
     rightData:[],
-    classify: []
+    classify: [],
+    longitude: null
   },
   /**
    * 生命周期函数--监听页面加载
@@ -26,6 +27,7 @@ Page({
         var classify = res.value.twoCategoryList;
         var rightData = res.value.merchantList;
         this.setData({
+          longitude:app.globalData.localPosition.longitude,
           id: id !== 0 ? id : res.value.oneCategoryList[0].id || 0,
           leftData,
           classify,
@@ -44,6 +46,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getList();
+    if (this.data.longitude !== app.globalData.localPosition.longitude) {
+      this.getList();
+    }
   },
 })

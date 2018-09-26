@@ -32,8 +32,8 @@
     "pages/promotion/promotion",
     "pages/order-detail/detail",
     "pages/evaluate/evaluate",
-    "pages/evaluateList/evaluateList",
     "pages/cart/index",
+    "pages/evaluateList/evaluateList",
     "pages/commodityEvaluateList/commodityEvaluateList"
   ],
   "window":{

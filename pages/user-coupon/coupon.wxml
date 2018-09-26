@@ -1,7 +1,7 @@
 <view class="container">
   <view class='moneyPop'>
     <view class="moneyBox">
-      <view class='cartNull' wx:if="{{!list.length}}">
+      <view class='cartNull' wx:if="{{isList && !list.length}}">
         <image src='/lib/images/null3.png'></image>
         你还没有优惠券哦
       </view>

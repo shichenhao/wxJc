@@ -170,16 +170,29 @@ Page({
   },
   zhifuOne(e){ // 单个商家支付
     isMobile(() => {
-      var merchantId = e.currentTarget.dataset.id;
+      let merchantId = e.currentTarget.dataset.id;
+      let cartList = this.data.cartList;
       let cartArr = this.data.isCartList.map(item => {
         if (item.merchant.id == merchantId) {
           globalData.selectCommodity = item.list
           globalData.receivingWayValue = item.merchant.receivingWayValue == 3 ? 3 : 1
         }
       })
+      cartList = cartList.filter(item => {
+        return item.merchant.id != merchantId
+      })
+      cartList = cartList.map(item=>{
+        item.check = false
+        item.list = item.list.map(son=>{
+          son.check = false
+          return son
+        })
+        return item
+      })
       wx.navigateTo({
         url: '../order-submit/submit?merchantId=' + merchantId
       });
+      wx.setStorageSync('cart', cartList)
     })
   },
   zhifu() { // 支付
@@ -245,6 +258,7 @@ Page({
           wx.navigateTo({
             url: '../order-submit/submit?merchantId=' + merchantId
           });
+          this.delAll()
         }
       }
     })

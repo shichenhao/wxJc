@@ -82,8 +82,8 @@
 
 .itemLeft{
   line-height: 36rpx;
-  font-size: 24rpx;
-  width: 350rpx;
+  font-size: 22rpx;
+  width: 320rpx;
   color: #999;
   padding-left: 30rpx;
 }
@@ -113,8 +113,8 @@
   width: 153rpx;
   height: 125rpx;
   position: absolute;
-  left: 140rpx;
-  top: 0;
+  left: 150rpx;
+  top: -27%;
 }
 
 .itemRight view{

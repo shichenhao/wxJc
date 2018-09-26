@@ -326,10 +326,11 @@ Page{
 .score{
   position: relative;
   display: inline-block;
-  width: 144rpx;
+  width: 142rpx;
   height: 21rpx;
   background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809201508165175155.png) repeat-x;
   background-size: 30rpx 21rpx;
+  margin-right: 10rpx;
 }
 
 .score view{

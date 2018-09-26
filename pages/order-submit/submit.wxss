@@ -341,7 +341,7 @@
 .itemLeft{
   line-height: 36rpx;
   font-size: 24rpx;
-  width: 350rpx;
+  width: 330rpx;
   color: #999;
   padding-left: 30rpx;
 }

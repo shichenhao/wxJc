@@ -5,7 +5,7 @@
   background:#8e30bd;
   border:6rpx solid #fa2da7;
   box-shadow: 0 0 0rpx 4rpx #53e3ff;
-  margin:0 10rpx 25rpx;padding:0 10rpx;padding-top:50rpx;}
+  margin:0 10rpx 25rpx;padding:20rpx 10rpx;}
 
 .discount_listT{font-size:30rpx;color:#fff;padding:20rpx ;margin:0 10prx;}
 .discount_listT image{display:inline-block;width:92rpx;height: 44rpx;border:2px solid #fff;vertical-align: middle;margin-right:30rpx;}
@@ -20,10 +20,14 @@ background-color: #fe5c73;font-size:24rpx;border-radius: 20rpx;margin-top:30rpx;
 .discount_name{float:left;display: block;padding-top:5rpx;color:#999;}
 .discount_name text{color:#151515}
 .home_picT86{font-size:66rpx;}
-.discount_listB{ display: flex;
-  flex-wrap: wrap;clear:both;padding-top:22rpx;padding:22rpx 0rpx 0;}
-.discountHot{width:220rpx;height: 320rpx;background:#fff;border-radius: 20rpx;margin:0 4rpx 8rpx;}
-.discountHot_listPic{width:220rpx;height:220rpx;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;display: block}
+.discount_listB{ 
+  display: flex;
+  flex-wrap: wrap;
+  clear:both;
+  padding:10rpx 0rpx 0;
+}
+.discountHot{width:31%;height: 320rpx;background:#fff;border-radius: 20rpx;margin:0 1% 8rpx;}
+.discountHot_listPic{width:100%;height:220rpx;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;display: block}
 .disHotlist{padding:10rpx 15rpx;position: relative}
 .disHotlist_tit{
   text-overflow:ellipsis;

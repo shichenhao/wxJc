@@ -258,10 +258,21 @@ Page({
       }
       return item
     })
-
-
     this.setData({
       cashCouponData
+    })
+  },
+  why2(e) { // 不可用原因
+    let id = e.currentTarget.dataset.why;
+    let redPacketData = this.data.redPacketData
+    redPacketData.platformRedBagAvailableList = redPacketData.platformRedBagAvailableList.map((item, index) => {
+      if (index === id) {
+        item.isWhy = !item.isWhy
+      }
+      return item
+    })
+    this.setData({
+      redPacketData
     })
   },
 })

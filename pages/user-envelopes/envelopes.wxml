@@ -15,7 +15,7 @@
           <view>
             ￥<view class="b">{{item.amt}}</view>
           </view>
-          无门槛红包
+          <text>无门槛红包</text>
         </view>
       </view>
       <navigator url='/pages/user-envelopesHistory/history' hover-class='none' wx:if="{{list.length}}">

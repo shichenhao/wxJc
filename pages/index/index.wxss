@@ -5,11 +5,11 @@
 }
 .home_ban{width:100%;padding-top:4rpx;position: relative;}
 .home_ban image{width:750rpx;height:320rpx;display:block;}
-.home_addr{position: absolute;left:24rpx;top:24rpx;max-width:156rpx;height:56rpx;border-radius: 25rpx;background:#afafaf;padding:0  40rpx;opacity: 0.8}
+.home_addr{position: absolute;left:24rpx;top:24rpx;max-width:156rpx;height:56rpx;border-radius: 25rpx;background:rgba(166,166,166,0.9);padding:0  40rpx;box-shadow: 0 0 5px #d7d7d7;}
 .home_ban .home_addr_img1{width:22rpx;height:29rpx;position: absolute;left:12rpx;top:13rpx;}
 .home_ban .home_addr_img2{width:13rpx;height:23rpx;position: absolute;right:12rpx;top:15rpx;}
 .home_addr text{width:100%;line-height: 56rpx;display: inline-block;font-size:24rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;text-align: center;color:#fff;}
-.home_seach{width:310rpx;height: 56rpx;line-height:56rpx;background:#f5f6fa;position: absolute;right:24rpx;top:24rpx;border-radius: 25rpx;opacity: 0.8;padding:0 70rpx;box-shadow: 0 0 5px #eee;font-size:24rpx;color:#939499}
+.home_seach{width:310rpx;height: 56rpx;line-height:56rpx;background:rgba(244,245,250,.9);position: absolute;right:24rpx;top:24rpx;border-radius: 25rpx;padding:0 70rpx;box-shadow: 0 0 5px #eee;font-size:24rpx;color:#93949a}
 .home_seach image{width:29rpx;height:31rpx;margin:0;position: absolute;left:30rpx;top:12rpx; }
 
 .home_iconlist{display:flex;height:54rpx;}

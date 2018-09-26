@@ -1,7 +1,7 @@
 .container{background:#f64c57}
 .couplet_ban image{width:100%}
 .couplet_msg{text-align: center;color:#fff;padding:28rpx 30rpx 0;font-size:30rpx;line-height: 40rpx;text-shadow: 5rpx 5rpx 5rpx #da434d}
-.couplet_list{height:543rpx;margin-top:-5rpx;padding:170rpx 30rpx 0;}
+.couplet_list{min-height:543rpx;margin-top:-5rpx;padding:170rpx 30rpx 0;}
 .couplet_Lp{width:171rpx;float:left;padding:0 30rpx 10rpx;text-align: center;}
 .couplet_Lp image{width:100%;height:184rpx;display: block}
 .couplet_Lp text{font-size:20rpx;color:#fff;line-height: 45rpx;}

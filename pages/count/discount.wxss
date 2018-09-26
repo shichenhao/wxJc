@@ -19,12 +19,18 @@ background-color: #fe5c73;font-size:24rpx;border-radius: 20rpx;margin-top:30rpx;
 .discount_price{float:left;display: block;line-height: 90rpx;color:#ff2a3b;font-weight: bold;margin-right:20rpx;}
 .discount_name{float:left;display: block;padding-top:5rpx;color:#999;}
 .discount_name text{color:#151515}
-.home_picT86{font-size:86rpx;}
+.home_picT86{font-size:66rpx;}
 .discount_listB{ display: flex;
   flex-wrap: wrap;clear:both;padding-top:22rpx;padding:22rpx 0rpx 0;}
 .discountHot{width:220rpx;height: 320rpx;background:#fff;border-radius: 20rpx;margin:0 4rpx 8rpx;}
 .discountHot_listPic{width:220rpx;height:220rpx;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;display: block}
 .disHotlist{padding:10rpx 15rpx;position: relative}
-.disHotlist_tit{text-overflow:ellipsis;white-space: nowrap;font-size:22rpx;color:#003333;line-height: 40rpx;font-weight: bold;}
+.disHotlist_tit{
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 220rpx;
+  display: block;
+  overflow: hidden;
+  font-size:22rpx;color:#003333;line-height: 40rpx;font-weight: bold;}
 .disHotlist view{line-height: 35rpx;font-size:26rpx;color:#d3372d;font-weight: bold}
 .disHotlist view text{font-size:20rpx;}

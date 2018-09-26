@@ -1,39 +1,4 @@
+<import src="../../wxParse/wxParse.wxml" />
 <view class="container">
-  <view class='couplet_ban'>
-    <image src='/lib/images/coupletbg1.jpg'  mode="widthFix"></image>
-  </view>
-  <view class='couplet_msg'>顾客下单超过三单，且每笔订单金额超过1000元时可享受三单有礼活动</view>
-  <view class='couplet_list' style="background:url(/lib/images/coupletbg2.jpg) no-repeat;background-size:100%">
-    <view class='couplet_Lp'>
-       <image src='/lib/images/coupletpic1.jpg'  mode="widthFix"></image>
-       <text>美的智能电饭煲</text>
-    </view>
-    <view class='couplet_Lp'>
-       <image src='/lib/images/coupletpic2.jpg'  mode="widthFix"></image>
-       <text>三星智能电视机</text>
-    </view>
-    <view class='couplet_Lp'>
-       <image src='/lib/images/coupletpic1.jpg'  mode="widthFix"></image>
-       <text>美的智能电饭煲</text>
-    </view>
-    <view class='couplet_Lp'>
-       <image src='/lib/images/coupletpic2.jpg'  mode="widthFix"></image>
-       <text>三星智能电视机</text>
-    </view>
-    <view class='couplet_Lp'>
-       <image src='/lib/images/coupletpic1.jpg'  mode="widthFix"></image>
-       <text>美的智能电饭煲</text>
-    </view>
-    <view class='couplet_Lp'>
-       <image src='/lib/images/coupletpic2.jpg'  mode="widthFix"></image>
-       <text>三星智能电视机</text>
-    </view>
-  </view>
-  <view class='couplet_rule' style="background:url(/lib/images/coupletbg3.jpg) no-repeat;background-size:100%">
-    <text class='couplet_tit'>活动规则</text>
-    <text class='couplet_ft'><text class='return_num'>1、</text>购买同一店铺的商品，确认收货后可累计1个有效订单</text>
-    <text class='couplet_ft'><text class='return_num'>2、</text>集齐3个有效订单，可获得店铺提供的丰富奖品 </text>
-    <text class='couplet_ft'><text class='return_num'>2、</text>集齐3个有效订单，可获得店铺提供的丰富奖品  </text>
-    <text class='couplet_ft'><text class='return_num'>4、</text>每组有效订单在90天内有效，过期便会被清除 </text>
-  </view>
+  <template is="wxParse" data="{{wxParseData:info.nodes}}" />
 </view>

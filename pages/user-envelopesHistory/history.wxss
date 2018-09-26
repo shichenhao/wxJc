@@ -105,7 +105,8 @@
   padding: 0 30rpx 0 0;
   text-align: right;
   font-size: 24rpx;
-  position: relative
+  position: relative;
+  color: #666;
 }
 
 .itemRight image{

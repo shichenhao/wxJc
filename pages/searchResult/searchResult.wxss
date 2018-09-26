@@ -104,16 +104,17 @@
 }
 .commodityInfo{
   overflow: hidden;
+  line-height: 40rpx;
 }
 .price{
-  font-size:22rpx;
+  font-size:28rpx;
   color:#e51f1f;
   float:left;
   font-weight: bold;
 }
 .salesVolume{
   float:right;
-  font-size:16rpx;
+  font-size:22rpx;
   color:#666;
 }
 .nothingCommodity{

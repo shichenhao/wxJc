@@ -94,7 +94,7 @@
 .evaluateItem .evaluateTxt view{
   font-size: 24rpx;
   font-weight: 100;
-  padding-top: 16rpx;
+  padding-top: 12rpx;
 }
 .evaluateItem .evaluates{
   width: 150rpx;
@@ -110,6 +110,9 @@
   display: flex;
   justify-content: space-between;
   padding-top: 24rpx;
+  position: absolute;
+  bottom: 30rpx;
+  left: 240rpx;
 }
 
 .evaluateItem .evaluateTxt .orderNumber view{

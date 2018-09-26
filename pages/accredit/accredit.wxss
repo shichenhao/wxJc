@@ -1,8 +1,18 @@
-view{
-  padding: 0 0 20rpx;
-  background: #fff;
-  text-align: center;
+.box{
   height: 100%;
+  position: relative;
+  background: #fff;
+}
+
+view{
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 1050rpx;
 }
 
 view image{

@@ -9,6 +9,10 @@ Page{
   height: 100%;
 }
 
+.strong{
+  font-weight: 600;
+}
+
 .b{
   font-weight: bold;
   display: inline;

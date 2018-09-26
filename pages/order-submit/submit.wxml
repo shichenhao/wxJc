@@ -50,7 +50,7 @@
       <view>
         订单备注
       </view>
-      <input placeholder='如有问题请填写备注' maxlength='18'></input>
+      <input bindinput="remarks" placeholder='如有问题请填写备注' maxlength='18'></input>
     </view>
   </view>
   <view class='discount'>
@@ -106,11 +106,10 @@
           {{!item.restrictAmt?"无门槛红包":"满"+item.restrictAmt+"元可使用"}}
         </view>
       </view>
-
       <view class='h2' wx:if="{{redPacketData.platformRedBagAvailableList.length > 0}}">
         <view>不可使用红包（{{redPacketData.platformRedBagAvailableList.length}}个）</view>
       </view>
-      <view class='moneyItem' data-record='item' wx:for="{{redPacketData.platformRedBagAvailableList}}" wx:key="id" wx:for-index="index">
+      <view class='moneyItem moneyItem2' data-record='item' wx:for="{{redPacketData.platformRedBagAvailableList}}" wx:key="id" wx:for-index="index">
         <view class="itemLeft">
           <view class="b">专享红包</view>
           <view>有效期至{{item.expirationTime}}</view>
@@ -123,10 +122,10 @@
           {{!item.restrictAmt?"无门槛红包":"满"+item.restrictAmt+"元可使用"}}
         </view>
         <view class="moneyWhy">
-          <view class="span" bindtap='why' data-why="{index}}">
+          <view class="span" bindtap='why' data-why="{{index}}">
             不可用原因
           </view>
-          <view class="div">
+          <view class="div" wx:if="{{item.isWhy}}">
             <view wx:for="{{item.disableList}}" wx:key="id" wx:for-item="record">{{record}}</view>
           </view>
         </view>
@@ -134,23 +133,15 @@
     </view>
   </view>
 
-
-
-
-
-
-
-
-
   <view class='moneyPop moneyPop2' wx:if="{{isCashCoupon}}">
     <view class='moneyNone active' bindtap='noCashCoupon'>
       不使用优惠券
     </view>
-    <view class="moneyBox" wx:for="{{cashCouponData.usableCouponsList}}" bindtap='getCashCoupon' data-record='{{item}}' wx:key="id">
-      <view class='h2' wx:if="{{cashCouponData.noUsableCouponsList.length > 0}}">
-        <view>可使用优惠券（{{cashCouponData.noUsableCouponsList.length}}个）</view>
+    <view class="moneyBox">
+      <view class='h2' wx:if="{{cashCouponData.usableCouponsList.length > 0}}">
+        <view>可使用优惠券（{{cashCouponData.usableCouponsList.length}}个）</view>
       </view>
-      <view class='moneyItem'>
+      <view class='moneyItem' wx:for="{{cashCouponData.usableCouponsList}}" bindtap='getCashCoupon' data-record='{{item}}' wx:key="id">
         <view class="itemLeft">
           <image src='{{item.merchantLogo}}'></image>
           <view class="b">{{item.name}}</view>

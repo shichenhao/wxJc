@@ -292,8 +292,8 @@
   overflow-x: hidden;
   position: absolute;
   left: 0;
+  right: 0;
   top: 120rpx;
-  width: 100%;
   bottom: 0;
 }
 
@@ -334,6 +334,10 @@
   margin-bottom: 20rpx;
 }
 
+.moneyItem2{
+  padding-bottom: 0;
+}
+
 .itemLeft{
   line-height: 36rpx;
   font-size: 24rpx;
@@ -359,6 +363,7 @@
   flex: 1;
   padding: 0 30rpx 0 140rpx;
   font-size: 24rpx;
+  text-align: right;
 }
 
 .itemRight view{

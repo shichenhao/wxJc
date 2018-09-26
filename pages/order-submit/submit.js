@@ -15,6 +15,7 @@ Page({
       longitude: 113.324520,
       name: 'T.I.T 创意园'
     }],
+    remark:null,
     addressData:null,
     shipmentType:1,
     chooseSort:null,
@@ -36,6 +37,13 @@ Page({
     this.setData({ merchantId: options.merchantId});
     this.getAddress();
     this.initData();
+  },
+  remarks(e) { //备注
+    let value = e.detail.value;
+    this.setData({
+      remark: value,
+    });
+    this.search(value)
   },
   getAddress() {
     if (globalData.addressData){
@@ -59,7 +67,7 @@ Page({
   initData(){
     let { 
       merchantId, shipmentType, addressData,
-      promotionCouponsData, orderItems, redBagJson, chooseSort
+      promotionCouponsData, orderItems, redBagJson, chooseSort, remark
       }=this.data;
     let orderItemsReq={};
     if (orderItems){
@@ -79,6 +87,7 @@ Page({
       longitude: globalData.localPosition.longitude,
       orderItems: JSON.stringify(globalData.selectCommodity),
       userAddressId: addressData && addressData.id,
+      remark,
       //orderItems: JSON.stringify([orderItemsReq]),
       redBagJson: !redBagJson ? null : JSON.stringify([redBagJson]),
       promotionCouponsId: !promotionCouponsData ? null : promotionCouponsData.id,
@@ -132,7 +141,7 @@ Page({
   },
   orderSubmit(){
     let { 
-        merchantId, shipmentType, addressData, promotionCouponsData, orderItems, redBagJson
+      merchantId, shipmentType, addressData, promotionCouponsData, orderItems, redBagJson, remark
       } = this.data;
     let orderItemsReq={
       ...orderItems,
@@ -150,6 +159,7 @@ Page({
       longitude: globalData.localPosition.longitude,
       userAddressId: addressData.id,
       orderItems: JSON.stringify(globalData.selectCommodity),
+      remark,
       //orderItems: JSON.stringify(orderItemsReq),
       redBagJson: !redBagJson?null:JSON.stringify([redBagJson]),
       promotionCouponsId: !promotionCouponsData?null:promotionCouponsData.id,

@@ -7,7 +7,7 @@
          <view class='discount_listT'>
             <image src='{{item.logo}}' mode="widthFix"></image>{{item.name}}
          </view>
-         <view class='discount_listC' wx:for="{{item.CouponsList}}" wx:key="sonIndex" wx:for-item="son" data-id='{{son.id}}' bindtap='receive'>
+         <view class='discount_listC' wx:for="{{item.couponsList}}" wx:key="sonIndex" wx:for-item="son" data-id='{{son.id}}' bindtap='receive'>
           <view class='discount_lq'>
             立即领取
           </view>

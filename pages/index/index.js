@@ -122,6 +122,10 @@ Page({
     wx.http.postReq('appletClient?m=findBuildingMaterialsRecommendCategoryList', params, (data) => {
       if (data.success) {
         var list = data.value
+        list = data.value.map(item=>{
+          item.name = item.name.substring(0,2)
+          return item
+        })
         this.setData({
           list
         })

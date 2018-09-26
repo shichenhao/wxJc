@@ -22,6 +22,10 @@ Page({
       if (data.success) {
         let list = this.data.list
         if (data.value.couponsList.length > 0) {
+          data.value.couponsList = data.value.couponsList.map(item => {
+            item.date = item.createTime.substring(5, 16) + '~' + dataStr.tsFormatTime(item.expirationTime, 'M-D h:m')
+            return item
+          })
           list = [...list, ...data.value.couponsList]
         }
         if (data.value.couponsList.length >= this.data.page.limit) {

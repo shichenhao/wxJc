@@ -110,6 +110,7 @@ Page({
          */
         var info = this.data.info;
         info.isCollection = isCollection ? 0 : 1
+        info.collectionNum = isCollection ? info.collectionNum*1 - 1 : info.collectionNum*1 +1
         this.setData({
           info
         })

@@ -8,15 +8,17 @@
           <image class='logo' src='{{info.logo}}'></image>
           <view class='headerTopLR'>
             <view class='sellerName {{sellerInfo?" sellerInfo":""}}' bindtap='seeSellerInfo'>{{info.name}}</view>
-            <view class='text'>{{info.collectionNum}}人收藏</view>
+            <view class='text' wx:if="{{!sellerInfo}}">{{info.collectionNum}}人收藏</view>
+            <view class='text' wx:if="{{sellerInfo}}">{{info.commentsAverageScore}}分</view>
           </view>
         </view>
         <view class='headerTopR'>
           <view class='collection' bindtap='collection' data-type="{{info.isCollection}}">
             <image src='../../lib/images/starWhite.png'></image>
             {{info.isCollection === 0 ? "收藏" : "取消收藏"}}
+            <view class='text' wx:if="{{sellerInfo}}">{{info.collectionNum}}人收藏</view>
           </view>
-          <button open-type="share"><image class='shareIcon' src='../../lib/images/shareIcon.png'></image></button>
+          <button open-type="share" wx:if="{{!sellerInfo}}"><image class='shareIcon' src='../../lib/images/shareIcon.png'></image></button>
         </view>
         <view class='introduce'>
           <view class='p'>商品数量：{{info.goodsNum}}件</view>

@@ -18,10 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let params={
-      merchantId: options.merchantId,
-      goodsId: options.goodsId,
-    };
+    this.setData({ goodsScore: options.goodsScore})
     this.getData(options.merchantId, options.goodsId);
   },
   getData(merchantId, goodsId){

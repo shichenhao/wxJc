@@ -193,7 +193,7 @@ Page({
   },
   goEvaluateList(){
     wx.navigateTo({
-      url: `../commodityEvaluateList/commodityEvaluateList?merchantId=${this.data.data.merchantId}&goodsId=${this.data.selectCommodity.goodsId}`,
+      url: `../commodityEvaluateList/commodityEvaluateList?merchantId=${this.data.data.merchantId}&goodsId=${this.data.selectCommodity.goodsId}&goodsScore=${this.data.data.comments.goodsScore}`,
     })
   },
   /**

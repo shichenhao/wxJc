@@ -1,8 +1,12 @@
-
+.title{
+   text-align: center;
+   background: white;
+   line-height: 50rpx;
+}
 .con4{
   padding:40rpx 38rpx;
   background: white;
-  margin-top:22rpx;
+  margin-bottom:22rpx;
 }
 .userInfo{
   padding-bottom:20rpx;

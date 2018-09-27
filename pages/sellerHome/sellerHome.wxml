@@ -26,7 +26,7 @@
           <view class='p'>门店地址：{{info.address}}</view>
           <view class='p'>门店电话：{{info.contacts}}</view>
           <view class='h2'>
-            <view class='title'>热门品牌</view>
+            <view class='title'>品牌介绍</view>
             <view class='introduceCon'>
               {{info.description}}
             </view>

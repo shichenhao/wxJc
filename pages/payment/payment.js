@@ -91,9 +91,13 @@ Page({
           if (result == "success") {
             // 只有微信小程序 wx_lite 支付成功的结果会在这里返回
             globalData.orderDetail = null;
-            wx.navigateTo({
-              url: '../order/index',
-            })
+
+            wx.http.postReq('appletClient?m=checkTOrderPay', { orderId: params.id }, (data) => {
+              wx.navigateTo({
+                url: '../order/index',
+              })
+            },true)
+
           } else if (result == "fail") {
             // charge 不正确或者微信小程序支付失败时会在此处返回
             globalData.orderDetail = null;

@@ -5,6 +5,7 @@ Page({
    */
   data: {
     info:[],
+    isLoading:false,
     status: {
       "-1": "已取消",
       "1": "待付款",
@@ -22,26 +23,27 @@ Page({
       url: '../user/index'
     })
   },
-  getList() {
+  getList(types) {
     let page = this.data.page
     var params = {
       userId: app.globalData.userInfo.id,
-      start: this.data.page.start,
+      start: types ? 0 : this.data.page.start,
       limit: this.data.page.limit
     };
     wx.http.postReq('appletClient?m=findBuildingMaterialsOrderList', params, (data) => {
       if (data.success) {
         let info = this.data.info
         if (data.value.length > 0) {
-          info = [...info, ...data.value]
+          info = types ? data.value : [...info, ...data.value]
         }
         if (data.value.length >= this.data.page.limit) {
-          page.start += 10;
+          page.start = types ? 0 : page.start + 10;
           page.isMore = true;
         } else {
           page.isMore = false;
         }
         this.setData({
+          isLoading:true,
           info,
           page,
         })
@@ -58,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getList();
+    this.getList(1);
   },
   goPay(e) { // 支付
     let record = e.currentTarget.dataset.record;

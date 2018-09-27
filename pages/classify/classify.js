@@ -50,4 +50,13 @@ Page({
       this.getList();
     }
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '马管家建材',
+      path: '/pages/accredit/accredit'
+    }
+  }
 })

@@ -1,5 +1,5 @@
 <view class="container">
-  <view class='cartNull' wx:if="{{info.length === 0}}">
+  <view class='cartNull' wx:if="{{info.length === 0 && isLoading}}">
     <image src='/lib/images/order-null.png'></image>
     您还没有订单
   </view>

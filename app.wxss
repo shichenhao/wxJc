@@ -107,7 +107,7 @@ Page{
 
 .userMoneyRow .b{
   width: 100%;
-  font-size: 44rpx;
+  font-size: 40rpx;
   margin-top: -25rpx;
 }
 .userMoneyRow .b view{

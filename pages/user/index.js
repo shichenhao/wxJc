@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    info:null,
     couponsCount: 0,
     platformRedBagCount: 0,
     userInfo: null,
@@ -22,24 +23,22 @@ Page({
   },
   getCoupon() {
     let param = {
-      isDisabled: 0,
       businessType: 12,
-      start: 0,
-      size: 10,
     }
-    wx.http.postReq('appletClient?m=queryCouponsListPage', param, (data) => {
+    wx.http.postReq('appletClient?m=findUserCenter', param, (data) => {
       if (data.success) {
         this.setData({
-          couponsCount: data.value.couponsCount
+          info: data.value
         })
       }
     }, true)
   },
   getCollec() {
     var param = {
+      isDisabled: 0,
+      businessType: 12,
       start: 0,
       size: 10,
-      merchantType: 6
     }
     wx.http.postReq('userClient?m=queryRedBagList', param, (data) => {
       if (data.success) {
@@ -68,7 +67,6 @@ Page({
    */
   onLoad: function (options) {
     this.getCoupon();
-    this.getCollec();
     let _this = this
     let userInfo = wx.getStorageSync('wxInfo')
     userInfo.balance = wx.getStorageSync('userInfo').balance
@@ -87,12 +85,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
@@ -105,43 +97,6 @@ Page({
       userInfo,
       phone: app.globalData.phone
     }) 
-    this.getCoupon();
-    this.getCollec();
-  
+    this.getCoupon();  
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

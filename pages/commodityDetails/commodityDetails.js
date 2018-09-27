@@ -195,5 +195,14 @@ Page({
     wx.navigateTo({
       url: `../commodityEvaluateList/commodityEvaluateList?merchantId=${this.data.data.merchantId}&goodsId=${this.data.selectCommodity.goodsId}`,
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '马管家建材',
+      path: '/pages/accredit/accredit'
+    }
   }
 })

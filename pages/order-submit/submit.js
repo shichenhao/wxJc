@@ -15,6 +15,7 @@ Page({
       longitude: 113.324520,
       name: 'T.I.T 创意园'
     }],
+    orderItems:null,
     remark:null,
     addressData:null,
     shipmentType:1,
@@ -80,7 +81,7 @@ Page({
       userId: globalData.userInfo.id,
       merchantId,
       chooseSort: redBagJson && promotionCouponsData ? chooseSort : 0,
-      shipmentType: globalData.receivingWayValue || 1,
+      shipmentType: globalData.receivingWayValue || shipmentType || 1,
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
       orderItems: JSON.stringify(globalData.selectCommodity),
@@ -103,10 +104,22 @@ Page({
         }else{
           isShow = '1,3'
         }
+
         let markers = this.data.markers
         markers[0].latitude = value.buildingMaterialsMerchant.latitude
         markers[0].longitude = value.buildingMaterialsMerchant.longitude
         markers[0].name = value.buildingMaterialsMerchant.name
+
+
+        /**
+         value = value.map(item=>{
+          item.num = 0
+          item.buildingMaterialsOrderItemList(son=>{
+            item.num += son.quantity*1
+          })
+          return item
+        })
+         */
         this.setData({
           isShow,
           shipmentType,
@@ -136,6 +149,8 @@ Page({
   changeType(e){
     let id=e.currentTarget.dataset.id;
     this.setData({ shipmentType:id});
+    globalData.receivingWayValue = id
+    this.initData()
   },
   orderSubmit(){
     let { 
@@ -169,6 +184,19 @@ Page({
         wx.navigateTo({
           url: '../payment/payment',
         })
+        let cartList = wx.getStorageSync('cart')
+        cartList = cartList.filter(item => {
+          return item.merchant.id != merchantId
+        })
+        cartList = cartList.map(item => {
+          item.check = false
+          item.list = item.list.map(son => {
+            son.check = false
+            return son
+          })
+          return item
+        })
+        wx.setStorageSync('cart', cartList)
       } 
     })
   },
@@ -179,15 +207,20 @@ Page({
     })
   },
   seeRedPacket(){
-    let { merchantId, shipmentType, addressData } = this.data;
+    let { merchantId, shipmentType, addressData, promotionCouponsData, orderItems } = this.data;
+    let itemsPrice =  0
+    globalData.selectCommodity.map(item=>{
+      itemsPrice += item.price * 1 * item.quantity - (!promotionCouponsData ? 0 : promotionCouponsData.couponsAmt || 0)
+    })
     let params = {
       agentId: globalData.agentId,
       businessType: 12,
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
       userAddressId: addressData.id,
-      itemsPrice: globalData.selectCommodity[0].price,
+      itemsPrice: orderItems.canUseRedBagsTotalGoodsPrice,
       merchantId
+      //canUseRedBagsTotalGoodsPrice: orderItems.canUseRedBagsTotalGoodsPrice,
     }
     wx.http.postReq('userClient?m=queryPlatformRedBagList', params, (res) => {
       let { success, value } = res;
@@ -211,14 +244,15 @@ Page({
     })
   },
   seeCashCoupon(){
-    let { merchantId, shipmentType } = this.data;
+    let { merchantId, shipmentType, redBagJson, orderItems} = this.data;
     let curCommodity = globalData.selectCommodity[0];
     let params = {
       agentId: globalData.agentId,
       userId: globalData.userInfo.id,
       merchantId,
       businessType:12,
-      totalPrice: !curCommodity.usableCoupons ? 0 : curCommodity.discountPrice * curCommodity.quantity || curCommodity.originalPrice * curCommodity.quantity,
+      totalPrice: orderItems.canUsePromotionCouponsTotalGoodsPrice
+      //!curCommodity.usableCoupons ? 0 : ((curCommodity.discountPrice || curCommodity.originalPrice) * 1 * curCommodity.quantity) - !redBagJson ? 0 : redBagJson.amt ||  0,
     }
     wx.http.postReq('appletClient?m=queryCouponsList', params, (res) => {
       let { success, value } = res;
@@ -237,6 +271,7 @@ Page({
       isRedPacket: false,
       redBagJson:null
     })
+    this.initData();
   },
   noCashCoupon(){
     this.setData({
@@ -244,6 +279,7 @@ Page({
       isCashCoupon: false,
       promotionCouponsData:null
     });
+    this.initData();
   },
   getCashCoupon(e){
     this.setData({
@@ -280,5 +316,17 @@ Page({
     this.setData({
       redPacketData
     })
+  },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    globalData.orderBackUrl = null
   },
 })

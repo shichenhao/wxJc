@@ -7,7 +7,7 @@
         {{item.goodsName}}
         <view>{{item.goodsModel}}</view>
       </view>
-      <view bindtap='evaluates' data-img="{{item.img}}" class='evaluates'>评价</view>
+      <view bindtap='evaluates' data-img="{{item.img}}" data-id="{{item.id}}" class='evaluates'>评价</view>
     </view>
   </view>
 </view>

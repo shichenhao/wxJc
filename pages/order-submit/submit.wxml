@@ -26,7 +26,7 @@
   <view class='h2'>
     商品信息
   </view>
-  <view class='evaluateBox'>
+  <view class='evaluateBox' wx:if="{{orderItems}}">
     <view class='orderTitle'>
       <image src='{{orderItems.merchantLogo}}'></image>
       {{orderItems.merchantName}}
@@ -54,9 +54,9 @@
     </view>
   </view>
   <view class='discount'>
-    <view style='color:#666'>
+    <view>
       配送费
-      <view>￥{{shipmentType == 3 ? 0 : orderItems.practicalShippingFee}}</view>
+      <view style='color:#666'>￥{{shipmentType == 3 ? 0 : orderItems.practicalShippingFee}}</view>
     </view>
     <view>
       平台补贴
@@ -81,9 +81,6 @@
     </view>
     <view class='payment' bindtap='orderSubmit'>提交订单</view>
   </view>
-
-
-
   
   <view class='moneyPop' wx:if="{{isRedPacket}}">
     <view class='moneyNone {{!redBagJson ? "active" : ""}}' bindtap='noRedPacket'>

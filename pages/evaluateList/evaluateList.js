@@ -31,10 +31,11 @@ Page({
       }
     })
   },
-  evaluates(e){
+  evaluates(e) {
     let img = e.currentTarget.dataset.img;
+    let id = e.currentTarget.dataset.id;
+    globalData.evalId = id
     globalData.evalImg = img
-    console.log(img)
     wx.navigateTo({
       url: '../evaluate/evaluate'
     });

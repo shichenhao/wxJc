@@ -15,7 +15,7 @@
     <view class='userMoneyRow'>
       <view class='b'>
         {{
-          userInfo.balance || 0
+          info.balance || 0
         }}
         <view>元</view>
       </view>
@@ -24,7 +24,7 @@
     <navigator class='userMoneyRow' url="/pages/user-envelopes/envelopes" hover-class="none">
       <view class='b'>
         {{
-          platformRedBagCount
+          info.redBagCount
         }}
         <view>个</view>
       </view>
@@ -33,7 +33,7 @@
     <navigator class='userMoneyRow' url="/pages/user-coupon/coupon" hover-class="none">
       <view class='b'>
         {{
-          couponsCount
+          info.couponsCount
         }}
         <view>个</view>
       </view>

@@ -154,7 +154,7 @@
         </view>
       </view>
       <navigator url="/pages/bindPhone/bindPhone" class='span' wx:if="{{!isLogin}}" hover-class="none">立即绑定，领取红包</navigator>
-      <navigator url="/pages/user-envelopes/envelopes" class='span' wx:if="{{isLogin}}" hover-class="none">立即使用</navigator>
+      <view class='span' wx:if="{{isLogin}}" bindtap='closeRed'>立即使用</view>
       <view class='p'>
         可在“我的钱包”中查看详情
       </view>

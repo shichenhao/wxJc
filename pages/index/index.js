@@ -53,7 +53,7 @@ Page({
     }
     let isLogin = wx.getStorageSync('userInfo').mobile
     wx.http.postReq('userClient?m=getPlatformRedBag', param, (data) => {
-      if (data.code === 0 && data.value.redBagList && data.value.redBagList.length>0) {
+      if ((data.code === 0 && data.value.redBagList && data.value.redBagList.length>0) || (data.value.type === 2 && data.value.status ===1)) {
         this.setData({
           isLogin,
           redType: true,
@@ -190,7 +190,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.closeRed()
   },
 
   /**
@@ -223,11 +223,13 @@ Page({
   onReachBottom: function () {
 
   },
-
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '马管家建材',
+      path: '/pagse/accredit/accredit'
+    }
   }
 })

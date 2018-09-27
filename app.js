@@ -90,6 +90,11 @@ App({
     //this.globalData.localPosition = wx.getStorageSync('localPosition');
     this.globalData.userInfo = wx.getStorageSync('userInfo')
     //console.log(this.globalData.userInfo)
+    /*if (!this.globalData.userInfo || !wx.getStorageSync('wxInfo')){
+      wx.navigateTo({
+        url: '/pages/accredit/accredit'
+      });
+    }*/
   },
   globalData: {
     localPosition: null,
@@ -97,4 +102,13 @@ App({
     isRed:false,
     cart:[],
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '马管家建材',
+      path: '/pages/accredit/accredit'
+    }
+  }
 })

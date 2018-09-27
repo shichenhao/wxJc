@@ -3,7 +3,7 @@
     <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
     <input id='search' placeholder='搜索品牌分类' value="{{searchValue}}" bindinput="searchValueInput"></input>
   </view>
-  <view class='history' wx:if="isFirst">
+  <view class='history' wx:if="{{isFirst}}">
     <view class='h2'>历史记录</view>
     <view class='con'>
       <view class='list' bindtap='searchValueInput' data-values="{{item}}" wx:for="{{historyList}}" wx:key="{{index}}">{{item}}</view>

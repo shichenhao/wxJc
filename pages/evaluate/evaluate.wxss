@@ -16,6 +16,7 @@ Page {
 .scoreTopTit image{
   width: 70rpx;
   height: 70rpx;
+  margin-right: 10rpx;
 }
 .scoreTopTit2{
   height: 85rpx;

@@ -37,7 +37,7 @@ Page({
     let { widthS, widthC, valuateContent}=this.data;
     let params={
       orderId: globalData.orderDetail.id,
-      orderItemId: globalData.orderDetail.buildingMaterialsOrderItemList[0].id,
+      orderItemId: globalData.evalId,
       content: valuateContent,
       goodsScore: widthC,
       merchantScore: widthS

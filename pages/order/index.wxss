@@ -99,6 +99,7 @@
   display: inline;
   color: #333;
   margin-left: -6rpx;
+  font-size: 24rpx;
 }
 
 .orderStatus .div view .b{
@@ -120,6 +121,15 @@
 
 .orderNumber{
   text-align: right;
+}
+
+.orderNumber view{
+  color: #333;
+  font-size: 24rpx;
+}
+
+.orderNumber view .b{
+  font-size: 28rpx;
 }
 
 .orderNumber view:nth-child(2){

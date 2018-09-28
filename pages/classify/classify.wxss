@@ -1,12 +1,11 @@
 /* pages/classify/classify.wxss */
 .box{
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
   background: #fff;
-}
-.main{
-  padding-bottom:98rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
 }
 .searchBox{
   padding-bottom:20rpx;
@@ -31,8 +30,22 @@
 .main{
   background: #fff;
   display: flex;
+  position: absolute;
+  left: 0;
+  top: 80rpx;
+  right: 0;
+  bottom: 0;
+  padding-left: 194rpx;
 }
 .left{
+  overflow: auto;
+  overflow-x: hidden;
+  background: #fff;
+  position: absolute;
+  -webkit-overflow-scrolling: touch;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width:194rpx;
   border-right:20rpx solid #f3f3f3;
 }
@@ -53,12 +66,20 @@
 
 .right{
   flex:1;
+  position: absolute;
+  left: 214rpx;
+  top: 0;
+  right: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
   border-top:20rpx solid #f3f3f3;
   background: #f3f3f3;
   border-right:20rpx solid #f3f3f3;
+  border-bottom:20rpx solid #f3f3f3;
 }
 .hot,.classify{
-  border-bottom:20rpx solid #f3f3f3;
   background: #fff;
 }
 .h2{
@@ -122,6 +143,7 @@
   max-height:100%;
 }
 .classifyName{
+  padding-top: 20rpx;
   font-size:21rpx;
   text-align: center;
   color:#333;

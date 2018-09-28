@@ -93,6 +93,24 @@ Page({
   getAds(e){ // 获取位置传递到全局
     let item = e.currentTarget.dataset.item;
     let localPosition = globalData.localPosition
+
+    if (item.latitude){
+      qqmapsdk.reverseGeocoder({
+        location: {
+          latitude: item.latitude,
+          longitude: item.longitude
+        },
+        coord_type: 3,//baidu经纬度
+        success: function (res) {
+          var location = res.result.ad_info.location;
+          item.latitude = location.lat;
+          item.longitude = location.lng;
+        }
+      });
+    }
+
+
+
     globalData.localPosition.longitude = (item.location && item.location.lng) || item.longitude
     globalData.localPosition.latitude = (item.location && item.location.lat) || item.latitude
     localPosition.longitude = (item.location && item.location.lng) || item.longitude;

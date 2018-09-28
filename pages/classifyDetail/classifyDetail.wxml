@@ -18,8 +18,8 @@
       <navigator url='/pages/commodityDetails/commodityDetails?id={{i.id}}' class='item' hover-class="none">
         <view class='imgBox'>
           <view class='leftTop'>
-            <image wx:if="{{i.isPromotionGoods === 1}}" class='leftTopBg' src='/lib/images/leftTopBg.png'  mode="widthFix"></image>
-            <text wx:if="{{i.isPromotionGoods === 1}}">补</text>
+            <image wx:if="{{i.platformSubsidiesPrice}}" class='leftTopBg' src='/lib/images/leftTopBg.png'  mode="widthFix"></image>
+            <text wx:if="{{i.platformSubsidiesPrice}}">补</text>
           </view>
           <image class='commodityImg' src='{{i.imgs}}'></image>
         </view> 

@@ -155,7 +155,7 @@ Page({
         if (!app.globalData.addressSel){
           mapXY = res.result.formatted_addresses.recommend
         }else{
-          mapXY = app.globalData.addressSel.title
+          mapXY = app.globalData.addressSel.title || app.globalData.addressSel.address
         }
         this.setData({
           mapXY

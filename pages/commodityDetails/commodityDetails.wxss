@@ -83,7 +83,7 @@
   height:30rpx;
   background: #fee6e6;
   text-align: center;
-  border-radius: 10rpx;
+  border-radius: 15rpx;
   margin-right:20rpx;
   float: left;
 }

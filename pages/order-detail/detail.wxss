@@ -5,7 +5,6 @@
   font-size: 32rpx;
   font-weight: bold;
   background: #fff;
-  margin-bottom: 20rpx;
 }
 
 .orderType image{
@@ -201,6 +200,11 @@
   border:1px solid #c4c2c2;
   border-radius: 52rpx;
   font-size: 24rpx;
-  margin-left: 10rpx;
+  margin-left: 30rpx;
+}
+
+.contact .eval{
+  color: #eb4245;
+  border-color: #eb4245;
 }
 

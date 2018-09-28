@@ -42,7 +42,7 @@
       <view>
         ￥
         <view class='b'>
-          {{orderItems.totalGoodsPrice ? orderItems.totalGoodsPrice + orderItems.totalPlatformSubsidiesPrice : 0}}
+          {{orderItems.totalP}}
         </view>
       </view>
     </view>

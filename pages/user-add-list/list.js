@@ -17,7 +17,7 @@ Page({
     this.setData({
       editAddress: !!globalData.editAddress && globalData.editAddress,
       gender: !!globalData.editAddress ? globalData.editAddress.gender : "先生",
-      detailedAddress: !!globalData.editAddress.detailedAddress ? globalData.editAddress.detailedAddress : false,
+      detailedAddress: !!globalData.editAddress && globalData.editAddress.detailedAddress ? globalData.editAddress.detailedAddress : false,
     })
   },
   changeGender(e){
@@ -25,7 +25,7 @@ Page({
     this.setData({ gender});
   },
   formSubmit(e){
-    let { gender, detailedAddress, latitude, longitude,editAddress}=this.data;
+    let { gender, detailedAddress, latitude, longitude, editAddress} = this.data;
     if (!latitude && !editAddress.longitude){
       wx.showToast({
         title: '请选择地址!',
@@ -41,7 +41,7 @@ Page({
       params.id = editAddress.id; 
     }
     params.gender = gender;
-    params.detailedAddress =detailedAddress;
+    params.detailedAddress = detailedAddress;
     params.address = detailedAddress + params.houseNumber;
     params.latitude = latitude || editAddress.latitude; 
     params.longitude = longitude || editAddress.longitude; 

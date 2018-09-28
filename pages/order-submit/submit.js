@@ -110,16 +110,7 @@ Page({
         markers[0].longitude = value.buildingMaterialsMerchant.longitude
         markers[0].name = value.buildingMaterialsMerchant.name
 
-
-        /**
-         value = value.map(item=>{
-          item.num = 0
-          item.buildingMaterialsOrderItemList(son=>{
-            item.num += son.quantity*1
-          })
-          return item
-        })
-         */
+        value.totalP = (value.totalGoodsPrice ? value.totalGoodsPrice + value.totalPlatformSubsidiesPrice : 0).toFixed(2);
         this.setData({
           isShow,
           shipmentType,
@@ -163,6 +154,8 @@ Page({
       quantity: globalData.selectCommodity[0].quantity,
       price: globalData.selectCommodity[0].price
     }
+    console.log(globalData.selectCommodity)
+    return false;
     let params = {
       agentId: globalData.agentId,
       userId: globalData.userInfo.id,
@@ -210,7 +203,7 @@ Page({
     let { merchantId, shipmentType, addressData, promotionCouponsData, orderItems } = this.data;
     let itemsPrice =  0
     globalData.selectCommodity.map(item=>{
-      itemsPrice += item.price * 1 * item.quantity - (!promotionCouponsData ? 0 : promotionCouponsData.couponsAmt || 0)
+      itemsPrice += (item.price * 1 * item.quantity - (!promotionCouponsData ? 0 : promotionCouponsData.couponsAmt || 0)).toFixed(2);
     })
     let params = {
       agentId: globalData.agentId,

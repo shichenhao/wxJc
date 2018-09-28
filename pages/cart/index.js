@@ -160,7 +160,7 @@ Page({
     this.data.cartList.map(item => {
       item.list.map(son => {
         if(son.check){
-          carMoney += son.quantity * son.prices;
+          carMoney += 1*(son.quantity * son.prices).toFixed(2);
         }
       })
     })
@@ -230,10 +230,10 @@ Page({
         if (isOne.filter(item=>item.check).length>1){
           isOne = isOne.map(item=>{
             item.priceList = item.list.map(son=>{
-              return son.price * son.quantity
+              return (son.price * son.quantity).toFixed(2);
             })
             item.numPrice = item.priceList.reduce((a,b)=>{
-              return a+b
+              return (a + b).toFixed(2);
             })
             return item
           })

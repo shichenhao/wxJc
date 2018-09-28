@@ -80,7 +80,7 @@ Page({
         channel: 'wx_lite',//渠道名
         amount: params.totalPrice,
         orderId: params.id,
-        openId: globalData.openId,
+        openId: wx.getStorageSync('code'), //globalData.openId,
         balanceCost: balance
       }, (res2) => {
         var charge = res2.value;
@@ -91,7 +91,6 @@ Page({
           if (result == "success") {
             // 只有微信小程序 wx_lite 支付成功的结果会在这里返回
             globalData.orderDetail = null;
-
             wx.http.postReq('appletClient?m=checkTOrderPay', { orderId: params.id }, (data) => {
               wx.navigateTo({
                 url: '../order/index',

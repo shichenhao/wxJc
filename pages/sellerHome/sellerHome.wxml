@@ -17,7 +17,7 @@
             {{info.isCollection === 0 ? "收藏" : "取消收藏"}}
             <view class='text' wx:if="{{sellerInfo}}">{{info.collectionNum}}人收藏</view>
           </view>
-          <button open-type="share" wx:if="{{!sellerInfo}}"><image class='shareIcon' src='../../lib/images/shareIcon.png'></image></button>
+          <button open-type="share" wx:if="{{!sellerInfo}}"></button>
         </view>
         <view class='introduce'>
           <view class='p'>商品数量：{{info.goodsNum}}件</view>
@@ -72,9 +72,7 @@
             <view class='imgBox'>
               <image src='{{item.imgs}}'></image>
             </view> 
-            <view class='itemTitle'>
-              {{item.goodsName}}
-            </view>
+            <view class='itemTitle'>{{item.goodsName}}</view>
             <view class='commodityInfo'>
               <view class='price'>￥<text>{{item.goodsPrice || item.originalPrice}}</text></view>
               <view class='price2' wx:if="{{item.originalPrice}}">{{item.originalPrice}}</view>

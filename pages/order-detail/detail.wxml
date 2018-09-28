@@ -109,10 +109,10 @@
   </view>
   <view class='contact'>
     <view bindtap='tel' data-tel="{{orderData.buildingMaterialsMerchant.contacts}}">联系商户</view>
-    <view wx:if="{{orderData.status == 1}}" bindtap='goPay'>
+    <view class='eval' wx:if="{{orderData.status == 1}}" bindtap='goPay'>
         去支付
       </view>
-      <view wx:if="{{orderData.status == 7 && orderData.orderItemCommentsCount < orderData.orderItemCount}}" data-record='{{orderData}}' bindtap='goEvaluate'>
+      <view class='eval' wx:if="{{orderData.status == 7 && orderData.orderItemCommentsCount < orderData.orderItemCount}}" data-record='{{orderData}}' bindtap='goEvaluate'>
         去评价
       </view>
   </view>

@@ -44,8 +44,8 @@ Page({
         selectCommodity.goodsName = value.goodsName;
         selectCommodity.goodsModelId = selectCommodity.id;
         selectCommodity.platformSubsidiesPrice = selectCommodity.platformSubsidiesPrice || 0
-        selectCommodity.price = selectCommodity.discountPrice ? selectCommodity.discountPrice - selectCommodity.platformSubsidiesPrice : selectCommodity.originalPrice - selectCommodity.platformSubsidiesPrice;
-        selectCommodity.prices = selectCommodity.discountPrice ? selectCommodity.discountPrice : selectCommodity.originalPrice
+        selectCommodity.price = (selectCommodity.discountPrice ? selectCommodity.discountPrice - selectCommodity.platformSubsidiesPrice : selectCommodity.originalPrice - selectCommodity.platformSubsidiesPrice).toFixed(2);;
+        selectCommodity.prices = (selectCommodity.discountPrice ? selectCommodity.discountPrice : selectCommodity.originalPrice).toFixed(2);
         this.setData({ 
           merchantName,
           data: value,
@@ -70,8 +70,8 @@ Page({
     itemdata.goodsModelId = itemdata.id;
     itemdata.goodsName = this.data.selectCommodity.goodsName;
     itemdata.platformSubsidiesPrice = itemdata.platformSubsidiesPrice || 0
-    itemdata.price = itemdata.discountPrice ? itemdata.discountPrice - itemdata.platformSubsidiesPrice : itemdata.originalPrice - itemdata.platformSubsidiesPrice;
-    itemdata.prices = itemdata.discountPrice ? itemdata.discountPrice : itemdata.originalPrice;
+    itemdata.price = (itemdata.discountPrice ? itemdata.discountPrice - itemdata.platformSubsidiesPrice : itemdata.originalPrice - itemdata.platformSubsidiesPrice).toFixed(2);;
+    itemdata.prices = (itemdata.discountPrice ? itemdata.discountPrice : itemdata.originalPrice).toFixed(2);
     this.setData({ selectCommodity: itemdata, isSelectCommodity:true});
   },
   cartNum(e) { //增加减少数量 1 减少 2增加
@@ -182,6 +182,9 @@ Page({
         console.log(2)
       }
     })
+  },
+  scroll(e){
+    let scrollTop = e.detail.scrollTop;  //滚动的Y轴
   },
   jumpTo: function (e) {
     // 获取标签元素上自定义的 data-opt 属性的值

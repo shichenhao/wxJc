@@ -17,12 +17,12 @@
       </block>
     </swiper>
     <view class='home_addr' bindtap='getMap'>
-      <image src='/lib/images/home_banicon2.jpg' class="home_addr_img1"></image>
+      <image src='/lib/images/home-adress.png' class="home_addr_img1"></image>
       <text>{{mapXY}}</text>
-       <image src='/lib/images/home_banicon3.jpg' class="home_addr_img2"></image>
+       <image src='/lib/images/home-right.png' class="home_addr_img2"></image>
     </view>
     <navigator class='home_seach' url='/pages/searchResult/searchResult' hover-class='none'>
-       <image src='/lib/images/home_banicon1.jpg'></image>
+       <image src='/lib/images/searchIcon.png'></image>
        瓷砖
     </navigator>
   </view>

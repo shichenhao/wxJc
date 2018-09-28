@@ -13,6 +13,9 @@ Page({
     },
     queryType: 10, //0：全部商品，1：促销商品，2：上新商品, 10 首页
     sortType: 0, // 0, "默认升" ，1, "默认降" ，2, "销量升" ，3, "销量降"，4, "价格升"，5, "价格降"
+    sortType1: 0,
+    sortType2: 2,
+    sortType3: 4,
   },
   getInit(merchantId = '834') { //商家信息
     var param = {
@@ -85,6 +88,28 @@ Page({
   },
   sortTypeList(e) { // 通过排序查商品
     let sortType = e.currentTarget.dataset.type - 0;
+    let sortType1 = this.data.sortType1;
+    let sortType2 = this.data.sortType2;
+    let sortType3 = this.data.sortType3;
+    if (sortType == 0){
+      sortType = 1
+      sortType1 = 1
+    } else if (sortType == 1) {
+      sortType = 0
+      sortType1 = 0
+    } else if (sortType == 2) {
+      sortType = 3
+      sortType2 = 3
+    } else if (sortType == 3) {
+      sortType = 2
+      sortType2 = 2
+    } else if (sortType == 4) {
+      sortType = 5
+      sortType3 = 5
+    } else if (sortType == 5) {
+      sortType = 4
+      sortType3 = 4
+    }
     let page = {
       limit: 10,
       start: 0,
@@ -92,6 +117,9 @@ Page({
     }
     this.setData({
       page,
+      sortType1,
+      sortType2,
+      sortType3
     })
     this.getList(this.data.info.id, this.data.queryType, sortType)
   },

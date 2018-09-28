@@ -5,7 +5,6 @@
 
 .addressList{
   background: #fff;
-  margin-top: 20rpx;
   margin-bottom: 1rpx;
 }
 
@@ -117,7 +116,7 @@
   line-height: 60rpx;
   background: #ececec;
   border-radius: 30rpx;
-  padding-left:84rpx;
+  padding-left:64rpx;
   color:#888;
 }
 .searchIcon{
@@ -146,6 +145,10 @@
   position: relative
 }
 
+.addressLis2{
+  font-size: 28rpx;
+}
+
 .addressLis text{
   position: absolute;
   right: 20rpx;
@@ -154,6 +157,7 @@
   display: block;
   padding-left: 40rpx;
   line-height: 90rpx;
+  font-size: 28rpx;
   background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809201509094583661.png) no-repeat 0 center;
   background-size: 29rpx;
 }

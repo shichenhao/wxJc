@@ -29,6 +29,7 @@
   background: white;
   border-radius: 12rpx 12rpx 0 0;
   position: relative;
+  text-align: left;
 }
 .price{
   color:#eb4245;
@@ -36,9 +37,15 @@
   font-weight: bold;
   margin-right:30rpx;
 }
+.price text{
+  font-size: 32rpx;
+}
 .oldPrice, .salesVolume{
   color:#999;
   font-size:24rpx;
+}
+.oldPrice text{
+  text-decoration: line-through;
 }
 .salesVolume{
   float: right;
@@ -80,6 +87,10 @@
   margin-right:20rpx;
   float: left;
 }
+.con2 .text1bg{
+  background: #fff0e7;
+  color: #fd6910;
+}
 .con2 .text2{
   color:#f40c0c;
   float: left
@@ -101,7 +112,7 @@
   color:#333;
   float: right;
   position: relative;
-  padding-right:20rpx;
+  padding-right:25rpx;
 }
 .con2 .text3::after{
   width:15rpx;
@@ -109,10 +120,10 @@
   content: "";
   position: absolute;
   top:8rpx;
-  right:0rpx;
+  right:5rpx;
   transform: rotate(45deg);
-  border-top:1rpx solid #ccc;
-  border-right: 1rpx solid #ccc;
+  border-top:1rpx solid #888;
+  border-right: 1rpx solid #888;
 }
 
 /* 用户评价 */
@@ -138,6 +149,8 @@
   text-align: right;
   font-size:24rpx;
   color:#888;
+  position: relative;
+  padding-right: 25rpx;
 }
 .userInfo{
   padding-bottom:20rpx;
@@ -148,6 +161,7 @@
   border-radius: 50%;
   vertical-align: middle;
   margin-right:10rpx;
+  background: #eee;
 }
 .evaluateImg{
   display: flex;
@@ -166,7 +180,7 @@
 }
 .evaluateDate{
   color:#b2b2b2;
-  font-size:24rpx;
+  font-size:22rpx;
 }
 
 .con3{
@@ -193,18 +207,25 @@
   color:#333;
   font-size:26rpx;
   position: relative;
-  padding-right:20rpx;
+  padding-right:25rpx;
 }
-.con3_rowR_1::after{
+.con3_rowR_1::after,.con4 .h3Right::after{
   content: "";
   position: absolute;
-  right:0rpx;
-  top:10rpx;
+  right:5rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
   width:15rpx;
   height:15rpx;
-  border-top:1px solid #888;
-  border-right:1px solid #888;
+  border-top:1rpx solid #888;
+  border-right:1rpx solid #888;
   transform: rotate(45deg);
+}
+.con4 .h3Right::after{
+  top: 8rpx;
+  bottom: auto;
+  margin:0;
 }
 
 .con5{
@@ -234,14 +255,29 @@
   font-size:22rpx;
 }
 .con5_mainL_L_B text{
-  color:#f06062;
+  color:#eb4245;
 }
 .con5_mainR{
   color:#597dab;
   font-size:26rpx;
   display: flex;
+  padding-right: 25rpx;
   align-items: center;
+  position: relative;
 }
+
+.con5_mainR::after{
+  content: "";
+  position: absolute;
+  right:5rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width:15rpx;
+  height:15rpx;
+  border-top:1rpx solid #597dab;
+  border-right:1rpx solid #597dab;
+  transform: rotate(45deg);}
 
 .downNav{
   position: fixed;

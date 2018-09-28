@@ -17,7 +17,7 @@
     <view class='evaluateItem' wx:for="{{orderData.buildingMaterialsOrderItemList}}" wx:key="index">
       <image src='{{item.img}}'></image>
       <view class='evaluateTxt'>
-        {{item.goodsName}}
+        <text>{{item.goodsName}}</text>
         <view>{{item.goodsModel}}</view>
       </view>
       <view class='orderNumber'>

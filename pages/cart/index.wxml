@@ -30,7 +30,7 @@
       <view class='checkbox {{obj.check ? " active" : ""}}' bindtap='checkItem' data-objIndex='{{objIndex}}' data-itemIndex='{{itemIndex}}'></view>
       <image src='{{obj.img}}'></image>
       <view class='evaluateTxt'>
-        {{obj.goodsName}}
+        <text>{{obj.goodsName}}</text>
         <view>{{obj.goodsModel}}</view>
         <view class='orderNumber'>
           <view>

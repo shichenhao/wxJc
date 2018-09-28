@@ -37,7 +37,8 @@
   margin-right:20rpx;
 }
 .brandL image{
-  max-width: 92rpx;
+  width: 92rpx;
+  height: 39rpx;
 }
 .brandRight{
   float:left;
@@ -121,11 +122,19 @@
   text-align: center;
   color: #999;
   font-size: 26rpx;
+  position: absolute;
+  top: 80rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .nothingCommodity image{
+  display: none;
   width:243rpx;
   height:195rpx;
-  display: block;
   margin: 400rpx auto 40rpx;
 }
 

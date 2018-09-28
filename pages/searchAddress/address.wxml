@@ -19,7 +19,7 @@
     <view>{{item.title}}</view>
     {{item.address}}
   </view>
-  <view class='addressLis' wx:if="{{list.length === 0}}">
+  <view class='addressLis addressLis2' wx:if="{{list.length === 0}}">
     当前范围没有地址
   </view>
   <view class='h2' wx:if="{{dataList.length !== 0}}">

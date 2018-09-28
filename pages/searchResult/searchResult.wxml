@@ -3,7 +3,7 @@
     <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
     <input id='search' placeholder='搜索品牌分类' value="{{searchValue}}" bindinput="searchValueInput"></input>
   </view>
-  <view class='history' wx:if="{{isFirst}}">
+  <view class='history' wx:if="{{isFirst && historyList.length!==0}}">
     <view class='h2'>历史记录</view>
     <view class='con'>
       <view class='list' bindtap='searchValueInput' data-values="{{item}}" wx:for="{{historyList}}" wx:key="{{index}}">{{item}}</view>
@@ -12,7 +12,7 @@
   <view class='list' wx:for="{{list}}" wx:key="{{item.id}}">
     <navigator url='/pages/sellerHome/sellerHome?id={{item.id}}' hover-class='none' class='brand'>
       <view class='brandL'>
-        <image src='{{item.logo}}' mode="widthFix"></image>
+        <image src='{{item.logo}}'></image>
       </view>
       <view class='brandRight'>
         <view class='brandRightUp'>{{item.name}}</view>
@@ -48,6 +48,5 @@
   </view>
 </view>
 <view wx:if="{{!list.length || list.length===0}}" class='nothingCommodity'>
-  <image src='../../lib/images/nothingCommodity.png'></image>
   搜索结果为空
 </view>

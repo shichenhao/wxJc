@@ -17,16 +17,12 @@
   </swiper>
   <view class='con1'>
     <view>
-      <text class='price'>￥{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
-      <text class='oldPrice'>原价:￥{{selectCommodity.originalPrice}}</text>
+      <text class='price'><text>￥</text>{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
+      <text class='oldPrice'>原价:￥<text>{{selectCommodity.originalPrice}}</text></text>
       <text class='salesVolume'>销量：{{selectCommodity.totalSaled}}</text>
     </view>
-    <view class="h2">
-      {{data.goodsName}}
-    </view>
-    <view class='h2p'>
-      {{data.goodsDescribe}}
-    </view>
+    <view class="h2">{{data.goodsName}}</view>
+    <view class='h2p'>{{data.goodsDescribe}}</view>
   </view>
   <view class='con2'>
     <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
@@ -34,7 +30,7 @@
       <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
     </view>
     <view wx:if="{{data.couponsList.length>0}}">
-      <text class='text1'>促销</text>
+      <text class='text1 text1bg'>促销</text>
       <text class='text2 text2_2'>
         <text wx:for="{{data.couponsList}}" wx:key="id">满{{item.restrictAmt}}元减{{item.couponsAmt}}元</text>
       </text>
@@ -86,19 +82,19 @@
     <view class="h3">
       <text class='h3Left'>商家信息</text>
     </view>
-    <view class='con5_main'>
-      <navigator class='con5_mainL' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
+    <navigator class='con5_main' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
+      <view class='con5_mainL'>
         <image src='{{!data.buildingMaterialsMerchant?"":data.buildingMaterialsMerchant.logo}}'></image>
         <view class='con5_mainL_L'>
           <view class='con5_mainL_L_T'>{{!data.buildingMaterialsMerchant?"":data.buildingMaterialsMerchant.name}}</view>
           <view class='con5_mainL_L_B'>综合评分:
             <text>{{data.buildingMaterialsMerchant.commentsAverageScore === 0 ?5:data.buildingMaterialsMerchant.commentsAverageScore}}</text> </view>
         </view>
-      </navigator>
+      </view>
       <view class='con5_mainR'>
         {{!data.buildingMaterialsMerchant.goodsNum?"0":data.buildingMaterialsMerchant.goodsNum}}件商品
       </view>
-    </view>
+    </navigator>
   </view>
   <view id='detail' class='con4'>
     <view class="h3">

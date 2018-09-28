@@ -49,7 +49,7 @@
   height: 23rpx;
   position: absolute;
   right: 12rpx;
-  top: 15rpx;
+  top: 18rpx;
 }
 
 .home_addr text {

@@ -7,6 +7,8 @@ Page{
   background: #f4f4f4;
   font-size: 30rpx;
   height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .strong{
@@ -14,11 +16,11 @@ Page{
 }
 
 .b{
-  font-weight: bold;
-  display: inline;
+  font-weight: 600;
+  display: inline-block;
 }
 .b view{
-  display: inline;
+  display: inline-block;
   font-weight: 100;
 }
 

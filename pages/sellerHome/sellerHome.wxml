@@ -1,8 +1,7 @@
 <!--pages/sellerCommodity/sellerCommodity.wxml-->
-<view class='box {{sellerInfo?" boxHidden":""}}'>
-    
-  <view class='header' style='background-image:url("../../lib/images/sellerBg.png")'>
-    <view class='headerBg'>
+<view class='box {{sellerInfo?" boxHidden":""}}' wx:if="{{info && info.name}}">
+  <view class='header'>
+    <view class='headerBg {{!isIndex ? "headerBg2" : ""}}'>
       <view class='headerTop {{sellerInfo?" headerDetail":""}}'>
         <view class='headerTopL'>
           <image class='logo' src='{{info.logo}}'></image>
@@ -42,7 +41,7 @@
         </view>
       </view>
       <!-- 优惠卷 -->
-      <view wx:if="{{isIndex}}">
+      <view wx:if="{{isIndex}}" class='discountBox'>
         <scroll-view class='discount' scroll-x>
           <view class='yhList' wx:for="{{info.couponsList}}" data-id='{{item.id}}' wx:key="id" bindtap='receive'>
             <view class='yhListUp'>
@@ -57,30 +56,36 @@
     </view>
     <view class='main' wx:if="{{!isIndex}}">
       <view class='nav'>
-        <view class='navList {{sortType==0 ? "navCur" : ""}}' bindtap='sortTypeList' data-type='0'>综合</view>
-        <view class='navList {{sortType==2 ? "navCur" : ""}}' bindtap='sortTypeList' data-type='2'>销量</view>
-        <view class='navList {{sortType==4 ? "navCur" : ""}}' bindtap='sortTypeList' data-type='4'>价格</view>
+        <view class='navList {{sortType==0 || sortType==1 ? "navCur" : ""}}' bindtap='sortTypeList' data-type='{{sortType1}}'>
+          <text>综合</text>
+        </view>
+        <view class='navList {{sortType==2 || sortType==3 ? "navCur" : ""}}' bindtap='sortTypeList' data-type='{{sortType2}}'>
+          <text>销量</text>
+        </view>
+        <view class='navList {{sortType==4 || sortType==5 ? "navCur" : ""}}' bindtap='sortTypeList' data-type='{{sortType3}}'>
+          <text>价格</text>
+        </view>
       </view>
-      <view class='con'>
-
-        <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}' class='item' hover-class='none' wx:for="{{list}}" wx:key="{{index}}">
-          <view class='imgBox'>
-            <image src='{{item.imgs}}'></image>
-          </view> 
-          <view class='itemTitle'>
-            {{item.goodsName}}
-          </view>
-          <view class='commodityInfo'>
-            <view class='price'>￥<text>{{item.goodsPrice || item.originalPrice}}</text></view>
-            <view class='price2' wx:if="{{item.originalPrice}}">{{item.originalPrice}}</view>
-            <view class='subsidy' wx:if="{{item.platformSubsidiesPrice}}">平台补贴</view>
-          </view>
-          <view class='evaluate'>
-            <text>{{item.totalCommentsCount}}人评价</text>
-            <text>好评{{item.goodCommentsRate}}%</text>
-          </view>
-        </navigator>
-
+      <view class='conBox'>
+        <view class='con'>
+          <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}' class='item' hover-class='none' wx:for="{{list}}" wx:key="{{index}}">
+            <view class='imgBox'>
+              <image src='{{item.imgs}}'></image>
+            </view> 
+            <view class='itemTitle'>
+              {{item.goodsName}}
+            </view>
+            <view class='commodityInfo'>
+              <view class='price'>￥<text>{{item.goodsPrice || item.originalPrice}}</text></view>
+              <view class='price2' wx:if="{{item.originalPrice}}">{{item.originalPrice}}</view>
+              <view class='subsidy' wx:if="{{item.platformSubsidiesPrice}}">平台补贴</view>
+            </view>
+            <view class='evaluate'>
+              <text>{{item.totalCommentsCount}}人评价</text>
+              <text>好评{{item.goodCommentsRate}}%</text>
+            </view>
+          </navigator>
+        </view>
       </view>
     </view>
 

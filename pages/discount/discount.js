@@ -11,7 +11,7 @@ Page({
         this.setData({
           info: data.value
         })
-        WxParse.wxParse('info', 'html', info.content, this, 5);
+        WxParse.wxParse('info', 'html', info.content, this);
       }
     })
   },

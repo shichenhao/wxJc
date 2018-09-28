@@ -22,7 +22,7 @@
       bindtap='orderDetail'>
       <image src='{{order.img}}'></image>
       <view class='evaluateTxt'>
-        {{order.goodsName}}
+        <text>{{order.goodsName}}</text>
         <view>{{order.goodsModel}}</view>
       </view>
       <view class='orderNumber'>

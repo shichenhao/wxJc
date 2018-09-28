@@ -33,7 +33,7 @@
     </view>
     <view class='cartItemImg'>
       <view>
-        共{{orderItems.buildingMaterialsOrderItemList.length}}件
+        共{{orderItems.buildingMaterialsOrderItemList.length}}种
       </view>
       <image wx:for="{{orderItems.buildingMaterialsOrderItemList}}" wx:for-item="son" wx:for-index="sonItem" wx:key="{{sonItem}}" src='{{son.img}}'></image>
     </view>

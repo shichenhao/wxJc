@@ -15,7 +15,6 @@ Page({
   searchValueInput(e) { //改变搜索框内容
     let value = e.detail.value || e.currentTarget.dataset.values;
     let historyList = wx.getStorageSync('historyList')
-    //console.log(value)
     if (value) {
       historyList = [value, ...historyList]
     }

@@ -6,7 +6,7 @@
   <view class='adress' bindtap='changeAddress'>
     <image src='/lib/images/adress.png'></image>
     <view class='b'>收货人：{{addressData.name}} {{addressData.mobile}}</view>
-    <view>{{addressData.detailedAddress}}</view>
+    <view>{{addressData.detailedAddress || addressData.address}}</view>
   </view>
   <view class='adress' wx:if="{{shipmentType == 4}}">
     <image src='/lib/images/adress.png'></image>

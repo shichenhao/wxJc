@@ -13,13 +13,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData();
+    console.log(options)
+    this.getData(options.agentId || null);
   },
-  getData(){
-    wx.http.postReq('appletClient?m=findUserAddress', {}, (res) => {
+  getData(agentId){
+    let params= {
+      agentId
+    }
+    wx.http.postReq('appletClient?m=findUserAddress', params, (res) => {
       let { success, value } = res;
       if (success) {
-        console.log(value);
+        //console.log(value);
         this.setData({
           dataList:value
         })
@@ -39,17 +43,20 @@ Page({
     })
   },
   backOrder(e){
-    if (globalData.orderBackUrl){
-      globalData.addressData = e.currentTarget.dataset.item;
-      wx.navigateTo({
-        url: globalData.orderBackUrl,
-      })
+    let isClick = e.currentTarget.dataset.item;
+    if (!isClick.overShipping){
+      if (globalData.orderBackUrl) {
+        globalData.addressData = e.currentTarget.dataset.item;
+        wx.navigateTo({
+          url: globalData.orderBackUrl,
+        })
+      }
     }
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData();
+    //this.getData();
   },
 })

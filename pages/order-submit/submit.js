@@ -45,10 +45,14 @@ Page({
     this.search(value)
   },
   getAddress() {  //获取地址
+    let agentId = globalData.MerAgentId
+    let params = {
+      agentId
+    }
     if (globalData.addressData){
       this.setData({ addressData: globalData.addressData});
     }else{
-      wx.http.postReq('appletClient?m=findUserAddress', {}, (res) => {
+      wx.http.postReq('appletClient?m=findUserAddress', params, (res) => {
         let { success, value } = res;
         if (success) {
           this.setData({
@@ -77,7 +81,7 @@ Page({
     orderItemsReq.quantity = globalData.selectCommodity[0].quantity,
     orderItemsReq.price = globalData.selectCommodity[0].price
     let params={
-      agentId: globalData.agentId,
+      agentId: globalData.MerAgentId,
       userId: globalData.userInfo.id,
       merchantId,
       chooseSort: redBagJson && promotionCouponsData ? chooseSort : 0,
@@ -119,6 +123,7 @@ Page({
           longitude: value.buildingMaterialsMerchant.longitude,
           markers
         });
+        globalData.MerAgentId = value.buildingMaterialsMerchant.agentId
       } else {
         wx.showToast({
           title: value,
@@ -154,10 +159,10 @@ Page({
       quantity: globalData.selectCommodity[0].quantity,
       price: globalData.selectCommodity[0].price
     }
-    console.log(globalData.selectCommodity)
-    return false;
+    //console.log(globalData.selectCommodity)
+    //return false;
     let params = {
-      agentId: globalData.agentId,
+      agentId: globalData.MerAgentId,
       userId: globalData.userInfo.id,
       merchantId,
       shipmentType,
@@ -193,10 +198,10 @@ Page({
       } 
     })
   },
-  changeAddress(){
+  changeAddress() {
     globalData.orderBackUrl = `/${this.route}?merchantId=${this.data.merchantId}`;
     wx.navigateTo({
-      url: `../user-address/address`,
+      url: `../user-address/address?agentId=${globalData.MerAgentId}`,
     })
   },
   seeRedPacket(){
@@ -206,7 +211,7 @@ Page({
       itemsPrice += (item.price * 1 * item.quantity - (!promotionCouponsData ? 0 : promotionCouponsData.couponsAmt || 0)).toFixed(2);
     })
     let params = {
-      agentId: globalData.agentId,
+      agentId: globalData.MerAgentId,
       businessType: 12,
       latitude: globalData.localPosition.latitude,
       longitude: globalData.localPosition.longitude,
@@ -240,7 +245,7 @@ Page({
     let { merchantId, shipmentType, redBagJson, orderItems} = this.data;
     let curCommodity = globalData.selectCommodity[0];
     let params = {
-      agentId: globalData.agentId,
+      agentId: globalData.MerAgentId,
       userId: globalData.userInfo.id,
       merchantId,
       businessType:12,

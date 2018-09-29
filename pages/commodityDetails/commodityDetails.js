@@ -101,6 +101,7 @@ Page({
       } else {
         globalData.selectCommodity = [this.data.selectCommodity];
         globalData.agentId = this.data.data.agentId;
+        globalData.MerAgentId = this.data.data.agentId
 
         wx.navigateTo({
           url: '../order-submit/submit?merchantId=' + this.data.data.merchantId

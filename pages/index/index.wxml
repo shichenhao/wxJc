@@ -95,7 +95,7 @@
       <navigator url='/pages/commodityDetails/commodityDetails?id={{item.id}}' class='home_hotlist' hover-class="none" wx:for="{{hotList}}" wx:key="{{index}}">
         <image src='{{item.imgs}}' class='home_listPic'></image>
         <view class='home_hotlistF'>
-          <image src='{{ index === 0 ? "/lib/images/home_icon10.png" : index ===1 ? "/lib/images/home_icon11.png" : "/lib/images/home_icon10.png"}}' class='home_hotlistF_icon1' wx:if="{{index<3}}"></image>
+          <image src='{{ index === 0 ? "/lib/images/home_icon10.png" : index ===1 ? "/lib/images/home_icon11.png" : "/lib/images/home_icon12.png"}}' class='home_hotlistF_icon1' wx:if="{{index<3}}"></image>
           <text class='home_hotlistF_tit'>{{item.goodsName}}</text>
           <view><text class='home_hotlistjq'>已售{{item.totalSaled}}</text><text>¥</text>{{item.goodsPrice}}</view>
         </view>

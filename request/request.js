@@ -30,8 +30,8 @@ function getReq(url, cb) {
 function postReq(url, data, cb, alert) {
 
   var params = {
-    "app": 'horsegjUser',
-    "imei": wx.getStorageSync('code'),
+    "app": 'horsegjUserBuilding',
+    "imei": wx.getStorageSync('codeWX'),
     "params": data,
     "token": wx.getStorageSync('token') || null
   }

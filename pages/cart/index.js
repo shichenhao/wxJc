@@ -176,6 +176,7 @@ Page({
         if (item.merchant.id == merchantId) {
           globalData.selectCommodity = item.list
           globalData.receivingWayValue = item.merchant.receivingWayValue == 3 ? 3 : 1
+          globalData.MerAgentId = item.merchant.agentId
         }
       })
       cartList = cartList.filter(item => {
@@ -248,6 +249,7 @@ Page({
           let cartArr = isOne.map(item=>{
             if(item.check){
               merchantId = item.merchant.id;
+              globalData.MerAgentId = item.merchant.agentId
               globalData.receivingWayValue = item.merchant.receivingWayValue == 3 ? 3 : 1
               globalData.selectCommodity = item.list.filter(son=>{
                 return son.check

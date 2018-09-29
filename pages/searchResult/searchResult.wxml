@@ -1,3 +1,6 @@
+<view wx:if="{{!list.length || list.length===0}}" class='nothingCommodity'>
+  搜索结果为空
+</view>
 <view class='box'>
   <view class='searchBox'>
     <image class='searchIcon' src='../../lib/images/searchIcon.png' mode="widthFix"></image>
@@ -28,7 +31,7 @@
       <navigator url='/pages/commodityDetails/commodityDetails?id={{obj.id}}' hover-class='none' class='item' wx:for="{{item.goodsList}}" wx:for-item="obj" wx:key="{{obj.id}}">
         <view class='imgBox'>
           <view class='leftTop'>
-            <image class='leftTopBg' src='../../lib/images/leftTopBg.png'  mode="widthFix"></image>
+            <image wx:if="{{obj.isPromotionGoods === 1}}" class='leftTopBg' src='../../lib/images/leftTopBg.png'  mode="widthFix"></image>
             <text wx:if="{{obj.isPromotionGoods === 1}}">补</text>
           </view>
           <image class='commodityImg' src='{{obj.imgs}}'></image>
@@ -46,7 +49,4 @@
     </view>
 
   </view>
-</view>
-<view wx:if="{{!list.length || list.length===0}}" class='nothingCommodity'>
-  搜索结果为空
 </view>

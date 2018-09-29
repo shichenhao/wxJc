@@ -1,5 +1,7 @@
 /* pages/classifyDetaile/classifyDetaile.wxss */
-
+.box{
+  position: relative;
+}
 .searchBox{
   padding: 0 40rpx;
   padding-bottom:20rpx;

@@ -11,7 +11,10 @@
       <view class='span' data-item='{{item}}' bindtap='backOrder'>
         {{item.address}}
       </view>
-      <image src='/lib/images/adress_06.png' data-item='{{item}}' bindtap='addAddress'></image>
+      <view class='overShipping' wx:if="{{item.overShipping}}">
+        {{item.overShippingTxt}}
+      </view>
+      <image wx:if="{{!item.overShipping}}" src='/lib/images/adress_06.png' data-item='{{item}}' bindtap='addAddress'></image>
     </view>
   </view>
   <view bindtap='addAddress' class='addressAdd'>

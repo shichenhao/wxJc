@@ -1,5 +1,5 @@
 <!--pages/accredit/accredit.wxml-->
-<view class='box'>
+<view class='box' wx:if="{{isShow}}">
   <view>
     <image src='/lib/images/yd.png'></image>
     <button open-type="getUserInfo" bindgetuserinfo="login">

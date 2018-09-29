@@ -11,7 +11,7 @@
 }
 
 .addressItem{
-  padding: 30rpx 80rpx 30rpx 30rpx;
+  padding: 30rpx 120rpx 30rpx 30rpx;
   line-height: 60rpx;
   position: relative;
   background: url(http://7xu5hi.com1.z0.glb.clouddn.com/201809141541431695861.png) repeat-x;
@@ -26,6 +26,21 @@
   top: 34%;
   padding: 20rpx;
   transform: rotateY(-50%);
+}
+
+.overShipping{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 20rpx;
+  width: 100rpx;
+  font-size: 22rpx;
+  text-align: center;
+  color: #ff5959;
+  line-height: 38rpx;
 }
 
 

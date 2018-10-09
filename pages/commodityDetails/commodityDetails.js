@@ -1,5 +1,5 @@
 // pages/commodityDetails/commodityDetails.js
-var { globalData, isMobile} = getApp();
+var { globalData, isMobile, isLogin} = getApp();
 let WxParse = require('../../wxParse/wxParse.js');
 
 Page({
@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:null,
     data:{},
     selectCommodity:{},
     specifications:false,
@@ -28,10 +29,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData({ goodsId:options.id})
-    if (wx.getStorageSync('cart').length > 0) {
-      this.getCarNum();
-    }
+    isLogin(options.id, '/pages/commodityDetails/commodityDetails?id=', () => {
+      this.setData({
+        id:options.id
+      })
+      this.getData({ goodsId: options.id || 150 })
+      if (wx.getStorageSync('cart').length > 0) {
+        this.getCarNum();
+      }
+    })
   },
   getData: function (params){ //获取信息
     wx.http.postReq('appletClient?m=findClientBuildingMaterialsGoodsByIdInfo', params, (res) => {
@@ -206,7 +212,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '马管家建材',
-      path: '/pages/accredit/accredit'
+      path: '/pages/commodityDetails/commodityDetails?id=' + this.data.id
     }
   }
 })

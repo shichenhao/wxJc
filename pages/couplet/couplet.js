@@ -1,6 +1,6 @@
 // pages/couplet/couplet.js
 let WxParse = require('../../wxParse/wxParse.js');
-let { globalData } = getApp();
+let { globalData, isLogin } = getApp();
 Page({
 
   /**
@@ -28,4 +28,13 @@ Page({
   onLoad: function (options) {
     this.getInit();
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '马管家建材',
+      path: '/pages/couplet/couplet'
+    }
+  }
 })

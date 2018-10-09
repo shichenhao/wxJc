@@ -17,9 +17,9 @@
 .navCur{
   color:#ff5959;
 }
-.commodityImg{
+.commodityImg,.commodityImg image{
   width:100%;
-  height: 725rpx;
+  height: 750rpx;
   text-align: center;
 }
 

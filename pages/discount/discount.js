@@ -1,5 +1,6 @@
 // pages/discount/discount.js
 let WxParse = require('../../wxParse/wxParse.js');
+let { globalData, isLogin } = getApp();
 Page({
   data: {
     info:null
@@ -19,7 +20,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getInit(options.id)
+    isLogin(options.id, '/pages/discount/discount?id=', () => {
+      this.setData({
+        id: options.id
+      })
+      this.getInit(options.id)
+    })
   },
   /**
    * 用户点击右上角分享
@@ -27,7 +33,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '马管家建材',
-      path: '/pages/accredit/accredit'
+      path: '/pages/discount/discount?id=' + this.data.id
     }
   }
 })

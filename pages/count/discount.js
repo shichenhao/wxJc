@@ -1,5 +1,5 @@
 // pages/discount/discount.js
-let { globalData } = getApp();
+let { globalData, isLogin } = getApp();
 Page({
 
   /**
@@ -8,11 +8,12 @@ Page({
   data: {
     list:null
   },
-  getInit(){
+  getInit(id){
     let param = {
       businessType: 12,
-      agentId: globalData.agentId || 1
+      agentId: id || globalData.agentId
     }
+    globalData.shardAgentId = globalData.agentId
     wx.http.postReq('appletClient?m=findCouponsAllByBusinessType', param, (data) => {
       if (data.success) {
         var list = data.value;
@@ -37,15 +38,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getInit();
+    isLogin(options.id, '/pages/count/discount?id=', () => {
+      this.getInit(options.id || null);
+    })
+    /**
+     * if (options.longitude) {
+      globalData.localPosition.longitude = options.longitude
+      globalData.localPosition.latitude = options.latitude
+    }
+     */
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    let _this = this;
     return {
       title: '马管家建材',
-      path: '/pages/accredit/accredit'
+      path: '/pages/count/discount?id=' + globalData.shardAgentId
+      // + '&longitude=' + _this.globalData.localPosition.longitude + '&latitude' + _this.globalData.localPosition.latitude      
     }
   }
 })

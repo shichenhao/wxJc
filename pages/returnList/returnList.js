@@ -1,4 +1,5 @@
 // pages/returnList/returnList.js
+let { isLogin } = getApp();
 Page({
 
   /**
@@ -8,12 +9,17 @@ Page({
 
   },
   /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+  },
+  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
     return {
       title: '马管家建材',
-      path: '/pages/accredit/accredit'
+      path: '/pages/returnList/returnList'
     }
   }
 })

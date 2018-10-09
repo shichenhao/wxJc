@@ -1,5 +1,5 @@
-//var rootDocment = 'https://prelaunch.horsegj.com/merchant/';
-var rootDocment = 'https://wxapi.horsegj.com/merchant/'; //生产
+var rootDocment = 'https://prelaunch.horsegj.com/merchant/';
+// var rootDocment = 'https://wxapi.horsegj.com/merchant/'; //生产
 var header = {
   'Accept': 'application/json',
   'content-type': 'application/json'
@@ -56,6 +56,15 @@ function postReq(url, data, cb, alert) {
             url: '../bindPhone/bindPhone'
           });
           return false;
+        }
+        if (res.data.code === 100000 && res.data.value === 'token错误或已失效') {
+          wx.showToast({
+            title: '抱歉您没有登录，去登录！',
+            icon: 'none'
+          })
+          wx.navigateTo({
+            url: '../accredit/accredit'
+          });
         }
         //console.log(res)
         wx.hideLoading();

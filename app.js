@@ -84,6 +84,29 @@ App({
       cb();
     }
   },
+  isLogin(id, url, cb) {
+    this.globalData.isLoginId = id;
+    this.globalData.isLoginUrl = url+id;
+    let _this = this
+    // 查看是否授权
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          if (!wx.getStorageSync('token')) {
+            wx.navigateTo({
+              url: '../accredit/accredit',
+            });
+          } else {
+            cb();
+          }
+        } else {
+          wx.navigateTo({
+            url: '../accredit/accredit',
+          });
+        }
+      }
+    })
+  },
   onLaunch: function () {
     this.isInit();
     //this.globalData.userInfo = wx.getStorageSync('userInfo');

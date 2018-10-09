@@ -1,4 +1,5 @@
 // pages/sellerCommodity/sellerCommodity.js
+let { globalData, isLogin } = getApp();
 Page({
   data: {
     id: null,
@@ -178,8 +179,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getInit(options.id)
-    this.getList(options.id, 10, 0)
+    isLogin(options.id, '/pages/sellerHome/sellerHome?id=',()=>{
+      this.getInit(options.id)
+      this.getList(options.id, 10, 0)
+    })
   },
   /**
    * 页面上拉触底事件的处理函数
@@ -197,7 +200,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '马管家建材',
-      path: '/pages/accredit/accredit'
+      path: '/pages/sellerHome/sellerHome?id=' + this.data.id
     }
   }
 })

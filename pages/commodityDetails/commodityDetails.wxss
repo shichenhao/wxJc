@@ -132,6 +132,9 @@
   background: white;
   margin-top:22rpx;
 }
+.con4 image{
+  max-width: 100%!important;
+}
 .con4 .h3{
   display: flex;
   border-bottom:1rpx solid #eaeaea;
@@ -227,7 +230,6 @@
   bottom: auto;
   margin:0;
 }
-
 .con5{
   padding:40rpx 38rpx;
   background: white;

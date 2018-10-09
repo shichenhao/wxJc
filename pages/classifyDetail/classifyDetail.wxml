@@ -14,8 +14,8 @@
         </view>
       </view>
     </navigator>
-    <view class='itemBox' wx:for='{{item.goodsList}}' wx:for-item="i" wx:key="{{i.id}}">
-      <navigator url='/pages/commodityDetails/commodityDetails?id={{i.id}}' class='item' hover-class="none">
+    <view class='itemBox'>
+      <navigator url='/pages/commodityDetails/commodityDetails?id={{i.id}}' class='item' hover-class="none" wx:for='{{item.goodsList}}' wx:for-item="i" wx:key="{{i.id}}">
         <view class='imgBox'>
           <view class='leftTop'>
             <image wx:if="{{i.platformSubsidiesPrice}}" class='leftTopBg' src='/lib/images/leftTopBg.png'  mode="widthFix"></image>

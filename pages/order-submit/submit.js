@@ -98,6 +98,8 @@ Page({
     wx.http.postReq('appletClient?m=buildingMaterialsOrderServicePreview', params, (res) => {
       let { success, value } = res;
       if (success) {
+        globalData.commodityList = value.buildingMaterialsOrderItemList
+        wx.setStorageSync('commodityList', globalData.commodityList)
         let isShow = value.buildingMaterialsMerchant.receivingWayValue
         let shipmentType = this.data.shipmentType
         if (isShow == 1) {
@@ -313,6 +315,11 @@ Page({
     })
     this.setData({
       redPacketData
+    })
+  },
+  getAll(){
+    wx.navigateTo({
+      url: '../order-commodity/order-commodity',
     })
   },
   /**

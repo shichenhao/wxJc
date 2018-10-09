@@ -18,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ goodsScore: options.goodsScore})
+    this.setData({ goodsScore: options.goodsScore, merchantId: options.merchantId, goodsId:options.goodsId})
     this.getData(options.merchantId, options.goodsId);
   },
   getData(merchantId, goodsId){
@@ -53,9 +53,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log(this.data.page.isMore)
     if (this.data.page.isMore) {
-      this.getData()
+      this.getData(this.data.merchantId, this.data.goodsId)
     }
   },
 })

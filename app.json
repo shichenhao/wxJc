@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/accredit/accredit",
+    "pages/order-commodity/order-commodity",
     "pages/bindPhone/bindPhone",
     "pages/shopProcess/shopProcess",
     "pages/index/index",

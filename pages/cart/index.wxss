@@ -114,6 +114,7 @@
   bottom: 30rpx;
   left: 240rpx;
   right: 0;
+  font-weight: bold;
 }
 
 .evaluateItem .evaluateTxt .orderNumber view{

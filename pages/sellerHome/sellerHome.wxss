@@ -72,6 +72,7 @@ view{
   font-size:30rpx;
   position: relative;
   display: inline-block;
+  padding-right: 35rpx
 }
 .sellerName::after{
   content:"";
@@ -81,7 +82,7 @@ view{
   border-right:2px solid #fff;
   border-bottom:2px solid #fff;
   transform: rotate(45deg);
-  left:105%;
+  right:0;
   top:8rpx;
 }
 .sellerInfo::after{

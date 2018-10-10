@@ -19,14 +19,14 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ goodsScore: options.goodsScore, merchantId: options.merchantId, goodsId:options.goodsId})
-    this.getData(options.merchantId, options.goodsId);
+    this.getData(options.goodsId);
   },
-  getData(merchantId, goodsId){
+  getData(goodsId){
     let { page}=this.data;
     var params = {
       start:page.start,
       limit: page.limit,
-      merchantId: merchantId || this.data.merchantId,
+      //merchantId: merchantId || this.data.merchantId,
       goodsId: goodsId || this.data.goodsId,
     };
     wx.http.postReq('appletClient?m=findBuildingMaterialsGoodsCommentsList', params, (data) => {
@@ -54,7 +54,7 @@ Page({
    */
   onReachBottom: function () {
     if (this.data.page.isMore) {
-      this.getData(this.data.merchantId, this.data.goodsId)
+      this.getData( this.data.goodsId)
     }
   },
 })

@@ -22,9 +22,15 @@ Page({
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    server: {
+      '1': '正品保价',
+      '2': '专业服务',
+      '3': '品质保障',
+      '4': '送货到家',
+      '5': '七天无理由退换',
+      }
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -52,6 +58,13 @@ Page({
         selectCommodity.platformSubsidiesPrice = selectCommodity.platformSubsidiesPrice || 0
         selectCommodity.price = (selectCommodity.discountPrice ? selectCommodity.discountPrice - selectCommodity.platformSubsidiesPrice : selectCommodity.originalPrice - selectCommodity.platformSubsidiesPrice).toFixed(2);;
         selectCommodity.prices = (selectCommodity.discountPrice ? selectCommodity.discountPrice : selectCommodity.originalPrice).toFixed(2);
+        let servers = value.buildingMaterialsMerchant.merchantServices
+        if (servers){
+          value.buildingMaterialsMerchant.merchantServicesStr = ''
+          servers.split(',').map((i,index)=>{
+            value.buildingMaterialsMerchant.merchantServicesStr += this.data.server[i] + (index+1 !== servers.split(',').length ? '、' : '')
+          })
+        }
         this.setData({ 
           merchantName,
           data: value,

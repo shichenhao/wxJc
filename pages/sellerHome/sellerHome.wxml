@@ -93,10 +93,10 @@
   <view class='main main2' wx:if="{{isIndex}}">
       <view wx:for="{{info.homeRecommendedList}}" wx:key="index">
           <navigator wx:if="{{item.type === 2}}" url="/pages/commodityDetails/commodityDetails?id={{item.goodsId}}" class='home_picT' hover-class="none">
-            <image src='{{item.recommendedImg}}'></image>
+            <image src='{{item.recommendedImg}}' mode="widthFix"></image>
           </navigator>
           <navigator wx:if="{{item.type === 1}}" url="/pages/discount/discount?id={{item.activityId}}" class='home_picT' hover-class="none">
-            <image src='{{item.recommendedImg}}'></image>
+            <image src='{{item.recommendedImg}}' mode="widthFix"></image>
           </navigator>
       </view>
       <view bindtap='queryTypeList' data-type='0' class='more'>查看更多商品>></view>

@@ -17,7 +17,7 @@ Page({
     this.setData({
       editAddress: !!globalData.editAddress && globalData.editAddress,
       gender: !!globalData.editAddress ? globalData.editAddress.gender : "先生",
-      detailedAddress: !!globalData.editAddress && globalData.editAddress.detailedAddress ? globalData.editAddress.detailedAddress : false,
+      detailedAddress: !!globalData.editAddress && globalData.editAddress.address ? globalData.editAddress.address : false,
     })
   },
   changeGender(e){
@@ -42,7 +42,7 @@ Page({
     }
     params.gender = gender;
     params.detailedAddress = detailedAddress;
-    params.address = detailedAddress + params.houseNumber;
+    params.address = detailedAddress;
     params.latitude = latitude || editAddress.latitude; 
     params.longitude = longitude || editAddress.longitude; 
     wx.http.postReq('appletClient?m=editUserAddress', params, (res) => {

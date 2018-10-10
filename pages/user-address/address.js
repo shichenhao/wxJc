@@ -23,6 +23,12 @@ Page({
       let { success, value } = res;
       if (success) {
         //console.log(value);
+        value = value.map(item=>{
+          if (item.address.indexOf(item.houseNumber) !== -1){
+            item.address = item.address.replace(item.houseNumber,'')
+          }
+          return item
+        })
         this.setData({
           dataList:value
         })

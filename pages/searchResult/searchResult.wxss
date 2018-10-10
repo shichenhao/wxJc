@@ -35,12 +35,12 @@
 }
 .brandL{
   float:left;
-  padding-top:20rpx;
+  padding-top:8rpx;
   margin-right:20rpx;
 }
 .brandL image{
   width: 92rpx;
-  height: 39rpx;
+  height: 66rpx;
 }
 .brandRight{
   float:left;

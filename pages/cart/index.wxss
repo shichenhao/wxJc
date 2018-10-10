@@ -54,15 +54,18 @@
 }
 
 .orderTitle .span:nth-child(1){
-  padding-right: 35rpx;
   display: flex;
   align-items: center
 }
+.orderTitle .span:nth-child(1) navigator{
+  padding-right: 45rpx;
+  position: relative
+}
 
-.orderTitle .span:nth-child(1):after{
+.orderTitle .span:nth-child(1) navigator:after{
   content: '';
   position: absolute;
-  right: 0;
+  right: 10rpx;
   top: 14rpx;
   display: block;
   width: 12rpx;

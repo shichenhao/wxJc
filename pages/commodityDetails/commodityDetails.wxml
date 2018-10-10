@@ -24,7 +24,7 @@
     <view class="h2">{{data.goodsName}}</view>
     <view class='h2p'>{{data.goodsDescribe}}</view>
   </view>
-  <view class='con2'>
+  <view class='con2' wx:if="{{!!data.modelList[0].platformSubsidiesPrice || data.couponsList.length>0}}">
     <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
       <text class='text1'>补贴</text>
       <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
@@ -45,9 +45,9 @@
       <text class='con3_rowL'>选择型号</text>
       <text class='con3_rowR con3_rowR_1' bindtap='handleSpecifications'>{{isSelectCommodity ? selectCommodity.goodsModel + ',' + selectCommodity.quantity : '型号规格，购买数量'}}</text>
     </view>
-    <view class='con3_row'>
+    <view class='con3_row' wx:if="{{data.buildingMaterialsMerchant.merchantServices}}">
       <text class='con3_rowL'>服务说明</text>
-      <text class='con3_rowR'>包安装，不可退</text>
+      <text class='con3_rowR'>{{data.buildingMaterialsMerchant.merchantServicesStr}}</text>
     </view>
   </view>
   <!-- 用户评价 -->

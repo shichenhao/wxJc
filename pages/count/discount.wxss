@@ -16,6 +16,9 @@ background: -webkit-linear-gradient(top, #fe5c73, #ff2a3b);
 background: -o-linear-gradient(top, #fe5c73, #ff2a3b);
 background: linear-gradient(top, #fe5c73, #ff2a3b);
 background-color: #fe5c73;font-size:24rpx;border-radius: 20rpx;margin-top:30rpx;}
+.discount_lqH{
+  background: #ccc;
+}
 .discount_price{float:left;display: block;line-height: 90rpx;color:#ff2a3b;font-weight: bold;margin-right:20rpx;}
 .discount_name{float:left;display: block;padding-top:5rpx;color:#999;}
 .discount_name text{color:#151515}

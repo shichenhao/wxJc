@@ -17,10 +17,21 @@
 .navCur{
   color:#ff5959;
 }
-.commodityImg,.commodityImg image{
+.commodityImg{
   width:100%;
   height: 750rpx;
-  text-align: center;
+}
+
+.commodityImg swiper-item {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.commodityImg image{
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .con1{
@@ -199,18 +210,23 @@
   font-size:24rpx;
   color:#888;
 }
-.con3_row:last-child{
+.con3_row:nth-child(2){
   margin-top:58rpx;
 }
 .con3_rowL{
   color:#888;
   font-size:26rpx;
+  width: 150rpx;
 }
 .con3_rowR{
   color:#333;
   font-size:26rpx;
   position: relative;
   padding-right:25rpx;
+  text-align: right;
+}
+.con3_row:nth-child(2) .con3_rowR{
+  padding-right: 0;
 }
 .con3_rowR_1::after,.con4 .h3Right::after{
   content: "";

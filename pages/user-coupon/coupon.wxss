@@ -212,11 +212,7 @@
 }
 
 
-
-
-
-
-navigator{
+.navigator{
   text-align: center;
   color: #999;
   display: block;

@@ -32,7 +32,7 @@ Page({
     let page = this.data.page
     let param = {
       queryString,
-      //agentId: globalData.userInfo.agentId,
+      agentId: globalData.agentId,
       start: this.data.page.start,
       limit: this.data.page.limit
     }
@@ -58,7 +58,7 @@ Page({
     let page = this.data.page
     let param = {
       queryString,
-      //agentId: globalData.userInfo.agentId,
+      agentId: globalData.agentId,
       start: this.data.page.start,
       limit: this.data.page.limit
     }

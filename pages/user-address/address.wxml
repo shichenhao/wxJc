@@ -9,7 +9,7 @@
         {{item.name}} {{item.gender}} {{item.mobile}}
       </view>
       <view class='span' data-item='{{item}}' bindtap='backOrder'>
-        {{item.address}}
+        {{item.address + item.houseNumber}}
       </view>
       <view class='overShipping' wx:if="{{item.overShipping}}">
         {{item.overShippingTxt}}

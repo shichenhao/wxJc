@@ -25,14 +25,28 @@ Page({
   },
   receive(e) { //领取
     let couponsRulesId = e.currentTarget.dataset.id;
-    wx.http.postReq('/appletClient?m=getCouponsGetRecord', { couponsRulesId }, (data) => {
-      if (data.success) {
-        wx.showToast({
-          title: '领取成功',
-          icon: 'none'
-        })
-      }
-    })
+    let index = e.currentTarget.dataset.index;
+    let isReceive = e.currentTarget.dataset.receive;
+    if (!isReceive){
+      wx.http.postReq('/appletClient?m=getCouponsGetRecord', { couponsRulesId }, (data) => {
+        if (data.success) {
+          wx.showToast({
+            title: '领取成功',
+            icon: 'none'
+          })
+          let list = this.data.list
+          list[index].couponsList = list[index].couponsList.map(i => {
+            if (i.id === couponsRulesId) {
+              i.isReceive = 1
+            }
+            return i
+          })
+          this.setData({
+            list
+          })
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

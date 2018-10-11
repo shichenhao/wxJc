@@ -18,6 +18,11 @@
         placeholder='品质如何？合不合你心意？说出来告诉大家吧～'
         bindinput="changeEvaluateContent"></textarea>
     </view>
+    
+    <button bindtap="imgUpload" class='jia_img' >上传</button>
+    <view>
+      <image wx:for="{{imgList}}" src='{{item}}' wx:key="{{index}}"></image>
+    </view>
     <view class='scoreBottom'>
       <view class='scoreTopTit scoreTopTit2'>
         <image src='../../lib/images/shopIcon.png' mode='widthFix'></image>

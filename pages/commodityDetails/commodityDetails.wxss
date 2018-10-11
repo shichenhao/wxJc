@@ -25,13 +25,12 @@
 .commodityImg swiper-item {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  overflow: hidden;
 }
 
 .commodityImg image{
   min-width: 100%;
-  max-width: 100%;
-  max-height: 100%;
 }
 
 .con1{
@@ -69,6 +68,14 @@
   padding-top:38rpx;
   padding-bottom:18rpx;
 }
+
+.h2pp{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
 .con1 .h2p{
   color:#888;
   font-size:26rpx;

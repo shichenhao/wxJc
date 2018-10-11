@@ -1,30 +1,34 @@
 <!--pages/commodityDetails/commodityDetails.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
-<view class='navbox'>
+<view class='navbox' id='navbox'>
   <view class='nav'>
-    <view class='navList{{toView==="commodity"?" navCur":""}}' data-opt='commodity' bindtap='jumpTo'>商品</view>
-    <view class='navList{{toView==="evaluate"?" navCur":""}}' data-opt='evaluate' bindtap='jumpTo'>评价</view>
-    <view class='navList{{toView==="detail"?" navCur":""}}' data-opt='detail' bindtap='jumpTo'>详情</view>
+    <view class='navList{{isCommodity ? " navCur":""}}' data-opt='commodity' bindtap='jumpTo'>商品</view>
+    <view class='navList{{isEvaluate ? " navCur":""}}' data-opt='evaluate' bindtap='jumpTo'>评价</view>
+    <view class='navList{{isDetail ? " navCur":""}}' data-opt='detail' bindtap='jumpTo'>详情</view>
   </view>
 </view>
 <scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr">
   <swiper indicator-dots="{{indicatorDots}}" class='commodityImg' id="commodity" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:key="{{index}}">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
+        <image src="{{item}}" class="slide-image" mode='widthFix' />
       </swiper-item>
     </block>
   </swiper>
-  <view class='con1'>
+  <view class='con1' id='con1'>
     <view>
       <text class='price'><text>￥</text>{{selectCommodity.discountPrice || selectCommodity.originalPrice}}</text>
       <text class='oldPrice'>原价:￥<text>{{selectCommodity.originalPrice}}</text></text>
       <text class='salesVolume'>销量：{{selectCommodity.totalSaled}}</text>
     </view>
     <view class="h2">{{data.goodsName}}</view>
-    <view class='h2p'>{{data.goodsDescribe}}</view>
+    <view class='h2pp'>
+      <view class='h2p' wx:for="{{goodsDescribe}}">
+        {{item}}
+      </view>
+    </view>
   </view>
-  <view class='con2' wx:if="{{!!data.modelList[0].platformSubsidiesPrice || data.couponsList.length>0}}">
+  <view class='con2' id='con2' wx:if="{{!!data.modelList[0].platformSubsidiesPrice || data.couponsList.length>0}}">
     <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
       <text class='text1'>补贴</text>
       <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
@@ -40,7 +44,7 @@
     </view>
   </view>
   <!-- 选择规格 -->
-  <view class='con3'>
+  <view class='con3' id='con3'>
     <view class='con3_row'>
       <text class='con3_rowL'>选择型号</text>
       <text class='con3_rowR con3_rowR_1' bindtap='handleSpecifications'>{{isSelectCommodity ? selectCommodity.goodsModel + ',' + selectCommodity.quantity : '型号规格，购买数量'}}</text>
@@ -78,7 +82,7 @@
     </view>
   </view>
   <!-- 商家信息 -->
-  <view class='con4 con5'>
+  <view class='con4 con5' id='con5'>
     <view class="h3">
       <text class='h3Left'>商家信息</text>
     </view>

@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/evaluate/evaluate",
     "pages/accredit/accredit",
     "pages/order-commodity/order-commodity",
     "pages/bindPhone/bindPhone",
@@ -32,7 +33,6 @@
     "pages/newProduct/newProduct",
     "pages/promotion/promotion",
     "pages/order-detail/detail",
-    "pages/evaluate/evaluate",
     "pages/cart/index",
     "pages/evaluateList/evaluateList",
     "pages/commodityEvaluateList/commodityEvaluateList"

@@ -35,7 +35,7 @@
       <view bindtap='getAll'>
         共{{orderItems.buildingMaterialsOrderItemList.length}}种
       </view>
-      <image wx:for="{{orderItems.buildingMaterialsOrderItemList}}" wx:for-item="son" wx:for-index="sonItem" wx:key="{{sonItem}}" src='{{son.img}}'></image>
+      <image wx:for="{{orderItems.buildingMaterialsOrderItemList}}" wx:for-item="son" wx:for-index="sonItem" wx:key="{{sonItem}}" src='{{son.img[0]}}'></image>
     </view>
     <view class='div'>
       总价：

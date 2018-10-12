@@ -98,6 +98,10 @@ Page({
     wx.http.postReq('appletClient?m=buildingMaterialsOrderServicePreview', params, (res) => {
       let { success, value } = res;
       if (success) {
+        value.buildingMaterialsOrderItemList = value.buildingMaterialsOrderItemList.map(i=>{
+          i.img = i.img ? i.img.split(';') : []
+          return i
+        })
         globalData.commodityList = value.buildingMaterialsOrderItemList
         wx.setStorageSync('commodityList', globalData.commodityList)
         let isShow = value.buildingMaterialsMerchant.receivingWayValue

@@ -2,12 +2,12 @@
 <import src="../../wxParse/wxParse.wxml" />
 <view class='navbox' id='navbox'>
   <view class='nav'>
-    <view class='navList{{isCommodity ? " navCur":""}}' data-opt='commodity' bindtap='jumpTo'>商品</view>
-    <view class='navList{{isEvaluate ? " navCur":""}}' data-opt='evaluate' bindtap='jumpTo'>评价</view>
-    <view class='navList{{isDetail ? " navCur":""}}' data-opt='detail' bindtap='jumpTo'>详情</view>
+    <view class='navList{{ isCommodity ?" navCur":""}}' data-opt='commodity' bindtap='jumpTo'>商品</view>
+    <view class='navList{{isEvaluate ?" navCur":""}}' data-opt='evaluate' bindtap='jumpTo'>评价</view>
+    <view class='navList{{isDetail ?" navCur":""}}' data-opt='detail' bindtap='jumpTo'>详情</view>
   </view>
 </view>
-<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr">
+<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr" bindscroll="scroll">
   <swiper indicator-dots="{{indicatorDots}}" class='commodityImg' id="commodity" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:key="{{index}}">
       <swiper-item>

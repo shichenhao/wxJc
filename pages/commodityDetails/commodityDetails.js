@@ -48,6 +48,7 @@ Page({
 
   scroll(e) {
     let scrollTop = e.detail.scrollTop; //滚动的Y轴
+    console.log(scrollTop);
     let { navboxH, commodityH, con1H, con2H, con3H, evaluateH, con5H } = this.data;
     let evaluateH1 = commodityH + con1H + con2H + con3H;
     let detailH = evaluateH1 + con5H;

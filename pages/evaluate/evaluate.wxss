@@ -4,8 +4,16 @@ Page {
 }
 .scoreBox{
   font-size: 28rpx;
+}
+
+.scoreTop,.scoreBottom{
   padding: 0 25rpx;
 }
+
+.scoreBottom{
+  border-top: 20rpx solid #f4f4f4;
+}
+
 .scoreTopTit{
   border-bottom: 1px solid #eaeaea;
   height: 110rpx;
@@ -72,4 +80,44 @@ Page {
   font-size: 34rpx;
   font-weight: bold;
   color: #fff;
+}
+
+.imgList{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  padding: 0 15rpx 15px;
+}
+
+.imgList view{
+  padding: 10rpx;
+  width: 140rpx;
+  height: 140rpx;
+  margin: 10rpx;
+  border:1px solid #ccc;
+  border-radius: 4rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgList view image{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.imgList text{
+  display: block;
+  color: #999;
+  width: 100%;
+  padding: 10px 10px 0;
+}
+
+.jia_img{
+  width: 160rpx;
+  height: 160rpx;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com//201810121229475542956.0);
+  background-size: 100%;
+  border:0 none;
+  margin: 10rpx;
 }

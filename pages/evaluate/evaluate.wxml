@@ -16,12 +16,12 @@
       </view>
       <textarea class='scoreTextarea'
         placeholder='品质如何？合不合你心意？说出来告诉大家吧～'
-        bindinput="changeEvaluateContent"></textarea>
+        bindinput="changeEvaluateContent" maxlength='200'></textarea>
     </view>
-    
-    <button bindtap="imgUpload" class='jia_img' >上传</button>
-    <view>
-      <image wx:for="{{imgList}}" src='{{item}}' wx:key="{{index}}"></image>
+    <view class='imgList'>
+      <view wx:for="{{imgList}}" wx:key="{{index}}"><image mode='widthFix' src='{{item}}'></image></view>
+      <button bindtap="imgUpload" class='jia_img' wx:if="{{imgList.length<6}}"></button>
+      <text>最多上传6张</text>
     </view>
     <view class='scoreBottom'>
       <view class='scoreTopTit scoreTopTit2'>

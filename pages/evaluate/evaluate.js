@@ -48,14 +48,18 @@ Page({
     })
   },
   submit(){
-    let { widthS, widthC, valuateContent}=this.data;
+    let { widthS, widthC, valuateContent, imgList }=this.data;
     let params={
       orderId: globalData.orderDetail.id,
       orderItemId: globalData.evalId,
       content: valuateContent,
+      images: imgList.join(';'),
       goodsScore: widthC,
       merchantScore: widthS
     };
+
+
+
     wx.http.postReq('appletClient?m=createBuildingMaterialsGoodsComments', params, (res) => {
       let { success, value } = res;
       if (success) {
@@ -78,10 +82,10 @@ Page({
     })
   },
   imgUpload(e) { //评价上传
-
+    let that = this
 
     wx.chooseImage({
-        count: 1,
+        count: 6,
         success(res) {
           wx.http.postReq('appletClient?m=getUploadImgParams', {}, (getToken) => {
             let {
@@ -91,23 +95,35 @@ Page({
             } = getToken.value
 
             initQiniu(domain);
-            var filePath = res.tempFilePaths[0];
+            var filePath = res.tempFilePaths;
             // 交给七牛上传
-            qiniuUploader.upload(filePath, (data) => {
-              let imgList = this.data.imgList
-              imgList.push(data.imageURL)
-              this.setData({
-                imgList
-              })
-              console.log(imgList)
-            }, (error) => {
-              console.log('error: ' + JSON.stringify(error));
-            }, {
-                key:key+'png',
-                uptoken: uploadToken,
-                region: 'ECN', // 华北区
-              });
-
+            var imgList = that.data.imgList
+            wx.showLoading({
+              title: '上传中，请稍等...',
+            })
+            for (var i = 0; i < filePath.length; i++) {
+              console.log(imgList.length + 1)
+              if (imgList.length + filePath.length <= 6){
+                qiniuUploader.upload(filePath[i], (data) => {
+                  imgList.push(data.imageURL)
+                  that.setData({
+                    imgList
+                  })
+                }, (error) => {
+                  console.log('error: ' + JSON.stringify(error));
+                }, {
+                    key: key.slice(0, 17) + parseInt(Math.random() * (9999 - 1000 + 1) + 1000)+'.png',
+                    uptoken: uploadToken,
+                    region: 'ECN', // 华北区
+                  });
+              } else {
+                wx.showToast({
+                  title: '最多上传6张照片请重新选择',
+                  icon: 'none'
+                })
+              }
+            }
+            wx.hideLoading();
           })
         }
       })

@@ -234,7 +234,7 @@ Page({
               return (son.price * son.quantity).toFixed(2);
             })
             item.numPrice = item.priceList.reduce((a,b)=>{
-              return (a + b).toFixed(2);
+              return (a*1 + b*1).toFixed(2);
             })
             return item
           })

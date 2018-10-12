@@ -10,6 +10,7 @@ Page({
   data: {
     id: null,
     data: {},
+    isCommodity:true,
     selectCommodity: {},
     specifications: false,
     quantity: 1,
@@ -97,6 +98,7 @@ Page({
 
         let goodsDescribe = value.goodsDescribe
         goodsDescribe = goodsDescribe.split('\n')
+        value.comments.imagesObj = value.comments.images ? value.comments.images.split(';') : []
         this.setData({
           goodsDescribe,
           merchantName,

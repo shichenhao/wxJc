@@ -7,7 +7,7 @@
     <view class='navList{{isDetail ? " navCur":""}}' data-opt='detail' bindtap='jumpTo'>详情</view>
   </view>
 </view>
-<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr">
+<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr" bindscroll="scroll">
   <swiper indicator-dots="{{indicatorDots}}" class='commodityImg' id="commodity" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}" wx:key="{{index}}">
       <swiper-item>
@@ -72,6 +72,9 @@
           <image src='../../lib/images/brandDefault.png'></image>
           <image src='../../lib/images/brandDefault.png'></image>
         </view> -->
+        <view class='evaluateImg'>
+          <view wx:for="{{data.comments.imagesObj}}" wx:key="index" wx:for-item="i"><image src='{{i}}' mode='widthFix'></image></view>
+        </view>
         <view class='evaluateTxt'>
           {{data.comments.content}}
         </view>

@@ -66,7 +66,7 @@
       <text class='home_showAB' wx:if="{{item.nameType === 1}}">Home decoration</text>
       <text class='home_showAB' wx:if="{{item.nameType === 2}}">Soft Decoration</text>
       <text class='home_showAB' wx:if="{{item.nameType === 3}}">Living Furniture</text>
-      <text class='home_showAB' wx:if="{{item.nameType === 4}}">electric appliance</text>
+      <text class='home_showAB' wx:if="{{item.nameType === 4}}">Electric Appliance</text>
       <text class='home_showAB' wx:if="{{item.nameType === 5}}">Building material</text>
     </view>
     <view class='home_Hotpic'>

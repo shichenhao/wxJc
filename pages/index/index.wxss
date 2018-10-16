@@ -155,7 +155,7 @@
 .home_show_tit {
   text-align: center;
   color: #252525;
-  font-size: 32rpx;
+  font-size: 30rpx;
   line-height: 46rpx;
   padding: 32rpx 0;
 }
@@ -181,7 +181,7 @@
 }
 
 .color1  text {
-  color: #d3372d;
+  color: #39c5f3;
 }
 .color2  text {
   color: #16b780;

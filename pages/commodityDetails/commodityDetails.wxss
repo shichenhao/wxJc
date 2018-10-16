@@ -23,15 +23,19 @@
 }
 
 .commodityImg swiper-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  position: relative
 }
 
 .commodityImg image{
-  min-width: 100%;
+  
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
+
 
 .con1{
   padding:40rpx 38rpx;
@@ -491,3 +495,21 @@ page{
   margin:20rpx 0 0;
 }
 
+.scroollTop{
+  width: 74rpx;
+  height: 74rpx;
+  position: fixed;
+  right: 10rpx;
+  bottom: 108rpx;
+  opacity: 0;
+  color: #333;
+  background: #fff;
+  z-index: 1;
+  transition: .3s all;
+  background: url(http://7xu5hi.com1.z0.glb.clouddn.com//201810151542116355199.png) no-repeat;
+  background-size: 100%;
+}
+
+.scroollTopS{
+  opacity: .8
+}

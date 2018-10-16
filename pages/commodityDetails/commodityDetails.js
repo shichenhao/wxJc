@@ -1,6 +1,7 @@
 // pages/commodityDetails/commodityDetails.js
-var { globalData, isMobile, isLogin } = getApp();
+let { globalData, isMobile, isLogin } = getApp();
 let WxParse = require('../../wxParse/wxParse.js');
+let imageUtil = require("../../utils/images.js");
 
 Page({
 
@@ -8,6 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    topNum: 0,
+    isScroll: false,
     id: null,
     data: {},
     isCommodity:true,
@@ -20,6 +23,7 @@ Page({
     toView: 'commodity',
     goodsDescribe:[],
     imgUrls: [],
+    imgUrlsW: [],
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
@@ -46,13 +50,53 @@ Page({
       }
     })
   },
+  // 返回顶部
+  scroollTop() {
+    this.setData({
+      topNum: 0,
+    })
+  },
+  imageLoad(e) {
+    let imageSize = imageUtil.imageUtil(e)
+    let imgUrlsW = this.data.imgUrlsW
+    imgUrlsW = imgUrlsW.map((i)=>{
+      if (i.width || i.height){
+        return i
+      }else{
+        return { height: 0, width: 0}
+      }
+    })
+    //console.log(imageSize)
+    //console.log(imgUrlsW, e.target.dataset.index)
+    if (imageSize.originalWidth > 750 && imageSize.originalHeight > 750){
+      if (imageSize.originalWidth > imageSize.originalHeight) {
+        imgUrlsW[e.target.dataset.index].height = 750
+        imgUrlsW[e.target.dataset.index].width = 750 / imageSize.originalScale
+      } else {
+        imgUrlsW[e.target.dataset.index].width = 750
+        imgUrlsW[e.target.dataset.index].width = imageSize.originalScale * 750
+      }
+    } else {
+      if (imageSize.originalWidth > imageSize.originalHeight) {
+        imgUrlsW[e.target.dataset.index].width = 750
+        imgUrlsW[e.target.dataset.index].height = imageSize.originalScale * 750
+      } else {
+        imgUrlsW[e.target.dataset.index].height = 750
+        imgUrlsW[e.target.dataset.index].width = 750 / imageSize.originalScale
+      }
+    }
+    this.setData({
+      imgUrlsW
+    })
+    
+  },
 
   scroll(e) {
     let scrollTop = e.detail.scrollTop; //滚动的Y轴
-    console.log(scrollTop);
+    //console.log(scrollTop);
     let { navboxH, commodityH, con1H, con2H, con3H, evaluateH, con5H } = this.data;
     let evaluateH1 = commodityH + con1H + con2H + con3H;
-    let detailH = evaluateH1 + con5H;
+    let detailH = evaluateH1 + con5H + evaluateH;
     if (scrollTop < evaluateH1 && !this.data.isCommodity) {
       this.setData({
         isCommodity: true,
@@ -99,13 +143,16 @@ Page({
 
         let goodsDescribe = value.goodsDescribe
         goodsDescribe = goodsDescribe.split('\n')
-        value.comments.imagesObj = value.comments.images ? value.comments.images.split(';') : []
+        if (value.comments){
+          value.comments.imagesObj = value.comments.images ? value.comments.images.split(';') : []
+        }
         this.setData({
           goodsDescribe,
           merchantName,
           data: value,
           selectCommodity,
-          imgUrls: value.imgs.split(';')
+          imgUrls: value.imgs.split(';'),
+          imgUrlsW: value.imgs.split(';')
         }, () => {
           let obj = wx.createSelectorQuery();
           let navboxH = 0;
@@ -200,6 +247,9 @@ Page({
         });
       }
     });
+  },
+  pushCartShow(){
+    this.setData({ specifications: true });
   },
   pushCart: function () { //加入购物车
     let { isSelectCommodity } = this.data;

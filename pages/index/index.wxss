@@ -196,6 +196,10 @@
   color: #bf8325;
 }
 
+.color5  text {
+  color: #d3372d;
+}
+
 .home_show_list {
   clear: both;
   padding: 0 30rpx;

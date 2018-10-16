@@ -128,4 +128,16 @@ Page({
         }
       })
   },
+  // 删除图片
+  delImg(e){
+    let index = e.currentTarget.dataset.index;
+    let imgList = this.data.imgList;
+    imgList = imgList.filter((item,i)=>{
+      return index !== i
+    })
+    console.log(imgList)
+    this.setData({
+      imgList
+    })
+  }
 })

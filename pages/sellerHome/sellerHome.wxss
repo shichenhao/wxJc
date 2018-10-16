@@ -54,7 +54,7 @@ view{
 }
 
 .headerTopL{
-  flex:4;
+  flex:5;
   display: flex;
   position: relative;
   margin-top:56rpx;

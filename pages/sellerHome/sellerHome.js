@@ -29,6 +29,9 @@ Page({
           info,
           id: merchantId
         })
+        if (!info.homeRecommendedList || info.homeRecommendedList.length===0){
+          this.queryTypeList(0)
+        }
       }
     })
   },
@@ -65,7 +68,7 @@ Page({
     })
   },
   queryTypeList(e) { // 通过类型查商品
-    let queryType = e.currentTarget.dataset.type - 0;
+    let queryType = e.currentTarget ? e.currentTarget.dataset.type - 0 : e;
     let page = {
       limit: 10,
       start: 0,

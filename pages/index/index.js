@@ -229,7 +229,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '马管家建材',
-      path: '/pagse/accredit/accredit'
+      path: '/pages/accredit/accredit'
     }
   }
 })

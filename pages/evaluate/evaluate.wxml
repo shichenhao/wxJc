@@ -19,7 +19,10 @@
         bindinput="changeEvaluateContent" maxlength='200'></textarea>
     </view>
     <view class='imgList'>
-      <view wx:for="{{imgList}}" wx:key="{{index}}"><image mode='widthFix' src='{{item}}'></image></view>
+      <view wx:for="{{imgList}}" wx:key="{{index}}">
+        <image mode='widthFix' src='{{item}}'></image>
+        <text data-index="{{index}}" bindtap='delImg'>✖</text>
+      </view>
       <button bindtap="imgUpload" class='jia_img' wx:if="{{imgList.length<6}}"></button>
       <text>最多上传6张</text>
     </view>

@@ -5,6 +5,10 @@
   font-size: 26rpx;
 }
 
+input{
+  width: 300rpx;
+}
+
 .container view{
   position: relative;
   height: 90rpx;

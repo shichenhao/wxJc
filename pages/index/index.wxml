@@ -61,7 +61,14 @@
   </view>
   <!--家具-->
   <view class='home_show' wx:for="{{list}}" wx:key="item.id">
-    <view class='home_show_tit  color{{item.nameType}}'><view><text>{{item.name}} · </text>馆</view><text class='home_showAB'>Living Furniture</text></view>
+    <view class='home_show_tit  color{{item.nameType}}'>
+      <view><text>{{item.name}} · </text>馆</view>
+      <text class='home_showAB' wx:if="{{item.nameType === 1}}">Home decoration</text>
+      <text class='home_showAB' wx:if="{{item.nameType === 2}}">Soft Decoration</text>
+      <text class='home_showAB' wx:if="{{item.nameType === 3}}">Living Furniture</text>
+      <text class='home_showAB' wx:if="{{item.nameType === 4}}">electric appliance</text>
+      <text class='home_showAB' wx:if="{{item.nameType === 5}}">Building material</text>
+    </view>
     <view class='home_Hotpic'>
       <navigator wx:if="{{item.type === 2}}" url="/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" class='home_picT' hover-class="none">
         <image src='{{item.image}}'></image>

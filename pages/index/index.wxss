@@ -155,7 +155,7 @@
 .home_show_tit {
   text-align: center;
   color: #252525;
-  font-size: 34rpx;
+  font-size: 32rpx;
   line-height: 46rpx;
   padding: 32rpx 0;
 }
@@ -175,30 +175,30 @@
 }
 
 .home_showAB {
-  font-size: 18rpx;
+  font-size: 20rpx;
   line-height: 18rpx;
   display: block;
 }
 
 .color1  text {
+  color: #d3372d;
+}
+.color2  text {
+  color: #16b780;
+}
+.color3  text {
   color: #9c76a6;
 }
 
-.color2  text {
+.color4  text {
   color: #688dff;
 }
 
-.color3  text {
-  color: #16b780;
-}
 
-.color4  text {
+.color5  text {
   color: #bf8325;
 }
 
-.color5  text {
-  color: #d3372d;
-}
 
 .home_show_list {
   clear: both;

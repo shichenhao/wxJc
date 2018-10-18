@@ -62,7 +62,11 @@
   <!--家具-->
   <view class='home_show' wx:for="{{list}}" wx:key="item.id">
     <view class='home_show_tit  color{{item.nameType}}'>
-      <view><text>{{item.name}} · </text>馆</view>
+      <view wx:if="{{item.nameType === 1}}"><text>家装 · </text>馆</view>
+      <view wx:if="{{item.nameType === 2}}"><text>软装 · </text>馆</view>
+      <view wx:if="{{item.nameType === 3}}"><text>家具 · </text>馆</view>
+      <view wx:if="{{item.nameType === 4}}"><text>家电 · </text>馆</view>
+      <view wx:if="{{item.nameType === 5}}"><text>建材 · </text>馆</view>
       <text class='home_showAB' wx:if="{{item.nameType === 1}}">Home decoration</text>
       <text class='home_showAB' wx:if="{{item.nameType === 2}}">Soft Decoration</text>
       <text class='home_showAB' wx:if="{{item.nameType === 3}}">Living Furniture</text>

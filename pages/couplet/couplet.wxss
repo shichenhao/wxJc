@@ -1,4 +1,7 @@
 .container{background:#f64c57}
+.container image{
+  display: block;
+}
 .couplet_ban image{width:100%}
 .couplet_msg{text-align: center;color:#fff;padding:28rpx 30rpx 0;font-size:30rpx;line-height: 40rpx;text-shadow: 5rpx 5rpx 5rpx #da434d}
 .couplet_list{min-height:543rpx;margin-top:-5rpx;padding:170rpx 30rpx 0;}

@@ -74,6 +74,7 @@
 }
 
 .h2pp{
+  line-height: 45rpx;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -83,6 +84,7 @@
 .con1 .h2p{
   color:#888;
   font-size:26rpx;
+  min-width: 50%;
 }
 
 .con2{
@@ -156,6 +158,7 @@
 }
 .con4 image{
   max-width: 100%!important;
+  display: block
 }
 .con4 .h3{
   display: flex;

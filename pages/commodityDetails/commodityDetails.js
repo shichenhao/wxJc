@@ -68,13 +68,13 @@ Page({
     })
     //console.log(imageSize)
     //console.log(imgUrlsW, e.target.dataset.index)
-    if (imageSize.originalWidth > 750 && imageSize.originalHeight > 750){
+    if (imageSize.originalWidth > 750 && imageSize.originalHeight > 750) {
       if (imageSize.originalWidth > imageSize.originalHeight) {
         imgUrlsW[e.target.dataset.index].height = 750
         imgUrlsW[e.target.dataset.index].width = 750 / imageSize.originalScale
       } else {
         imgUrlsW[e.target.dataset.index].width = 750
-        imgUrlsW[e.target.dataset.index].width = imageSize.originalScale * 750
+        imgUrlsW[e.target.dataset.index].height = imageSize.originalScale * 750
       }
     } else {
       if (imageSize.originalWidth > imageSize.originalHeight) {

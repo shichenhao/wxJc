@@ -24,24 +24,24 @@
     </view>
     <view class="h2">{{data.goodsName}}</view>
     <view class='h2pp'>
-      <view class='h2p' wx:for="{{goodsDescribe}}" wx:key="{{index}}">
-        {{item}}
-      </view>
+      <view class='h2p' wx:for="{{goodsDescribe}}" wx:key="{{index}}">{{item}}</view>
     </view>
   </view>
-  <view class='con2' id='con2' wx:if="{{!!data.modelList[0].platformSubsidiesPrice || data.couponsList.length>0}}">
-    <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
-      <text class='text1'>补贴</text>
-      <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
-    </view>
-    <view wx:if="{{data.couponsList.length>0}}">
-      <text class='text1 text1bg'>促销</text>
-      <text class='text2 text2_2'>
-        <text wx:for="{{data.couponsList}}" wx:key="id">满{{item.restrictAmt}}元减{{item.couponsAmt}}元</text>
-      </text>
-      <navigator class='text3' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
-        立即领取
-      </navigator>
+  <view id='con2'>
+    <view class='con2' wx:if="{{!!data.modelList[0].platformSubsidiesPrice || data.couponsList.length>0}}">
+      <view class='con2_1' wx:if="{{!!data.modelList[0].platformSubsidiesPrice}}">
+        <text class='text1'>补贴</text>
+        <text class='text2'>平台补贴{{!data.modelList[0]?0:data.modelList[0].platformSubsidiesPrice}}元</text>
+      </view>
+      <view wx:if="{{data.couponsList.length>0}}">
+        <text class='text1 text1bg'>促销</text>
+        <text class='text2 text2_2'>
+          <text wx:for="{{data.couponsList}}" wx:key="id">满{{item.restrictAmt}}元减{{item.couponsAmt}}元</text>
+        </text>
+        <navigator class='text3' url='/pages/sellerHome/sellerHome?id={{data.merchantId}}' hover-class='none'>
+          立即领取
+        </navigator>
+      </view>
     </view>
   </view>
   <!-- 选择规格 -->

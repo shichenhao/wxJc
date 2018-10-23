@@ -19,6 +19,7 @@ Page({
     // 横屏广告
     promotion: null,
     indicatorDots: false,
+    current:0,
     autoplay: true,
     interval: 4000,
     duration: 500,
@@ -95,7 +96,8 @@ Page({
       if (data.success) {
         let banner = data.value
         this.setData({
-          banner
+          banner,
+          current:0
         })
         //console.log(banner)
       }
@@ -171,6 +173,7 @@ Page({
     //console.log(111, app.globalData.localPosition)
     app.isInit(()=>{
       if (app.globalData.localPosition){
+        console.log(1)
         this.getInit();
         if(app.globalData.userInfo.token){
           this.receiveRed()

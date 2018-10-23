@@ -1,8 +1,8 @@
 <view class="container">
   <view class="home_ban">
     <swiper indicator-dots="{{indicatorDots}}" class='banner'
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{banner}}" wx:key="item.index">
+    autoplay="{{autoplay}}" interval="{{interval}}" current='{{current}}' duration="{{duration}}">
+      <block wx:for="{{banner}}" wx:key="{{item.index}}" wx:if="{{banner.length>0}}">
         <swiper-item>
           <navigator wx:if="{{item.type === 2}}" url="/pages/commodityDetails/commodityDetails?id={{item.goods.id}}" class='home_picT' hover-class="none">
             <image src='{{item.image}}'></image>
@@ -148,9 +148,7 @@
       <view class='home_goodR_tit'>
           <text wx:if="{{item.buildingMaterialsGoods.modelList[0].platformSubsidiesPrice}}">补贴</text> {{item.buildingMaterialsGoods.goodsName}}
       </view>
-      <view class='home_goodR_text'>
-        {{item.recommendReason}}
-      </view>
+      <view class='home_goodR_text'>{{item.recommendReason}}</view>
     </view>
   </view>
   <view class='redBagCount {{isLogin ? "active" : ""}}' wx:if="{{redType}}">

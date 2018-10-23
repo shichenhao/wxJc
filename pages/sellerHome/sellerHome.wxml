@@ -41,7 +41,7 @@
         </view>
       </view>
       <!-- 优惠卷 -->
-      <view wx:if="{{isIndex}}" class='discountBox'>
+      <view wx:if="{{isIndex && info.couponsList.length>0}}" class='discountBox'>
         <scroll-view class='discount' scroll-x>
           <view class='yhList' wx:for="{{info.couponsList}}" data-id='{{item.id}}' wx:key="id" bindtap='receive'>
             <view class='yhListUp'>

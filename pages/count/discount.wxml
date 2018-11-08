@@ -16,7 +16,7 @@
           </view>
           <text class='discount_price'>¥<text class='home_picT86'>{{son.couponsAmt}}</text></text>
           <text class='discount_name'>
-            <text>{{item.name}}</text>
+            <text>{{son.name}}</text>
             满{{son.restrictAmt}}元可用
           </text>
          </view>

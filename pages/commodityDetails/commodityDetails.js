@@ -238,7 +238,12 @@ Page({
           icon: 'none'
         })
       } else {
-        globalData.selectCommodity = [this.data.selectCommodity];
+        globalData.selectCommodity = [{
+          goodsId: this.data.selectCommodity.goodsId,
+          goodsModelId: this.data.selectCommodity.goodsModelId,
+          quantity: this.data.selectCommodity.quantity,
+          price: this.data.selectCommodity.price,
+        }];
         globalData.agentId = this.data.data.agentId;
         globalData.MerAgentId = this.data.data.agentId
 

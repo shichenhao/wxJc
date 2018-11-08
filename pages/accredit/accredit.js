@@ -2,65 +2,64 @@
 var app = getApp();
 Page({
   getToken(key) {
-    wx.login({ //登录
-      success: ress => {
-        wx.setStorageSync('codeWX', ress.code)
-        var key = null
-        wx.http.postReq('appletClient?m=appletLoginBefore', { code: ress.code }, (getKey) => { // 获取key
-          if (getKey.success) {
-            key = getKey.value.key;
-            app.globalData.openId = key;
-            //console.log(e.detail.userInfo)
-            // 存储code
-            wx.setStorageSync('code', key)
-            
-
-            wx.getUserInfo({
-              success: function (e) {
-                console.log(e)
-                wx.setStorageSync('wxInfo', e.userInfo)
-                var params = {
-                  encryptedData: e.encryptedData,
-                  iv: e.iv,
-                  key,
-                  code: key,
-                  longitude: app.globalData.localPosition.longitude,
-                  latitude: app.globalData.localPosition.latitude
-                };
-                wx.http.postReq('appletClient?m=appletLogin', params, (data) => {
-                  //console.log(data)
-                  if (data.success) {
-                    if (app.globalData.isLoginId) {
-                      wx.navigateTo({
-                        url: app.globalData.isLoginUrl
-                      });
-                    } else {
-                      wx.switchTab({
-                        url: '../index/index',
-                      });
+    app.isInit(()=>{
+      wx.login({ //登录
+        success: ress => {
+          wx.setStorageSync('codeWX', ress.code)
+          var key = null
+          wx.http.postReq('appletClient?m=appletLoginBefore', { code: ress.code }, (getKey) => { // 获取key
+            if (getKey.success) {
+              key = getKey.value.key;
+              app.globalData.openId = key;
+              //console.log(e.detail.userInfo)
+              // 存储code
+              wx.setStorageSync('code', key)
+              wx.getUserInfo({
+                success: function (e) {
+                  wx.setStorageSync('wxInfo', e.userInfo)
+                  var params = {
+                    encryptedData: e.encryptedData,
+                    iv: e.iv,
+                    key,
+                    code: key,
+                    longitude: app.globalData.localPosition.longitude,
+                    latitude: app.globalData.localPosition.latitude
+                  };
+                  wx.http.postReq('appletClient?m=appletLogin', params, (data) => {
+                    //console.log(data)
+                    if (data.success) {
+                      if (app.globalData.isLoginId) {
+                        wx.navigateTo({
+                          url: app.globalData.isLoginUrl
+                        });
+                      } else {
+                        wx.switchTab({
+                          url: '../index/index',
+                        });
+                      }
+                      /**
+                       *
+                      wx.navigateBack({
+                        delta: 2
+                      })
+                      */
+                      /*wx.redirectTo({
+                        url: '/pages/user/index'
+                      })*/
+                      // 存储登录信息
+                      app.globalData.userInfo = data.value
+                      wx.setStorageSync('userInfo', data.value)
+                      app.globalData.userInfo = wx.getStorageSync("userInfo")
+                      wx.setStorageSync('token', data.value.token)
                     }
-                    /**
-                     *
-                    wx.navigateBack({
-                      delta: 2
-                    })
-                     */
-                    /*wx.redirectTo({
-                      url: '/pages/user/index'
-                    })*/
-                    // 存储登录信息
-                    app.globalData.userInfo = data.value
-                    wx.setStorageSync('userInfo', data.value)
-                    app.globalData.userInfo = wx.getStorageSync("userInfo")
-                    wx.setStorageSync('token', data.value.token)
-                  }
-                })
-              }
-            })
-            // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          }
-        })
-      }
+                  })
+                }
+              })
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            }
+          })
+        }
+      })
     })
   },
   login(ee) {

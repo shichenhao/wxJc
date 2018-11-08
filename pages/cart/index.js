@@ -160,12 +160,12 @@ Page({
     this.data.cartList.map(item => {
       item.list.map(son => {
         if(son.check){
-          carMoney += 1*(son.quantity * son.prices).toFixed(2);
+          carMoney += 1*(son.quantity * son.prices);
         }
       })
     })
     this.setData({
-      carMoney
+      carMoney: carMoney.toFixed(2)
     })
   },
   zhifuOne(e){ // 单个商家支付
@@ -174,7 +174,14 @@ Page({
       let cartList = this.data.cartList;
       let cartArr = this.data.isCartList.map(item => {
         if (item.merchant.id == merchantId) {
-          globalData.selectCommodity = item.list
+          globalData.selectCommodity = item.list.map(item=>{
+            return {
+              goodsId: item.goodsId,
+              goodsModelId: item.goodsModelId,
+              quantity: item.quantity,
+              price: item.price,
+            }
+          })
           globalData.receivingWayValue = item.merchant.receivingWayValue == 3 ? 3 : 1
           globalData.MerAgentId = item.merchant.agentId
         }
@@ -253,6 +260,13 @@ Page({
               globalData.receivingWayValue = item.merchant.receivingWayValue == 3 ? 3 : 1
               globalData.selectCommodity = item.list.filter(son=>{
                 return son.check
+              }).map(item => {
+                return {
+                  goodsId: item.goodsId,
+                  goodsModelId: item.goodsModelId,
+                  quantity: item.quantity,
+                  price: item.price,
+                }
               })
             }
           })

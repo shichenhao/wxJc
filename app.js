@@ -60,9 +60,10 @@ App({
         })
       },
       fail(err) {
-        wx.showToast({
-          title: '授权失败',
-          icon: 'none'
+        wx.showModal({
+          showCancel: false,
+          title: '用户未授权',
+          content: '如需正常使用马管家小程序功能，请进入小程序设置界面，勾选地理位置并点击确定。',
         })
       }
     })

@@ -31,8 +31,8 @@
       <navigator url='/pages/commodityDetails/commodityDetails?id={{obj.id}}' hover-class='none' class='item' wx:for="{{item.goodsList}}" wx:for-item="obj" wx:key="{{obj.id}}">
         <view class='imgBox'>
           <view class='leftTop'>
-            <image wx:if="{{obj.isPromotionGoods === 1}}" class='leftTopBg' src='../../lib/images/leftTopBg.png'  mode="widthFix"></image>
-            <text wx:if="{{obj.isPromotionGoods === 1}}">补</text>
+            <image wx:if="{{obj.platformSubsidiesPrice}}" class='leftTopBg' src='../../lib/images/leftTopBg.png'  mode="widthFix"></image>
+            <text wx:if="{{obj.platformSubsidiesPrice}}">补</text>
           </view>
           <image class='commodityImg' src='{{obj.imgs}}'></image>
         </view> 
